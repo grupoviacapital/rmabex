@@ -1,0 +1,537 @@
+<title>Fórmulas do sistema anterior - RMA BEx</title>
+<style>
+  :root {
+    --paper: #F6F7F9;
+    --card: #FFFFFF;
+    --ink: #171C26;
+    --ink-soft: #55606F;
+    --ink-faint: #7C8697;
+    --rule: #DCE1E8;
+    --rule-soft: #EAEDF2;
+    --accent: #2C5A78;
+    --accent-soft: #E7EFF5;
+    --ok: #3A6A51;
+    --ok-soft: #E6F0EA;
+    --warn: #96681A;
+    --warn-soft: #F7EEDC;
+    --alert: #8E4130;
+    --alert-soft: #F7E8E4;
+    --code-bg: #F1F4F7;
+    --shadow: 0 1px 2px rgba(23, 28, 38, .05), 0 4px 14px rgba(23, 28, 38, .05);
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #10131A;
+      --card: #171B24;
+      --ink: #E7EBF1;
+      --ink-soft: #A3ADBC;
+      --ink-faint: #7C8797;
+      --rule: #2A313D;
+      --rule-soft: #222833;
+      --accent: #7FB3D4;
+      --accent-soft: #1B2A36;
+      --ok: #8CC3A4;
+      --ok-soft: #1A2620;
+      --warn: #DCB166;
+      --warn-soft: #2A2317;
+      --alert: #DD9481;
+      --alert-soft: #2B1D19;
+      --code-bg: #1D222C;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #10131A;
+    --card: #171B24;
+    --ink: #E7EBF1;
+    --ink-soft: #A3ADBC;
+    --ink-faint: #7C8797;
+    --rule: #2A313D;
+    --rule-soft: #222833;
+    --accent: #7FB3D4;
+    --accent-soft: #1B2A36;
+    --ok: #8CC3A4;
+    --ok-soft: #1A2620;
+    --warn: #DCB166;
+    --warn-soft: #2A2317;
+    --alert: #DD9481;
+    --alert-soft: #2B1D19;
+    --code-bg: #1D222C;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
+  }
+  :root[data-theme="light"] {
+    --paper: #F6F7F9;
+    --card: #FFFFFF;
+    --ink: #171C26;
+    --ink-soft: #55606F;
+    --ink-faint: #7C8697;
+    --rule: #DCE1E8;
+    --rule-soft: #EAEDF2;
+    --accent: #2C5A78;
+    --accent-soft: #E7EFF5;
+    --ok: #3A6A51;
+    --ok-soft: #E6F0EA;
+    --warn: #96681A;
+    --warn-soft: #F7EEDC;
+    --alert: #8E4130;
+    --alert-soft: #F7E8E4;
+    --code-bg: #F1F4F7;
+    --shadow: 0 1px 2px rgba(23, 28, 38, .05), 0 4px 14px rgba(23, 28, 38, .05);
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* ---------- cabeçalho ---------- */
+  .masthead { display: flex; flex-direction: column; gap: 14px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4.4vw, 42px);
+    line-height: 1.15;
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .standfirst {
+    font-size: 17px; color: var(--ink-soft); max-width: 62ch; margin: 0;
+  }
+  .provenance {
+    font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint);
+    border-top: 1px solid var(--rule); padding-top: 14px; margin: 0;
+  }
+
+  /* ---------- resumo ---------- */
+  .summary {
+    background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .summary-head {
+    padding: 18px 22px; border-bottom: 1px solid var(--rule);
+    font-family: var(--serif); font-size: 19px;
+  }
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; padding: 13px 22px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  th {
+    font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 600;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.item { font-family: var(--mono); font-size: 14px; white-space: nowrap; color: var(--ink); }
+
+  .chip {
+    display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.4;
+    padding: 3px 9px; border-radius: 3px; white-space: nowrap;
+  }
+  .chip-warn { background: var(--warn-soft); color: var(--warn); }
+  .chip-ok { background: var(--ok-soft); color: var(--ok); }
+  .chip-alert { background: var(--alert-soft); color: var(--alert); }
+
+  /* ---------- seções numeradas ---------- */
+  section.item-block {
+    background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .item-head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    padding: 20px 22px; border-bottom: 1px solid var(--rule);
+    background: linear-gradient(to bottom, var(--accent-soft), transparent);
+  }
+  .item-num {
+    font-family: var(--mono); font-size: 13px; font-weight: 700;
+    color: var(--accent); letter-spacing: .04em;
+  }
+  .item-title { font-family: var(--serif); font-size: 23px; margin: 0; font-weight: 400; }
+  .item-head .chip { margin-left: auto; }
+  .item-body { padding: 22px; display: flex; flex-direction: column; gap: 18px; }
+  .item-body > p { margin: 0; color: var(--ink-soft); max-width: 66ch; }
+  .item-body > p strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- variantes ---------- */
+  .variant {
+    display: grid; grid-template-columns: 34px 1fr; gap: 0 14px;
+    padding-top: 18px; border-top: 1px solid var(--rule-soft);
+  }
+  .variant:first-of-type { padding-top: 0; border-top: none; }
+  .badge {
+    grid-row: span 2;
+    width: 30px; height: 30px; border-radius: 3px;
+    display: grid; place-items: center;
+    font-family: var(--mono); font-size: 14px; font-weight: 700;
+    background: var(--accent-soft); color: var(--accent);
+  }
+  .badge.is-flagged { background: var(--alert-soft); color: var(--alert); }
+  .badge.is-source { background: var(--ok-soft); color: var(--ok); }
+  .variant-label { font-weight: 600; font-size: 15.5px; align-self: center; }
+  .variant-detail { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+
+  pre {
+    margin: 0; background: var(--code-bg); border-left: 2px solid var(--accent);
+    border-radius: 0 3px 3px 0; padding: 14px 16px;
+    font-family: var(--mono); font-size: 14px; line-height: 1.75;
+    color: var(--ink); overflow-x: auto; font-variant-numeric: tabular-nums;
+  }
+  .note { font-size: 14.5px; color: var(--ink-soft); margin: 0; max-width: 68ch; }
+  .note strong { color: var(--ink); font-weight: 600; }
+  .src {
+    font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint);
+    margin: 0; word-break: break-word;
+  }
+
+  /* ---------- callout ---------- */
+  .callout {
+    border-left: 3px solid var(--warn); background: var(--warn-soft);
+    padding: 14px 18px; border-radius: 0 3px 3px 0;
+    font-size: 14.5px; color: var(--ink);
+  }
+  .callout p { margin: 0; max-width: 66ch; }
+  .callout p + p { margin-top: 8px; }
+
+  /* ---------- fechamento ---------- */
+  .closing {
+    border: 1px solid var(--accent); border-radius: 4px; padding: 24px 26px;
+    background: var(--accent-soft); display: flex; flex-direction: column; gap: 12px;
+  }
+  .closing h2 { font-family: var(--serif); font-size: 21px; margin: 0; font-weight: 400; }
+  .closing ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 9px; }
+  .closing li { max-width: 64ch; }
+  .closing li strong { font-weight: 600; }
+
+  ul.plain { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 7px; }
+  ul.plain li { color: var(--ink-soft); max-width: 66ch; }
+
+  @media (max-width: 620px) {
+    .wrap { padding: 36px 16px 64px; gap: 32px; }
+    .item-head, .item-body, .summary-head, th, td { padding-left: 16px; padding-right: 16px; }
+    .item-head .chip { margin-left: 0; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">RMA BEx · Levantamento técnico</div>
+    <h1>Fórmulas encontradas no sistema anterior</h1>
+    <p class="standfirst">
+      Levantamento das fórmulas de EBITDA, liquidez, receita x custo e receita x resultado
+      implementadas nos sistemas desenvolvidos pela equipe anterior. Precisamos que a área
+      técnica indique quais valem para o novo sistema.
+    </p>
+    <p class="provenance">
+      Lido diretamente no código-fonte, com arquivo e linha conferidos. Nenhuma fórmula
+      desta página é interpretação nossa.
+    </p>
+  </header>
+
+  <div class="summary">
+    <div class="summary-head">O conflito é menor do que parecia</div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Item</th><th>Situação</th><th>Precisa de decisão?</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="item">1.1</td>
+            <td>EBITDA: cinco versões diferentes no sistema RMA, mais uma sexta na especificação do produto BEx.</td>
+            <td><span class="chip chip-warn">Sim</span></td>
+          </tr>
+          <tr>
+            <td class="item">1.2</td>
+            <td>Liquidez corrente, seca e imediata são idênticas em todas as fontes. Só a Liquidez Geral diverge, em quatro versões.</td>
+            <td><span class="chip chip-warn">Só a Geral</span></td>
+          </tr>
+          <tr>
+            <td class="item">1.3</td>
+            <td>Receita x custo (CMV): definição única, sem conflito.</td>
+            <td><span class="chip chip-ok">Não</span></td>
+          </tr>
+          <tr>
+            <td class="item">1.4</td>
+            <td>Receita x resultado: definição única, sem conflito.</td>
+            <td><span class="chip chip-ok">Não</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===================== 1.1 ===================== -->
+  <section class="item-block">
+    <div class="item-head">
+      <span class="item-num">1.1</span>
+      <h2 class="item-title">EBITDA</h2>
+      <span class="chip chip-warn">6 fórmulas encontradas</span>
+    </div>
+    <div class="item-body">
+      <p>
+        Cinco versões convivem no sistema RMA, sem que nenhuma seja declarada como a oficial.
+        Uma sexta está no documento que a equipe anterior chamou de fonte única da verdade,
+        em outro repositório.
+      </p>
+
+      <div class="variant">
+        <span class="badge">A</span>
+        <span class="variant-label">A partir do resultado</span>
+        <div class="variant-detail">
+<pre>LAJIR  = Resultado + |Despesas Financeiras| - |Receitas Financeiras|
+EBITDA = LAJIR + |Depreciação| + |Amortização|</pre>
+          <p class="note">
+            É o motor principal de indicadores do sistema. <strong>Não devolve os tributos
+            sobre o lucro.</strong> O comentário no código diz que reconcilia com a planilha BEx.
+          </p>
+          <p class="src">indicatorsEngine.ts, linhas 116 e 157</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge">B</span>
+        <span class="variant-label">A partir da receita</span>
+        <div class="variant-detail">
+<pre>Receita Líquida = Receita Bruta - Deduções
+Lucro Bruto     = Receita Líquida - Custos
+EBITDA          = Lucro Bruto - Despesas Operacionais</pre>
+          <p class="note">
+            Depreciação e amortização são subtraídas <strong>depois</strong> do EBITDA, para
+            chegar ao resultado antes dos impostos. É coerente, desde que "despesas
+            operacionais" não inclua depreciação e amortização. É a construção mais clássica
+            das seis.
+          </p>
+          <p class="src">financialVariations.ts, linhas 66 a 80 · RMADRETab.tsx, linhas 59 a 78</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge">C</span>
+        <span class="variant-label">Aproximada, assim rotulada pelo próprio código</span>
+        <div class="variant-detail">
+<pre>EBITDA = Resultado Bruto + Despesas Administrativas
+       + Despesas de Vendas + Despesas Tributárias
+       + Depreciação e Amortização</pre>
+          <p class="note">
+            O código instrui: <em>"excluir resultado financeiro, IR/CSLL e não recorrentes;
+            classificar como APROXIMADO"</em>, e mais adiante <em>"rotular EBITDA como
+            APROXIMADO até certificação do mapa de contas"</em>.
+          </p>
+          <p class="src">dreBalanceteConciliacaoSpec.ts, linha 108</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge is-flagged">D</span>
+        <span class="variant-label">Atalho com fator de 10%</span>
+        <div class="variant-detail">
+<pre>EBITDA = LAJIR + (Despesas Financeiras × 0,10)</pre>
+          <p class="note">
+            O comentário no código é literalmente <em>"simplified proxy"</em>. Não há
+            justificativa contábil registrada para o fator de 10%.
+          </p>
+          <p class="src">Audit.tsx, linha 2218</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge is-flagged">E</span>
+        <span class="variant-label">Atalho sem depreciação</span>
+        <div class="variant-detail">
+<pre>EBITDA = Resultado Operacional + Despesas Financeiras</pre>
+          <p class="note">
+            Aparece rotulado na tela como "LAJIR + Desp. Financeiras". Não devolve
+            depreciação nem amortização.
+          </p>
+          <p class="src">Audit.tsx, linha 755</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge is-source">F</span>
+        <span class="variant-label">A versão da especificação BEx</span>
+        <div class="variant-detail">
+<pre>EBITDA = Resultado + |Despesas Financeiras| + |Depreciação|
+       + |Amortização| + |Tributos sobre o lucro|</pre>
+          <p class="note">
+            Está no documento que se declara <strong>fonte única da verdade</strong>. É a
+            versão A somada aos tributos sobre o lucro. Essa é a diferença exata entre as
+            duas mais sérias da lista.
+          </p>
+          <p class="src">BS_DADOS_ESPECIFICACAO.md, linha 179</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>A decisão prática é entre A, B e F.</strong> As versões D e E são atalhos
+        de tela e, no nosso entendimento, não deveriam ser usadas por ninguém. A versão C o
+        próprio sistema já marcava como aproximada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 1.2 ===================== -->
+  <section class="item-block">
+    <div class="item-head">
+      <span class="item-num">1.2</span>
+      <h2 class="item-title">Índices de liquidez</h2>
+      <span class="chip chip-warn">3 pacificados, 1 em aberto</span>
+    </div>
+    <div class="item-body">
+      <p><strong>Estas três são idênticas em todas as fontes.</strong> Não há divergência.</p>
+<pre>Liquidez Corrente = Ativo Circulante / Passivo Circulante
+Liquidez Seca     = (Ativo Circulante - Estoques) / Passivo Circulante
+Liquidez Imediata = Caixa e equivalentes / Passivo Circulante</pre>
+
+      <p><strong>A Liquidez Geral tem quatro versões.</strong></p>
+
+      <div class="variant">
+        <span class="badge">A</span>
+        <span class="variant-label">Com realizável a longo prazo</span>
+        <div class="variant-detail">
+<pre>(Ativo Circulante + Realizável a Longo Prazo) / (PC + PNC)</pre>
+          <p class="note">
+            Tecnicamente a correta: liquidez geral usa o <strong>realizável</strong> a longo
+            prazo, não o ativo não circulante inteiro, que carrega imobilizado e
+            investimentos - que não são realizáveis.
+          </p>
+          <p class="src">indicatorsEngine.ts, linhas 126 e 135</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge">B</span>
+        <span class="variant-label">Com o ativo não circulante inteiro</span>
+        <div class="variant-detail">
+<pre>(Ativo Circulante + Ativo Não Circulante) / (PC + PNC)</pre>
+          <p class="note">
+            O código admite que, na prática, o realizável a longo prazo não vinha separado
+            nos balancetes, e por isso o sistema caía nesta versão.
+          </p>
+          <p class="src">FinancialInsightsPanel.tsx, linha 68</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge">C</span>
+        <span class="variant-label">Sobre o passivo total</span>
+        <div class="variant-detail">
+<pre>(Ativo Circulante + Ativo Não Circulante) / Passivo Total</pre>
+          <p class="src">Audit.tsx, linha 591</p>
+        </div>
+      </div>
+
+      <div class="variant">
+        <span class="badge is-flagged">D</span>
+        <span class="variant-label">Com 10% do ativo não circulante</span>
+        <div class="variant-detail">
+<pre>(Ativo Circulante + Ativo Não Circulante × 0,10) / (PC + PNC)</pre>
+          <p class="note">Sem justificativa registrada para o fator de 10%.</p>
+          <p class="src">auditMockData.ts, linha 151</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>Endividamento também tem duas bases.</strong> Convém decidir junto:</p>
+        <p style="font-family: var(--mono); font-size: 13.5px;">
+          Endividamento Geral = Passivo Total / Ativo Total<br>
+          Endividamento Geral = (PC + PNC) / Patrimônio Líquido
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 1.3 ===================== -->
+  <section class="item-block">
+    <div class="item-head">
+      <span class="item-num">1.3</span>
+      <h2 class="item-title">Relação receita x custo (CMV)</h2>
+      <span class="chip chip-ok">Definição única</span>
+    </div>
+    <div class="item-body">
+      <p>Sem divergência. A mesma definição aparece no motor de cálculo e na especificação BEx.</p>
+<pre>CMV sobre Receita             = |CMV| / Receita Líquida
+(CMV + Despesa) sobre Receita = (|CMV| + |Despesas|) / Receita Líquida</pre>
+      <p class="src">bsDadosBuilder.ts, linhas 899 e 900 · BS_DADOS_ESPECIFICACAO.md, seções 4.1 e 4.2</p>
+      <div class="callout">
+        <p><strong>Regra de sinal associada.</strong> O sistema tratava CMV como valor
+        negativo e registrava erro quando vinha positivo: <em>"CMV positivo (deveria ser
+        negativo)"</em>. Confirmem que essa convenção continua.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 1.4 ===================== -->
+  <section class="item-block">
+    <div class="item-head">
+      <span class="item-num">1.4</span>
+      <h2 class="item-title">Relação receita x resultado</h2>
+      <span class="chip chip-ok">Definição única</span>
+    </div>
+    <div class="item-body">
+      <p>Sem divergência. O sinal é preservado, então prejuízo aparece como percentual negativo.</p>
+<pre>Resultado sobre Receita = Resultado / Receita Líquida</pre>
+      <p>E o resultado é montado assim, com custos e despesas entrando negativos:</p>
+<pre>Resultado = Receita Líquida + CMV + Despesas + Despesas Financeiras</pre>
+      <p class="src">bsDadosBuilder.ts, linhas 901 e 556</p>
+    </div>
+  </section>
+
+  <!-- ===================== extra ===================== -->
+  <section class="item-block">
+    <div class="item-head">
+      <span class="item-num">Extra</span>
+      <h2 class="item-title">Termômetro de Kanitz</h2>
+    </div>
+    <div class="item-body">
+      <p>Já que o modelo aparece no material, esta é a fórmula implementada:</p>
+<pre>X1 = Lucro Líquido / Patrimônio Líquido
+X2 = (Ativo Circulante + Realizável a LP) / (Passivo Circulante + Exigível a LP)
+X3 = (Ativo Circulante - Estoques) / Passivo Circulante
+X4 = Ativo Circulante / Passivo Circulante
+X5 = (Passivo Circulante + Exigível a LP) / Patrimônio Líquido
+
+Kanitz = 0,05·X1 + 1,65·X2 + 3,55·X3 - 1,06·X4 - 0,33·X5</pre>
+      <p>Faixas de classificação usadas pelo sistema:</p>
+      <ul class="plain">
+        <li>Acima de 0 - saudável</li>
+        <li>Entre 0 e -3 - atenção</li>
+        <li>Abaixo de -3 - insolvência</li>
+      </ul>
+      <div class="callout">
+        <p><strong>Alerta.</strong> A tela que documenta esse modelo no sistema anterior
+        exibe os rótulos das variáveis trocados, sem corresponder ao que ela de fato
+        calcula. Se alguém usava aquela tela como referência de fórmula, vale saber.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <h2>O que precisamos que vocês definam</h2>
+    <ol>
+      <li><strong>Qual EBITDA vale</strong> - nossa leitura é que a escolha real está entre A, B e F.</li>
+      <li><strong>Qual Liquidez Geral vale</strong>, e se o realizável a longo prazo virá separado nos balancetes.</li>
+      <li><strong>Qual base de endividamento</strong> - sobre o ativo total ou sobre o patrimônio líquido.</li>
+      <li><strong>Prazos médios</strong> de recebimento, pagamento e estoque: o sistema usava base de 30 dias no motor principal e 360 dias em outra tela. Precisa ser uma só.</li>
+      <li><strong>ROA e ROE</strong> eram anualizados multiplicando o resultado do mês por 12. Confirmam que é assim que deve sair num relatório mensal?</li>
+    </ol>
+  </div>
+
+</div>
