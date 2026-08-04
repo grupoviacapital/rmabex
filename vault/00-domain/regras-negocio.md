@@ -296,7 +296,7 @@ QUANDO o balancete trouxer contas de resultado com saldo acumulado no exercício
 
 O SISTEMA DEVE apurar o saldo de conta devedora como saldo inicial mais débitos menos créditos, e o de conta credora como saldo inicial mais créditos menos débitos.
 
-*O legado deduzia a natureza pelo primeiro dígito da conta, mas tinha duas convenções conflitantes para os grupos 4 e 5. Ver [[perguntas-cliente]] P-10.*
+*Regra por formato. O balancete da DIPLOMATA traz o sinal como sufixo `D` ou `C` no próprio valor; o da XPT usa sinal algébrico; o da GERATHERM separa débito e crédito em colunas. Ver [[formatos-balancete]] e [[perguntas-cliente]] P-10.*
 
 ### RN-52 · Categoria resolvida é persistida
 
