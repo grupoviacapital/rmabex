@@ -2,9 +2,20 @@
 
 > Consolidado do que precisa de confirmação externa antes de qualquer spec. Levantado a partir do material em [[fontes-escopo]], das notas de domínio e da mineração do código legado em [[sistema-legado]].
 >
-> Status: **a enviar**. Registre a resposta abaixo de cada item conforme forem chegando, e atualize [[pendencias-externas]] e [[regras-negocio]] em seguida.
->
-> **Versão 2.** A primeira versão tinha 12 perguntas abertas. Depois de minerar os três repositórios legados, três mudaram de natureza (o código responde, falta confirmar), duas ficaram mais graves (o código mostra que ninguém decidiu) e cinco novas apareceram. Total: 17, mas a maioria agora é confirmação objetiva, não pergunta aberta.
+> Registre a resposta abaixo de cada item conforme forem chegando, e atualize [[pendencias-externas]] e [[regras-negocio]] em seguida.
+
+## Placar
+
+| Estado | Itens |
+|---|---|
+| **Respondida** | P-1 (fórmulas, por Gisele em 04/08/2026, com corroboração no escopo) |
+| **Respondida pelo escopo, falta confirmar** | P-4 (modelo de consolidação, achado em [[telas-legado]]), P-8 (OneDrive como origem, achado em [[sistema-legado]]) |
+| **Em aberto, trava spec** | P-2, P-3, P-5, P-6 |
+| **Em aberto, confirmação** | P-7, P-9 a P-27 |
+
+**Versão 3.** A v1 tinha 12 perguntas abertas. A v2, após minerar o código legado, tinha 17 com evidência na mesa. Esta v3 vem depois da leitura integral do escopo: uma foi respondida, duas se resolveram no próprio material, e dez novas apareceram - a maioria por divergência entre documentos do cliente.
+
+Lição registrada: **três perguntas que eu ia mandar já estavam respondidas no escopo**. As fórmulas estavam na planilha `01.BASE RELATÓRIO`, o modelo de consolidação estava na tela de cadastro, e o destino dos arquivos estava no código. Ler tudo antes de perguntar não é zelo, é o que evita queimar credibilidade com o cliente.
 
 ## A · Decisões que travam specs
 
@@ -16,9 +27,31 @@
 
 **Por que importa:** trava [[regras-negocio#RN-41]] e a seção 12 inteira.
 
-**RESPONDIDA PELO ESCOPO (04/08/2026).** A planilha `01.BASE RELATÓRIO_xi teste.XLSM`, que é escopo do cliente, tem as fórmulas. EBITDA na aba `P&L + EBITDA`, liquidez e endividamento na aba `INDICE`. Ver [[formulas-sistema-anterior]]. Resta apenas **confirmar** que a planilha é a referência e esclarecer duas relações que parecem invertidas na aba `Dados para Graficos`.
+**RESPONDIDA - 04/08/2026, por Gisele (área técnica do cliente).**
 
-**Resposta:**
+```
+EBITDA             = Resultado do Exercício + Despesas Financeiras
+                     - Receitas Financeiras + IRPJ/CSLL
+                     + Depreciações e Amortizações
+Liquidez Corrente  = Ativo Circulante / Passivo Circulante
+Liquidez Seca      = (Ativo Circulante - Estoques) / Passivo Circulante
+Liquidez Imediata  = Disponibilidades / Passivo Circulante
+Liquidez Geral     = (Ativo Circulante + Realizável a Longo Prazo)
+                     / (Passivo Circulante + Passivo Não Circulante)
+CMV x Receita Líquida       = CMV / Receita Líquida
+Resultado x Receita Líquida = Resultado Líquido / Receita Líquida (margem líquida)
+```
+
+Corroborada de forma independente pela planilha `01.BASE RELATÓRIO_xi teste.XLSM`, que é escopo do cliente: aba `P&L + EBITDA` linhas 62 a 71 e aba `INDICE` linhas 42 a 45. As duas fontes coincidem termo a termo, inclusive no sinal negativo das receitas financeiras.
+
+Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-sistema-anterior]].
+
+**Ainda em aberto neste tópico**, por não terem sido perguntados:
+
+- Endividamento tem duas bases na planilha: `(PC + PNC) / Patrimônio Líquido` e `(PC + PNC) / Ativo Total`. Qual vale em qual contexto?
+- Prazos médios (recebimento, pagamento, estoque): base de 30 ou de 360 dias?
+- ROA e ROE eram anualizados multiplicando o resultado mensal por 12. Confirma?
+- Na aba `Dados para Graficos`, as linhas "RESULTADO / RECEITA LIQUIDA (%)" e "CMV + DESPESA / RECEITA LIQUIDA (%)" dividem pelo lucro líquido, e não pela receita líquida. É intencional?
 
 ### P-2 · Limiar do alerta de variação
 

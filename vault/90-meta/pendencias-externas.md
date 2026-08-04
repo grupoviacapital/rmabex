@@ -6,7 +6,7 @@
 
 > Os itens abaixo estão consolidados como perguntas ao cliente em [[perguntas-cliente]], rodada 1.
 
-- [ ] **Fórmulas dos indicadores** da seção 12 do RMA: índices de liquidez, receita x custo (CMV), receita x resultado, EBITDA. Nenhum documento do escopo define. Trava [[regras-negocio#RN-41]] e a spec de geração do RMA.
+- [x] **Fórmulas dos indicadores** da seção 12 do RMA: RESPONDIDO em 04/08/2026. Registrado em [[regras-negocio#RN-41]] e [[formulas-sistema-anterior]].
 - [ ] **Limiar do alerta de variação**: o escopo diz "geralmente 15% ou 20%". Definir o valor, e se é global, por conta ou por cliente. Trava [[regras-negocio#RN-34]].
 - [ ] **Tolerância de conciliação**: nenhum documento define. Sem ela, diferença de centavos vira divergência falsa. Trava [[regras-negocio#RN-33]].
 - [ ] **Consolidação de grupo econômico**: o RMA é por recuperanda, por processo, ou consolidado? Ver [[modelo-dados]].
