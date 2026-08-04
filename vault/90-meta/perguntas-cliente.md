@@ -357,200 +357,155 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 ## Textos para envio
 
-Três blocos, para mandar em momentos diferentes. Não mande os 35 itens de uma vez.
+Regra de escrita destes blocos: **uma linha por pergunta, começando pelo arquivo e pelo lugar exato**. Nada de contexto longo nem de explicação da nossa hipótese - quem responde sabe mais do que nós, e texto comprido induz resposta curta. São 20 perguntas ao todo, não 35: o resto do documento é registro interno.
 
-### Bloco 1 · Urgente - defeitos que afetam relatório protocolado
-
-```
-Assunto: RMA BEx - dois pontos que encontramos na planilha padrão
-
-Olá,
-
-Ao mapear a planilha 01.BASE RELATÓRIO em detalhe, encontramos duas
-coisas que achamos que vocês precisam saber antes de qualquer outra
-conversa.
-
-1. O EBITDA pode estar somando Compromissos RJ como se fosse
-   depreciação.
-
-   Na aba "P&L + EBITDA", a linha rotulada "Depreciações e
-   Amortizações" dentro do bloco de despesas usa a referência 40.G. No
-   dicionário de referências da própria planilha, 40.G é "Compromissos
-   RJ". O cálculo do EBITDA estorna essa linha como se fosse
-   depreciação.
-
-   No arquivo de exemplo o efeito é zero, porque nenhuma conta usa essa
-   referência. Mas numa recuperanda que contabilize compromissos do
-   plano, o EBITDA sairia maior do que deveria.
-
-   É intencional?
-
-2. O mês de fechamento pode estar saindo em branco na capa.
-
-   As buscas que alimentam a Folha de Rosto e os gráficos terminam em
-   junho ou julho, enquanto o cubo de indicadores vai até agosto. No
-   arquivo que recebemos, o faturamento, o resultado líquido e os quatro
-   índices de liquidez do mês de referência aparecem como #N/A.
-
-   Isso acontece no arquivo de vocês também, ou é particularidade desta
-   cópia de teste?
-
-Um terceiro ponto, menor: na aba "Dados para Graficos", as linhas
-"RESULTADO / RECEITA LIQUIDA (%)" e "CMV + DESPESA / RECEITA LIQUIDA
-(%)" estão dividindo pelo lucro líquido, não pela receita líquida. A
-linha do CMV sozinho divide corretamente.
-
-Abraço,
-```
-
-### Bloco 2 · Decisões que precisamos para começar
+### Bloco 1 · Urgente
 
 ```
-Assunto: RMA BEx - quatro definições para destravar o desenvolvimento
+Olá! Mapeando a planilha padrão em detalhe, achamos três coisas que
+vocês precisam ver antes de qualquer outra conversa.
 
-Olá,
+1. Em 01.BASE RELATÓRIO, aba "P&L + EBITDA", linha 45: o rótulo é
+   "Depreciações e Amortizações", mas a referência da linha é 40.G, que
+   no dicionário (aba BdMeses) é "Compromissos RJ". O EBITDA soma essa
+   linha de volta. Está correto?
 
-Com as fórmulas que a Gisele confirmou, e depois de mapear todo o
-material que vocês nos passaram, sobraram quatro definições que
-dependem de vocês. Elas travam partes específicas do sistema.
+2. Em 01.BASE RELATÓRIO, aba FOLHA DE ROSTO: o faturamento, o resultado
+   líquido e os quatro índices de liquidez do mês de referência estão
+   como #N/A. Acontece no arquivo de vocês também?
 
-1. LIMIAR DO ALERTA DE VARIAÇÃO
-   A partir de que variação de saldo de um mês para o outro o sistema
-   deve alertar o analista? O material diz "geralmente 15% ou 20%". O
-   limite é o mesmo para todas as contas e todos os clientes?
+3. Em 01.BASE RELATÓRIO, aba "Dados para Graficos", linhas 36 e 38:
+   estão dividindo pelo lucro líquido, e não pela receita líquida como
+   diz o rótulo. É proposital?
 
-2. TOLERÂNCIA DE CONFERÊNCIA
-   Qual diferença entre o valor de um documento e o saldo da conta
-   ainda é aceitável para considerarmos conferido? Sem isso, diferença
-   de centavos vira divergência falsa todo mês.
-
-3. DOCUMENTOS OBRIGATÓRIOS
-   Das 61 pastas, quais são obrigatórias todo mês? Essa lista muda
-   conforme o segmento da empresa ou o estágio do processo? Não achamos
-   critério documentado em lugar nenhum.
-
-4. PLANILHAS DE CONSOLIDAÇÃO
-   As planilhas usadas hoje continuam existindo depois do novo sistema?
-   Se sim, com que finalidade?
-
-E dois pedidos de material que faltam no que recebemos:
-
-   - Gestão Técnico2.xlsx, que é a fonte dos indicadores de desempenho
-     do Manual de Operações.
-   - Os check lists. O próprio Manual registra que foram retirados dele
-     em 04/04/2024 e viraram arquivos individualizados. Eles não vieram.
-
-Abraço,
+Abraço!
 ```
 
-### Bloco 3 · Confirmações objetivas
+### Bloco 2 · Decisões que travam o desenvolvimento
 
 ```
-Assunto: RMA BEx - confirmações rápidas
+Olá! Quatro definições que dependem de vocês, e dois arquivos que
+faltam.
 
-Olá,
+1. O material diz que variação "superior a 15% ou 20%" gera alerta. Qual
+   número usamos, e ele muda por conta ou por cliente?
 
-Lista de pontos que se respondem em uma linha cada. Vários vêm de
-divergências entre documentos que vocês nos enviaram; queremos saber
-qual versão vale.
+2. Qual diferença entre documento e balancete ainda conta como
+   conferido? Um centavo? Um real? Um percentual?
 
-SOBRE AS PASTAS E OS DOCUMENTOS
+3. Das 61 pastas, quais são obrigatórias todo mês?
 
-1. A pasta 21 (GFIP, INSS e FGTS) tem conferência com o balancete? A
-   planilha de identificação diz que sim, com regra detalhada; os
-   comentários do RMA anotado dizem que não.
+4. As planilhas de consolidação continuam existindo depois do novo
+   sistema? Para quê?
 
-2. Confirmam que a mesma pasta pode ter conferência num item do
-   relatório e não ter em outro? A pasta 15 aparece sem conferência nos
-   itens 5, 5.1 e 5.2, e com conferência nos itens 5.4 e 5.5.
+5. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do Manual
+   de Operações, aba "TD consolidada".
 
-3. Para contingência, arrendamento mercantil e ACC, o material diz
-   "algumas empresas contabilizam" e "pode ter conferência". Como se
-   decide, caso a caso?
+6. O Manual de Operações (aba CAPA, controle de alterações de
+   04/04/2024) diz que os check lists foram retirados dele e viraram
+   arquivos individualizados. Podem enviar esses arquivos?
 
-4. Qual é a numeração canônica das pastas? Nos dados que recebemos,
-   "Resumo da folha de pagamento" é a pasta 15 num cliente e a 09 em
-   outro, e muda de um ano para o outro dentro do mesmo cliente.
-
-5. Os status possíveis de um documento entregue são apenas Apresentado,
-   Não Apresentado, Não aplicável e Parcial? Foi o que encontramos em
-   105 planilhas de controle.
-
-6. As colunas "Dúvidas / Esclarecimentos" e "Status 2" da planilha de
-   controle estão vazias em todas as 105. O segundo ciclo de cobrança
-   existe na prática?
-
-SOBRE OS NÚMEROS
-
-7. No plano de contas, o grupo 4 é receita ou custo da mercadoria
-   vendida? Encontramos as duas interpretações.
-
-8. As faixas de vencimento são 0-30, 30-90, 90-180 e acima de 180 dias,
-   ou existe corte adicional em 60?
-
-9. Continua valendo que o Ativo Não Circulante é o grupo 12, e que o
-   grupo 13 fica de fora dele e do Ativo Total?
-
-10. Os balancetes trazem os valores de resultado acumulados no ano?
-    Confirmamos isso nos dados, mas queremos saber se vale para todos os
-    clientes.
-
-11. O endividamento é calculado sobre o patrimônio líquido ou sobre o
-    ativo total? A planilha tem os dois.
-
-12. Os prazos médios usam base de 30 ou de 360 dias? A planilha usa as
-    duas em lugares diferentes.
-
-13. ROA e ROE são anualizados multiplicando o resultado do mês por 12?
-
-14. Quando se usa o Termômetro de Kanitz e quando se usa o Índice de
-    Solvência Geral? O parecer da Raízen registra a decisão de trocar um
-    pelo outro.
-
-15. A validação de comprovantes é feita "por amostragem". Existe
-    critério de tamanho de amostra ou de seleção?
-
-SOBRE O SISTEMA
-
-16. Nas telas, o RMA aparece como duas coisas: o relatório mensal de uma
-    recuperanda, com seções e percentual de preenchimento; e um
-    protocolo numerado com solicitante, setor e prioridade. Qual é o
-    certo, ou os dois coexistem?
-
-17. Confirmam os seis perfis de acesso: Administrador, Coordenador,
-    Colaborador, Administrador Judicial, Recuperanda e Magistrado? Três
-    deles não têm nenhuma tela desenhada. Entram no produto?
-
-18. O sistema atende mais de um administrador judicial, cada um com seu
-    logotipo nos relatórios?
-
-19. As telas mostram 7 tipos de documento. Isso substitui as 61 pastas
-    ou é só agrupamento de visualização?
-
-20. A tela de progresso mostra 6 blocos, mas o relatório real tem 18
-    seções. São agrupamentos ou outra estrutura?
-
-21. Os prazos do Manual de Operações continuam valendo? Dia 10 para a
-    cobrança, dia 20 como prazo da empresa, dois dias úteis para a
-    checagem e último dia útil para o protocolo.
-
-22. O sistema deve atender também DAL, Constatação Prévia, Prospecção e
-    Prestação de Contas, agora ou mais adiante?
-
-SOBRE O MATERIAL
-
-23. No relatório de março de 2026, a numeração vai da seção 12 direto
-    para a 14. A seção 13 foi removida?
-
-24. O conjunto de telas tem 19 imagens numeradas de 1 a 20, sem a 4, e
-    duas delas são idênticas. Falta alguma?
-
-25. As pastas com nome de IA que aparecem no OneDrive fazem parte de
-    algum processo em funcionamento?
-
-26. O sistema anterior tinha valores contábeis reais de um cliente e
-    textos de parecer prontos gravados dentro do código. Foi
-    intencional?
-
-Abraço,
+Abraço!
 ```
+
+### Bloco 3 · Confirmações
+
+```
+Olá! Lista de pontos que se respondem em uma linha cada. Quase todos
+vêm de divergências entre arquivos que vocês nos enviaram - queremos
+saber qual versão vale.
+
+PASTAS E DOCUMENTOS
+
+1. Em "Código de Pastas...identificação.xlsx" a pasta 21 (GFIP) tem
+   conciliação com o balancete; nos comentários do "RMA...indicação de
+   pastas.docx" ela aparece sem. Qual vale?
+
+2. Nos mesmos comentários, a pasta 15 aparece sem conciliação nos itens
+   5, 5.1 e 5.2 e com conciliação nos itens 5.4 e 5.5. É assim mesmo?
+
+3. Ainda nos comentários, as pastas 31, 34 e 35 dizem "pode ter
+   conciliação". Como se decide caso a caso?
+
+4. Em OneDrive/DIPLOMATA, "Resumo da folha de pagamento" é a pasta 09;
+   em OneDrive/GERATHERM é a pasta 15. Qual é a numeração oficial?
+
+5. Em "01 - Controle de entrega de documentos 2025.xlsx", a coluna
+   STATUS 1: os valores possíveis são só Apresentado, Não Apresentado,
+   Não aplicável e Parcial?
+
+6. No mesmo arquivo, as colunas "DUVIDAS / ESCLARECIMENTOS" e "STATUS 2"
+   estão vazias em todas as 105 planilhas que recebemos. Elas são
+   usadas?
+
+7. Em "Lista das Pastas Onedrive_Documentos.xlsx", aba Controle_Docs..,
+   o Grupo TTT tem 19 documentos por 7 empresas. Esse formato de grupo
+   ainda é usado?
+
+NÚMEROS
+
+8. Em "XPT S.A_Balancete_xi testete.xlsx", o grupo 4 é "Custos das
+   Vendas e Serviços" e o 5 é "Custo Industrial". Isso é padrão para
+   todos os clientes?
+
+9. Em 01.BASE RELATÓRIO, aba INDICE, linhas 51 e 52: o endividamento é
+   calculado sobre o patrimônio líquido e também sobre o ativo total.
+   Qual dos dois vai no relatório?
+
+10. No RMA da Diplomata (março/2026), o item 12.1.3 divide o CMV pela
+    receita bruta; no RMA da XPT, pela receita líquida. Qual vale?
+
+11. Em 01.BASE RELATÓRIO, aba INDICE, ROA e ROE multiplicam o resultado
+    do mês por 12. É isso que sai no relatório mensal?
+
+12. No RMA da Diplomata, o item 10.1 usa as faixas 0-30, 30-90, 90-180 e
+    acima de 180 dias. Existe algum caso com corte em 60 dias?
+
+13. No Parecer Técnico da Raízen vocês optaram pelo Índice de Solvência
+    Geral no lugar do Termômetro de Kanitz. Quando cada um se aplica?
+
+14. Os balancetes que recebemos trazem o resultado acumulado no ano.
+    Vale para todos os clientes?
+
+15. No RMA da Diplomata, a validação dos comprovantes é feita "por
+    amostragem". Existe um critério de quantos conferir?
+
+SISTEMA E TELAS
+
+16. Na Tela 20, o RMA é um protocolo numerado (RMA-2024-000587) com
+    solicitante e prioridade. Nas telas 7 a 17, é o relatório mensal da
+    recuperanda. São a mesma coisa?
+
+17. Na Tela 6, existem seis perfis de acesso. Magistrado, Recuperanda e
+    Administrador Judicial não têm nenhuma tela desenhada. Eles usam o
+    sistema?
+
+18. Na Tela 3, o logotipo do administrador judicial "será exibido nos
+    relatórios". O sistema atende mais de um administrador judicial?
+
+19. Na Tela 11, existem 7 tipos de documento. Eles substituem as 61
+    pastas ou são um agrupamento para visualizar?
+
+20. Nas pastas do OneDrive dos dois clientes existem "Entradas IA",
+    "Processando IA", "Processados IA" e "Erros IA". Tem algum processo
+    usando essas pastas hoje?
+
+Abraço!
+```
+
+## O que ficou de fora, e por quê
+
+Perguntas que estavam nas versões anteriores e foram cortadas do envio:
+
+| Item | Motivo do corte |
+|---|---|
+| Seção 13 ausente no RMA | Detalhe editorial. Resolve-se olhando o próximo relatório. |
+| Telas: falta a 4, duas são iguais | Irrelevante para o produto. |
+| Dados da Geratherm no código antigo | É problema do fornecedor anterior, não decisão do cliente. |
+| Seis seções nas telas contra 18 no relatório | Provavelmente agrupamento de progresso. Decidimos nós. |
+| Prazos do Manual de Operações | Estão escritos no Manual. Assumimos que valem e avisamos se der conflito. |
+| Referencial do grupo 12 e 13 | Está datado e assinado no material. Assumimos que vale. |
+| DAL, Constatação Prévia, Prestação de Contas | Entra na conversa de escopo comercial, não numa lista de confirmação. |
+| Onde os arquivos vivem | Já respondido pelo código. |
+
+Todos continuam registrados no corpo deste documento. Só não vão na primeira rodada.
