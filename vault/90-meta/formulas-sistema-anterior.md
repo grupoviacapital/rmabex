@@ -2,6 +2,27 @@
 
 > Resposta ao pedido do cliente na pergunta P-1 de [[perguntas-cliente]]. Todas as fórmulas foram lidas diretamente no código de `OLD_RMA/RMA-VS-1-FINAL-main` e `OLD_RMA/KANTIZ-VS-1-FINAL-main`, com arquivo e linha conferidos. Nada aqui é paráfrase.
 
+## RESOLVIDO em 04/08/2026
+
+A área técnica do cliente respondeu, e a resposta **bate exatamente** com a planilha `01.BASE RELATÓRIO_xi teste.XLSM`, que é escopo do cliente. Duas fontes independentes, mesmo resultado:
+
+```
+EBITDA             = Resultado do Exercício + Despesas Financeiras
+                     - Receitas Financeiras + IRPJ/CSLL
+                     + Depreciações e Amortizações
+Liquidez Corrente  = Ativo Circulante / Passivo Circulante
+Liquidez Seca      = (Ativo Circulante - Estoques) / Passivo Circulante
+Liquidez Imediata  = Disponibilidades / Passivo Circulante
+Liquidez Geral     = (Ativo Circulante + Realizável a Longo Prazo)
+                     / (Passivo Circulante + Passivo Não Circulante)
+CMV x Receita Líquida       = CMV / Receita Líquida
+Resultado x Receita Líquida = Resultado Líquido / Receita Líquida
+```
+
+Nenhuma das cinco versões do sistema legado corresponde a isso. A mais próxima é a A, que só não devolve os tributos sobre o lucro. Registrado em [[regras-negocio#RN-41]].
+
+O restante deste documento fica como registro do que existia no código, e da rastreabilidade que levou à resposta.
+
 ## Resumo honesto
 
 O conflito é menor do que parecia. Dos quatro itens perguntados:
@@ -55,6 +76,15 @@ O comentário no código é literalmente `// simplified proxy`. Não há justifi
 EBITDA = Resultado Operacional + Despesas Financeiras
 ```
 Rotulado na tela como "LAJIR + Desp. Financeiras". Não devolve depreciação nem amortização.
+
+### G · A da planilha do cliente - **a correta**
+`01.BASE RELATÓRIO_xi teste.XLSM`, aba `P&L + EBITDA`, linhas 62 a 71 (escopo do cliente)
+```
+EBITDA = Resultado do Exercício + Despesas Financeiras
+       - Receitas Financeiras + IRPJ e CSLL
+       + Depreciações e Amortizações
+```
+Confirmada pela área técnica em 04/08/2026. É a A somada aos tributos sobre o lucro, ou a F descontando as receitas financeiras.
 
 ### F · A versão da especificação BEx
 `KANTIZ-VS-1-FINAL-main/docs/BS_DADOS_ESPECIFICACAO.md:179`, documento que se declara "Single Source of Truth"

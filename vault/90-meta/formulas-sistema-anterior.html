@@ -244,8 +244,42 @@
     </p>
   </header>
 
+  <section class="item-block" style="border-color: var(--ok);">
+    <div class="item-head" style="background: linear-gradient(to bottom, var(--ok-soft), transparent); border-bottom-color: var(--ok);">
+      <span class="item-num" style="color: var(--ok);">RESOLVIDO</span>
+      <h2 class="item-title">04/08/2026 - fórmulas confirmadas</h2>
+      <span class="chip chip-ok">Duas fontes independentes</span>
+    </div>
+    <div class="item-body">
+      <p>
+        A área técnica respondeu, e a resposta bate <strong>exatamente</strong> com a planilha
+        <strong>01.BASE RELATÓRIO</strong>, que já estava no material de escopo. Nenhuma das
+        cinco versões do sistema anterior corresponde a isso.
+      </p>
+<pre>EBITDA             = Resultado do Exercício + Despesas Financeiras
+                     - Receitas Financeiras + IRPJ/CSLL
+                     + Depreciações e Amortizações
+
+Liquidez Corrente  = Ativo Circulante / Passivo Circulante
+Liquidez Seca      = (Ativo Circulante - Estoques) / Passivo Circulante
+Liquidez Imediata  = Disponibilidades / Passivo Circulante
+Liquidez Geral     = (Ativo Circulante + Realizável a Longo Prazo)
+                     / (Passivo Circulante + Passivo Não Circulante)
+
+CMV x Receita Líquida        = CMV / Receita Líquida
+Resultado x Receita Líquida  = Resultado Líquido / Receita Líquida</pre>
+      <div class="callout">
+        <p><strong>Detalhe de implementação.</strong> As depreciações e amortizações vêm de
+        duas linhas distintas da planilha, uma dentro dos custos e outra dentro das despesas.
+        Somar apenas uma produz EBITDA errado.</p>
+        <p>O restante desta página fica como registro do que existia no sistema anterior, e da
+        rastreabilidade que levou até aqui.</p>
+      </div>
+    </div>
+  </section>
+
   <div class="summary">
-    <div class="summary-head">O conflito é menor do que parecia</div>
+    <div class="summary-head">O que existia no sistema anterior</div>
     <div class="table-scroll">
       <table>
         <thead>

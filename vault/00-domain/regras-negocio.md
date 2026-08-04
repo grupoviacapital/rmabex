@@ -209,11 +209,32 @@ O SISTEMA DEVE permitir que o técnico preencha manualmente qualquer informaçã
 
 *Origem: caixa "Insere as informações manualmente" no fluxo.*
 
-### RN-41 · Indicadores da seção 12 **(a confirmar)**
+### RN-41 · Indicadores da seção 12 **(confirmado em 04/08/2026)**
 
-O SISTEMA DEVE calcular e apresentar os índices de liquidez, a relação receita x custo (CMV), a relação receita x resultado e o EBITDA.
+O SISTEMA DEVE calcular os indicadores da seção 12 exatamente assim:
 
-*As fórmulas não estão em nenhum documento do escopo. O sistema legado tinha cinco definições conflitantes de EBITDA e quatro de liquidez geral; a fonte mais coerente é a especificação do produto BEx, transcrita em [[sistema-legado]]. Pendente em [[perguntas-cliente]] P-1.*
+```
+EBITDA          = Resultado do Exercício + Despesas Financeiras
+                  - Receitas Financeiras + IRPJ e CSLL
+                  + Depreciações e Amortizações
+Liquidez Corrente  = Ativo Circulante / Passivo Circulante
+Liquidez Seca      = (Ativo Circulante - Estoques) / Passivo Circulante
+Liquidez Imediata  = Disponibilidades / Passivo Circulante
+Liquidez Geral     = (Ativo Circulante + Realizável a Longo Prazo)
+                     / (Passivo Circulante + Passivo Não Circulante)
+CMV x Receita Líquida       = CMV / Receita Líquida
+Resultado x Receita Líquida = Resultado Líquido / Receita Líquida  (margem líquida)
+```
+
+*Confirmado por duas fontes independentes: a planilha `01.BASE RELATÓRIO_xi teste.XLSM` do escopo (aba `P&L + EBITDA` linha 71 e aba `INDICE` linhas 42 a 45) e a resposta da área técnica do cliente em 04/08/2026. As cinco variantes do sistema legado ficam descartadas. Detalhe em [[formulas-sistema-anterior]].*
+
+Nota de implementação: as depreciações e amortizações vêm de **duas linhas** distintas, uma dentro dos custos e outra dentro das despesas. Somar apenas uma produz EBITDA errado.
+
+### RN-41.1 · Realizável a longo prazo é calculado, não lido **(a confirmar)**
+
+O SISTEMA DEVE apurar o realizável a longo prazo como o ativo não circulante menos investimentos, imobilizado líquido e intangível.
+
+*Na planilha, a linha rotulada "Ativo Não Circulante" na aba `INDICE` já desconta os três. O parecer técnico da Raízen usa a mesma definição: "liquidez geral, desconsiderando o imobilizado, os intangíveis e os investimentos".*
 
 ## Fluxo de aprovação e protocolo
 

@@ -16,6 +16,8 @@
 
 **Por que importa:** trava [[regras-negocio#RN-41]] e a seção 12 inteira.
 
+**RESPONDIDA PELO ESCOPO (04/08/2026).** A planilha `01.BASE RELATÓRIO_xi teste.XLSM`, que é escopo do cliente, tem as fórmulas. EBITDA na aba `P&L + EBITDA`, liquidez e endividamento na aba `INDICE`. Ver [[formulas-sistema-anterior]]. Resta apenas **confirmar** que a planilha é a referência e esclarecer duas relações que parecem invertidas na aba `Dados para Graficos`.
+
 **Resposta:**
 
 ### P-2 · Limiar do alerta de variação
@@ -45,6 +47,8 @@
 **O que já sabemos:** o sistema anterior era **exclusivamente por empresa**. Não havia tabela de processo judicial nem qualquer noção de grupo econômico. Mais: a planilha de controle que a recuperanda preenche **suporta layout multi-empresa, e o sistema descartava essa informação na leitura**, agregando os subitens. Queremos saber se isso era o desejado ou uma limitação.
 
 **Por que importa:** define se a competência pende de empresa ou de processo. Muda [[modelo-dados]] na raiz.
+
+**RESPONDIDA PELO ESCOPO (04/08/2026).** A tela de cadastro de recuperanda (`Telas/19.png`) pede o **modelo de consolidação** já no cadastro: **Consolidação Processual** (vários CNPJ, cada empresa gerida individualmente) ou **Consolidação Substancial** (um único CNPJ, todas tratadas como uma entidade para relatório e acompanhamento). Há também hierarquia de matriz e filial. Ver [[telas-legado]]. Resta confirmar que os dois modelos entram no produto.
 
 **Resposta:**
 
@@ -153,6 +157,78 @@
 ### P-17 · Telas e pastas de IA
 
 **Pergunta:** o conjunto de telas tem 19 imagens numeradas de 1 a 20, sem a 4 - falta alguma? E as pastas com nome de IA que aparecem no OneDrive dos clientes (Entradas IA, Processando IA, Processados IA, Erros IA, Auditoria IA, Relatórios IA) pertencem a algum processo em funcionamento hoje?
+
+**Resposta:**
+
+## D · Novas, vindas da leitura integral do escopo (04/08/2026)
+
+### P-18 · Contradição sobre a pasta 21
+
+**Pergunta:** a pasta 21 (GFIP, INSS e FGTS) tem conciliação com o balancete?
+
+**Por que importa:** dois documentos do escopo se contradizem. O `Código de Pastas ... identificação.xlsx` diz que sim, com regra detalhada. Os comentários do RMA anotado dizem "não tem conciliação com balancete". Ver [[mapa-secao-pasta]].
+
+**Resposta:**
+
+### P-19 · Conciliação por seção, não por pasta
+
+**Pergunta:** confirmam que a mesma pasta pode ter conciliação em um item do RMA e não ter em outro?
+
+**Por que importa:** a pasta 15 aparece sem conciliação nos itens 5, 5.1 e 5.2, e com conciliação nos itens 5.4 e 5.5. Se for regra, o modelo precisa pendurar a conciliação no par seção/pasta, não na pasta.
+
+**Resposta:**
+
+### P-20 · Conciliação condicional
+
+**Pergunta:** para contingência, arrendamento mercantil e ACC, o escopo diz "algumas empresas contabilizam" e "pode ter conciliação". Como o sistema decide se concilia ou não nesses casos?
+
+**Resposta:**
+
+### P-21 · Tipos de documento nas telas
+
+**Pergunta:** as telas mostram 7 tipos de documento (demonstrações contábeis, extratos bancários, relatório de atividades, folha de pagamento, comprovantes de recolhimentos, contratos, outros). Isso substitui as 61 pastas ou é só agrupamento de visualização?
+
+**Resposta:**
+
+### P-22 · Status do RMA
+
+**Pergunta:** qual é a lista correta de status? As próprias telas mostram duas listas diferentes, e o fluxograma mostra uma terceira.
+
+**Por que importa:** telas de recuperandas mostram `Em elaboração`, `Em andamento`, `Aguardando dados`, `Concluído`; a tela de RMAs mostra `Protocolado`, `Em análise`, `Aguardando peças`, `Finalizado`, `Aguardando retorno`, `Cancelado`; o fluxo fala em `Revisar` e `Aprovado`. Ver [[telas-legado]].
+
+**Resposta:**
+
+### P-23 · Seis seções ou dezoito
+
+**Pergunta:** a tela de progresso mostra 6 blocos (informações gerais, resumo das atividades, informações financeiras, créditos, informações complementares, conclusão), mas o RMA real tem 18 seções. São agrupamentos de progresso ou outra estrutura de relatório?
+
+**Resposta:**
+
+### P-24 · Perfis de acesso
+
+**Pergunta:** confirmam os seis perfis das telas - Administrador, Coordenador, Colaborador, Administrador Judicial, Recuperanda e Magistrado? O magistrado acessa o sistema diretamente?
+
+**Resposta:**
+
+### P-25 · Multi-tenant por administrador judicial
+
+**Pergunta:** o sistema atende mais de um administrador judicial, cada um com seu logotipo aplicado nos relatórios, como sugere a tela de cadastro de AJ?
+
+**Resposta:**
+
+### P-26 · Balancete acumulado e formato
+
+**Pergunta:** o balancete chega como no exemplo - uma coluna por mês, código de conta hierárquico - e os valores de resultado vêm acumulados no ano?
+
+**Por que importa:** junta-se à P-9. O formato do arquivo de exemplo confirma a estrutura de entrada.
+
+**Resposta:**
+
+### P-27 · Índice de Solvência Geral
+
+**Pergunta:** o parecer da Raízen registra a decisão de não usar o Termômetro de Kanitz e usar o Índice de Solvência Geral. Quando cada um se aplica?
+
+**Por que importa:** o escopo mostra os dois em uso, com critério de escolha que hoje é do técnico.
 
 **Resposta:**
 
