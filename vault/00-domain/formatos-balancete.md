@@ -40,7 +40,20 @@ Nenhum TXT foi encontrado nos dados reais, embora o cliente cite o formato como 
 - **Um mês por arquivo.** Não há coluna por mês.
 - Traz **saldo anterior e movimento**, não só o saldo final.
 
-### Formato C · DIPLOMATA, PDF
+### Formato D · DIPLOMATA / Dip Frangos, sistema Agrosys (AgroWeb)
+
+`Dip Frangos MM-AAAA.xlsx` e `Balancete Dip Frangos MM-AAAA.pdf` - **o mesmo relatório nos dois formatos**, exportado do sistema Agrosys.
+
+- Bloco de cabeçalho com parâmetros da exportação: `Empresa`, `Período` ("Fevereiro/2025"), **`Acumulado`**, `Apenas Sintético`, `Contas de Compensação`.
+- **O campo `Acumulado` declara o regime**: no exemplo vem `Não`, ou seja, é movimento do mês. O importador deve **ler esse campo**, não inferir o regime.
+- Colunas: `Cta.Estrut.`, `Conta`, `Descrição Conta`, `Saldo Inicial`, `D/C`, `Débito`, `Crédito`, `Saldo Final`, `D/C`.
+- **Dois códigos de conta**: `Cta.Estrut.` é hierárquico pontuado (`1`, `1.1`, `1.1.01`, `1.1.01.001.001`); `Conta` é um sequencial interno (1, 4, 5, 6, 404, 1017).
+- A descrição traz a **profundidade em pontos à esquerda**: `.ATIVO`, `..ATIVO CIRCULANTE`, `...DISPONÍVEL`.
+- Sinal em **coluna `D/C` própria**, não em sufixo.
+
+Este formato explica o C: o `Código` do formato C é o mesmo sequencial `Conta` daqui. O XLSX é estritamente mais rico, porque traz também a `Cta.Estrut.`.
+
+### Formato C · DIPLOMATA, empresas menores, PDF
 
 `MMAAAA-CNPJ NOME DA EMPRESA.pdf`
 
@@ -70,7 +83,23 @@ A `RN-50` (desacumulação) e a `RN-51` (natureza da conta) passam a ser **regra
 4. O nome do arquivo é fonte de metadado no formato C (competência e CNPJ) e no B (competência).
 5. A invariante de fechamento (ativo igual a passivo mais PL) vale nos três, mas com aritmética diferente por causa do sinal.
 
-**Por decisão do cliente em 04/08/2026, o primeiro alvo é a GERATHERM**, ou seja, o formato B - que é o mais limpo dos três e o único com código hierárquico explícito e movimento do mês já separado.
+**Por decisão do cliente em 04/08/2026, o primeiro alvo é a GERATHERM**, ou seja, o formato B - o mais limpo dos quatro, com código hierárquico explícito e movimento do mês já separado.
+
+O cliente também definiu o papel do arquivo: *"tem uma planilha de Excel Balancete, esse é o arquivo principal para iniciarmos a referência cruzada dos demais documentos em cada pasta"*. Ou seja, o balancete é o **eixo da conciliação**, e não apenas mais um documento - o que confirma [[regras-negocio#RN-12]].
+
+## A pasta do balancete na GERATHERM
+
+Confirmado nos dados e por captura de tela do OneDrive: na GERATHERM o balancete é a **pasta 07**, que bate com a taxonomia canônica de [[pastas-documentos]]. Só em 2022 aparece também como `02-Balancete de Verificação`; de 2023 em diante é sempre `07`.
+
+Isso é evidência direta para a [[perguntas-cliente]] P-7: **a numeração não é arbitrária, ela migrou para a canônica** dentro do mesmo cliente. A DIPLOMATA ainda usa `02`.
+
+Em janeiro de 2026 a pasta 07 tem dois arquivos: `BALANCETE_01_2026.xlsx` e `Balanço Patrimonial 01_2026.pdf`. Confirma que na GERATHERM o balancete é o Excel e o PDF é outro documento.
+
+## Estrutura de pastas hoje e amanhã
+
+O cliente informou que **a estrutura de pastas será criada dentro da plataforma**, e que o OneDrive é solução temporária até o relatório estar correto. Isso reabre a [[perguntas-cliente]] P-8, que eu havia dado como resolvida: o sistema deixa de ser só um índice do OneDrive e passa a ser o repositório.
+
+O cliente também ofereceu **limpar toda a base de dados já gerada** pelo sistema anterior. Ou seja: **não há requisito de migração de dados**. Isso simplifica o escopo e deve ser registrado como decisão.
 
 ## Links
 
