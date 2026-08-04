@@ -466,10 +466,21 @@ Abraço!
 ### Bloco 2 · Decisões que travam o desenvolvimento
 
 ```
-Olá! Três definições que dependem de vocês, e dois arquivos que
-faltam. Nas duas primeiras já fomos atrás nos RMAs que vocês nos
-mandaram, então elas viraram confirmação de um número, não pergunta
+Olá! Um pedido importante primeiro, depois três definições e dois
+arquivos que faltam. Nas duas definições já fomos atrás nos RMAs que
+vocês mandaram, então viraram confirmação de um número, não pergunta
 aberta.
+
+0. O QUE MAIS AJUDA AGORA. Você mandou seguir a GERATHERM porque ela
+   já está validada: o balancete subiu no planilhão, os cálculos foram
+   conferidos e o RMA de janeiro e fevereiro já saiu. Só que na cópia
+   do OneDrive vieram os documentos de entrada, e não o resultado.
+   Faltam duas coisas:
+   (a) o planilhão preenchido da GERATHERM, de um mês qualquer;
+   (b) o RMA final gerado desse mesmo mês.
+   Com os dois, conseguimos comparar o que a plataforma produz contra o
+   que a equipe de vocês já validou, número por número. É a forma mais
+   rápida de garantir que estamos gerando certo.
 
 1. ALERTA DE VARIAÇÃO. O retorno de vocês diz "superior a 15% ou 20%".
    Olhando o "DIP - RMA - Março.2026 final.docx" e o "XPT S.A - RMA-

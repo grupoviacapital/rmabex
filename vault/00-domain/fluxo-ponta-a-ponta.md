@@ -1,12 +1,39 @@
 # Fluxo Ponta a Ponta - o ciclo do RMA, do início ao protocolo
 
-> Reconcilia as **três** descrições do mesmo processo que temos:
+> Reconcilia as **quatro** descrições do mesmo processo que temos, em ordem de autoridade:
 >
-> 1. **Como funciona hoje**: `fluxogramas/manual-fluxo-rma.png`, do `Manual de Operações_Área Técnica_V2.xlsx`. Ver [[fluxos-area-tecnica]].
-> 2. **Como eles propuseram automatizar**: `fluxogramas/rma-ia.png`, do `Fluxo Processo RMA IA_v3.xlsx`. Ver [[fluxo-processo]].
-> 3. **Como o cliente descreve o problema**, em 04/08/2026. É a fonte mais direta das três, e chegou por último.
+> 1. **`LuizAlinhamento/Metodologia RMA E Fluxo.pdf`**, entregue pelo cliente em 04/08/2026. Duas páginas: a metodologia e o fluxo. É a fonte de maior peso.
+> 2. **Como o cliente descreve o problema**, em áudio, no mesmo dia.
+> 3. **Como eles propuseram automatizar**: `fluxogramas/rma-ia.png`, o fluxograma que o próprio Luiz desenhou. Ver [[fluxo-processo]].
+> 4. **Como o trabalho humano se organiza hoje**: `fluxogramas/manual-fluxo-rma.png`. Ver [[fluxos-area-tecnica]]. O cliente ressalva que o Manual de Operações *"não tem nada a ver com a plataforma"* - mas ele mesmo anexou este fluxo no PDF de alinhamento, então o **fluxo do RMA** vale; o que não vale é o resto do manual.
 >
 > Esta nota fecha a pendência "reconciliar o fluxo manual e o automatizado, que divergem", aberta no [[ROADMAP]].
+
+## A metodologia, na página 1 do alinhamento
+
+Material novo, que não existia em nenhuma outra fonte. Ela organiza o processo em duas fases de análise e um laço de perguntas.
+
+```
+Documentos solicitados          FASE 1              FASE 2
+  SOCIETÁRIOS                   Análises            Análise      ->  Questionamentos
+  CONTÁBEIS          ------->   Contábeis   ---->   Cruzada              |
+  FINANCEIROS                                                            v
+  RH                                                                 Respostas
+  TRIBUTÁRIOS                                                            |
+  OPERACIONAIS                                                           v
+                                                                  Elaboração do RMA
+                                                                         |
+                                                                         v
+                            Protocola RMA  <----  Analisa RMA
+```
+
+Três coisas que só aparecem aqui:
+
+**1. As 61 pastas se agrupam em 6 categorias de documento.** `Societários`, `Contábeis`, `Financeiros`, `RH`, `Tributários`, `Operacionais`. É uma camada de agrupamento acima da taxonomia de [[pastas-documentos]], e é do próprio cliente. Note que **não são os 7 tipos das telas** (`Telas/11.png`), que é outro agrupamento; este tem mais autoridade. Ver [[perguntas-cliente]] P-21.
+
+**2. A análise tem duas fases distintas, nesta ordem.** `Análises Contábeis` primeiro, isolada, sobre o balancete; `Análise Cruzada` depois, batendo documento contra conta. Isso valida a separação entre a spec 005 (balancete) e a 006 (conciliação), e diz que a ordem entre elas não é escolha de arquitetura, é o método.
+
+**3. O ciclo de esclarecimento acontece ANTES de escrever o RMA.** `Questionamentos -> Respostas -> Elaboração do RMA`. Não é um apêndice do fim: é etapa do meio, e o relatório já nasce com as respostas incorporadas. Isso **corrige a ordem de execução** que eu havia proposto, que punha a spec 011 por último.
 
 ## O problema, na palavra do cliente
 
@@ -92,21 +119,26 @@ Isso corrige a ressalva de [[regras-negocio#RN-47]], que registrava os dois docu
 
 Se o gargalo declarado é a leitura dos documentos, a ordem das specs deve caminhar **pelo ciclo**, entregando valor no ponto em que a dor está, e não pela ordem de numeração.
 
-| Ordem | Spec | Passo do ciclo que resolve | Valor entregue |
+| Ordem | Spec | Etapa da metodologia | Valor entregue |
 |---|---|---|---|
 | 1 | 001 Scaffold | - | base |
-| 2 | 002 Cadastro | 1 | substitui a planilha de controle |
-| 3 | 003 Taxonomia | 4 | reconhece o documento pelo conteúdo |
-| 4 | 004 Check list | 4 e 5 | **primeiro ganho visível**: acaba a conferência manual de recebimento |
-| 5 | 005 Balancete | 6 e 7 | o eixo da conciliação entra no modelo |
-| 6 | **008 Extração por IA** | 6 | **o gargalo declarado pelo cliente** |
-| 7 | 006 Conciliação | 8 | substitui a análise cruzada |
-| 8 | 007 Alertas | 8 | dirige a atenção do técnico |
-| 9 | 009 Geração do RMA | 9 | acaba a colagem manual |
-| 10 | 010 Revisão e protocolo | 10 | fecha o ciclo |
-| 11 | 011 Esclarecimentos | 5 e 8 | fecha o laço de pendências |
+| 2 | 002 Cadastro | - | substitui a planilha de controle |
+| 3 | 003 Taxonomia | documentos solicitados | reconhece o documento pelo conteúdo |
+| 4 | 004 Check list | documentos solicitados | **primeiro ganho visível**: acaba a conferência manual de recebimento |
+| 5 | 005 Balancete | **Fase 1**, análises contábeis | o eixo da análise entra no modelo |
+| 6 | **008 Extração por IA** | insumo da Fase 2 | **o gargalo declarado pelo cliente** |
+| 7 | 006 Conciliação | **Fase 2**, análise cruzada | substitui a análise cruzada manual |
+| 8 | 007 Alertas | Fase 2 | dirige a atenção do técnico |
+| 9 | **011 Esclarecimentos** | **Questionamentos e Respostas** | fecha o laço antes de escrever o relatório |
+| 10 | 009 Geração do RMA | Elaboração do RMA | acaba a colagem manual |
+| 11 | 010 Revisão e protocolo | Analisa e Protocola | fecha o ciclo |
 
-**A mudança relevante em relação ao [[ROADMAP]] anterior é a 008 subir**, de oitava para sexta, antes da conciliação. O roadmap a colocava depois porque a dependência técnica dela é só a 004; mas ela é o passo que o cliente nomeou como o trabalho pesado, e a 006 sem ela concilia contra valores digitados à mão.
+Duas mudanças em relação ao [[ROADMAP]] original, e as duas vêm do cliente:
+
+- **A 008 subiu**, de oitava para sexta, antes da conciliação. A dependência técnica dela sempre foi só a 004; estava atrás por inércia de numeração. É o passo que o cliente nomeou como o trabalho pesado, e conciliar sem extrair é conciliar contra valor digitado à mão.
+- **A 011 subiu**, de última para nona, **antes da geração do RMA**. A metodologia põe `Questionamentos -> Respostas` antes de `Elaboração do RMA`. O relatório nasce com as respostas dentro; se a 011 vier depois da 009, o gerador precisa ser reescrito para acomodá-la.
+
+A **012 (shell de UI)** corre em paralelo, depois da 001.
 
 A **012 (shell de UI)** corre em paralelo, depois da 001.
 

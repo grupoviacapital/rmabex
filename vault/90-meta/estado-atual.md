@@ -34,6 +34,11 @@ O que foi feito até aqui:
 | 04/08/2026 | **"Usa as informações do OneDrive. Começa por essa recuperanda."** Não existe planilha nova: o insumo é a pasta do OneDrive, e o ponto de partida é a **GERATHERM**, competência **01.2026**, pasta **07-Balancete de Verificação** (marcada no print) | Luiz | [[fontes-escopo]], [[formatos-balancete]] |
 | 04/08/2026 | **O `01.BASE RELATÓRIO` é a ferramenta interna da AJ.** *"Usamos as informações que estão no OneDrive para gerar as informações nessa planilha, gerando gráficos que depois são copiados e colocados de forma manual no RMA."* É o ciclo inteiro que o projeto substitui | Luiz | [[motor-calculo]] |
 | 04/08/2026 | Enviou o `XPT S.A_balancete_mensal_xi teste.xls`: **um quinto formato de balancete**, export de Crystal Reports, com o movimento do mês em coluna própria | Luiz | [[formatos-balancete]] |
+| 04/08/2026 | **A GERATHERM é a referência porque já está validada.** *"O pessoal já pegou o balancete e subiu no planilhão, foi fazendo os cálculos e vendo a documentação, já foi gerado até RMA do mês, janeiro, fevereiro"* | Luiz (áudio) | [[fontes-escopo]] |
+| 04/08/2026 | **O material do GoogleDrive é do início do projeto e os números não batem.** *"Nem as fórmulas e valores dos gráficos e as tabelas que vão lá no RMA batem as informações."* Era bancada de teste | Luiz (áudio) | [[fontes-escopo]] |
+| 04/08/2026 | **O `Manual de Operações` não descreve a plataforma.** É levantamento interno de quem faz o quê | Luiz (áudio) | [[fluxos-area-tecnica]] |
+| 04/08/2026 | **A primeira etapa do produto**: subir o balancete, gerar o balancete, e a IA varrer todas as pastas do mês montando o RMA antes de virar PDF | Luiz (áudio) | [[fluxo-ponta-a-ponta]] |
+| 04/08/2026 | Entregou o `Metodologia RMA E Fluxo.pdf`: **as 6 categorias de documento e as duas fases de análise** | Luiz | [[fluxo-ponta-a-ponta]] |
 
 ## Pendente com o cliente
 
@@ -48,6 +53,21 @@ Verificações de apoio, para não refazer o caminho:
 - **`GERATHERM/2026/01.2026` é a última competência completa**: 397 arquivos, contra 87 em 02.2026. As pastas de 03 a 12/2026 já existem, vazias, criadas com antecedência. Pasta vazia de competência futura **não é documento faltante**, e o check list precisa saber disso.
 
 **A enviar:** os três blocos de [[perguntas-cliente]]. **O bloco 1 está liberado**: não há planilha nova para esperar, e a pergunta do `40.G` continua valendo porque define se o nosso EBITDA estorna Compromissos RJ.
+
+## O pedido mais valioso que temos hoje
+
+O Luiz mandou seguir a GERATHERM *"porque está redonda"*: balancete já subido no planilhão, cálculos conferidos, documentação analisada e **RMA gerado para janeiro, fevereiro e seguintes**.
+
+**Mas o que a torna redonda não veio na cópia.** Verificado em 04/08/2026:
+
+| Artefato | Está na cópia? |
+|---|---|
+| Documentos de entrada (o que a recuperanda anexou) | **sim**, 397 arquivos só em 01.2026 |
+| Planilha de controle de entrega | **sim** |
+| Planilhão preenchido da GERATHERM | **não.** Zero arquivos com a assinatura do motor de cálculo em todo o OneDrive |
+| RMAs gerados de janeiro e fevereiro | **não.** Zero `.docx` na pasta inteira |
+
+Temos as entradas e não temos as saídas validadas. **Pedir esses dois artefatos vale mais do que várias das perguntas da fila**, porque fecha o circuito: entrada (OneDrive) -> intermediário (planilhão preenchido) -> saída (RMA aprovado). Com os três, dá para verificar o sistema ponta a ponta contra um caso que a área técnica já deu por correto, sem depender de interpretação nossa.
 
 ## O que está travado, e em quem
 

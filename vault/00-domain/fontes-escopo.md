@@ -1,8 +1,34 @@
 # Fontes de Escopo - Índice do material legado
 
-> Mapa do que existe em `OLD_RMA/escopo/` (fora do git), o que cada documento define e para que ele é autoridade. Use este índice antes de abrir qualquer arquivo: ele evita reler 9 GB de material para achar uma regra.
->
-> Regra de precedência: **`escopo/` é a verdade do domínio**. Os repositórios legados (`OLD_RMA/projetos_antigos/RMA-VS-1-FINAL-main/` etc.) servem só para conferir fórmula de cálculo ou detalhe de tela.
+> Mapa do que existe em `OLD_RMA/` (fora do git), o que cada documento define e para que ele é autoridade. Use este índice antes de abrir qualquer arquivo: ele evita reler 9 GB de material para achar uma regra.
+
+## Precedência das fontes **(revista em 04/08/2026)**
+
+O material foi reorganizado em três origens, e **elas não têm o mesmo peso**. A versão anterior desta nota dizia que "`escopo/` é a verdade do domínio", tratando tudo como um bloco só. O cliente desfez isso em áudio:
+
+| Origem | Peso | O que é |
+|---|---|---|
+| `escopo/LuizAlinhamento/` | **Autoridade máxima** | Alinhamento direto do cliente, o mais recente. Hoje: `Metodologia RMA E Fluxo.pdf`. |
+| `escopo/OneDrive/GERATHERM/` | **Dado validado** | *"São arquivos que já foram validados na área técnica."* O balancete já subiu no planilhão, os cálculos foram conferidos e o RMA do mês já foi gerado. **É a referência a seguir.** |
+| `escopo/OneDrive/DIPLOMATA/` | Dado real, não declarado validado | Mesma natureza, sem a chancela que a GERATHERM recebeu. |
+| `escopo/GoogleDrive/` | **Material do início do projeto** | Ideias, telas imaginadas e arquivos de teste. *"Foi construindo algo que foi tendo muito puxadinho."* |
+| `projetos_antigos/` | Referência arqueológica | *"O pessoal que fez os projetos antigos não seguiu à risca."* |
+
+### O aviso que muda como ler o GoogleDrive
+
+O cliente foi explícito: nos materiais do GoogleDrive, **"nem as fórmulas e valores dos gráficos e as tabelas que vão lá no RMA batem as informações"**. Os arquivos da XPT e o planilhão existiam para a equipe subir dados e conferir se os números saíam certos - eram bancada de teste, não gabarito.
+
+Isso **converge com o que já tínhamos achado sozinhos**: os três defeitos do template em [[motor-calculo]] (a referência `40.G`, o `#N/A` da capa, a divisão pelo lucro líquido) são exatamente "os valores que não batem". A leitura independente e o aviso do cliente chegaram ao mesmo lugar.
+
+**Cuidado para não jogar fora o que está certo.** O aviso é sobre **valores**, não sobre as fórmulas de indicador: essas foram confirmadas nominalmente pela Gisele em 04/08/2026 e conferem termo a termo com a planilha (ver [[regras-negocio#RN-41]]). O que perde autoridade são os números e os gráficos, não a definição de EBITDA e liquidez.
+
+### O `Manual de Operações` não descreve a plataforma
+
+Também por áudio: *"foi feito um levantamento interno mas de forma manual. Não tem nada a ver com a plataforma. É só pra entender o que cada um faz aqui pra poder chegar no resultado do RMA."*
+
+Ou seja, [[fluxos-area-tecnica]] descreve **a organização do trabalho humano**, não o requisito do sistema. Continua útil para entender papéis e prazos, e o próprio Luiz anexou o fluxo do RMA no PDF de alinhamento - mas os cinco produtos e os organogramas não são escopo de produto.
+
+## Documentos normativos (definem regra)
 
 ## Documentos normativos (definem regra)
 
@@ -14,7 +40,8 @@
 | `Acessos da Plataforma RMA - Retorno da Plataforma/retorno_da_plataforma.txt` | Alerta de variação de contas (15-20%) e a seção extra obrigatória para Agronegócio (Provimento 216). | [[fluxo-processo]], [[anatomia-rma]] |
 | `DIP - RMA - Março.2026 final.docx` | RMA real e completo (18 seções). Referência de estrutura, tom e profundidade do relatório final. | [[anatomia-rma]] |
 | `Manual de Operações_Área Técnica_V2.xlsx` | Organograma da área técnica e fluxos por produto (RMA, DAL, Constatação Prévia, Prospecção, Prestação de Contas), com os prazos de cada um. Estava em shapes. | [[fluxos-area-tecnica]] |
-| `01.BASE RELATÓRIO_xi teste.XLSM` | **O motor de cálculo do RMA.** 14 abas. `P&L + EBITDA` define o EBITDA; `INDICE` define liquidez e endividamento; `BS` monta o balanço a partir do balancete por `SUMIF` de referência de capital; `Folha` define o quadro de funcionários; `Dados para Graficos` alimenta os gráficos. É a fonte mais autoritativa de fórmula que existe no projeto. | [[formulas-sistema-anterior]] |
+| `01.BASE RELATÓRIO_xi teste.XLSM` | **O motor de cálculo do RMA.** 14 abas. `P&L + EBITDA` define o EBITDA; `INDICE` define liquidez e endividamento; `BS` monta o balanço a partir do balancete por `SUMIF` de referência de capital; `Folha` define o quadro de funcionários; `Dados para Graficos` alimenta os gráficos. **Autoridade sobre a arquitetura do cálculo e sobre a definição dos indicadores; NÃO sobre os valores**, que o cliente avisou não baterem. | [[formulas-sistema-anterior]] |
+| `LuizAlinhamento/Metodologia RMA E Fluxo.pdf` | **Alinhamento do cliente, 04/08/2026.** Página 1: a metodologia de elaboração do RMA, com as 6 categorias de documento e as duas fases de análise. Página 2: o fluxo do processo, com os prazos. | [[fluxo-ponta-a-ponta]] |
 | `RMA_RMA-DIP-01-2026_jan_de_2026 indicação de pastas.docx` | RMA anotado. **A informação está nos 45 comentários de margem**, não no corpo: para cada seção, a pasta de origem, se há conciliação, e exemplos de documento. | [[mapa-secao-pasta]] |
 | `01 - Controle de entrega de documentos 2025.xlsx` | O **template em branco** do controle que a recuperanda preenche, 42 itens. As 104 instâncias preenchidas vivem em `OneDrive/DIPLOMATA/` e `OneDrive/GERATHERM/`, e mostram que a lista de itens varia por cliente e por período. | [[controle-entrega]], [[pastas-documentos]] |
 | `OneDrive/DIPLOMATA/**/*Controle de entrega*.xlsx` e idem GERATHERM | **104 planilhas de controle preenchidas**, de 2022 a 2026. Fonte da obrigatoriedade real de documento e do vocabulário de status usado na prática. Lidas célula a célula em 04/08/2026. | [[controle-entrega]] |

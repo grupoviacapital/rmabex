@@ -8,23 +8,26 @@
 
 A tabela abaixo está por número. **A ordem de execução é outra**, e sai do ciclo real do RMA em [[fluxo-ponta-a-ponta]]: cada spec resolve um passo do processo, e a fila segue a dor do cliente, não a numeração.
 
-`001 -> 002 -> 003 -> 004 -> 005 -> 008 -> 006 -> 007 -> 009 -> 010 -> 011`, com a `012` em paralelo depois da `001`.
+`001 -> 002 -> 003 -> 004 -> 005 -> 008 -> 006 -> 007 -> 011 -> 009 -> 010`, com a `012` em paralelo depois da `001`.
 
-| Ordem | Spec | Passo do ciclo que resolve |
+| Ordem | Spec | Etapa da metodologia do cliente |
 |---|---|---|
 | 1 | 001 Scaffold | - |
-| 2 | 002 Cadastro | insere a recuperanda (hoje, planilha de controle) |
-| 3 | 003 Taxonomia | reconhecer o documento pelo conteúdo |
+| 2 | 002 Cadastro | - |
+| 3 | 003 Taxonomia | documentos solicitados (6 categorias) |
 | 4 | 004 Check list | **primeiro ganho visível**: acaba a conferência manual de recebimento |
-| 5 | 005 Balancete | o eixo da conciliação |
-| 6 | **008 Extração por IA** | **o gargalo declarado pelo cliente**: ler os documentos um a um |
-| 7 | 006 Conciliação | a análise cruzada |
-| 8 | 007 Alertas | dirigir a atenção do técnico |
-| 9 | 009 Geração do RMA | acaba a colagem manual dos gráficos |
-| 10 | 010 Revisão e protocolo | fecha o ciclo |
-| 11 | 011 Esclarecimentos | fecha o laço de pendências |
+| 5 | 005 Balancete | **Fase 1** - análises contábeis |
+| 6 | **008 Extração por IA** | insumo da Fase 2. **O gargalo declarado pelo cliente** |
+| 7 | 006 Conciliação | **Fase 2** - análise cruzada |
+| 8 | 007 Alertas | Fase 2 |
+| 9 | **011 Esclarecimentos** | **Questionamentos e Respostas** |
+| 10 | 009 Geração do RMA | Elaboração do RMA |
+| 11 | 010 Revisão e protocolo | Analisa e Protocola RMA |
 
-**A 008 subiu de oitava para sexta.** A dependência técnica dela é só a 004, e o cliente a nomeou como o trabalho pesado em 04/08/2026: *"todos aqueles documentos por mês são lidos um a um de forma manual pela equipe"*. Conciliar (006) antes de extrair (008) significa conciliar contra valor digitado à mão.
+Duas mudanças em relação à ordem original, ambas vindas do cliente em 04/08/2026:
+
+- **A 008 subiu de oitava para sexta.** A dependência técnica dela sempre foi só a 004. É o trabalho pesado que ele nomeou: *"todos aqueles documentos por mês são lidos um a um de forma manual pela equipe"*. Conciliar (006) antes de extrair (008) é conciliar contra valor digitado à mão.
+- **A 011 subiu de última para nona**, antes da geração do RMA. A metodologia do `Metodologia RMA E Fluxo.pdf` põe `Questionamentos -> Respostas` **antes** de `Elaboração do RMA`: o relatório nasce com as respostas incorporadas. Ver [[fluxo-ponta-a-ponta]].
 
 | Spec | Escopo | Depende de | Status |
 |------|--------|-----------|--------|
