@@ -4,6 +4,8 @@
 
 ## Domínio (dependem da área técnica, travam specs)
 
+> Os itens abaixo estão consolidados como perguntas ao cliente em [[perguntas-cliente]], rodada 1.
+
 - [ ] **Fórmulas dos indicadores** da seção 12 do RMA: índices de liquidez, receita x custo (CMV), receita x resultado, EBITDA. Nenhum documento do escopo define. Trava [[regras-negocio#RN-41]] e a spec de geração do RMA.
 - [ ] **Limiar do alerta de variação**: o escopo diz "geralmente 15% ou 20%". Definir o valor, e se é global, por conta ou por cliente. Trava [[regras-negocio#RN-34]].
 - [ ] **Tolerância de conciliação**: nenhum documento define. Sem ela, diferença de centavos vira divergência falsa. Trava [[regras-negocio#RN-33]].
