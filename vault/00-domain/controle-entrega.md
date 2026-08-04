@@ -127,6 +127,25 @@ Duas leituras, ambas úteis:
 1. **O layout multi-empresa existe e é o modelo certo para grupo econômico**: um item se desdobra em uma linha por empresa. Mas em 99 planilhas ele **nunca foi usado**, o que confirma que o controle real hoje é por empresa, uma planilha cada. Ver [[perguntas-cliente]] P-4.
 2. **Vaza identificador de terceiro.** O número do processo do Grupo TTT viaja dentro de todo arquivo de dois outros clientes, há anos, por cópia de template. É o tipo de coisa que o sistema novo tem de tornar impossível. Ver [[seguranca]].
 
+## Confirmação independente, pelo OneDrive real
+
+Em 04/08/2026 o cliente apontou a pasta `GERATHERM / 2026 / 01.2026` como ponto de partida. A contagem de arquivos por pasta, naquela competência, **reproduz a classificação acima a partir de uma fonte diferente**: aqui é o conteúdo entregue, lá era o que a recuperanda declarou na planilha.
+
+| Grupo desta nota | O que a pasta de 01.2026 mostra |
+|---|---|
+| Os 4 itens de questionário (1 a 4) | pastas `01` a `04` com **0 arquivos** |
+| Os 6 nunca aplicáveis | `27`, `28`, `30`, `31`, `32`, `33`, `34` com **0 arquivos** |
+| Os condicionais | `14` (aplicações), `16` (rescisões) e `18` (GIA) com **0 arquivos** naquele mês |
+| O núcleo obrigatório | todos com arquivo: `07` balancete (2), `08` DRE (2), `12` fornecedores (112), `15` folha (53), `23` dívida ativa (141) |
+
+Duas medições independentes concordando é o que faltava para tratar a tabela como padrão do sistema, e não como amostra de dois clientes.
+
+**Ressalva que o mesmo levantamento revelou:** as pastas de 03 a 12/2026 já existem, vazias, criadas com antecedência. **Pasta vazia de competência futura não é documento faltante.** O check list precisa distinguir "ainda não chegou o mês" de "o mês chegou e o documento não veio".
+
+## As pastas de IA existem e nunca foram usadas
+
+São **72 pastas** de pipeline de IA (`Entradas IA`, `Processando IA`, `Processados IA`, `Erros IA`, `Auditoria IA`, `Relatórios IA`) distribuídas pelas competências dos dois clientes. **Nenhuma delas tem um único arquivo.** A convenção foi criada e nunca entrou em operação. Ver [[perguntas-cliente]] P-17.
+
 ## O que isto decide
 
 | Decisão | Evidência |

@@ -3,6 +3,23 @@
 > Fonte: `OLD_RMA/escopo/01.BASE RELATÓRIO_xi teste.XLSM`, 14 abas, lidas integralmente célula a célula, incluindo o VBA. Ver [[fontes-escopo]].
 >
 > Esta planilha **é** o motor do RMA. Tudo que o sistema novo precisa calcular está aqui, e a arquitetura dela deve ser preservada em conceito, não em forma.
+>
+> **Confirmado pelo cliente em 04/08/2026 (Luiz):** *"Essa é nossa planilha, usamos as informações que estão no OneDrive para gerar as informações nessa planilha, gerando gráficos que depois são copiados e colocados de forma manual no RMA."*
+
+## O ciclo que o sistema substitui
+
+A frase do cliente descreve o processo inteiro, e ele tem quatro etapas, três delas manuais:
+
+```
+Documentos no OneDrive  ->  digitação/carga na planilha  ->  gráficos gerados na planilha
+                                                              ->  copiados e colados à mão no .docx do RMA
+```
+
+Três consequências, todas verificadas:
+
+1. **A planilha é da AJ, não da recuperanda.** Não é entrega de cliente: é a ferramenta interna. É exatamente o que este projeto substitui, de ponta a ponta.
+2. **Isto explica por que nenhum quadro do RMA é tabela.** O `.docx` de março/2026 tem zero elementos de tabela e 40 imagens; o da XPT, zero e 24 (ver [[anatomia-rma]]). São as colagens que o Luiz descreve. O relatório atual não é legível por máquina porque nasce de captura de tela.
+3. **Os defeitos desta planilha chegam ao RMA.** Como o gráfico é colado sem recálculo, o `#N/A` do mês de referência e a divisão pelo lucro líquido das linhas 36 e 38 viajam para dentro do relatório entregue. Não são erros de bastidor.
 
 ## Arquitetura em quatro níveis
 

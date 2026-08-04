@@ -170,6 +170,12 @@ E quando a diferença **não** é zero, ela não é absorvida por faixa nenhuma:
 
 **Por que importa:** decide se o sistema precisa gerar Excel no formato atual. Candidato a ADR.
 
+**ESCLARECIDA EM PARTE (04/08/2026, Luiz).** Sabemos agora exatamente o que a planilha é e qual o seu papel: *"Essa é nossa planilha, usamos as informações que estão no OneDrive para gerar as informações nessa planilha, gerando gráficos que depois são copiados e colocados de forma manual no RMA."*
+
+Ou seja, o `01.BASE RELATÓRIO` **é a ferramenta interna da AJ**, e o ciclo atual é `OneDrive -> digitação na planilha -> gráficos -> colagem manual no .docx`. É o processo inteiro que este projeto substitui. Ver [[motor-calculo]].
+
+**O que resta perguntar** fica mais estreito e mais concreto: depois que o sistema gerar o RMA direto, **a planilha continua sendo usada para alguma coisa** (conferência paralela, material de reunião, histórico), ou ela é aposentada? Isso decide se precisamos exportar Excel no formato dela, e é candidato a ADR.
+
 **Resposta:**
 
 ## B · Confirmações sobre o sistema anterior

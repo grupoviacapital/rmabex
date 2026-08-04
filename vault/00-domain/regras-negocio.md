@@ -304,11 +304,15 @@ O SISTEMA DEVE registrar o histórico das cobranças de documentos e de esclarec
 
 *Origem: fluxo manual do RMA. É mais forte do que o modelado antes: não é log interno, é conteúdo publicado.*
 
-### RN-50 · Desacumulação da DRE **(a confirmar)**
+### RN-50 · Desacumulação da DRE, só quando o formato exigir
 
-QUANDO o balancete trouxer contas de resultado com saldo acumulado no exercício, O SISTEMA DEVE obter o valor do mês isolado subtraindo o saldo do mês anterior, e NÃO DEVE aplicar a subtração na virada de ano.
+QUANDO o balancete trouxer o movimento do mês em coluna própria, O SISTEMA DEVE usar esse valor diretamente.
 
-*O sistema legado fazia exatamente isso. Se a premissa estiver errada, todo indicador de resultado sai errado. Ver [[perguntas-cliente]] P-9.*
+QUANDO o balancete trouxer apenas saldos acumulados no exercício, O SISTEMA DEVE obter o valor do mês isolado subtraindo o saldo do mês anterior, e NÃO DEVE aplicar a subtração na virada de ano.
+
+*É **regra por formato**, não do domínio. Dos cinco layouts conhecidos, só o A (uma coluna por mês) obriga a subtração; B, C, D e E entregam o movimento. Ver [[formatos-balancete]].*
+
+*Confirmado no balancete mensal da XPT recebido em 04/08/2026, que traz os dois regimes lado a lado: a identidade `Saldo Atual = Saldo Anterior + Saldo Mês` fecha em **634 de 634 contas**, e o `Saldo Anterior` bate em **621 de 621** com a coluna de julho/2024 do balancete acumulado da mesma empresa. As duas leituras da mesma realidade coincidem, o que valida a regra nos dois sentidos.*
 
 ### RN-51 · Natureza da conta define o saldo **(a confirmar)**
 

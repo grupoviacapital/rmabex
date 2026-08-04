@@ -24,7 +24,8 @@
 | Documento | O que é |
 |-----------|---------|
 | `XPT S.A - RMA- BEx 08.2024 teste.docx` | RMA de teste com empresa fictícia; gabarito anonimizado. |
-| `XPT S.A_Balancete_xi testete.xlsx` | Balancete de teste, 972 linhas. **Formato de entrada**: `Conta`, `Descrição` e uma coluna por mês. Código de conta hierárquico (`1`, `11`, `111`, `111010`, `1110100001`), sintético ou analítico pelo comprimento. |
+| `XPT S.A_Balancete_xi testete.xlsx` | Balancete de teste, 972 linhas. **Formato A**: `Conta`, `Descrição` e uma coluna por mês (jan a jul/2024). Código de conta hierárquico (`1`, `11`, `111`, `111010`, `1110100001`), sintético ou analítico pelo comprimento. |
+| `scripts/XPT S.A_balancete_mensal_xi teste.xls` | Enviado pelo cliente em 04/08/2026. **Formato E**, export de Crystal Reports em `.xls` antigo: `Extenso`, `Reduzido`, `Descrição`, `Saldo Anterior`, `Débito`, `Crédito`, `Saldo Mês`, `Saldo Atual`. É a competência de **agosto/2024** da mesma XPT, verificado por cruzamento (`Saldo Anterior` bate 621/621 com julho do arquivo acima). **O melhor fixture do projeto**: a mesma realidade contábil em dois layouts. Ver [[formatos-balancete]]. |
 | `Parecer Técnico - Raizen 2023-2025.docx` | Parecer avulso sobre empresa de capital aberto. Registra a decisão de **não usar o Termômetro de Kanitz** porque o modelo indicaria solvência num grupo em deterioração, e usar o **Índice de Solvência Geral (ISG)** no lugar. |
 | `Telas/1.png` a `20.png` | 19 capturas de proposta de interface (falta a `4`). | 
 | `OneDrive/*.pdf` | Relatórios de transparência de auditoria (Grant Thornton, IPPF). Contexto de mercado, não regra. |

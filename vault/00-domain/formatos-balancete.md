@@ -64,12 +64,46 @@ Este formato explica o C: o `Código` do formato C é o mesmo sequencial `Conta`
 - Um arquivo por empresa por competência; o nome do arquivo carrega competência e CNPJ.
 - De 1 a 16 páginas, conforme o porte da empresa.
 
+### Formato E · XPT mensal, exportado do Crystal Reports **(recebido em 04/08/2026)**
+
+`scripts/XPT S.A_balancete_mensal_xi teste.xls` - enviado pelo cliente com a legenda "isso é um balancete". Formato `.xls` antigo (BIFF), não XLSX.
+
+- **Gerado por Crystal Reports**: os metadados do arquivo trazem `Title: Balancete_Mensal_XI.rpt`, `Author: Crystal Decisions`, `Comments: Powered by Crystal`. É export de ERP, não planilha montada à mão.
+- Duas abas com o mesmo conteúdo: `Planilha1` (7 colunas) e `Sheet1` (8 colunas, com uma a mais).
+- Colunas de `Sheet1`: `Extenso`, `Reduzido`, `Descrição`, `Saldo Anterior`, `Débito`, `Crédito`, `Saldo Mês`, `Saldo Atual`.
+- **Dois códigos de conta**, como no formato D: `Extenso` é o hierárquico por comprimento (`1`, `11`, `111`, `111010`, `1110100001`), igual ao formato A; `Reduzido` é um sequencial interno de 5 dígitos (`00001`, `03401`).
+- Sinal **algébrico**, como no formato A. Sem coluna `D/C`, sem sufixo.
+- **Um mês por arquivo**, 634 contas.
+- Traz uma coluna que nenhum outro formato tem: **`Saldo Mês`**, o movimento isolado da competência.
+
+**Não há competência dentro do arquivo.** Nem cabeçalho, nem parâmetro de exportação, nem período. O mês só se descobre pelo nome do arquivo, pela pasta, ou por dedução a partir dos saldos. É o formato mais pobre em metadado dos cinco, e o importador precisa tratar isso.
+
+#### Validação cruzada contra o formato A
+
+Os dois arquivos da XPT são da mesma empresa e do mesmo razão, o que permitiu conferir um contra o outro:
+
+| Verificação | Resultado |
+|---|---|
+| `Saldo Anterior` do mensal vs coluna `Julho 2024` do acumulado | **bate em 621 de 621 contas** |
+| `Saldo Atual = Saldo Anterior + Saldo Mês` | **bate em 634 de 634 contas** |
+| Contas do mensal que existem no acumulado | 634 de 634 |
+
+Logo o arquivo é a competência de **agosto de 2024** - a mesma do `XPT S.A - RMA- BEx 08.2024 teste.docx`. O conjunto de teste da XPT é coerente: balancete acumulado de janeiro a julho, balancete mensal de agosto, e o RMA de agosto.
+
+**Este é o melhor fixture que temos**: a mesma realidade contábil em dois layouts, com igualdade verificada conta a conta. Serve para testar o adaptador de formato sem depender de dado real de cliente.
+
+#### O que ele decide sobre desacumulação
+
+Nas contas de resultado, `Saldo Anterior` é o acumulado até julho, `Saldo Mês` é o movimento de agosto e `Saldo Atual` é o acumulado até agosto. Exemplo da conta `311010 Vendas - Mercado Interno`: `-49.077.841,32` acumulado, `-10.246.905,44` no mês, `-59.324.746,76` acumulado.
+
+Ou seja: **o arquivo entrega o acumulado e o movimento ao mesmo tempo**. Neste formato a desacumulação de [[regras-negocio#RN-50]] é desnecessária, basta ler `Saldo Mês`.
+
 ## O que isso corrige
 
 | Registrado antes | Correção |
 |---|---|
 | "A hierarquia do plano de contas é por comprimento do código" | Vale só no formato A. No B é por segmentos pontuados; no C não existe hierarquia no código. |
-| "O balancete é acumulado no ano" | Vale no formato A. B e C trazem saldo anterior, débito, crédito e saldo atual do mês - estrutura melhor, que dispensa a desacumulação. |
+| "O balancete é acumulado no ano" | Vale no formato A. B, C, D e E trazem saldo anterior, débito, crédito e saldo do mês - estrutura melhor, que dispensa a desacumulação. |
 | "Validado: 114 de 114 sintéticas batem" | Vale para o arquivo da XPT. Não foi verificado nos outros formatos. |
 | "Convenção de sinal algébrica" | Vale no formato A. No C o sinal é sufixo `D`/`C`. |
 
@@ -77,11 +111,13 @@ A `RN-50` (desacumulação) e a `RN-51` (natureza da conta) passam a ser **regra
 
 ## Consequências para a spec de importação
 
-1. O importador precisa de **detecção de layout** antes de qualquer parsing, e de um adaptador por formato.
-2. A **hierarquia é derivada de forma diferente** em cada um: comprimento, segmentos, ou indentação da linha no PDF.
-3. Só o formato A exige desacumulação. B e C já entregam o movimento do mês.
-4. O nome do arquivo é fonte de metadado no formato C (competência e CNPJ) e no B (competência).
-5. A invariante de fechamento (ativo igual a passivo mais PL) vale nos três, mas com aritmética diferente por causa do sinal.
+1. O importador precisa de **detecção de layout** antes de qualquer parsing, e de um adaptador por formato. São **cinco** formatos conhecidos, não três.
+2. A **hierarquia é derivada de forma diferente** em cada um: comprimento (A e E), segmentos pontuados (B e D), ou indentação da linha no PDF (C).
+3. **Só o formato A exige desacumulação.** B, C, D e E já entregam o movimento do mês; o E entrega os dois regimes lado a lado.
+4. O nome do arquivo é fonte de metadado no formato C (competência e CNPJ), no B (competência) e **é a única fonte no E**, que não traz período nenhum dentro do arquivo.
+5. A invariante de fechamento (ativo igual a passivo mais PL) vale em todos, mas com aritmética diferente por causa do sinal.
+6. **Suporte a `.xls` antigo é requisito, não só `.xlsx`.** O formato E é BIFF, que `openpyxl` não lê. A stack precisa de biblioteca própria ou de conversão prévia.
+7. **Dois códigos de conta convivem** nos formatos D e E: um hierárquico e um sequencial interno. O modelo precisa guardar os dois, porque o sequencial é o que aparece no formato C.
 
 **Por decisão do cliente em 04/08/2026, o primeiro alvo é a GERATHERM**, ou seja, o formato B - o mais limpo dos quatro, com código hierárquico explícito e movimento do mês já separado.
 

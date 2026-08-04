@@ -31,20 +31,23 @@ O que foi feito até aqui:
 | 04/08/2026 | **Começar pela GERATHERM** | Luiz | [[formatos-balancete]] |
 | 04/08/2026 | A estrutura de pastas **será criada na plataforma**; o OneDrive é temporário | Luiz | [[formatos-balancete]] |
 | 04/08/2026 | **Não há requisito de migração**: a base do sistema anterior pode ser descartada | Luiz | [[formatos-balancete]] |
+| 04/08/2026 | **"Usa as informações do OneDrive. Começa por essa recuperanda."** Não existe planilha nova: o insumo é a pasta do OneDrive, e o ponto de partida é a **GERATHERM**, competência **01.2026**, pasta **07-Balancete de Verificação** (marcada no print) | Luiz | [[fontes-escopo]], [[formatos-balancete]] |
+| 04/08/2026 | **O `01.BASE RELATÓRIO` é a ferramenta interna da AJ.** *"Usamos as informações que estão no OneDrive para gerar as informações nessa planilha, gerando gráficos que depois são copiados e colocados de forma manual no RMA."* É o ciclo inteiro que o projeto substitui | Luiz | [[motor-calculo]] |
+| 04/08/2026 | Enviou o `XPT S.A_balancete_mensal_xi teste.xls`: **um quinto formato de balancete**, export de Crystal Reports, com o movimento do mês em coluna própria | Luiz | [[formatos-balancete]] |
 
 ## Pendente com o cliente
 
-**Enviado em 04/08/2026, aguardando resposta do Luiz:** a planilha "mais atual" que ele mencionou é a da **GIANNINI**, que veio na mesma rodada extra, ou existe outra ainda por enviar?
+**Resolvido em 04/08/2026.** A pergunta era se existia uma planilha "mais atual" por enviar. O Luiz respondeu: *"usa as informações do OneDrive, começa por essa recuperanda"*, com print da pasta `GERATHERM / 2026 / 01.2026` e a pasta `07-Balancete de Verificação` marcada.
 
-O que já está verificado sobre essa dúvida, para não refazer o caminho:
+**Leitura correta:** nunca houve planilha nova. O insumo é a **pasta do OneDrive**, não um arquivo Excel de cálculo. O `01.BASE RELATÓRIO` é ferramenta interna da AJ, e é exatamente o que este projeto substitui. Duas das nossas hipóteses anteriores estavam erradas, e a terceira era esta.
 
-- **A pasta da GERATHERM não contém planilha de cálculo nenhuma.** Varredura dos **2.083 arquivos Excel** do escopo pela assinatura de abas do motor (`BS`, `P&L + EBITDA`, `INDICE`, `FOLHA DE ROSTO`, `Dados para Graficos`, `BdMeses`): só dois arquivos batem, o `xi teste` e o da GIANNINI, e nenhum está em `OneDrive/GERATHERM/`. A pasta da GERATHERM é documento bruto de cliente, com balancete real até 02/2026.
-- **O arquivo da GIANNINI é o mais recente que temos**: modificado em **10/03/2026**, contra 02/03/2026 do `xi teste`. Os dois têm `lastModifiedBy = Luiz Rovero`.
-- **Os três defeitos continuam no arquivo mais recente.** Verificado célula a célula, não pela nota anterior: a linha 45 da `P&L + EBITDA` tem a referência `40.G` nos dois arquivos (a linha 29 usa `30.E`), e `FOLHA DE ROSTO!N3` é a mesma fórmula `=HLOOKUP(N2,INDICE!$B$17:$M$34,2,FALSE)`, com a faixa terminando na coluna M. **São defeitos do template, e a instância mais nova os carrega.**
+Verificações de apoio, para não refazer o caminho:
 
-**A enviar:** os três blocos de [[perguntas-cliente]]. O bloco 1 segue em espera, mas **a justificativa mudou**: não é mais "os defeitos podem estar corrigidos na nova", que está desmentido, e sim saber qual arquivo é o canônico antes de citar aba e linha para o cliente.
+- **Não existe planilha de cálculo dentro das pastas de cliente.** Varredura dos **2.083 arquivos Excel** do escopo pela assinatura de abas do motor (`BS`, `P&L + EBITDA`, `INDICE`, `FOLHA DE ROSTO`, `Dados para Graficos`, `BdMeses`): só dois arquivos batem, o `xi teste` e o da GIANNINI, e nenhum dos dois está em `OneDrive/`.
+- **Os três defeitos do template continuam na instância mais nova** (GIANNINI, 10/03/2026, contra 02/03/2026 do `xi teste`), verificados célula a célula: `P&L + EBITDA` linha 45 com referência `40.G` nos dois, e `FOLHA DE ROSTO!N3` com a mesma `=HLOOKUP(N2,INDICE!$B$17:$M$34,2,FALSE)` terminando na coluna M. A análise de [[motor-calculo]] **se sustenta**.
+- **`GERATHERM/2026/01.2026` é a última competência completa**: 397 arquivos, contra 87 em 02.2026. As pastas de 03 a 12/2026 já existem, vazias, criadas com antecedência. Pasta vazia de competência futura **não é documento faltante**, e o check list precisa saber disso.
 
-**Consequência prática:** a análise do motor de cálculo em [[motor-calculo]] foi feita sobre a cópia de teste. Como o arquivo da GIANNINI é o mesmo template com os mesmos defeitos, a análise se sustenta; **refazer só se aparecer um arquivo diferente dos dois que temos**.
+**A enviar:** os três blocos de [[perguntas-cliente]]. **O bloco 1 está liberado**: não há planilha nova para esperar, e a pergunta do `40.G` continua valendo porque define se o nosso EBITDA estorna Compromissos RJ.
 
 ## O que está travado, e em quem
 
