@@ -34,11 +34,17 @@ O que foi feito até aqui:
 
 ## Pendente com o cliente
 
-**Enviado, aguardando resposta:** pergunta sobre a versão da planilha (`01.BASE RELATÓRIO_xi teste.XLSM` é a mais atual, já que a documentação do KANTIZ cita uma `2-2`). O Luiz respondeu que usaremos uma mais atual, mas **não enviou o arquivo**.
+**Enviado em 04/08/2026, aguardando resposta do Luiz:** a planilha "mais atual" que ele mencionou é a da **GIANNINI**, que veio na mesma rodada extra, ou existe outra ainda por enviar?
 
-**A enviar:** os três blocos de [[perguntas-cliente]]. O bloco 1 está **em espera** até chegar a planilha nova, porque os defeitos podem já estar corrigidos nela.
+O que já está verificado sobre essa dúvida, para não refazer o caminho:
 
-**Consequência prática:** a análise do motor de cálculo em [[motor-calculo]] foi feita sobre uma cópia de teste. Quando a versão nova chegar, **refazer a análise antes de usar aquela nota como base de spec**.
+- **A pasta da GERATHERM não contém planilha de cálculo nenhuma.** Varredura dos **2.083 arquivos Excel** do escopo pela assinatura de abas do motor (`BS`, `P&L + EBITDA`, `INDICE`, `FOLHA DE ROSTO`, `Dados para Graficos`, `BdMeses`): só dois arquivos batem, o `xi teste` e o da GIANNINI, e nenhum está em `OneDrive/GERATHERM/`. A pasta da GERATHERM é documento bruto de cliente, com balancete real até 02/2026.
+- **O arquivo da GIANNINI é o mais recente que temos**: modificado em **10/03/2026**, contra 02/03/2026 do `xi teste`. Os dois têm `lastModifiedBy = Luiz Rovero`.
+- **Os três defeitos continuam no arquivo mais recente.** Verificado célula a célula, não pela nota anterior: a linha 45 da `P&L + EBITDA` tem a referência `40.G` nos dois arquivos (a linha 29 usa `30.E`), e `FOLHA DE ROSTO!N3` é a mesma fórmula `=HLOOKUP(N2,INDICE!$B$17:$M$34,2,FALSE)`, com a faixa terminando na coluna M. **São defeitos do template, e a instância mais nova os carrega.**
+
+**A enviar:** os três blocos de [[perguntas-cliente]]. O bloco 1 segue em espera, mas **a justificativa mudou**: não é mais "os defeitos podem estar corrigidos na nova", que está desmentido, e sim saber qual arquivo é o canônico antes de citar aba e linha para o cliente.
+
+**Consequência prática:** a análise do motor de cálculo em [[motor-calculo]] foi feita sobre a cópia de teste. Como o arquivo da GIANNINI é o mesmo template com os mesmos defeitos, a análise se sustenta; **refazer só se aparecer um arquivo diferente dos dois que temos**.
 
 ## O que está travado, e em quem
 

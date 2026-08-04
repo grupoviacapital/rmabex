@@ -429,7 +429,11 @@ Uma linha por item, começando pelo arquivo e pelo lugar exato.
 
 ### Bloco 1 · Urgente - **EM ESPERA**
 
-> Aguardando a planilha mais atual, que o Luiz informou existir em 04/08/2026. Os pontos abaixo podem já estar corrigidos nela.
+> Aguardando o Luiz dizer qual planilha é a canônica: a da GIANNINI, que já chegou, ou outra ainda por enviar.
+>
+> **Atenção:** a justificativa original desta espera era "os defeitos podem já estar corrigidos na versão nova". **Isso está desmentido.** O arquivo mais recente que temos (GIANNINI, modificado em 10/03/2026, contra 02/03/2026 do `xi teste`) carrega os três defeitos idênticos, verificados célula a célula. São defeitos do template. Ver [[estado-atual]].
+>
+> Ou seja: o conteúdo abaixo vale para os dois arquivos. Só falta saber qual citar no texto.
 
 ```
 Olá! Mapeamos em detalhe a planilha "01.BASE RELATÓRIO_xi teste.XLSM".

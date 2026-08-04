@@ -59,6 +59,15 @@ Pasta `escopo/mais_documentacoes/`, com três arquivos:
 
 Consequência: **não são defeitos da cópia de teste, são defeitos do template**, presentes numa planilha de cliente real. Nenhum dos três arquivos é a versão `2-2` citada na documentação do sistema antigo, que continua faltando.
 
+**Existem exatamente duas instâncias do motor de cálculo em todo o material** (verificado em 04/08/2026 varrendo os 2.083 arquivos Excel do escopo pela assinatura de abas `BS` + `P&L + EBITDA` + `INDICE` + `FOLHA DE ROSTO` + `Dados para Graficos` + `BdMeses`):
+
+| Arquivo | Modificado em | Salvo por |
+|---|---|---|
+| `01.BASE RELATÓRIO_xi teste.XLSM` | 02/03/2026 | Luiz Rovero |
+| `mais_documentacoes/01.BASE RELATÓRIO - GIANNINI 08.2024 teste (1).XLSM` | **10/03/2026** | Luiz Rovero |
+
+Nenhuma das duas está dentro de `OneDrive/DIPLOMATA/` ou `OneDrive/GERATHERM/`: as pastas de cliente têm documento bruto, não planilha de cálculo. A da GIANNINI é a mais recente que possuímos.
+
 ## Derivados gerados por nós
 
 Pastas criadas a partir do material original, que continua intacto no lugar.
