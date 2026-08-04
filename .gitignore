@@ -1,0 +1,47 @@
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+vendor/
+__pycache__/
+.venv/
+
+# Build
+/.next/
+/out/
+/build
+/dist
+next-env.d.ts
+
+# Banco de dados local
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Ambiente / segredos
+.env
+.env.*
+!.env.example
+
+# Testes / cobertura
+/coverage
+/playwright-report/
+/test-results/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / SO
+.DS_Store
+.idea/
+*.tsbuildinfo
+
+# Material legado / referência (só consulta local, não versionar)
+OLD_RMA/
+
+# Obsidian: ignora só estado de workspace, versiona a config compartilhada
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+vault/.obsidian/cache

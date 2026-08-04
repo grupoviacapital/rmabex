@@ -1,0 +1,13 @@
+{
+  "collapse-color-groups": false,
+  "colorGroups": [
+    { "query": "path:00-domain", "color": { "a": 1, "rgb": 5431378 } },
+    { "query": "path:10-specs", "color": { "a": 1, "rgb": 4886754 } },
+    { "query": "path:20-decisions", "color": { "a": 1, "rgb": 14701138 } },
+    { "query": "path:90-meta", "color": { "a": 1, "rgb": 9868950 } }
+  ],
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true
+}
