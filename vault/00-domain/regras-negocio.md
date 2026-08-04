@@ -167,7 +167,13 @@ O SISTEMA DEVE conciliar o saldo do relatório de impostos contra a soma das con
 
 O SISTEMA DEVE considerar conciliado o par documento/conta cuja diferença absoluta estiver dentro da tolerância configurada.
 
-*Nenhum documento do escopo define tolerância. Sem ela, arredondamento de centavos gera divergência falsa. O sistema legado usava valores diferentes por contexto - R$ 0,01, R$ 0,05, 0,1%, 1% - e uma política de materialidade com piso de R$ 50.000 ou 5% da receita líquida (ver [[sistema-legado]]). Pendente de decisão em [[perguntas-cliente]] P-3.*
+*Nenhum documento do escopo define tolerância, e a varredura de 04/08/2026 mostra por quê: **na prática ela é zero**. O quadro "Saldos Bancários em Março/2026" do RMA real traz uma linha `DIFERENÇA` explícita, e as sete contas fecham em zero ao centavo. A taxonomia de pastas diz "deve conciliar", sem faixa. O motor de cálculo não tem nenhuma regra de limiar. O texto do RMA é binário: "está conciliado" ou "não está conciliado". O sistema legado usava R$ 0,01, R$ 0,05, 0,1% e 1% conforme o contexto, além de uma política de materialidade com piso de R$ 50.000 ou 5% da receita líquida, e as colunas de tolerância por empresa nunca foram preenchidas (ver [[sistema-legado]]). Pendente de decisão em [[perguntas-cliente]] P-3.*
+
+### RN-33.1 · Divergência se resolve por justificativa, não por faixa **(a confirmar)**
+
+QUANDO uma diferença não for zero, O SISTEMA DEVE tratá-la como divergência e permitir que ela seja encerrada por **justificativa registrada**, e não por enquadramento em faixa de tolerância.
+
+*É o que os dois RMAs reais fazem. Em março/2026, fornecedores "não está conciliado" e a divergência foi encerrada com a nota da recuperanda de que notas de serviço e faturas não entram no livro fiscal; o passivo fiscal idem, por compensação de PIS e COFINS com créditos do período. A justificativa vai para o corpo do relatório. Ver [[perguntas-cliente]] P-3.*
 
 ## Alertas e divergências
 
@@ -175,7 +181,19 @@ O SISTEMA DEVE considerar conciliado o par documento/conta cuja diferença absol
 
 QUANDO o saldo de uma conta do balancete variar acima do limiar configurado em relação à mesma conta no mês anterior, O SISTEMA DEVE gerar alerta de atenção para o analista, identificando conta, valores comparados e percentual de variação.
 
-*Origem: `retorno_da_plataforma.txt`. O documento cita "geralmente superior a 15% ou 20%". O sistema legado usava -15% para queda de receita, +15% para alta de custos e ±20% para materialidade de variação, com a fórmula `valor do mês / valor do mês anterior - 1` (ver [[sistema-legado]]). Pendente em [[perguntas-cliente]] P-2.*
+*Origem: `retorno_da_plataforma.txt`, único documento do escopo que cita número: "geralmente superior a 15% ou 20%". O sistema legado usava -15% para queda de receita, +15% para alta de custos e ±20% para materialidade de variação, com a fórmula `valor do mês / valor do mês anterior - 1` (ver [[sistema-legado]]). O motor de cálculo não tem limiar nenhum: as três únicas regras de formatação condicional das duas instâncias da planilha destacam valor negativo, nada mais.*
+
+*A escala observada nos dois RMAs reais, que é o comportamento que o limiar precisa reproduzir:*
+
+| *Variação* | *O que o técnico fez* |
+|---|---|
+| *até 4,30%* | *descartou explicitamente ("sem grandes variações", "redução inferior a 1%, sem variações significativas")* |
+| *10,90% a 17,96%* | *narrou com justificativa, sem escalar* |
+| *24% a 44%* | *apontou como "principais variações", com explicação* |
+| *50% e 139%* | *"aumentos bem significativos"* |
+| *531% e 750%* | *pedido formal de esclarecimento, em apenso* |
+
+*A faixa de 15% a 20% do cliente cai exatamente onde a variação deixa de ser descartada. Pendente em [[perguntas-cliente]] P-2, junto com o piso de valor: em conta analítica de saldo pequeno, o percentual sozinho gera alerta de ruído.*
 
 ### RN-35 · Relevância é decisão humana
 

@@ -12,7 +12,7 @@ São 35 itens, mas a contagem bruta engana. O que importa é o que cada um trava
 |---|---|---|
 | **Resolvido** | 6 | P-1 fórmulas · P-4 consolidação · P-8 origem dos arquivos · P-9 DRE acumulada · P-26 formato do balancete · P-32 segundo ciclo de cobrança |
 | **Estreitado pelos dados, virou revisão de tabela** | 2 | P-5 obrigatoriedade · P-33 vocabulário de status (resposta anterior **corrigida**) |
-| **Trava spec** | 2 | P-2 limiar de variação · P-3 tolerância |
+| **Estreitado pelos dados, virou confirmação de número** | 2 | P-2 limiar de variação (15%) · P-3 tolerância (zero) |
 | **Decisão de produto, não bloqueia código** | 1 | P-6 planilhão |
 | **Achado nosso, não é dúvida** | 9 | P-18, P-22, P-28, P-29, P-30 e as demais divergências que encontramos no material do cliente |
 | **Confirmação, não bloqueia** | 14 | P-7, P-10 a P-17, P-19 a P-21, P-23 a P-25, P-27, P-31 a P-32 |
@@ -20,7 +20,7 @@ São 35 itens, mas a contagem bruta engana. O que importa é o que cada um trava
 
 ### O conjunto que trava encolheu
 
-A versão 2 tinha **seis** perguntas bloqueantes. Hoje são **duas**, e nenhuma delas impede começar:
+A versão 2 tinha **seis** perguntas bloqueantes. Hoje **nenhuma trava spec**, e sobra um único ponto de desenho em aberto (o piso de valor do alerta, na P-2):
 
 | Spec | Depende de | Situação |
 |---|---|---|
@@ -29,13 +29,15 @@ A versão 2 tinha **seis** perguntas bloqueantes. Hoje são **duas**, e nenhuma 
 | 003 Taxonomia de pastas | nada bloqueante | **liberada** |
 | 005 Importação do balancete | P-9 e P-26, resolvidas | **liberada** |
 | 004 Check list | P-5, estreitada em 04/08/2026 | **liberada** com a tabela observada de [[controle-entrega]] como padrão editável |
-| 006 Conciliação | P-3 | travada |
-| 007 Alertas | P-2 | travada |
+| 006 Conciliação | P-3, estreitada em 04/08/2026 | **liberada** com tolerância zero e encerramento por justificativa |
+| 007 Alertas | P-2, estreitada em 04/08/2026 | **liberada** com 15% configurável; resta decidir se a regra tem piso de valor |
 | 009 Geração do RMA | P-1, resolvida | liberada quando 006 estiver |
 
-Cinco specs podem ser escritas agora.
+As sete specs podem ser escritas agora.
 
-A 004 destravou porque a pergunta mudou de natureza. Não sabíamos quais documentos são obrigatórios; agora sabemos o que **75 meses de operação real** mostram, e o que falta é o cliente revisar uma tabela. E como a lista de itens varia por cliente e por período ([[controle-entrega]]), a obrigatoriedade tem de ser dado editável de qualquer forma: a resposta do cliente vira conteúdo de tabela, não mudança de código. Pelo critério do Saulo, isso a tira do caminho crítico.
+As três destravaram pelo mesmo motivo: a pergunta mudou de natureza. Não sabíamos quais documentos são obrigatórios, qual o limiar de alerta nem qual a tolerância. Agora sabemos o que **75 meses de operação real** e **dois RMAs reais** mostram, e o que falta é o cliente confirmar um padrão. Pelo critério do Saulo, "sim" e "não" levam ao mesmo código: a resposta vira valor de configuração, não estrutura.
+
+**A única exceção honesta** é o piso de valor do alerta de variação (P-2). Se a regra for só percentual ou percentual mais piso em reais, isso muda a regra e o formulário de configuração. É o único ponto onde a resposta ainda mexe no desenho, e mesmo ele se resolve nascendo com o piso opcional, com padrão zero.
 
 ### Sobre a lista crescer
 
@@ -89,9 +91,22 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Pergunta:** a partir de que variação de saldo entre um mês e o anterior o sistema deve alertar? O limite é o mesmo para todas as contas e todos os clientes?
 
-**O que já sabemos:** o material de escopo diz "geralmente superior a 15% ou 20%". O código tem três limiares diferentes em uso: queda de receita a -15%, alta de custos a +15%, e materialidade de variação a ±20%.
+**O que já sabemos:** o material de escopo diz "geralmente superior a 15% ou 20%", no `retorno_da_plataforma.txt`. É o **único número em todo o escopo**. O código tem três limiares diferentes em uso: queda de receita a -15%, alta de custos a +15%, e materialidade de variação a ±20%. O motor de cálculo não tem limiar nenhum: as únicas regras de formatação condicional das duas instâncias da planilha destacam valor negativo.
 
-**Por que importa:** trava [[regras-negocio#RN-34]].
+**O que a varredura de 04/08/2026 acrescentou.** Os dois RMAs reais mostram a escala que o técnico usa na prática, e ela é consistente com a faixa de 15% a 20%:
+
+| Variação | O que o técnico fez |
+|---|---|
+| até 4,30% | descartou explicitamente ("sem grandes variações") |
+| 10,90% a 17,96% | narrou com justificativa, sem escalar |
+| 24% a 44% | apontou como "principais variações" |
+| 50% e 139% | "aumentos bem significativos" |
+| 531% e 750% | pedido formal de esclarecimento, em apenso |
+
+**Por que continua travando:** trava [[regras-negocio#RN-34]]. A escala observada sustenta **15% como padrão**, mas não responde duas coisas que mudam o código:
+
+1. **Piso de valor.** A variação é calculada por conta do balancete, e o balancete é analítico. Uma conta que vai de R$ 10 para R$ 100 varia 900% e não interessa a ninguém. Sem um piso em reais, o alerta vira ruído no primeiro mês de uso. O sistema anterior tinha esse piso (R$ 50.000 ou 5% da receita líquida), mas nunca ligado ao alerta de variação.
+2. **Se o limiar é um só.** Nada no material sugere limiar por conta ou por cliente. O sistema anterior tinha limiares diferentes para receita e para custo, o que é outra coisa: sinal por natureza de conta.
 
 **Resposta:**
 
@@ -101,7 +116,18 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **O que já sabemos:** o código usa R$ 0,01 para DRE x balancete, R$ 0,05 como padrão da conciliação por conta, 0,1% para a equação Ativo = Passivo + PL, 1% para conflito entre documentos, e uma política de materialidade com piso de R$ 50.000 ou 5% da receita líquida. As colunas para tolerância por empresa existem no banco, mas nunca foram preenchidas.
 
-**Por que importa:** trava [[regras-negocio#RN-33]].
+**O que a varredura de 04/08/2026 acrescentou: na prática a tolerância é zero, e o que existe no lugar dela é um fluxo de justificativa.**
+
+Quatro fontes, todas na mesma direção:
+
+- O quadro **"Saldos Bancários em Março/2026"** do RMA real traz uma linha `DIFERENÇA` explícita. As sete contas fecham em **zero, ao centavo** (91,51 · 5.125,95 · 87,55 · 422,43 · 36.419,41 · 849,34). Foi este quadro que o técnico chamou de "conciliados".
+- A taxonomia de pastas diz "o valor do relatório **deve conciliar** com o saldo da conta". Sem faixa, sem percentual.
+- O texto dos dois RMAs é binário: "está conciliado" ou "não está conciliado". A palavra tolerância não aparece uma vez.
+- O motor de cálculo não tem nenhuma regra de limiar.
+
+E quando a diferença **não** é zero, ela não é absorvida por faixa nenhuma: vira pedido de esclarecimento, e é encerrada por justificativa registrada no corpo do relatório. Em março/2026, fornecedores não conciliou porque notas de serviço e faturas não entram no livro fiscal; o passivo fiscal não conciliou porque PIS e COFINS foram compensados com créditos do período. Nos dois casos a divergência ficou registrada com a explicação, não foi silenciada. Ver [[regras-negocio#RN-33.1]].
+
+**Por que ainda vale perguntar:** trava [[regras-negocio#RN-33]]. Tolerância zero é defensável como padrão e é o que a evidência mostra, mas há um caso que a evidência não cobre: **diferença de centavos por arredondamento**, quando o relatório da recuperanda vem em milhares e o balancete em reais. Nenhum dos quadros que vimos tinha esse problema. Se o cliente confirmar zero, a resposta certa é gerar divergência mesmo de R$ 0,01, e deixar o técnico encerrar com justificativa.
 
 **Resposta:**
 
@@ -431,13 +457,33 @@ Abraço!
 
 ```
 Olá! Três definições que dependem de vocês, e dois arquivos que
-faltam.
+faltam. Nas duas primeiras já fomos atrás nos RMAs que vocês nos
+mandaram, então elas viraram confirmação de um número, não pergunta
+aberta.
 
-1. O material diz que variação "superior a 15% ou 20%" gera alerta. Qual
-   número usamos, e ele muda por conta ou por cliente?
+1. ALERTA DE VARIAÇÃO. O retorno de vocês diz "superior a 15% ou 20%".
+   Olhando o "DIP - RMA - Março.2026 final.docx" e o "XPT S.A - RMA-
+   BEx 08.2024 teste.docx", a prática bate com isso: variação de até
+   4,30% vocês descartam ("sem grandes variações"), de 24% a 44% vocês
+   apontam como principal variação, e 531% e 750% viraram pedido de
+   esclarecimento em apenso.
+   Vamos adotar 15% como padrão, configurável. Confirmam?
+   E uma coisa que o material não resolve: como a variação é por conta
+   do balancete analítico, uma conta que sai de R$ 10 para R$ 100 varia
+   900%. Faz sentido só alertar acima de um valor mínimo em reais
+   também? Se sim, qual?
 
-2. Qual diferença entre documento e balancete ainda conta como
-   conferido? Um centavo? Um real? Um percentual?
+2. CONCILIAÇÃO. Procuramos tolerância em todo o material e não existe
+   nenhuma. No RMA de março o quadro "Saldos Bancários em Março/2026"
+   tem uma linha DIFERENÇA e as sete contas fecham em zero, ao centavo.
+   E quando não fecha, vocês não ignoram: em fornecedores e no passivo
+   fiscal a diferença virou pedido de esclarecimento e foi encerrada
+   com a justificativa da recuperanda dentro do relatório.
+   Então vamos fazer assim: diferença zero concilia, qualquer diferença
+   vira divergência, e o técnico encerra com justificativa registrada.
+   Confirmam? Só um caso nos preocupa: se algum relatório vier em
+   milhares e o balancete em reais, o arredondamento gera diferença de
+   centavos. Isso acontece com vocês?
 
 3. As planilhas de consolidação continuam existindo depois do novo
    sistema? Para quê?

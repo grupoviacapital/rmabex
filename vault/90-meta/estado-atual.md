@@ -15,6 +15,9 @@ O que foi feito até aqui:
 3. O domínio foi documentado em 12 notas.
 4. As perguntas ao cliente foram consolidadas, filtradas e a primeira rodada começou a ser enviada.
 5. **As 104 planilhas de controle de entrega foram lidas célula a célula** (3.900 linhas de item). Isso destravou a spec 004, fechou a P-32 e corrigiu a P-33. Ver [[controle-entrega]].
+6. **O escopo foi varrido atrás de limiar e tolerância**, incluindo os quadros do RMA, que são imagens. Achou a escala de variação que o técnico usa na prática e a prova de que a tolerância de conciliação é zero. Destravou as specs 006 e 007. Ver [[regras-negocio#RN-33]] e [[regras-negocio#RN-34]].
+
+**Nenhuma pergunta trava spec hoje.** As sete podem ser escritas. O que resta com o cliente é confirmação de padrão, e um único ponto de desenho: se o alerta de variação tem piso de valor em reais além do percentual.
 
 ## Decisões do cliente, com data
 
@@ -43,8 +46,8 @@ O que foi feito até aqui:
 |---|---|
 | 001 Scaffold, 002 Cadastro, 003 Taxonomia, 005 Balancete | Sem bloqueio técnico. **Travadas por decisão do usuário**, não por falta de informação. |
 | 004 Check list | **Destravada em 04/08/2026.** A obrigatoriedade foi medida em 75 meses reais ([[controle-entrega]]); o que falta é o cliente revisar a tabela, e ela é dado editável de qualquer forma. |
-| 006 Conciliação | Depende da tolerância de conferência |
-| 007 Alertas | Depende do limiar de variação |
+| 006 Conciliação | **Destravada em 04/08/2026.** A tolerância na prática é zero, e a divergência se encerra por justificativa registrada. Ver [[regras-negocio#RN-33]] e [[regras-negocio#RN-33.1]]. |
+| 007 Alertas | **Destravada em 04/08/2026** com 15% como padrão configurável. Resta um ponto de desenho: se a regra tem piso de valor em reais além do percentual. Ver [[regras-negocio#RN-34]]. |
 
 ## Mapa das notas
 
