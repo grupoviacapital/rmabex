@@ -355,35 +355,49 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Resposta:**
 
+## Filtro aplicado em 04/08/2026
+
+Critério, sugerido pelo Saulo: **se "sim" e "não" levam ao mesmo código, não é pergunta.** Passei os 30 itens do envio anterior por ele.
+
+### Os 6 que caíram
+
+| Item cortado | Por que a resposta não muda nada |
+|---|---|
+| Balanço patrimonial dentro da pasta 07 da GERATHERM | A classificação é por arquivo, não por pasta. Qualquer pasta pode conter mais de um tipo de documento, e o sistema tem que tratar isso de qualquer forma. |
+| Qual é a numeração oficial das pastas | A GERATHERM migrou de `02` para `07` em 2023; a DIPLOMATA segue no `02`. O histórico não vai ser reescrito, então a classificação precisa ser tolerante independentemente da resposta. Vira aviso. |
+| O formato de grupo (19 documentos x 7 empresas) ainda é usado | A DIPLOMATA já tem cinco empresas com balancete separado. O modelo precisa da dimensão empresa de qualquer jeito. |
+| O grupo contábil 4 e 5 é padrão para todos os clientes | O mapeamento conta-para-referência é por cliente por construção, já que cada um tem seu plano de contas. Não existe resposta que dispense o mapeamento. |
+| Os balancetes trazem resultado acumulado em todos os clientes | O arquivo do Agrosys **declara o próprio regime** no cabeçalho, e os outros formatos entregam o movimento do mês. O importador lê ou trata os dois casos, sem depender da resposta. |
+| A capa saindo `#N/A` e as linhas 36 e 38 dividindo pelo lucro líquido | São defeitos na planilha deles. Nosso cálculo já está definido pela resposta da Gisele. Continuam no envio como **aviso**, não como pergunta. |
+
+Restam **24 itens**: 20 perguntas, 2 pedidos de material e 2 avisos.
+
 ## Textos para envio
 
-Regra de escrita destes blocos: **uma linha por pergunta, começando pelo arquivo e pelo lugar exato**. Nada de contexto longo nem de explicação da nossa hipótese - quem responde sabe mais do que nós, e texto comprido induz resposta curta. São 20 perguntas ao todo, não 35: o resto do documento é registro interno.
+Uma linha por item, começando pelo arquivo e pelo lugar exato.
 
 ### Bloco 1 · Urgente - **EM ESPERA**
 
-> Em 04/08/2026 o Luiz informou que a planilha que temos era de teste e que existe uma mais atual, ainda não enviada. **Não mandar este bloco** até analisar a versão nova: os três defeitos podem já estar corrigidos nela. Registro do texto abaixo.
+> Aguardando a planilha mais atual, que o Luiz informou existir em 04/08/2026. Os pontos abaixo podem já estar corrigidos nela.
 
 ```
-Olá! Mapeamos em detalhe a planilha "01.BASE RELATÓRIO_xi teste.XLSM",
-que veio junto com o material de escopo. Três coisas que achamos e que
-vocês precisam ver.
+Olá! Mapeamos em detalhe a planilha "01.BASE RELATÓRIO_xi teste.XLSM".
+Uma pergunta e dois avisos.
 
-Antes: essa é a versão mais atual? Numa documentação do sistema antigo
-há referência a um "01.BASE_RELATÓRIO_xi_teste_2-2.XLSM", que não
-recebemos. Se existir uma versão mais nova, os três pontos abaixo podem
-já estar corrigidos nela.
+PERGUNTA
 
 1. Aba "P&L + EBITDA", linha 45: o rótulo é "Depreciações e
    Amortizações", mas a referência da linha é 40.G, que no dicionário
    (aba BdMeses) é "Compromissos RJ". O EBITDA soma essa linha de volta.
    Está correto?
 
+AVISOS - não precisam de resposta, é só para vocês saberem
+
 2. Aba "FOLHA DE ROSTO": o faturamento, o resultado líquido e os quatro
-   índices de liquidez do mês de referência estão como #N/A. Acontece no
-   arquivo de vocês também?
+   índices de liquidez do mês de referência estão saindo como #N/A.
 
 3. Aba "Dados para Graficos", linhas 36 e 38: estão dividindo pelo lucro
-   líquido, e não pela receita líquida como diz o rótulo. É proposital?
+   líquido, e não pela receita líquida como diz o rótulo.
 
 Abraço!
 ```
@@ -405,12 +419,12 @@ faltam.
 4. As planilhas de consolidação continuam existindo depois do novo
    sistema? Para quê?
 
-5. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do "Manual de
-   Operações_Área Técnica_V2.xlsx", aba "TD consolidada".
+5. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do
+   "Manual de Operações_Área Técnica_V2.xlsx", aba "TD consolidada".
 
-6. O "Manual de Operações_Área Técnica_V2.xlsx" (aba CAPA, controle de alterações de
-   04/04/2024) diz que os check lists foram retirados dele e viraram
-   arquivos individualizados. Podem enviar esses arquivos?
+6. O "Manual de Operações_Área Técnica_V2.xlsx" (aba CAPA, controle de
+   alterações de 04/04/2024) diz que os check lists foram retirados dele
+   e viraram arquivos individualizados. Podem enviar esses arquivos?
 
 Abraço!
 ```
@@ -418,15 +432,15 @@ Abraço!
 ### Bloco 3 · Confirmações
 
 ```
-Olá! Lista de pontos que se respondem em uma linha cada. Quase todos
-vêm de divergências entre arquivos que vocês nos enviaram - queremos
-saber qual versão vale.
+Olá! Pontos que se respondem em uma linha cada. Quase todos vêm de
+divergências entre arquivos que vocês nos enviaram.
 
 PASTAS E DOCUMENTOS
 
-1. Em "Código de Pastas Onedrive_Documentos (2) - identificação.xlsx" a pasta 21 (GFIP) tem
-   conciliação com o balancete; nos comentários do "RMA_RMA-DIP-01-2026_jan_de_2026 indicação de
-   pastas.docx" ela aparece sem. Qual vale?
+1. Em "Código de Pastas Onedrive_Documentos (2) - identificação.xlsx" a
+   pasta 21 (GFIP) tem conciliação com o balancete; nos comentários do
+   "RMA_RMA-DIP-01-2026_jan_de_2026 indicação de pastas.docx" ela
+   aparece sem. Qual vale?
 
 2. Nos mesmos comentários, a pasta 15 aparece sem conciliação nos itens
    5, 5.1 e 5.2 e com conciliação nos itens 5.4 e 5.5. É assim mesmo?
@@ -434,90 +448,67 @@ PASTAS E DOCUMENTOS
 3. Ainda nos comentários, as pastas 31, 34 e 35 dizem "pode ter
    conciliação". Como se decide caso a caso?
 
-4. Em OneDrive/DIPLOMATA, "Resumo da folha de pagamento" é a pasta 09;
-   em OneDrive/GERATHERM é a pasta 15. Qual é a numeração oficial?
-
-5. Em "01 - Controle de entrega de documentos 2025.xlsx", a coluna
+4. Em "01 - Controle de entrega de documentos 2025.xlsx", coluna
    STATUS 1: os valores possíveis são só Apresentado, Não Apresentado,
    Não aplicável e Parcial?
 
-6. No mesmo arquivo, as colunas "DUVIDAS / ESCLARECIMENTOS" e "STATUS 2"
+5. No mesmo arquivo, as colunas "DUVIDAS / ESCLARECIMENTOS" e "STATUS 2"
    estão vazias em todas as 105 planilhas que recebemos. Elas são
    usadas?
 
-7. Em "Lista das Pastas Onedrive_Documentos.xlsx", aba Controle_Docs..,
-   o Grupo TTT tem 19 documentos por 7 empresas. Esse formato de grupo
-   ainda é usado?
-
 NÚMEROS
 
-8. Em "XPT S.A_Balancete_xi testete.xlsx", o grupo 4 é "Custos das
-   Vendas e Serviços" e o 5 é "Custo Industrial". Isso é padrão para
-   todos os clientes?
+6. Em "01.BASE RELATÓRIO_xi teste.XLSM", aba INDICE, linhas 51 e 52: o
+   endividamento é calculado sobre o patrimônio líquido e também sobre o
+   ativo total. Qual dos dois vai no relatório?
 
-9. Em "01.BASE RELATÓRIO_xi teste.XLSM", aba INDICE, linhas 51 e 52: o endividamento é
-   calculado sobre o patrimônio líquido e também sobre o ativo total.
-   Qual dos dois vai no relatório?
+7. A Gisele confirmou CMV sobre receita líquida, mas em "DIP - RMA -
+   Março.2026 final.docx" o item 12.1.3 usa receita bruta. Varia por
+   cliente?
 
-10. Em "DIP - RMA - Março.2026 final.docx", o item 12.1.3 divide o CMV pela
-    receita bruta; em "XPT S.A - RMA- BEx 08.2024 teste.docx", pela receita líquida. Qual vale?
+8. Em "01.BASE RELATÓRIO_xi teste.XLSM", aba INDICE, ROA e ROE
+   multiplicam o resultado do mês por 12. É isso que sai no relatório
+   mensal?
 
-11. Em "01.BASE RELATÓRIO_xi teste.XLSM", aba INDICE, ROA e ROE multiplicam o resultado
-    do mês por 12. É isso que sai no relatório mensal?
+9. Em "DIP - RMA - Março.2026 final.docx", o item 10.1 usa as faixas
+   0-30, 30-90, 90-180 e acima de 180 dias. Existe algum caso com corte
+   em 60 dias?
 
-12. Em "DIP - RMA - Março.2026 final.docx", o item 10.1 usa as faixas 0-30, 30-90, 90-180 e
-    acima de 180 dias. Existe algum caso com corte em 60 dias?
+10. O Ativo Não Circulante é o grupo contábil 12, com o grupo 13 (Ativo
+    Permanente) ficando de fora dele e do Ativo Total?
 
-13. Em "Parecer Técnico - Raizen 2023-2025.docx" vocês usaram o Índice de
-    Solvência Geral. Ele entra no RMA também, ou é só de parecer avulso?
+11. Em "Parecer Técnico - Raizen 2023-2025.docx" vocês usaram o Índice
+    de Solvência Geral. Ele entra no RMA também, ou é só de parecer
+    avulso?
 
-14. Os balancetes que recebemos trazem o resultado acumulado no ano.
-    Vale para todos os clientes?
-
-14b. O Ativo Não Circulante é o grupo contábil 12, com o grupo 13 (Ativo
-    Permanente) ficando de fora dele e do Ativo Total? Achamos essa regra
-    numa documentação do projeto KANTIZ, que vocês pediram para
-    desconsiderar - por isso perguntamos.
-
-15. Em "DIP - RMA - Março.2026 final.docx", a validação dos comprovantes é feita "por
-    amostragem". Existe um critério de quantos conferir?
+12. Em "DIP - RMA - Março.2026 final.docx", a validação dos comprovantes
+    é feita "por amostragem". Existe um critério de quantos conferir?
 
 SISTEMA E TELAS
 
-16. Em Telas/20.png, o RMA é um protocolo numerado (RMA-2024-000587) com
-    solicitante e prioridade. Nas Telas/7.png a 17.png, é o relatório mensal da
-    recuperanda. São a mesma coisa?
+13. Em Telas/20.png, o RMA é um protocolo numerado (RMA-2024-000587) com
+    solicitante e prioridade. Nas Telas/7.png a 17.png, é o relatório
+    mensal da recuperanda. São a mesma coisa?
 
-17. Em Telas/6.png, existem seis perfis de acesso. Magistrado, Recuperanda e
-    Administrador Judicial não têm nenhuma tela desenhada. Eles usam o
-    sistema?
+14. Em Telas/6.png existem seis perfis de acesso. Magistrado,
+    Recuperanda e Administrador Judicial não têm nenhuma tela desenhada.
+    Eles usam o sistema?
 
-18. Em Telas/3.png, o logotipo do administrador judicial "será exibido nos
-    relatórios". O sistema atende mais de um administrador judicial?
+15. Em Telas/3.png, o logotipo do administrador judicial "será exibido
+    nos relatórios". O sistema atende mais de um administrador judicial?
 
-19. Em Telas/11.png, existem 7 tipos de documento. Eles substituem as 61
+16. Em Telas/11.png existem 7 tipos de documento. Eles substituem as 61
     pastas ou são um agrupamento para visualizar?
 
-20. Nas pastas do OneDrive dos dois clientes existem "Entradas IA",
+17. Nas pastas do OneDrive dos dois clientes existem "Entradas IA",
     "Processando IA", "Processados IA" e "Erros IA". Tem algum processo
     usando essas pastas hoje?
 
+AVISO, sem necessidade de resposta
+
+18. A numeração das pastas mudou ao longo do tempo: na GERATHERM o
+    balancete era a pasta 02 até 2022 e é a 07 desde 2023; na DIPLOMATA
+    continua sendo a 02. Vamos tratar as duas formas.
+
 Abraço!
 ```
-
-## O que ficou de fora, e por quê
-
-Perguntas que estavam nas versões anteriores e foram cortadas do envio:
-
-| Item | Motivo do corte |
-|---|---|
-| Seção 13 ausente no RMA | Detalhe editorial. Resolve-se olhando o próximo relatório. |
-| Telas: falta a 4, duas são iguais | Irrelevante para o produto. |
-| Dados da Geratherm no código antigo | É problema do fornecedor anterior, não decisão do cliente. |
-| Seis seções nas telas contra 18 no relatório | Provavelmente agrupamento de progresso. Decidimos nós. |
-| Prazos do Manual de Operações | Estão escritos no Manual. Assumimos que valem e avisamos se der conflito. |
-| ~~Referencial do grupo 12 e 13~~ | **Reaberto em 04/08/2026.** A regra vinha do repositório KANTIZ, que o cliente mandou desconsiderar. Voltou ao bloco 3 como item 14b. |
-| DAL, Constatação Prévia, Prestação de Contas | Entra na conversa de escopo comercial, não numa lista de confirmação. |
-| Onde os arquivos vivem | Já respondido pelo código. |
-
-Todos continuam registrados no corpo deste documento. Só não vão na primeira rodada.
