@@ -1,108 +1,158 @@
 # Perguntas ao Cliente - rodada 1
 
-> Consolidado do que precisa de confirmação externa antes de qualquer spec. Levantado a partir do material em [[fontes-escopo]] e das notas de domínio.
+> Consolidado do que precisa de confirmação externa antes de qualquer spec. Levantado a partir do material em [[fontes-escopo]], das notas de domínio e da mineração do código legado em [[sistema-legado]].
 >
 > Status: **a enviar**. Registre a resposta abaixo de cada item conforme forem chegando, e atualize [[pendencias-externas]] e [[regras-negocio]] em seguida.
+>
+> **Versão 2.** A primeira versão tinha 12 perguntas abertas. Depois de minerar os três repositórios legados, três mudaram de natureza (o código responde, falta confirmar), duas ficaram mais graves (o código mostra que ninguém decidiu) e cinco novas apareceram. Total: 17, mas a maioria agora é confirmação objetiva, não pergunta aberta.
 
-Doze perguntas. As sete primeiras travam specs: sem elas, a regra correspondente fica marcada "a confirmar" e nenhuma implementação pode se apoiar nela. As cinco últimas são confirmações factuais sobre o material recebido.
-
-## Bloqueantes
+## A · Decisões que travam specs
 
 ### P-1 · Indicadores da seção 12 do RMA
 
-**Pergunta:** como são calculados os índices de liquidez, a relação receita x custo (CMV), a relação receita x resultado e o EBITDA apresentados na seção 12 do RMA?
+**Pergunta:** qual é a fórmula correta de EBITDA, dos índices de liquidez, da relação receita x custo (CMV) e da relação receita x resultado?
 
-**Por que importa:** nenhum documento do escopo traz as fórmulas. Trava [[regras-negocio#RN-41]] e toda a geração da seção 12.
+**O que já sabemos:** o sistema anterior calculava EBITDA de **cinco formas diferentes**, no mesmo repositório - uma delas com um fator de 10% comentado apenas como "simplified proxy". Liquidez Geral tem quatro versões. Prazos médios usam base 30 dias num lugar e 360 noutro. Existe um documento em outro repositório que se declara "Single Source of Truth" e traz um conjunto coerente (ver [[sistema-legado]]) - é o candidato mais forte, mas não sabemos se foi aprovado por alguém.
+
+**Por que importa:** trava [[regras-negocio#RN-41]] e a seção 12 inteira.
 
 **Resposta:**
 
 ### P-2 · Limiar do alerta de variação
 
-**Pergunta:** a partir de que variação de saldo entre um mês e o anterior o sistema deve alertar o analista? Esse limite é o mesmo para todas as contas e todos os clientes?
+**Pergunta:** a partir de que variação de saldo entre um mês e o anterior o sistema deve alertar? O limite é o mesmo para todas as contas e todos os clientes?
 
-**Por que importa:** o material recebido diz "geralmente superior a 15% ou 20%". Trava [[regras-negocio#RN-34]].
+**O que já sabemos:** o material de escopo diz "geralmente superior a 15% ou 20%". O código tem três limiares diferentes em uso: queda de receita a -15%, alta de custos a +15%, e materialidade de variação a ±20%.
+
+**Por que importa:** trava [[regras-negocio#RN-34]].
 
 **Resposta:**
 
 ### P-3 · Tolerância de conciliação
 
-**Pergunta:** qual diferença entre o valor de um documento e o saldo da conta ainda é aceitável, a ponto de a conciliação ser considerada correta?
+**Pergunta:** qual diferença entre o valor de um documento e o saldo da conta ainda é aceitável?
 
-**Por que importa:** nenhum documento define. Sem tolerância, arredondamento de centavos gera divergência falsa em toda competência. Trava [[regras-negocio#RN-33]].
+**O que já sabemos:** o código usa R$ 0,01 para DRE x balancete, R$ 0,05 como padrão da conciliação por conta, 0,1% para a equação Ativo = Passivo + PL, 1% para conflito entre documentos, e uma política de materialidade com piso de R$ 50.000 ou 5% da receita líquida. As colunas para tolerância por empresa existem no banco, mas nunca foram preenchidas.
 
-**Resposta:**
-
-### P-4 · Consolidação de grupo econômico
-
-**Pergunta:** quando um processo tem várias recuperandas, o RMA é um por empresa, um consolidado do grupo, ou os dois? Se há consolidação, como os números das empresas se somam?
-
-**Por que importa:** define se `Competencia` pende de recuperanda ou de processo. Muda o modelo de dados na raiz. Ver [[modelo-dados]].
+**Por que importa:** trava [[regras-negocio#RN-33]].
 
 **Resposta:**
 
-### P-5 · Onde os arquivos vão viver
+### P-4 · Grupo econômico
 
-**Pergunta:** o OneDrive continua sendo o lugar onde a recuperanda deposita os documentos, com o sistema apenas lendo de lá, ou o sistema passa a ser o repositório e a recuperanda envia por ele?
+**Pergunta:** quando um processo tem várias empresas em recuperação, o relatório é um por empresa, um consolidado do grupo, ou os dois?
 
-**Por que importa:** determina se o documento é referência a um caminho externo ou arquivo armazenado, e se existe portal de envio para a recuperanda.
+**O que já sabemos:** o sistema anterior era **exclusivamente por empresa**. Não havia tabela de processo judicial nem qualquer noção de grupo econômico. Mais: a planilha de controle que a recuperanda preenche **suporta layout multi-empresa, e o sistema descartava essa informação na leitura**, agregando os subitens. Queremos saber se isso era o desejado ou uma limitação.
+
+**Por que importa:** define se a competência pende de empresa ou de processo. Muda [[modelo-dados]] na raiz.
+
+**Resposta:**
+
+### P-5 · Obrigatoriedade de documentos
+
+**Pergunta:** das 61 pastas, quais são obrigatórias todo mês? Isso varia por segmento da empresa ou por estágio do processo?
+
+**O que já sabemos:** **nada.** O sistema anterior tinha a tabela de obrigatoriedade pronta, com níveis obrigatório, condicional e opcional, e ela ficou **vazia**. Só duas pastas eram marcadas como exigidas no código: Balancete e DRE. Não havia nenhuma regra ligada a segmento ou a estágio processual.
+
+**Por que importa:** sem isso, o check list de faltantes não tem critério. É a pergunta mais importante desta lista.
 
 **Resposta:**
 
 ### P-6 · Planilhão técnico
 
-**Pergunta:** o planilhão técnico e a planilha base das principais contas continuam existindo depois do novo sistema, ou são substituídos por ele? Se continuam, para quê?
+**Pergunta:** as planilhas de consolidação usadas hoje continuam existindo depois do novo sistema? Se sim, para quê?
 
-**Por que importa:** decide se o sistema precisa gerar Excel no formato atual ou só apresentar os dados. Candidato a ADR.
-
-**Resposta:**
-
-### P-7 · Pastas de IA já existentes no OneDrive
-
-**Pergunta:** as pastas `Entradas IA`, `Processando IA`, `Processados IA`, `Erros IA`, `Auditoria IA` e `Relatórios IA` que aparecem nos clientes são de um processo em uso hoje? Algo depende delas?
-
-**Por que importa:** se há automação viva usando esse contrato, o sistema novo precisa conviver com ele em vez de substituí-lo. Candidato a ADR.
+**Por que importa:** decide se o sistema precisa gerar Excel no formato atual. Candidato a ADR.
 
 **Resposta:**
 
-## Confirmações factuais
+## B · Confirmações sobre o sistema anterior
 
-### P-8 · Numeração divergente das pastas
+### P-7 · Numeração das pastas
 
-**Pergunta:** a numeração das pastas de documentos é a mesma para todos os clientes? Nos dados recebidos, "Resumo da folha de pagamento" é a pasta 15 num cliente e a pasta 09 em outro, e a numeração também muda de ano para ano dentro do mesmo cliente. Qual é a referência correta, e o que deve acontecer quando a pasta de um cliente não bate com ela?
+**Pergunta:** qual é a numeração canônica das pastas de documentos, e o que deve acontecer quando a pasta de um cliente não segue ela?
 
-**Por que importa:** é o achado que mais afeta o desenho. Confirma ou derruba [[regras-negocio#RN-5]] e a existência de `AliasCategoria` em [[modelo-dados]].
-
-**Resposta:**
-
-### P-9 · Pastas obrigatórias
-
-**Pergunta:** das 61 pastas, quais são obrigatórias todo mês? Essa lista muda conforme o segmento da empresa ou o estágio do processo?
-
-**Por que importa:** o check list de documentos faltantes depende disso. Hoje não há critério documentado de obrigatoriedade.
+**O que já sabemos:** nos dados reais, "Resumo da folha de pagamento" é a pasta 15 num cliente e 09 em outro, e a numeração muda de ano para ano dentro do mesmo cliente. No código havia **três listas concorrentes**: duas com 61 itens numerados de 1 a 61 e uma com 60 itens numerados de forma diferente. O sistema tentava resolver isso normalizando nome e casando por semelhança, mas sem dicionário persistido.
 
 **Resposta:**
 
-### P-10 · Seção 13 do RMA
+### P-8 · Onde os arquivos vivem
 
-**Pergunta:** o RMA de março de 2026 usado como referência vai da seção 12 direto para a 14. A seção 13 foi removida, ficou vazia naquele mês, ou a numeração é mesmo assim?
+**Pergunta:** o OneDrive continua sendo o repositório dos documentos, com o sistema apenas lendo de lá?
 
-**Por que importa:** define se a numeração das seções é fixa ou variável por relatório. Afeta [[regras-negocio#RN-38]].
-
-**Resposta:**
-
-### P-11 · Telas do sistema atual
-
-**Pergunta:** o conjunto de telas enviado tem 19 imagens, numeradas de 1 a 20 sem a 4. Falta alguma tela, ou o conjunto está completo? Elas representam o sistema como ele é hoje ou uma proposta de como deveria ser?
-
-**Por que importa:** determina se as telas são referência de comportamento existente ou desejo de interface.
+**O que já sabemos:** era assim. O sistema guardava só o ponteiro e buscava o arquivo sob demanda, com a hierarquia `Projeto RMA / Cliente / Ano / Mês` imposta em código. Havia também uma rota paralela de upload manual. Só precisamos confirmar que segue valendo.
 
 **Resposta:**
 
-### P-12 · Outros produtos da área técnica
+### P-9 · A DRE vem acumulada
 
-**Pergunta:** o Manual de Operações descreve fluxos de DAL, Constatação Prévia, Prospecção e Prestação de Contas, além do RMA. Esses fluxos fazem parte do que o sistema deve atender, agora ou no futuro?
+**Pergunta:** os balancetes que recebemos trazem os saldos de resultado acumulados no ano, exigindo subtrair o mês anterior para obter o mês isolado?
 
-**Por que importa:** define se o modelo de dados precisa nascer preparado para mais de um tipo de entrega, ou se pode ser específico do RMA.
+**O que já sabemos:** o sistema anterior fazia essa desacumulação de forma determinística, pulando a virada de ano. Não está em nenhum documento do escopo. Se a premissa estiver errada, todo indicador de resultado sai errado.
+
+**Resposta:**
+
+### P-10 · Plano de contas
+
+**Pergunta:** no plano de contas dos clientes, o grupo 4 é receita ou custo da mercadoria vendida?
+
+**O que já sabemos:** o sistema anterior tinha **duas convenções conflitantes** no mesmo código. Um módulo classificava 4 como receita e 5 como despesa; outro classificava 4 como CMV e 5 como custo industrial. Pode ser bug, pode ser que clientes diferentes usem planos diferentes.
+
+**Resposta:**
+
+### P-11 · Faixas de aging
+
+**Pergunta:** as faixas de vencimento de contas a pagar e a receber são 0-30, 30-90, 90-180 e acima de 180 dias, ou há corte adicional em 60 dias?
+
+**O que já sabemos:** o escopo define quatro faixas. O código tinha três definições diferentes, uma delas com seis faixas.
+
+**Resposta:**
+
+### P-12 · Referencial de ativo não circulante
+
+**Pergunta:** continua valendo a regra de que o Ativo Não Circulante é o sintético do grupo 12, e que o grupo 13 (Ativo Permanente) é bucket independente, não compondo ANC nem Ativo Total?
+
+**O que já sabemos:** essa regra está documentada no código como "Referencial Giannini, 28/05/2026". É decisão de domínio tomada com alguém, e queremos saber se segue de pé.
+
+**Resposta:**
+
+### P-13 · Dados da Geratherm no código
+
+**Pergunta:** o sistema anterior tinha valores contábeis reais de um cliente (Geratherm) e textos de parecer prontos embutidos em arquivos de configuração. Isso era calibração intencional?
+
+**Por que importa:** não vamos replicar. Perguntamos para entender se havia motivo.
+
+**Resposta:**
+
+## C · Sobre o material e o escopo do produto
+
+### P-14 · Os outros quatro produtos
+
+**Pergunta:** o sistema deve atender também DAL, Constatação Prévia, Prospecção e Prestação de Contas, agora ou mais adiante?
+
+**O que já sabemos:** o Manual de Operações descreve os cinco produtos com estrutura parecida (check list, prazo, análise, relatório, protocolo). Dos cinco, o código legado cobre RMA e um módulo pequeno de Prospecção. **DAL, Constatação Prévia e Prestação de Contas não existem em nenhum repositório.**
+
+**Por que importa:** se entrarem, mesmo que no futuro, o modelo precisa nascer preparado para mais de um tipo de entrega. Descobrir depois custa refatoração no núcleo.
+
+**Resposta:**
+
+### P-15 · O calendário mensal
+
+**Pergunta:** os prazos do Manual de Operações continuam valendo? Dia 10 para a cobrança, dia 20 como prazo da recuperanda, dois dias úteis para a checagem, e último dia útil como prazo fatal de protocolo.
+
+**O que já sabemos:** estão no fluxo manual da área técnica, mas o fluxo automatizado proposto não menciona prazo nenhum. Os dois documentos divergem.
+
+**Resposta:**
+
+### P-16 · Seção 13 do RMA
+
+**Pergunta:** o RMA de março de 2026 usado como referência vai da seção 12 direto para a 14. A seção 13 foi removida, ficou vazia naquele mês, ou a numeração é assim mesmo?
+
+**Resposta:**
+
+### P-17 · Telas e pastas de IA
+
+**Pergunta:** o conjunto de telas tem 19 imagens numeradas de 1 a 20, sem a 4 - falta alguma? E as pastas com nome de IA que aparecem no OneDrive dos clientes (Entradas IA, Processando IA, Processados IA, Erros IA, Auditoria IA, Relatórios IA) pertencem a algum processo em funcionamento hoje?
 
 **Resposta:**
 
@@ -113,70 +163,96 @@ Assunto: RMA BEx - confirmações necessárias antes de iniciarmos
 
 Olá,
 
-Concluímos a leitura de todo o material de escopo que vocês nos enviaram
-e mapeamos o processo, as 61 pastas de documentos, as conciliações com o
-balancete e a estrutura do relatório.
+Concluímos a leitura de todo o material de escopo e também a análise dos
+três sistemas desenvolvidos pela equipe anterior. Isso respondeu boa
+parte das nossas dúvidas, e transformou outras em perguntas mais
+específicas.
 
-Antes de começarmos a construir, precisamos confirmar doze pontos com
-vocês. Os sete primeiros nos impedem de avançar; os outros cinco são
-dúvidas sobre o próprio material.
+São 17 pontos. Os seis primeiros nos impedem de começar; o resto é
+confirmação, e a maioria se responde em uma linha.
 
-SOBRE OS CÁLCULOS
+BLOQUEANTES
 
-1. Como são calculados os índices de liquidez, a relação receita x custo
-   (CMV), a relação receita x resultado e o EBITDA que aparecem na seção
-   12 do RMA?
+1. Qual é a fórmula correta de EBITDA, dos índices de liquidez, da
+   relação receita x custo (CMV) e da relação receita x resultado?
+   Encontramos cinco fórmulas diferentes de EBITDA no sistema anterior,
+   uma delas com um fator de 10% marcado no código apenas como
+   "aproximação simplificada". Precisamos saber qual é a boa.
 
 2. A partir de que variação de saldo de um mês para o outro o sistema
-   deve alertar o analista? Esse limite é o mesmo para todas as contas e
-   para todos os clientes?
+   deve alertar? O material diz "geralmente 15% ou 20%", e o sistema
+   anterior usava três valores diferentes conforme o caso.
 
 3. Qual diferença entre o valor de um documento e o saldo da conta ainda
-   é aceitável para considerarmos a conferência correta?
-
-SOBRE A ORGANIZAÇÃO DO TRABALHO
+   é aceitável para considerarmos a conferência correta? O sistema
+   anterior usava de um centavo a um por cento, dependendo do ponto.
 
 4. Quando um processo tem várias empresas em recuperação, o relatório é
-   um por empresa, um consolidado do grupo, ou os dois? Havendo
-   consolidação, como os números se somam?
+   um por empresa, um consolidado do grupo, ou os dois? O sistema
+   anterior trabalhava sempre por empresa e descartava a informação de
+   grupo que vem na planilha de controle. Isso era o desejado?
 
-5. O OneDrive continua sendo o lugar onde a empresa deposita os
-   documentos, com o sistema apenas lendo de lá, ou o sistema passa a
-   receber os arquivos diretamente?
+5. Das 61 pastas de documentos, quais são obrigatórias todo mês? Essa
+   lista muda conforme o segmento da empresa ou o estágio do processo?
+   O sistema anterior tinha a estrutura pronta para isso e nunca foi
+   preenchida, então não temos de onde tirar.
 
-6. As planilhas de consolidação usadas hoje continuam existindo depois do
-   novo sistema? Se sim, com que finalidade?
+6. As planilhas de consolidação usadas hoje continuam existindo depois
+   do novo sistema? Se sim, com que finalidade?
 
-7. As pastas com nome de IA que encontramos no material (Entradas IA,
-   Processando IA, Processados IA, Erros IA, Auditoria IA e Relatórios
-   IA) fazem parte de algum processo em funcionamento hoje? Alguma coisa
-   depende delas?
+CONFIRMAÇÕES
 
-SOBRE O MATERIAL RECEBIDO
+7. Qual é a numeração canônica das pastas de documentos? Nos dados que
+   recebemos, "Resumo da folha de pagamento" é a pasta 15 em um cliente
+   e a 09 em outro, e muda de um ano para o outro dentro do mesmo
+   cliente. E o que deve acontecer quando as pastas não seguem o padrão?
 
-8. A numeração das pastas de documentos é a mesma para todos os clientes?
-   No material que recebemos, "Resumo da folha de pagamento" é a pasta 15
-   em um cliente e a pasta 09 em outro, e a numeração também muda de um
-   ano para o outro dentro do mesmo cliente. Qual é a referência correta,
-   e o que deve acontecer quando as pastas de um cliente não seguem ela?
+8. O OneDrive continua sendo o lugar onde a empresa deposita os
+   documentos, com o sistema apenas lendo de lá?
 
-9. Das 61 pastas, quais são obrigatórias todo mês? Essa lista muda
-   conforme o segmento da empresa ou o estágio do processo?
+9. Os balancetes trazem os valores de resultado acumulados no ano,
+   exigindo subtrair o mês anterior para obter o mês isolado? O sistema
+   anterior fazia essa conta.
 
-10. No relatório de março de 2026 que usamos como referência, a numeração
-    vai da seção 12 direto para a 14. A seção 13 foi removida, ficou
-    vazia naquele mês, ou a numeração é assim mesmo?
+10. No plano de contas dos clientes, o grupo 4 é receita ou custo da
+    mercadoria vendida? O sistema anterior tratava das duas formas em
+    lugares diferentes.
 
-11. O conjunto de telas que recebemos tem 19 imagens, numeradas de 1 a 20
-    sem a de número 4. Falta alguma, ou está completo? Elas mostram o
-    sistema como ele funciona hoje ou como vocês gostariam que fosse?
+11. As faixas de vencimento de contas a pagar e a receber são 0-30,
+    30-90, 90-180 e acima de 180 dias, ou existe corte adicional em 60?
 
-12. O Manual de Operações descreve também os fluxos de DAL, Constatação
-    Prévia, Prospecção e Prestação de Contas. Esses fluxos fazem parte do
-    que o sistema deve atender, agora ou mais adiante?
+12. Continua valendo a regra de que o Ativo Não Circulante é o grupo 12,
+    e que o grupo 13 (Ativo Permanente) fica de fora do ANC e do Ativo
+    Total? Está registrada no sistema anterior como definição de
+    28/05/2026.
 
-Ficamos no aguardo. Qualquer um dos pontos que precisar de conversa ao
-vivo, podemos marcar.
+13. O sistema anterior tinha valores contábeis reais de um cliente e
+    textos de parecer prontos gravados dentro do código. Isso foi
+    intencional?
+
+SOBRE O ESCOPO E O MATERIAL
+
+14. O sistema deve atender também DAL, Constatação Prévia, Prospecção e
+    Prestação de Contas, agora ou mais adiante? Os cinco processos estão
+    no Manual de Operações, mas só RMA e parte de Prospecção existem no
+    sistema anterior.
+
+15. Os prazos do Manual de Operações continuam valendo? Dia 10 para a
+    cobrança, dia 20 como prazo da empresa, dois dias úteis para a
+    checagem e último dia útil para o protocolo. O fluxo automatizado
+    que recebemos não menciona prazo nenhum.
+
+16. No relatório de março de 2026, a numeração vai da seção 12 direto
+    para a 14. A seção 13 foi removida, ficou vazia naquele mês, ou é
+    assim mesmo?
+
+17. O conjunto de telas tem 19 imagens numeradas de 1 a 20, sem a de
+    número 4 - falta alguma? E as pastas com nome de IA que aparecem no
+    OneDrive (Entradas IA, Processando IA, Processados IA, Erros IA,
+    Auditoria IA, Relatórios IA) fazem parte de algum processo em
+    funcionamento hoje?
+
+Qualquer um desses pontos que renda conversa, podemos marcar uma call.
 
 Abraço,
 ```

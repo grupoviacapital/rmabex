@@ -210,6 +210,21 @@ Valor lido de um documento pela análise automática, antes de virar conciliaç�
 | nome / e-mail | `name` / `email` | string | e-mail é o canal do fluxo |
 | papel | `role` | enum | técnico, revisor, coordenação, administrador judicial |
 
+## Confrontado com o sistema legado
+
+A mineração em [[sistema-legado]] validou parte do modelo e apontou o que ele precisa corrigir.
+
+**Confirmado:** as 61 categorias com numeração 1 a 61; as 20 conciliações; a necessidade de normalizar nome de pasta; o estado "não classificado"; o tipo monetário decimal com 2 casas (`numeric(18,2)` e `numeric(20,2)` no Postgres legado).
+
+**Correções que o legado justifica:**
+
+- `AliasCategoria` **precisa ser persistida**. No legado os sinônimos eram recalculados em memória a cada execução, a partir dos próprios dados, sem dicionário durável e sem tratamento de erro de digitação.
+- `Documento.categoryId` **precisa ser gravado**. No legado a categoria nunca era persistida; era sempre re-derivada do caminho do arquivo.
+- `ContaContabil.canonicalRole` é o elo que faltava. O legado tentava ligar pasta a conta por similaridade lexical com corte em 0,95, o que nunca casaria "15 - Resumo da folha de pagamento" com "2.1.03 - Salários a Pagar".
+- A máquina de estados do RMA deve seguir o modelo de **seção** do legado, não o de documento: transições explícitas, papel exigido por transição, motivo obrigatório na devolução, versão imutável a cada mudança e log de auditoria. O legado permitia liberar para a recuperanda um relatório ainda em rascunho, porque o gate validava só o papel de quem libera.
+
+**Entidade a acrescentar:** `RequisitoDocumento` (categoria, nível `MANDATORY`/`CONDITIONAL`/`OPTIONAL`, condição de aplicabilidade). O legado criou a tabela equivalente e nunca a preencheu; o critério de obrigatoriedade é [[perguntas-cliente]] P-5.
+
 ## Pontos ainda em aberto
 
 - Consolidação de grupo econômico: o RMA é por recuperanda, por processo, ou os dois? A aba `Controle_Docs..` sugere controle por empresa dentro de um processo, mas o critério de consolidação dos números não está documentado.

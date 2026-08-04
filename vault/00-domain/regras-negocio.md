@@ -167,7 +167,7 @@ O SISTEMA DEVE conciliar o saldo do relatório de impostos contra a soma das con
 
 O SISTEMA DEVE considerar conciliado o par documento/conta cuja diferença absoluta estiver dentro da tolerância configurada.
 
-*Nenhum documento do escopo define tolerância. Sem ela, arredondamento de centavos gera divergência falsa. Pendente de definição da área técnica.*
+*Nenhum documento do escopo define tolerância. Sem ela, arredondamento de centavos gera divergência falsa. O sistema legado usava valores diferentes por contexto - R$ 0,01, R$ 0,05, 0,1%, 1% - e uma política de materialidade com piso de R$ 50.000 ou 5% da receita líquida (ver [[sistema-legado]]). Pendente de decisão em [[perguntas-cliente]] P-3.*
 
 ## Alertas e divergências
 
@@ -175,7 +175,7 @@ O SISTEMA DEVE considerar conciliado o par documento/conta cuja diferença absol
 
 QUANDO o saldo de uma conta do balancete variar acima do limiar configurado em relação à mesma conta no mês anterior, O SISTEMA DEVE gerar alerta de atenção para o analista, identificando conta, valores comparados e percentual de variação.
 
-*Origem: `retorno_da_plataforma.txt`. O documento cita "geralmente superior a 15% ou 20%"; o valor exato e o escopo de configuração estão pendentes.*
+*Origem: `retorno_da_plataforma.txt`. O documento cita "geralmente superior a 15% ou 20%". O sistema legado usava -15% para queda de receita, +15% para alta de custos e ±20% para materialidade de variação, com a fórmula `valor do mês / valor do mês anterior - 1` (ver [[sistema-legado]]). Pendente em [[perguntas-cliente]] P-2.*
 
 ### RN-35 · Relevância é decisão humana
 
@@ -213,7 +213,7 @@ O SISTEMA DEVE permitir que o técnico preencha manualmente qualquer informaçã
 
 O SISTEMA DEVE calcular e apresentar os índices de liquidez, a relação receita x custo (CMV), a relação receita x resultado e o EBITDA.
 
-*As fórmulas não estão em nenhum documento do escopo. Pendente da área técnica.*
+*As fórmulas não estão em nenhum documento do escopo. O sistema legado tinha cinco definições conflitantes de EBITDA e quatro de liquidez geral; a fonte mais coerente é a especificação do produto BEx, transcrita em [[sistema-legado]]. Pendente em [[perguntas-cliente]] P-1.*
 
 ## Fluxo de aprovação e protocolo
 
@@ -242,3 +242,43 @@ QUANDO o RMA for protocolado, O SISTEMA DEVE arquivar o documento no diretório 
 O SISTEMA DEVE tratar documentos da recuperanda como dados sensíveis de terceiros, e NÃO DEVE enviá-los a serviço externo sem base legal e sem registro do envio.
 
 *Ver [[seguranca]] e a pendência de LGPD em [[pendencias-externas]].*
+
+## Regras descobertas depois (a confirmar)
+
+Vieram do `Manual de Operações` ([[fluxos-area-tecnica]]) e da mineração do código legado ([[sistema-legado]]). Nenhuma estava nas fontes usadas nas regras acima.
+
+### RN-47 · Calendário mensal do RMA **(a confirmar)**
+
+O SISTEMA DEVE seguir o calendário: até o dia 10, cobrança da documentação à recuperanda; dia 20, prazo dela para anexar; dois dias úteis depois, checagem do recebimento e cobrança das pendências; último dia útil do mês, prazo fatal de protocolo, referente à movimentação do mês anterior.
+
+*O fluxo automatizado proposto não menciona prazo algum, então os dois documentos divergem. Ver [[perguntas-cliente]] P-15.*
+
+### RN-48 · Cobrança acumula pendência anterior
+
+QUANDO o sistema cobrar a documentação do mês vigente, O SISTEMA DEVE incluir na mesma cobrança as pendências de meses anteriores ainda em aberto.
+
+*Origem: fluxo manual do RMA, texto explícito.*
+
+### RN-49 · Histórico de cobrança é conteúdo do relatório
+
+O SISTEMA DEVE registrar o histórico das cobranças de documentos e de esclarecimentos e apresentá-lo em apenso do RMA, detalhando-o na seção de Fatos Relevantes.
+
+*Origem: fluxo manual do RMA. É mais forte do que o modelado antes: não é log interno, é conteúdo publicado.*
+
+### RN-50 · Desacumulação da DRE **(a confirmar)**
+
+QUANDO o balancete trouxer contas de resultado com saldo acumulado no exercício, O SISTEMA DEVE obter o valor do mês isolado subtraindo o saldo do mês anterior, e NÃO DEVE aplicar a subtração na virada de ano.
+
+*O sistema legado fazia exatamente isso. Se a premissa estiver errada, todo indicador de resultado sai errado. Ver [[perguntas-cliente]] P-9.*
+
+### RN-51 · Natureza da conta define o saldo **(a confirmar)**
+
+O SISTEMA DEVE apurar o saldo de conta devedora como saldo inicial mais débitos menos créditos, e o de conta credora como saldo inicial mais créditos menos débitos.
+
+*O legado deduzia a natureza pelo primeiro dígito da conta, mas tinha duas convenções conflitantes para os grupos 4 e 5. Ver [[perguntas-cliente]] P-10.*
+
+### RN-52 · Categoria resolvida é persistida
+
+QUANDO o sistema classificar um documento, O SISTEMA DEVE persistir a categoria resolvida e o critério que a produziu, e NÃO DEVE depender de re-derivar a categoria a partir do caminho do arquivo a cada consulta.
+
+*Contraponto explícito ao legado, que nunca persistia a categoria e recalculava os sinônimos de pasta em memória a cada execução.*
