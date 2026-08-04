@@ -2,6 +2,20 @@
 
 > Coisas que ficam **fora** do que fazemos aqui no código, mas que o projeto vai precisar antes de produção. Lista simples e direta. Aprofundamos cada item depois.
 
+## Domínio (dependem da área técnica, travam specs)
+
+- [ ] **Fórmulas dos indicadores** da seção 12 do RMA: índices de liquidez, receita x custo (CMV), receita x resultado, EBITDA. Nenhum documento do escopo define. Trava [[regras-negocio#RN-41]] e a spec de geração do RMA.
+- [ ] **Limiar do alerta de variação**: o escopo diz "geralmente 15% ou 20%". Definir o valor, e se é global, por conta ou por cliente. Trava [[regras-negocio#RN-34]].
+- [ ] **Tolerância de conciliação**: nenhum documento define. Sem ela, diferença de centavos vira divergência falsa. Trava [[regras-negocio#RN-33]].
+- [ ] **Consolidação de grupo econômico**: o RMA é por recuperanda, por processo, ou consolidado? Ver [[modelo-dados]].
+- [ ] **Origem dos arquivos**: o OneDrive continua sendo a fonte ou o sistema passa a ser o repositório?
+- [ ] **Planilhão técnico**: substituir pelo modelo de dados ou manter como formato de exportação? Candidato a ADR.
+- [ ] **Convenção de pastas de IA** (`Entradas IA`, `Processando IA`, `Processados IA`, `Erros IA`): manter o contrato existente no OneDrive ou substituir? Candidato a ADR.
+
+## Técnicas a verificar
+
+- [ ] **Tipo monetário no Prisma sobre SQLite**: confirmar o comportamento de `Decimal` antes de fechar o schema; alternativa segura é inteiro em centavos. Ver [[modelo-dados]].
+
 ## Segurança e infra
 
 - [ ] Pentest profissional (antes de produção, por lidar com dinheiro).
