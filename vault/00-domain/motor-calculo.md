@@ -1,6 +1,6 @@
 # Motor de Cálculo - engenharia reversa da planilha padrão
 
-> Fonte: `OLD_RMA/escopo/01.BASE RELATÓRIO_xi teste.XLSM`, 14 abas, lidas integralmente célula a célula, incluindo o VBA. Ver [[fontes-escopo]].
+> Fonte: `OLD_RMA/escopo/GoogleDrive/01.BASE RELATÓRIO_xi teste.XLSM`, 14 abas, lidas integralmente célula a célula, incluindo o VBA. Ver [[fontes-escopo]].
 >
 > Esta planilha **é** o motor do RMA. Tudo que o sistema novo precisa calcular está aqui, e a arquitetura dela deve ser preservada em conceito, não em forma.
 >

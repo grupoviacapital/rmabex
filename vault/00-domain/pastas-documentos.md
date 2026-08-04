@@ -1,6 +1,6 @@
 # Pastas de Documentos - Taxonomia e regra de análise
 
-> Fonte: `OLD_RMA/escopo/Acessos da Plataforma RMA - Retorno da Plataforma/Código de Pastas Onedrive_Documentos (2) - identificação.xlsx`, aba `Pastas Onedrive` (ver [[fontes-escopo]]).
+> Fonte: `OLD_RMA/escopo/GoogleDrive/Acessos da Plataforma RMA - Retorno da Plataforma/Código de Pastas Onedrive_Documentos (2) - identificação.xlsx`, aba `Pastas Onedrive` (ver [[fontes-escopo]]).
 >
 > São **61 pastas**. Cada uma tem um número canônico e um tipo de análise.
 >

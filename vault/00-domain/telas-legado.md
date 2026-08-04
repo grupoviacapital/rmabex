@@ -1,6 +1,6 @@
 # Telas de Referência
 
-> Fonte: `OLD_RMA/escopo/Telas/` - 19 capturas, numeradas de 1 a 20 (falta a 4). São telas de **proposta de interface**, com dados fictícios (Alpha Comércio, Beta Indústria, Débora Raposo). Marca **Brasil Expert** aplicada.
+> Fonte: `OLD_RMA/escopo/GoogleDrive/Telas/` - 19 capturas, numeradas de 1 a 20 (falta a 4). São telas de **proposta de interface**, com dados fictícios (Alpha Comércio, Beta Indústria, Débora Raposo). Marca **Brasil Expert** aplicada.
 >
 > Não confundir com [[ui-referencia]], que é preenchida pelo `/identidade` e trata de tokens visuais. Aqui está o inventário funcional: o que cada tela faz e que regras ela revela.
 

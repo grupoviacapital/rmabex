@@ -1,6 +1,6 @@
 # Fluxo do Processo RMA
 
-> Fonte: `OLD_RMA/escopo/Fluxo Processo RMA IA_v3.xlsx`, aba `Fluxo RMA` (o fluxograma vive em shapes, não em células) e `retorno_da_plataforma.txt`. Ver [[fontes-escopo]].
+> Fonte: `OLD_RMA/escopo/GoogleDrive/Fluxo Processo RMA IA_v3.xlsx`, aba `Fluxo RMA` (o fluxograma vive em shapes, não em células) e `retorno_da_plataforma.txt`. Ver [[fontes-escopo]].
 
 O fluxo tem quatro raias: **Técnico (cadastro e check list)**, **IA (recebe, confere e trata)**, **IA (validando)** e **Técnico (validando)**, terminando em revisão, aprovação e protocolo.
 

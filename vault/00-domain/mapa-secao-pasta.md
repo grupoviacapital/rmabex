@@ -1,6 +1,6 @@
 # Mapa Seção do RMA -> Pasta -> Conciliação
 
-> Fonte: `OLD_RMA/escopo/Acessos da Plataforma RMA - Retorno da Plataforma/RMA_RMA-DIP-01-2026_jan_de_2026 indicação de pastas.docx`, nos **45 comentários** do documento. O corpo do arquivo é um RMA normal; a informação está nas anotações de margem, invisíveis em leitura comum.
+> Fonte: `OLD_RMA/escopo/GoogleDrive/Acessos da Plataforma RMA - Retorno da Plataforma/RMA_RMA-DIP-01-2026_jan_de_2026 indicação de pastas.docx`, nos **45 comentários** do documento. O corpo do arquivo é um RMA normal; a informação está nas anotações de margem, invisíveis em leitura comum.
 >
 > É o documento mais operacional do escopo: diz, para cada seção do relatório, de qual pasta sai a informação, se há conciliação, e que tipos de arquivo esperar.
 

@@ -2,7 +2,7 @@
 
 > Mapa do que existe em `OLD_RMA/escopo/` (fora do git), o que cada documento define e para que ele é autoridade. Use este índice antes de abrir qualquer arquivo: ele evita reler 9 GB de material para achar uma regra.
 >
-> Regra de precedência: **`escopo/` é a verdade do domínio**. Os repositórios legados (`OLD_RMA/RMA-VS-1-FINAL-main/` etc.) servem só para conferir fórmula de cálculo ou detalhe de tela.
+> Regra de precedência: **`escopo/` é a verdade do domínio**. Os repositórios legados (`OLD_RMA/projetos_antigos/RMA-VS-1-FINAL-main/` etc.) servem só para conferir fórmula de cálculo ou detalhe de tela.
 
 ## Documentos normativos (definem regra)
 
@@ -42,7 +42,7 @@ Detalhamento das telas em [[telas-legado]].
 
 ## Rodada adicional de material (04/08/2026)
 
-Pasta `escopo/mais_documentacoes/`, com três arquivos:
+Pasta `escopo/GoogleDrive/mais_documentacoes/`, com três arquivos:
 
 | Arquivo | Situação |
 |---|---|
@@ -75,8 +75,8 @@ Pastas criadas a partir do material original, que continua intacto no lugar.
 
 | Pasta | Conteúdo |
 |-------|----------|
-| `escopo/fluxogramas/` | Os 6 fluxogramas renderizados em PNG: `rma-ia.png` (fluxo automatizado proposto) e `manual-fluxo-*.png` (os 5 produtos da área técnica). Ver [[fluxos-area-tecnica]]. |
-| `escopo/graficos-rma/` | Os 40 gráficos e imagens embutidos no RMA de março de 2026. Mostram quais gráficos o sistema precisa gerar. |
+| `escopo/GoogleDrive/fluxogramas/` | Os 6 fluxogramas renderizados em PNG: `rma-ia.png` (fluxo automatizado proposto) e `manual-fluxo-*.png` (os 5 produtos da área técnica). Ver [[fluxos-area-tecnica]]. |
+| `escopo/GoogleDrive/graficos-rma/` | Os 40 gráficos e imagens embutidos no RMA de março de 2026. Mostram quais gráficos o sistema precisa gerar. |
 | `escopo/OneDrive/DIPLOMATA/`, `escopo/OneDrive/GERATHERM/` | Conteúdo extraído dos `.zip` homônimos. |
 
 ## Cobertura da leitura

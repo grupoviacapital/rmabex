@@ -1,6 +1,6 @@
 # Anatomia do RMA - estrutura do relatório
 
-> Fonte: `OLD_RMA/escopo/DIP - RMA - Março.2026 final.docx` (RMA real, 18 seções) e `retorno_da_plataforma.txt`. Ver [[fontes-escopo]].
+> Fonte: `OLD_RMA/escopo/GoogleDrive/DIP - RMA - Março.2026 final.docx` (RMA real, 18 seções) e `retorno_da_plataforma.txt`. Ver [[fontes-escopo]].
 >
 > O RMA é peça processual: abre endereçado ao juízo ("AO JUÍZO DA ... VARA CÍVEL"), com autos, incidente de relatórios mensais e assinatura do administrador judicial com OAB. Estrutura e ordem das seções seguem a **Recomendação nº 72 do CNJ**.
 

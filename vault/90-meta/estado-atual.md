@@ -76,7 +76,7 @@ Verificações de apoio, para não refazer o caminho:
 | As entidades | [[modelo-dados]] |
 | O que falta perguntar | [[perguntas-cliente]] |
 
-Material de referência não versionado fica em `OLD_RMA/`. Os fluxogramas renderizados estão em `OLD_RMA/escopo/fluxogramas/`, e os gráficos do RMA em `OLD_RMA/escopo/graficos-rma/`.
+Material de referência não versionado fica em `OLD_RMA/`. Os fluxogramas renderizados estão em `OLD_RMA/escopo/GoogleDrive/fluxogramas/`, e os gráficos do RMA em `OLD_RMA/escopo/GoogleDrive/graficos-rma/`.
 
 Página HTML com as fórmulas, compartilhável com o cliente: `vault/90-meta/formulas-sistema-anterior.html`, publicada em https://claude.ai/code/artifact/d5a7e9d3-210d-4d0e-87cc-9b1ee1e3e658
 

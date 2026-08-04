@@ -48,12 +48,12 @@ A tabela abaixo está por número. **A ordem de execução é outra**, e sai do 
 - [x] Extrair o fluxo do processo -> [[fluxo-processo]]
 - [x] Extrair a estrutura do RMA -> [[anatomia-rma]]
 - [x] Preencher o glossário -> [[glossario]]
-- [x] Extrair os fluxos do `Manual de Operações_Área Técnica_V2.xlsx` -> [[fluxos-area-tecnica]] e `escopo/fluxogramas/`
+- [x] Extrair os fluxos do `Manual de Operações_Área Técnica_V2.xlsx` -> [[fluxos-area-tecnica]] e `escopo/GoogleDrive/fluxogramas/`
 - [x] Criar `RN-x` para o calendário mensal do RMA (dia 10, dia 20, D+2, último dia útil) -> [[regras-negocio#RN-47]]
 - [x] Reconciliar o fluxo manual e o fluxo automatizado do RMA -> [[fluxo-ponta-a-ponta]]. **Eles não divergem: o automatizado é silencioso sobre prazos.**
 - [ ] Converter as regras de conciliação em `RN-x` em [[regras-negocio]]
 - [ ] Modelar as entidades em [[modelo-dados]]
-- [ ] Documentar as telas do sistema legado (`OLD_RMA/escopo/Telas/`) em [[ui-referencia]]
+- [ ] Documentar as telas do sistema legado (`OLD_RMA/escopo/GoogleDrive/Telas/`) em [[ui-referencia]]
 - [ ] Definir as fórmulas dos indicadores da seção 12 do RMA (liquidez, CMV, EBITDA)
 
 ## Notas

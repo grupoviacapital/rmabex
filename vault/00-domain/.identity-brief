@@ -1,8 +1,8 @@
 O projeto antigo fica em `OLD_RMA/` (na raiz do repositório, ignorado pelo git). É a base do novo RMA: as regras e os escopos são os mesmos, mas o novo projeto é feito na estrutura correta e seguindo padrões corretos.
 
-- `OLD_RMA/auditoria/` -> análise feita do projeto antigo.
-- `OLD_RMA/backup/` -> backup do banco do projeto antigo, que não funciona mais e não é mais usado; está ali só para consulta e comparação.
+- `OLD_RMA/projetos_antigos/auditoria/` -> análise feita do projeto antigo.
+- `OLD_RMA/projetos_antigos/backup/` -> backup do banco do projeto antigo, que não funciona mais e não é mais usado; está ali só para consulta e comparação.
 - `OLD_RMA/escopo/` -> todos os documentos de escopo, para consulta e checagem de regra. Há uma task pendente de refatorar cada documento, separar e organizar, para facilitar futuras consultas.
-- `OLD_RMA/KANTIZ-VS-1-FINAL-main/`, `OLD_RMA/PROSPECCAO-VS1-main/` e `OLD_RMA/RMA-VS-1-FINAL-main/` -> gits que juntos formam o projeto completo do RMA antigo. Estão ali só para checar regra de cálculo ou detalhes de tela (campos de texto etc).
+- `OLD_RMA/projetos_antigos/KANTIZ-VS-1-FINAL-main/`, `OLD_RMA/projetos_antigos/PROSPECCAO-VS1-main/` e `OLD_RMA/projetos_antigos/RMA-VS-1-FINAL-main/` -> gits que juntos formam o projeto completo do RMA antigo. Estão ali só para checar regra de cálculo ou detalhes de tela (campos de texto etc).
 
 A verdade é o `OLD_RMA/escopo/`.

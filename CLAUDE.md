@@ -20,9 +20,9 @@ Não duplique regras de negócio aqui: elas vivem em `vault/00-domain/regras-neg
 
 O sistema RMA antigo e demais referências vivem em `OLD_RMA/` (ignorado pelo git). Toda consulta a código ou documentação legada é feita ali:
 
-- `OLD_RMA/RMA-VS-1-FINAL-main/` -> sistema RMA legado.
-- `OLD_RMA/KANTIZ-VS-1-FINAL-main/`, `OLD_RMA/PROSPECCAO-VS1-main/` -> outros sistemas de referência.
-- `OLD_RMA/escopo/`, `OLD_RMA/auditoria/`, `OLD_RMA/backup/` -> documentação de escopo e auditorias.
+- `OLD_RMA/projetos_antigos/RMA-VS-1-FINAL-main/` -> sistema RMA legado.
+- `OLD_RMA/projetos_antigos/KANTIZ-VS-1-FINAL-main/`, `OLD_RMA/projetos_antigos/PROSPECCAO-VS1-main/` -> outros sistemas de referência.
+- `OLD_RMA/escopo/`, `OLD_RMA/projetos_antigos/auditoria/`, `OLD_RMA/projetos_antigos/backup/` -> documentação de escopo e auditorias.
 
 É referência, não fonte de verdade: o que vale é o vault.
 

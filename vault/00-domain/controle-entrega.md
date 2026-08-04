@@ -1,6 +1,6 @@
 # Controle de Entrega - o que 75 meses de uso real mostram
 
-> Fonte: as **104 planilhas de controle de entrega** encontradas em `OLD_RMA/escopo/OneDrive/DIPLOMATA/` e `OneDrive/GERATHERM/`, lidas célula a célula em 04/08/2026. O template em branco correspondente está em `escopo/01 - Controle de entrega de documentos 2025.xlsx`.
+> Fonte: as **104 planilhas de controle de entrega** encontradas em `OLD_RMA/escopo/OneDrive/DIPLOMATA/` e `OneDrive/GERATHERM/`, lidas célula a célula em 04/08/2026. O template em branco correspondente está em `escopo/GoogleDrive/01 - Controle de entrega de documentos 2025.xlsx`.
 >
 > Esta nota é a base de evidência da obrigatoriedade de documento ([[perguntas-cliente]] P-5) e do vocabulário de status (P-33). Ela **corrige** duas afirmações anteriores feitas sobre o mesmo material.
 

@@ -1,6 +1,6 @@
 # Fórmulas do sistema anterior - material para o cliente
 
-> Resposta ao pedido do cliente na pergunta P-1 de [[perguntas-cliente]]. Todas as fórmulas foram lidas diretamente no código de `OLD_RMA/RMA-VS-1-FINAL-main` e `OLD_RMA/KANTIZ-VS-1-FINAL-main`, com arquivo e linha conferidos. Nada aqui é paráfrase.
+> Resposta ao pedido do cliente na pergunta P-1 de [[perguntas-cliente]]. Todas as fórmulas foram lidas diretamente no código de `OLD_RMA/projetos_antigos/RMA-VS-1-FINAL-main` e `OLD_RMA/projetos_antigos/KANTIZ-VS-1-FINAL-main`, com arquivo e linha conferidos. Nada aqui é paráfrase.
 
 ## RESOLVIDO em 04/08/2026
 

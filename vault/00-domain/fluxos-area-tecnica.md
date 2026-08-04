@@ -1,6 +1,6 @@
 # Fluxos da Área Técnica
 
-> Fonte: `OLD_RMA/escopo/Manual de Operações_Área Técnica_V2.xlsx`. Os fluxos estavam presos em shapes do Excel, invisíveis para leitura normal. Renderizados em `OLD_RMA/escopo/fluxogramas/`. Ver [[fontes-escopo]].
+> Fonte: `OLD_RMA/escopo/GoogleDrive/Manual de Operações_Área Técnica_V2.xlsx`. Os fluxos estavam presos em shapes do Excel, invisíveis para leitura normal. Renderizados em `OLD_RMA/escopo/GoogleDrive/fluxogramas/`. Ver [[fontes-escopo]].
 >
 > Este documento descreve o processo **como a área técnica opera hoje**, manualmente. O fluxo automatizado proposto está em [[fluxo-processo]] e vem de outro arquivo (`Fluxo Processo RMA IA_v3.xlsx`, renderizado como `fluxogramas/rma-ia.png`).
 
