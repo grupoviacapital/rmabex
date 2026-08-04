@@ -40,6 +40,11 @@ npm-debug.log*
 
 # Material legado / referência (só consulta local, não versionar)
 OLD_RMA/
+scripts/
+
+# Claude Code: versiona o processo (agentes, comandos, skills, settings.json),
+# ignora as permissões locais de cada pessoa
+.claude/settings.local.json
 
 # Obsidian: ignora só estado de workspace, versiona a config compartilhada
 vault/.obsidian/workspace.json
