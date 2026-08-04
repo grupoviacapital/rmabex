@@ -4,18 +4,44 @@
 >
 > Registre a resposta abaixo de cada item conforme forem chegando, e atualize [[pendencias-externas]] e [[regras-negocio]] em seguida.
 
-## Placar
+## Situação em 04/08/2026
 
-| Estado | Itens |
-|---|---|
-| **Respondida** | P-1 (fórmulas, por Gisele em 04/08/2026, com corroboração no escopo) |
-| **Respondida pelo escopo, falta confirmar** | P-4 (modelo de consolidação, achado em [[telas-legado]]), P-8 (OneDrive como origem, achado em [[sistema-legado]]) |
-| **Em aberto, trava spec** | P-2, P-3, P-5, P-6 |
-| **Em aberto, confirmação** | P-7, P-9 a P-27 |
+São 35 itens, mas a contagem bruta engana. O que importa é o que cada um trava.
 
-**Versão 3.** A v1 tinha 12 perguntas abertas. A v2, após minerar o código legado, tinha 17 com evidência na mesa. Esta v3 vem depois da leitura integral do escopo: uma foi respondida, duas se resolveram no próprio material, e dez novas apareceram - a maioria por divergência entre documentos do cliente.
+| Estado | Quantos | Itens |
+|---|---|---|
+| **Resolvido** | 6 | P-1 fórmulas · P-4 consolidação · P-8 origem dos arquivos · P-9 DRE acumulada · P-26 formato do balancete · P-33 vocabulário de status |
+| **Trava spec** | 4 | P-2 limiar de variação · P-3 tolerância · P-5 obrigatoriedade · P-6 planilhão |
+| **Achado nosso, não é dúvida** | 9 | P-18, P-22, P-28, P-29, P-30 e as demais divergências que encontramos no material do cliente |
+| **Confirmação, não bloqueia** | 14 | P-7, P-10 a P-17, P-19 a P-21, P-23 a P-25, P-27, P-31 a P-32 |
+| **Pedido de material** | 2 | P-34 (`Gestão Técnico2.xlsx` e os check lists) · P-35 metodologia de amostragem |
 
-Lição registrada: **três perguntas que eu ia mandar já estavam respondidas no escopo**. As fórmulas estavam na planilha `01.BASE RELATÓRIO`, o modelo de consolidação estava na tela de cadastro, e o destino dos arquivos estava no código. Ler tudo antes de perguntar não é zelo, é o que evita queimar credibilidade com o cliente.
+### O conjunto que trava encolheu
+
+A versão 2 tinha **seis** perguntas bloqueantes. Hoje são **quatro**, e nenhuma delas impede começar:
+
+| Spec | Depende de | Situação |
+|---|---|---|
+| 001 Scaffold | nada | **liberada** |
+| 002 Cadastro | P-4, resolvida | **liberada** |
+| 003 Taxonomia de pastas | nada bloqueante | **liberada** |
+| 005 Importação do balancete | P-9 e P-26, resolvidas | **liberada** |
+| 004 Check list | P-5 | travada |
+| 006 Conciliação | P-3 | travada |
+| 007 Alertas | P-2 | travada |
+| 009 Geração do RMA | P-1, resolvida | liberada quando 006 estiver |
+
+Quatro specs podem ser escritas agora.
+
+### Sobre a lista crescer
+
+Ela cresce porque muda de natureza, não porque sabemos menos. A v1 perguntava "como vocês calculam EBITDA". Hoje sabemos a fórmula, sabemos de onde ela sai, e a pergunta virou "a planilha de vocês soma Compromissos RJ como se fosse depreciação, é intencional?".
+
+Nove dos itens **não são dúvidas nossas** - são defeitos que encontramos no material do cliente. Não bloqueiam nada do nosso lado; existem porque descobrir e não avisar seria pior.
+
+**Versão 4.** v1: 12 perguntas abertas, nenhuma evidência. v2: 17, com o código legado minerado. v3: 27, com o escopo lido por cima. v4: 35, com o escopo lido integralmente por quatro agentes - e com seis resolvidas, o dobro da v3.
+
+Lição registrada: **seis perguntas que eu ia mandar já estavam respondidas no material recebido.** As fórmulas na planilha `01.BASE RELATÓRIO`, o modelo de consolidação na tela de cadastro, o destino dos arquivos no código, o regime acumulado do balancete nos próprios dados. Ler tudo antes de perguntar não é zelo: é o que evita gastar a paciência do cliente com o que ele já entregou.
 
 ## A · Decisões que travam specs
 
