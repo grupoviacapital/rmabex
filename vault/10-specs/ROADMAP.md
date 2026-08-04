@@ -26,7 +26,9 @@
 - [x] Extrair o fluxo do processo -> [[fluxo-processo]]
 - [x] Extrair a estrutura do RMA -> [[anatomia-rma]]
 - [x] Preencher o glossário -> [[glossario]]
-- [ ] Extrair os fluxos do `Manual de Operações_Área Técnica_V2.xlsx` (estão em shapes; há fluxos de DAL, Constatação Prévia, Prospecção e Prestação de Contas, além do RMA)
+- [x] Extrair os fluxos do `Manual de Operações_Área Técnica_V2.xlsx` -> [[fluxos-area-tecnica]] e `escopo/fluxogramas/`
+- [ ] Criar `RN-x` para o calendário mensal do RMA (dia 10, dia 20, D+2, último dia útil), descoberto em [[fluxos-area-tecnica]]
+- [ ] Reconciliar o fluxo manual e o fluxo automatizado do RMA, que divergem
 - [ ] Converter as regras de conciliação em `RN-x` em [[regras-negocio]]
 - [ ] Modelar as entidades em [[modelo-dados]]
 - [ ] Documentar as telas do sistema legado (`OLD_RMA/escopo/Telas/`) em [[ui-referencia]]

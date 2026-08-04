@@ -13,7 +13,7 @@
 | `Fluxo Processo RMA IA_v3.xlsx` | Fluxo ponta a ponta do processo automatizado (técnico, IA, validação, protocolo). O fluxo está em **shapes** na aba `Fluxo RMA`, não em células. | [[fluxo-processo]] |
 | `Acessos da Plataforma RMA - Retorno da Plataforma/retorno_da_plataforma.txt` | Alerta de variação de contas (15-20%) e a seção extra obrigatória para Agronegócio (Provimento 216). | [[fluxo-processo]], [[anatomia-rma]] |
 | `DIP - RMA - Março.2026 final.docx` | RMA real e completo (18 seções). Referência de estrutura, tom e profundidade do relatório final. | [[anatomia-rma]] |
-| `Manual de Operações_Área Técnica_V2.xlsx` | Organograma da área técnica e fluxos por produto (RMA, DAL, Constatação Prévia, Prospecção, Prestação de Contas). Também em shapes. | a extrair |
+| `Manual de Operações_Área Técnica_V2.xlsx` | Organograma da área técnica e fluxos por produto (RMA, DAL, Constatação Prévia, Prospecção, Prestação de Contas), com os prazos de cada um. Estava em shapes. | [[fluxos-area-tecnica]] |
 
 ## Documentos de apoio (exemplo, não regra)
 
@@ -36,8 +36,17 @@
 - Nunca entram no repositório, nem em teste, nem em prompt de IA sem anonimização. Ver [[seguranca]].
 - Os `.zip` originais foram mantidos ao lado dos diretórios extraídos.
 
+## Derivados gerados por nós
+
+Pastas criadas a partir do material original, que continua intacto no lugar.
+
+| Pasta | Conteúdo |
+|-------|----------|
+| `escopo/fluxogramas/` | Os 6 fluxogramas renderizados em PNG: `rma-ia.png` (fluxo automatizado proposto) e `manual-fluxo-*.png` (os 5 produtos da área técnica). Ver [[fluxos-area-tecnica]]. |
+| `escopo/graficos-rma/` | Os 40 gráficos e imagens embutidos no RMA de março de 2026. Mostram quais gráficos o sistema precisa gerar. |
+| `escopo/OneDrive/DIPLOMATA/`, `escopo/OneDrive/GERATHERM/` | Conteúdo extraído dos `.zip` homônimos. |
+
 ## Lacunas conhecidas
 
 - `Telas/4.png` não existe.
-- O fluxo do `Manual de Operações` ainda não foi extraído dos shapes.
 - A aba `Controle_Docs..` cita um grupo com 7 empresas (TTT, RMJ, TEC, TEF, TCA, NASSON, TH): confirma que **um processo pode ter várias recuperandas**, mas o critério de consolidação ainda não está documentado.
