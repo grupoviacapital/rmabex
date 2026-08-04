@@ -362,21 +362,26 @@ Regra de escrita destes blocos: **uma linha por pergunta, começando pelo arquiv
 ### Bloco 1 · Urgente
 
 ```
-Olá! Mapeando a planilha padrão em detalhe, achamos três coisas que
-vocês precisam ver antes de qualquer outra conversa.
+Olá! Mapeamos em detalhe a planilha "01.BASE RELATÓRIO_xi teste.XLSM",
+que veio junto com o material de escopo. Três coisas que achamos e que
+vocês precisam ver.
 
-1. Em 01.BASE RELATÓRIO, aba "P&L + EBITDA", linha 45: o rótulo é
-   "Depreciações e Amortizações", mas a referência da linha é 40.G, que
-   no dicionário (aba BdMeses) é "Compromissos RJ". O EBITDA soma essa
-   linha de volta. Está correto?
+Antes: essa é a versão mais atual? Numa documentação do sistema antigo
+há referência a um "01.BASE_RELATÓRIO_xi_teste_2-2.XLSM", que não
+recebemos. Se existir uma versão mais nova, os três pontos abaixo podem
+já estar corrigidos nela.
 
-2. Em 01.BASE RELATÓRIO, aba FOLHA DE ROSTO: o faturamento, o resultado
-   líquido e os quatro índices de liquidez do mês de referência estão
-   como #N/A. Acontece no arquivo de vocês também?
+1. Aba "P&L + EBITDA", linha 45: o rótulo é "Depreciações e
+   Amortizações", mas a referência da linha é 40.G, que no dicionário
+   (aba BdMeses) é "Compromissos RJ". O EBITDA soma essa linha de volta.
+   Está correto?
 
-3. Em 01.BASE RELATÓRIO, aba "Dados para Graficos", linhas 36 e 38:
-   estão dividindo pelo lucro líquido, e não pela receita líquida como
-   diz o rótulo. É proposital?
+2. Aba "FOLHA DE ROSTO": o faturamento, o resultado líquido e os quatro
+   índices de liquidez do mês de referência estão como #N/A. Acontece no
+   arquivo de vocês também?
+
+3. Aba "Dados para Graficos", linhas 36 e 38: estão dividindo pelo lucro
+   líquido, e não pela receita líquida como diz o rótulo. É proposital?
 
 Abraço!
 ```
@@ -398,10 +403,10 @@ faltam.
 4. As planilhas de consolidação continuam existindo depois do novo
    sistema? Para quê?
 
-5. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do Manual
-   de Operações, aba "TD consolidada".
+5. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do "Manual de
+   Operações_Área Técnica_V2.xlsx", aba "TD consolidada".
 
-6. O Manual de Operações (aba CAPA, controle de alterações de
+6. O "Manual de Operações_Área Técnica_V2.xlsx" (aba CAPA, controle de alterações de
    04/04/2024) diz que os check lists foram retirados dele e viraram
    arquivos individualizados. Podem enviar esses arquivos?
 
@@ -417,8 +422,8 @@ saber qual versão vale.
 
 PASTAS E DOCUMENTOS
 
-1. Em "Código de Pastas...identificação.xlsx" a pasta 21 (GFIP) tem
-   conciliação com o balancete; nos comentários do "RMA...indicação de
+1. Em "Código de Pastas Onedrive_Documentos (2) - identificação.xlsx" a pasta 21 (GFIP) tem
+   conciliação com o balancete; nos comentários do "RMA_RMA-DIP-01-2026_jan_de_2026 indicação de
    pastas.docx" ela aparece sem. Qual vale?
 
 2. Nos mesmos comentários, a pasta 15 aparece sem conciliação nos itens
@@ -448,42 +453,42 @@ NÚMEROS
    Vendas e Serviços" e o 5 é "Custo Industrial". Isso é padrão para
    todos os clientes?
 
-9. Em 01.BASE RELATÓRIO, aba INDICE, linhas 51 e 52: o endividamento é
+9. Em "01.BASE RELATÓRIO_xi teste.XLSM", aba INDICE, linhas 51 e 52: o endividamento é
    calculado sobre o patrimônio líquido e também sobre o ativo total.
    Qual dos dois vai no relatório?
 
-10. No RMA da Diplomata (março/2026), o item 12.1.3 divide o CMV pela
-    receita bruta; no RMA da XPT, pela receita líquida. Qual vale?
+10. Em "DIP - RMA - Março.2026 final.docx", o item 12.1.3 divide o CMV pela
+    receita bruta; em "XPT S.A - RMA- BEx 08.2024 teste.docx", pela receita líquida. Qual vale?
 
-11. Em 01.BASE RELATÓRIO, aba INDICE, ROA e ROE multiplicam o resultado
+11. Em "01.BASE RELATÓRIO_xi teste.XLSM", aba INDICE, ROA e ROE multiplicam o resultado
     do mês por 12. É isso que sai no relatório mensal?
 
-12. No RMA da Diplomata, o item 10.1 usa as faixas 0-30, 30-90, 90-180 e
+12. Em "DIP - RMA - Março.2026 final.docx", o item 10.1 usa as faixas 0-30, 30-90, 90-180 e
     acima de 180 dias. Existe algum caso com corte em 60 dias?
 
-13. No Parecer Técnico da Raízen vocês optaram pelo Índice de Solvência
+13. Em "Parecer Técnico - Raizen 2023-2025.docx" vocês optaram pelo Índice de Solvência
     Geral no lugar do Termômetro de Kanitz. Quando cada um se aplica?
 
 14. Os balancetes que recebemos trazem o resultado acumulado no ano.
     Vale para todos os clientes?
 
-15. No RMA da Diplomata, a validação dos comprovantes é feita "por
+15. Em "DIP - RMA - Março.2026 final.docx", a validação dos comprovantes é feita "por
     amostragem". Existe um critério de quantos conferir?
 
 SISTEMA E TELAS
 
-16. Na Tela 20, o RMA é um protocolo numerado (RMA-2024-000587) com
-    solicitante e prioridade. Nas telas 7 a 17, é o relatório mensal da
+16. Em Telas/20.png, o RMA é um protocolo numerado (RMA-2024-000587) com
+    solicitante e prioridade. Nas Telas/7.png a 17.png, é o relatório mensal da
     recuperanda. São a mesma coisa?
 
-17. Na Tela 6, existem seis perfis de acesso. Magistrado, Recuperanda e
+17. Em Telas/6.png, existem seis perfis de acesso. Magistrado, Recuperanda e
     Administrador Judicial não têm nenhuma tela desenhada. Eles usam o
     sistema?
 
-18. Na Tela 3, o logotipo do administrador judicial "será exibido nos
+18. Em Telas/3.png, o logotipo do administrador judicial "será exibido nos
     relatórios". O sistema atende mais de um administrador judicial?
 
-19. Na Tela 11, existem 7 tipos de documento. Eles substituem as 61
+19. Em Telas/11.png, existem 7 tipos de documento. Eles substituem as 61
     pastas ou são um agrupamento para visualizar?
 
 20. Nas pastas do OneDrive dos dois clientes existem "Entradas IA",
