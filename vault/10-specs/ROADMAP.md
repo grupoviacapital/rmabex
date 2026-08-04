@@ -1,8 +1,30 @@
 # Roadmap de Specs - RMABEx
 
-> Decomposição do projeto em specs, por ordem de dependência. Uma spec só entra em `/implement` depois de `requirements -> design -> tasks` aprovados. Atualize o status conforme avança.
+> Decomposição do projeto em specs. Uma spec só entra em `/implement` depois de `requirements -> design -> tasks` aprovados. Atualize o status conforme avança.
 >
-> Derivado de [[fluxo-processo]], [[pastas-documentos]] e [[anatomia-rma]]. É uma proposta de decomposição: revise a ordem antes de abrir a primeira spec.
+> Derivado de [[fluxo-ponta-a-ponta]], [[pastas-documentos]] e [[anatomia-rma]].
+
+## Ordem de execução
+
+A tabela abaixo está por número. **A ordem de execução é outra**, e sai do ciclo real do RMA em [[fluxo-ponta-a-ponta]]: cada spec resolve um passo do processo, e a fila segue a dor do cliente, não a numeração.
+
+`001 -> 002 -> 003 -> 004 -> 005 -> 008 -> 006 -> 007 -> 009 -> 010 -> 011`, com a `012` em paralelo depois da `001`.
+
+| Ordem | Spec | Passo do ciclo que resolve |
+|---|---|---|
+| 1 | 001 Scaffold | - |
+| 2 | 002 Cadastro | insere a recuperanda (hoje, planilha de controle) |
+| 3 | 003 Taxonomia | reconhecer o documento pelo conteúdo |
+| 4 | 004 Check list | **primeiro ganho visível**: acaba a conferência manual de recebimento |
+| 5 | 005 Balancete | o eixo da conciliação |
+| 6 | **008 Extração por IA** | **o gargalo declarado pelo cliente**: ler os documentos um a um |
+| 7 | 006 Conciliação | a análise cruzada |
+| 8 | 007 Alertas | dirigir a atenção do técnico |
+| 9 | 009 Geração do RMA | acaba a colagem manual dos gráficos |
+| 10 | 010 Revisão e protocolo | fecha o ciclo |
+| 11 | 011 Esclarecimentos | fecha o laço de pendências |
+
+**A 008 subiu de oitava para sexta.** A dependência técnica dela é só a 004, e o cliente a nomeou como o trabalho pesado em 04/08/2026: *"todos aqueles documentos por mês são lidos um a um de forma manual pela equipe"*. Conciliar (006) antes de extrair (008) significa conciliar contra valor digitado à mão.
 
 | Spec | Escopo | Depende de | Status |
 |------|--------|-----------|--------|
@@ -27,8 +49,8 @@
 - [x] Extrair a estrutura do RMA -> [[anatomia-rma]]
 - [x] Preencher o glossário -> [[glossario]]
 - [x] Extrair os fluxos do `Manual de Operações_Área Técnica_V2.xlsx` -> [[fluxos-area-tecnica]] e `escopo/fluxogramas/`
-- [ ] Criar `RN-x` para o calendário mensal do RMA (dia 10, dia 20, D+2, último dia útil), descoberto em [[fluxos-area-tecnica]]
-- [ ] Reconciliar o fluxo manual e o fluxo automatizado do RMA, que divergem
+- [x] Criar `RN-x` para o calendário mensal do RMA (dia 10, dia 20, D+2, último dia útil) -> [[regras-negocio#RN-47]]
+- [x] Reconciliar o fluxo manual e o fluxo automatizado do RMA -> [[fluxo-ponta-a-ponta]]. **Eles não divergem: o automatizado é silencioso sobre prazos.**
 - [ ] Converter as regras de conciliação em `RN-x` em [[regras-negocio]]
 - [ ] Modelar as entidades em [[modelo-dados]]
 - [ ] Documentar as telas do sistema legado (`OLD_RMA/escopo/Telas/`) em [[ui-referencia]]

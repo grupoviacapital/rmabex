@@ -290,7 +290,9 @@ Vieram do `Manual de Operações` ([[fluxos-area-tecnica]]) e da mineração do 
 
 O SISTEMA DEVE seguir o calendário: até o dia 10, cobrança da documentação à recuperanda; dia 20, prazo dela para anexar; dois dias úteis depois, checagem do recebimento e cobrança das pendências; último dia útil do mês, prazo fatal de protocolo, referente à movimentação do mês anterior.
 
-*O fluxo automatizado proposto não menciona prazo algum, então os dois documentos divergem. Ver [[perguntas-cliente]] P-15.*
+*Registrei antes que "os dois documentos divergem". **Não divergem: um é silencioso.** O fluxo automatizado não menciona prazo algum porque descreve a mecânica, não o calendário. Os prazos aparecem em duas fontes independentes e coincidentes: o texto do Manual de Operações e o fluxograma `manual-fluxo-rma.png`, que os traz em vermelho no próprio desenho. Ver [[fluxo-ponta-a-ponta]].*
+
+*Consequência: o sistema precisa **sobrepor** o calendário ao fluxo automatizado, que nasceu sem ele. A P-15 de [[perguntas-cliente]] fica reduzida a confirmar que os prazos seguem valendo.*
 
 ### RN-48 · Cobrança acumula pendência anterior
 
