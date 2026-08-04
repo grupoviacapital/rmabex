@@ -495,8 +495,12 @@ aberta.
    milhares e o balancete em reais, o arredondamento gera diferença de
    centavos. Isso acontece com vocês?
 
-3. As planilhas de consolidação continuam existindo depois do novo
-   sistema? Para quê?
+3. Vocês explicaram que usam o OneDrive para alimentar a
+   "01.BASE RELATÓRIO", geram os gráficos nela e colam à mão no RMA.
+   O sistema vai fazer esse caminho inteiro sozinho, e o RMA sai com
+   os quadros já montados. Depois disso, a planilha ainda serve para
+   alguma coisa (conferência, reunião, histórico), ou ela sai de uso?
+   Isso decide se precisamos gerar um Excel no formato dela.
 
 4. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do
    "Manual de Operações_Área Técnica_V2.xlsx", aba "TD consolidada".
@@ -588,8 +592,11 @@ SISTEMA E TELAS
     pastas ou são um agrupamento para visualizar?
 
 17. Nas pastas do OneDrive dos dois clientes existem "Entradas IA",
-    "Processando IA", "Processados IA" e "Erros IA". Tem algum processo
-    usando essas pastas hoje?
+    "Processando IA", "Processados IA", "Erros IA", "Auditoria IA" e
+    "Relatórios IA". Contamos 72 dessas pastas e nenhuma tem um único
+    arquivo. Elas são de um projeto que não chegou a rodar, ou tem algo
+    previsto para elas? Pergunto porque, se tiver, o sistema novo
+    precisa respeitar esse contrato de pastas.
 
 AVISOS, sem necessidade de resposta
 
