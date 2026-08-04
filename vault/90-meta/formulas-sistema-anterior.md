@@ -145,7 +145,9 @@ Resultado = Receita Líquida + CMV + Despesas + Despesas Financeiras
 ```
 (as contas de custo e despesa entram com sinal negativo)
 
-## Bônus - o Termômetro de Kanitz
+## Termômetro de Kanitz - FORA DE ESCOPO
+
+> Em 04/08/2026 o cliente determinou desconsiderar tudo que for Kanitz: veio de outro produto cujo código foi copiado. A fórmula fica aqui só como registro do que existia.
 
 Já que o modelo aparece no material, a fórmula implementada em `src/services/kanitzCalculator.ts:167-189`:
 ```

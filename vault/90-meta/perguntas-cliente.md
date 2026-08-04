@@ -359,7 +359,9 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 Regra de escrita destes blocos: **uma linha por pergunta, começando pelo arquivo e pelo lugar exato**. Nada de contexto longo nem de explicação da nossa hipótese - quem responde sabe mais do que nós, e texto comprido induz resposta curta. São 20 perguntas ao todo, não 35: o resto do documento é registro interno.
 
-### Bloco 1 · Urgente
+### Bloco 1 · Urgente - **EM ESPERA**
+
+> Em 04/08/2026 o Luiz informou que a planilha que temos era de teste e que existe uma mais atual, ainda não enviada. **Não mandar este bloco** até analisar a versão nova: os três defeitos podem já estar corrigidos nela. Registro do texto abaixo.
 
 ```
 Olá! Mapeamos em detalhe a planilha "01.BASE RELATÓRIO_xi teste.XLSM",
@@ -466,11 +468,16 @@ NÚMEROS
 12. Em "DIP - RMA - Março.2026 final.docx", o item 10.1 usa as faixas 0-30, 30-90, 90-180 e
     acima de 180 dias. Existe algum caso com corte em 60 dias?
 
-13. Em "Parecer Técnico - Raizen 2023-2025.docx" vocês optaram pelo Índice de Solvência
-    Geral no lugar do Termômetro de Kanitz. Quando cada um se aplica?
+13. Em "Parecer Técnico - Raizen 2023-2025.docx" vocês usaram o Índice de
+    Solvência Geral. Ele entra no RMA também, ou é só de parecer avulso?
 
 14. Os balancetes que recebemos trazem o resultado acumulado no ano.
     Vale para todos os clientes?
+
+14b. O Ativo Não Circulante é o grupo contábil 12, com o grupo 13 (Ativo
+    Permanente) ficando de fora dele e do Ativo Total? Achamos essa regra
+    numa documentação do projeto KANTIZ, que vocês pediram para
+    desconsiderar - por isso perguntamos.
 
 15. Em "DIP - RMA - Março.2026 final.docx", a validação dos comprovantes é feita "por
     amostragem". Existe um critério de quantos conferir?
@@ -509,7 +516,7 @@ Perguntas que estavam nas versões anteriores e foram cortadas do envio:
 | Dados da Geratherm no código antigo | É problema do fornecedor anterior, não decisão do cliente. |
 | Seis seções nas telas contra 18 no relatório | Provavelmente agrupamento de progresso. Decidimos nós. |
 | Prazos do Manual de Operações | Estão escritos no Manual. Assumimos que valem e avisamos se der conflito. |
-| Referencial do grupo 12 e 13 | Está datado e assinado no material. Assumimos que vale. |
+| ~~Referencial do grupo 12 e 13~~ | **Reaberto em 04/08/2026.** A regra vinha do repositório KANTIZ, que o cliente mandou desconsiderar. Voltou ao bloco 3 como item 14b. |
 | DAL, Constatação Prévia, Prestação de Contas | Entra na conversa de escopo comercial, não numa lista de confirmação. |
 | Onde os arquivos vivem | Já respondido pelo código. |
 

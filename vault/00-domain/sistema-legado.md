@@ -4,6 +4,15 @@
 >
 > **Peso desta nota:** o código mostra o que a empresa anterior *fez*, não o que o cliente *aprovou*. Onde o código contradiz o escopo, o escopo vence (ver [[fontes-escopo]]). Cada achado aqui é candidato a confirmação, não regra.
 
+> [!warning] O repositório KANTIZ saiu de escopo em 04/08/2026
+> O cliente determinou: *"se tiver alguma coisa de Kanitz nesse projeto ou código, pode desconsiderar. Porque no mínimo teve uma cópia de código para fazer outro projeto."*
+>
+> Consequências, todas já aplicadas abaixo:
+> - **O Termômetro de Kanitz sai do domínio.** Não é indicador do RMA.
+> - **Tudo que veio do repositório KANTIZ perde autoridade**, inclusive o `docs/BS_DADOS_ESPECIFICACAO.md`, que se autodeclarava "Single Source of Truth". Ele é a especificação do outro produto, não do RMA.
+> - Em particular, o **"Referencial Giannini 2026.05.28"** (grupo 12 é o ANC, grupo 13 fica de fora) veio dessa fonte e **volta a ser pergunta em aberto**. Eu havia cortado essa pergunta do envio dizendo que estava "datada e assinada no material" - a premissa era errada.
+> - O que **não** é afetado: a `RN-41`, porque foi confirmada pela Gisele e pela planilha do escopo, não pelo KANTIZ.
+
 ## Os três repositórios
 
 | Repositório | O que é | Banco |

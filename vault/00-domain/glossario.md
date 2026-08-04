@@ -33,6 +33,7 @@
 - **Aging list** (`agingSchedule`) - segregação de contas a pagar/receber por faixa de vencimento: 0-30d, 30-90d, 90-180d, acima de 180 dias.
 - **Passivo extraconcursal** (`nonSubjectLiabilities`) - obrigações não sujeitas aos efeitos da RJ.
 - **Planilhão técnico** (`consolidationWorkbook`) - planilha legada onde o balancete é consolidado e os gráficos são gerados. Artefato a substituir ou manter por decisão de ADR.
+- ~~**Termômetro de Kanitz**~~ - **fora de escopo desde 04/08/2026** por determinação do cliente: veio de outro produto, cujo código foi copiado. Não é indicador do RMA. O **Índice de Solvência Geral (ISG)** segue em avaliação, porque aparece no parecer técnico que é escopo.
 - **Segmento** (`sector`) - ramo de atuação da recuperanda. Altera a estrutura do RMA: agronegócio ganha seção própria.
 
 ## Siglas fiscais e trabalhistas
