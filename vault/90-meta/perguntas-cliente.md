@@ -433,13 +433,13 @@ Restam **24 itens**: 20 perguntas, 2 pedidos de material e 2 avisos.
 
 Uma linha por item, começando pelo arquivo e pelo lugar exato.
 
-### Bloco 1 · Urgente - **EM ESPERA**
+### Bloco 1 · Urgente - **LIBERADO em 04/08/2026**
 
-> Aguardando o Luiz dizer qual planilha é a canônica: a da GIANNINI, que já chegou, ou outra ainda por enviar.
+> Esteve em espera aguardando uma "planilha mais atual". **Ela não existe:** o Luiz esclareceu que o insumo é o OneDrive e que a `01.BASE RELATÓRIO` é a ferramenta interna deles. Não há o que esperar.
 >
-> **Atenção:** a justificativa original desta espera era "os defeitos podem já estar corrigidos na versão nova". **Isso está desmentido.** O arquivo mais recente que temos (GIANNINI, modificado em 10/03/2026, contra 02/03/2026 do `xi teste`) carrega os três defeitos idênticos, verificados célula a célula. São defeitos do template. Ver [[estado-atual]].
+> A justificativa original da espera era "os defeitos podem já estar corrigidos na versão nova". **Está desmentida:** a instância mais recente que temos (GIANNINI, 10/03/2026, contra 02/03/2026 do `xi teste`) carrega os três defeitos idênticos, verificados célula a célula. São defeitos do template.
 >
-> Ou seja: o conteúdo abaixo vale para os dois arquivos. Só falta saber qual citar no texto.
+> **E eles ficaram mais graves do que pareciam.** O cliente descreveu o ciclo: *"gerando gráficos que depois são copiados e colocados de forma manual no RMA"*. Como a colagem não recalcula, o `#N/A` do mês de referência e a divisão pelo lucro líquido **chegam ao relatório entregue**. Os itens 2 e 3 abaixo continuam como aviso, mas valem mais do que quando foram escritos. Ver [[motor-calculo]].
 
 ```
 Olá! Mapeamos em detalhe a planilha "01.BASE RELATÓRIO_xi teste.XLSM".
