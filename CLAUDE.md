@@ -38,9 +38,11 @@ O sistema RMA antigo e demais referências vivem em `OLD_RMA/` (ignorado pelo gi
 ## Retomando o trabalho (início de sessão)
 
 A verdade do progresso vive no disco, não no chat. Ao retomar (sessão nova ou após `/compact`):
-1. Leia o `tasks.md` da spec ativa (`- [x]` vs `- [ ]`).
-2. Rode `git status` e `git log --oneline -15`.
-3. Se o disco divergir do `tasks.md`, ajuste o `tasks.md` antes de prosseguir.
+
+1. **Leia `vault/90-meta/estado-atual.md` primeiro.** É o ponto de retomada: onde o projeto está, as decisões do cliente com data, o que está travado e em quem, e o mapa de qual nota ler para cada assunto.
+2. Leia o `tasks.md` da spec ativa (`- [x]` vs `- [ ]`), se já houver spec.
+3. Rode `git status` e `git log --oneline -15`.
+4. Se o disco divergir do `tasks.md`, ajuste o `tasks.md` antes de prosseguir.
 
 ## Convenções essenciais (detalhe em `vault/90-meta/convencoes-codigo.md`)
 
