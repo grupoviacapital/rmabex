@@ -223,6 +223,10 @@ A mineração em [[sistema-legado]] validou parte do modelo e apontou o que ele 
 - `ContaContabil.canonicalRole` é o elo que faltava. O legado tentava ligar pasta a conta por similaridade lexical com corte em 0,95, o que nunca casaria "15 - Resumo da folha de pagamento" com "2.1.03 - Salários a Pagar".
 - A máquina de estados do RMA deve seguir o modelo de **seção** do legado, não o de documento: transições explícitas, papel exigido por transição, motivo obrigatório na devolução, versão imutável a cada mudança e log de auditoria. O legado permitia liberar para a recuperanda um relatório ainda em rascunho, porque o gate validava só o papel de quem libera.
 
+**Entidade confirmada pelo escopo: `PlanoReferencia`.** O `canonicalRole` que eu havia proposto já existe na planilha padrão, com nome próprio ("Ref 1"), 90 códigos e dicionário completo. Ver [[motor-calculo]]. Substitui o campo solto em `ContaContabil` por uma tabela: código, nome da linha do relatório, bloco, ordem. A conta contábil passa a apontar para ela.
+
+**Regras de armazenamento que o escopo determina:** o balancete guarda **saldo acumulado no ano**; o valor mensal das contas de resultado é derivado por diferença entre competências. O passivo deve ser guardado **positivo** e invertido só na apresentação - a planilha mistura duas convenções e é isso que produz indicadores de endividamento negativos.
+
 **Entidade a acrescentar:** `RequisitoDocumento` (categoria, nível `MANDATORY`/`CONDITIONAL`/`OPTIONAL`, condição de aplicabilidade). O legado criou a tabela equivalente e nunca a preencheu; o critério de obrigatoriedade é [[perguntas-cliente]] P-5.
 
 ## Pontos ainda em aberto

@@ -265,6 +265,70 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Resposta:**
 
+## E · Da leitura exaustiva com agentes (04/08/2026)
+
+### P-28 · O EBITDA soma "Compromissos RJ" como depreciação **(urgente)**
+
+**Pergunta:** na planilha `01.BASE RELATÓRIO`, a linha rotulada "Depreciações e Amortizações" dentro das despesas usa a referência `40.G`, que no dicionário de referências significa **"Compromissos RJ"**. O cálculo do EBITDA estorna essa linha como se fosse depreciação. Isso é intencional?
+
+**Por que importa:** numa recuperanda com compromissos do plano contabilizados, o EBITDA sai inflado. Ver [[motor-calculo]].
+
+**Resposta:**
+
+### P-29 · O mês de fechamento não aparece na capa
+
+**Pergunta:** vocês sabiam que, na planilha padrão, o faturamento, o resultado líquido e os índices de liquidez **do mês de referência** aparecem como `#N/A` na capa e nos gráficos?
+
+**Por que importa:** as faixas de busca terminam em junho ou julho enquanto os dados vão até agosto. Se o relatório é montado a partir dessa capa, o mês corrente está saindo em branco. Ver [[motor-calculo]].
+
+**Resposta:**
+
+### P-30 · Qual conceito de RMA é o certo
+
+**Pergunta:** nas telas, o RMA aparece como duas coisas diferentes. Nas telas 7 a 17 é o relatório mensal de uma recuperanda numa competência, com seções e percentual de preenchimento. Na tela 20 é um protocolo numerado (`RMA-2024-000587`) com solicitante, setor e prioridade, no estilo de chamado. Qual é o certo, ou os dois coexistem?
+
+**Por que importa:** são entidades diferentes, e nenhuma tela liga uma à outra. Ver [[telas-legado]].
+
+**Resposta:**
+
+### P-31 · Perfis sem interface
+
+**Pergunta:** Administrador Judicial, Recuperanda e Magistrado estão declarados como perfis de acesso, mas nenhuma tela foi desenhada do ponto de vista deles. Esses perfis entram no produto?
+
+**Resposta:**
+
+### P-32 · O segundo ciclo de cobrança nunca foi usado
+
+**Pergunta:** a planilha de controle de entrega tem as colunas "Dúvidas / Esclarecimentos" e "Status 2", para uma segunda rodada de cobrança. Em **105 planilhas reais** dos dois clientes, essas colunas estão 100% vazias. O segundo ciclo existe na prática?
+
+**Por que importa:** define se o modelo precisa de uma ou de duas rodadas de esclarecimento.
+
+**Resposta:**
+
+### P-33 · Vocabulário de status da entrega
+
+**Pergunta:** confirmam que os únicos status possíveis de um documento entregue são **Apresentado**, **Não Apresentado**, **Não aplicável** e **Parcial**?
+
+**O que já sabemos:** foi o vocabulário extraído do uso real nas 105 planilhas. Não há lista suspensa no Excel; os valores são digitados.
+
+**Resposta:**
+
+### P-34 · Materiais que faltam no escopo
+
+**Pergunta:** podem enviar dois arquivos que faltam? (a) `Gestão Técnico2.xlsx`, que é a fonte real dos indicadores de desempenho do Manual de Operações; (b) os **check lists**, que o próprio manual diz terem sido retirados dele em 04/04/2024 e transformados em arquivos individualizados.
+
+**Por que importa:** o check list é o coração da operação e não está no material recebido.
+
+**Resposta:**
+
+### P-35 · Metodologia de amostragem
+
+**Pergunta:** o RMA declara que a validação de comprovantes é feita "por amostragem, devido ao grande volume". Existe critério definido de tamanho de amostra, forma de seleção ou percentual mínimo?
+
+**Por que importa:** é o método de asseguração declarado do relatório e não tem nenhum parâmetro documentado.
+
+**Resposta:**
+
 ## Texto para envio
 
 ```
