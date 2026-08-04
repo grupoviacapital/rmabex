@@ -10,15 +10,17 @@ São 35 itens, mas a contagem bruta engana. O que importa é o que cada um trava
 
 | Estado | Quantos | Itens |
 |---|---|---|
-| **Resolvido** | 6 | P-1 fórmulas · P-4 consolidação · P-8 origem dos arquivos · P-9 DRE acumulada · P-26 formato do balancete · P-33 vocabulário de status |
-| **Trava spec** | 4 | P-2 limiar de variação · P-3 tolerância · P-5 obrigatoriedade · P-6 planilhão |
+| **Resolvido** | 6 | P-1 fórmulas · P-4 consolidação · P-8 origem dos arquivos · P-9 DRE acumulada · P-26 formato do balancete · P-32 segundo ciclo de cobrança |
+| **Estreitado pelos dados, virou revisão de tabela** | 2 | P-5 obrigatoriedade · P-33 vocabulário de status (resposta anterior **corrigida**) |
+| **Trava spec** | 2 | P-2 limiar de variação · P-3 tolerância |
+| **Decisão de produto, não bloqueia código** | 1 | P-6 planilhão |
 | **Achado nosso, não é dúvida** | 9 | P-18, P-22, P-28, P-29, P-30 e as demais divergências que encontramos no material do cliente |
 | **Confirmação, não bloqueia** | 14 | P-7, P-10 a P-17, P-19 a P-21, P-23 a P-25, P-27, P-31 a P-32 |
 | **Pedido de material** | 2 | P-34 (`Gestão Técnico2.xlsx` e os check lists) · P-35 metodologia de amostragem |
 
 ### O conjunto que trava encolheu
 
-A versão 2 tinha **seis** perguntas bloqueantes. Hoje são **quatro**, e nenhuma delas impede começar:
+A versão 2 tinha **seis** perguntas bloqueantes. Hoje são **duas**, e nenhuma delas impede começar:
 
 | Spec | Depende de | Situação |
 |---|---|---|
@@ -26,12 +28,14 @@ A versão 2 tinha **seis** perguntas bloqueantes. Hoje são **quatro**, e nenhum
 | 002 Cadastro | P-4, resolvida | **liberada** |
 | 003 Taxonomia de pastas | nada bloqueante | **liberada** |
 | 005 Importação do balancete | P-9 e P-26, resolvidas | **liberada** |
-| 004 Check list | P-5 | travada |
+| 004 Check list | P-5, estreitada em 04/08/2026 | **liberada** com a tabela observada de [[controle-entrega]] como padrão editável |
 | 006 Conciliação | P-3 | travada |
 | 007 Alertas | P-2 | travada |
 | 009 Geração do RMA | P-1, resolvida | liberada quando 006 estiver |
 
-Quatro specs podem ser escritas agora.
+Cinco specs podem ser escritas agora.
+
+A 004 destravou porque a pergunta mudou de natureza. Não sabíamos quais documentos são obrigatórios; agora sabemos o que **75 meses de operação real** mostram, e o que falta é o cliente revisar uma tabela. E como a lista de itens varia por cliente e por período ([[controle-entrega]]), a obrigatoriedade tem de ser dado editável de qualquer forma: a resposta do cliente vira conteúdo de tabela, não mudança de código. Pelo critério do Saulo, isso a tira do caminho crítico.
 
 ### Sobre a lista crescer
 
@@ -39,9 +43,11 @@ Ela cresce porque muda de natureza, não porque sabemos menos. A v1 perguntava "
 
 Nove dos itens **não são dúvidas nossas** - são defeitos que encontramos no material do cliente. Não bloqueiam nada do nosso lado; existem porque descobrir e não avisar seria pior.
 
-**Versão 4.** v1: 12 perguntas abertas, nenhuma evidência. v2: 17, com o código legado minerado. v3: 27, com o escopo lido por cima. v4: 35, com o escopo lido integralmente por quatro agentes - e com seis resolvidas, o dobro da v3.
+**Versão 5.** v1: 12 perguntas abertas, nenhuma evidência. v2: 17, com o código legado minerado. v3: 27, com o escopo lido por cima. v4: 35, com o escopo lido integralmente. v5: as mesmas 35, com as **104 planilhas de controle** lidas célula a célula - a P-5, que era "a pergunta mais importante desta lista", virou revisão de tabela, e a P-32 fechou.
 
 Lição registrada: **seis perguntas que eu ia mandar já estavam respondidas no material recebido.** As fórmulas na planilha `01.BASE RELATÓRIO`, o modelo de consolidação na tela de cadastro, o destino dos arquivos no código, o regime acumulado do balancete nos próprios dados. Ler tudo antes de perguntar não é zelo: é o que evita gastar a paciência do cliente com o que ele já entregou.
+
+Lição da v5, que é o contrário e vale igual: **uma resposta que dei como "resolvida pelos dados" estava errada.** A P-33 dizia que o vocabulário de status vinha "do uso real em 105 planilhas"; vinha de 3. Contei ocorrências sem olhar em quantos arquivos elas estavam. Evidência é quantidade **e** distribuição.
 
 ## A · Decisões que travam specs
 
@@ -115,9 +121,20 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Pergunta:** das 61 pastas, quais são obrigatórias todo mês? Isso varia por segmento da empresa ou por estágio do processo?
 
-**O que já sabemos:** **nada.** O sistema anterior tinha a tabela de obrigatoriedade pronta, com níveis obrigatório, condicional e opcional, e ela ficou **vazia**. Só duas pastas eram marcadas como exigidas no código: Balancete e DRE. Não havia nenhuma regra ligada a segmento ou a estágio processual.
+**O que já sabemos:** o sistema anterior tinha a tabela de obrigatoriedade pronta, com níveis obrigatório, condicional e opcional, e ela ficou **vazia**. Só duas pastas eram marcadas como exigidas no código: Balancete e DRE. Não havia nenhuma regra ligada a segmento ou a estágio processual.
 
 **Por que importa:** sem isso, o check list de faltantes não tem critério. É a pergunta mais importante desta lista.
+
+**RESPONDIDA EM PARTE PELOS DADOS (04/08/2026).** Deixou de ser pergunta aberta. As **75 planilhas de controle preenchidas** dos dois clientes dão a obrigatoriedade observada, documento a documento, em 75 meses de operação. Ver [[controle-entrega]].
+
+- **18 documentos** foram entregues em 100% dos meses nos dois clientes. É o núcleo obrigatório.
+- **6 documentos** nunca foram entregues uma única vez em 75 meses (obrigação de dar, de fazer, obrigações ilíquidas, cessão fiduciária, alienação fiduciária, arrendamento mercantil). São condicionais à existência da garantia.
+- **8 documentos** variam de fato, e para um deles a condição está identificada: ICMS é GIA ou SPED conforme a **UF**, não conforme o segmento.
+- **4 itens não são documentos**, são perguntas de questionário. Hoje geram pendência falsa.
+
+**O que resta perguntar** deixa de ser "quais são obrigatórias" e passa a ser: (a) confirmar a tabela de [[controle-entrega]]; (b) dizer se a condição dos 8 variáveis é por UF, por segmento ou por estágio processual. É uma revisão de tabela, não um levantamento.
+
+**Consequência:** a spec 004 (Check list) **destrava** com a tabela observada como padrão, desde que a obrigatoriedade seja dado editável e não constante de código - o que os dados já exigem por outro motivo, já que a lista de itens muda por cliente e por período.
 
 **Resposta:**
 
@@ -325,9 +342,11 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 ### P-32 · O segundo ciclo de cobrança nunca foi usado
 
-**Pergunta:** a planilha de controle de entrega tem as colunas "Dúvidas / Esclarecimentos" e "Status 2", para uma segunda rodada de cobrança. Em **105 planilhas reais** dos dois clientes, essas colunas estão 100% vazias. O segundo ciclo existe na prática?
+**Pergunta:** a planilha de controle de entrega tem as colunas "Dúvidas / Esclarecimentos" e "Status 2", para uma segunda rodada de cobrança. O segundo ciclo existe na prática?
 
-**Por que importa:** define se o modelo precisa de uma ou de duas rodadas de esclarecimento.
+**RESOLVIDA PELOS DADOS (04/08/2026).** As duas colunas estão vazias em **3.900 de 3.900 linhas**, nas 104 planilhas dos dois clientes, de 2022 a 2026. Não é amostra: é a série inteira que temos. O segundo ciclo **não existe na operação atual**. Ver [[controle-entrega]].
+
+Vira **aviso**, não pergunta: o modelo nasce com uma rodada de esclarecimento, e a segunda entra quando alguém pedir. Continua no envio só para o cliente saber que reparamos.
 
 **Resposta:**
 
@@ -335,7 +354,13 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Pergunta:** confirmam que os únicos status possíveis de um documento entregue são **Apresentado**, **Não Apresentado**, **Não aplicável** e **Parcial**?
 
-**RESOLVIDA PELOS DADOS (04/08/2026).** Vocabulário extraído do uso real em **105 planilhas de controle** dos dois clientes: `Apresentado` (78 ocorrências), `Não aplicável` (17), `Não Apresentado` (14), `Parcial` (1). Não existe lista suspensa em nenhuma das planilhas - os valores são digitados, e essa é a razão da variação de grafia. Resta só o cliente confirmar que são esses quatro e mais nenhum.
+**CORRIGIDA EM 04/08/2026.** A resposta anterior dizia que o vocabulário vinha "do uso real em 105 planilhas". **Não vinha.** Aquelas 110 ocorrências (`Apresentado` 78, `Não aplicável` 17, `Não Apresentado` 14, `Parcial` 1) estão todas na coluna `STATUS 1`, que foi preenchida em **3 planilhas apenas**, todas da GERATHERM, em janeiro e fevereiro de 2024. Foi uma tentativa abandonada, não a prática.
+
+O que a operação usa de verdade, em 75 planilhas preenchidas e 2.926 linhas, é a coluna **`APRESENTADO PELA RECUPERANDA`, em texto livre**, com **41 grafias distintas** e uma convenção por cliente: a DIPLOMATA escreve `Apresentado pasta one drive` e `Não possui tal operação`; a GERATHERM escreve em caixa alta o que enviou (`RELATÓRIO EM EXCEL ENVIADO`, `NÃO EXISTE ESSA OBRIGAÇÃO`, `DISPENSA GIA`). Não há lista suspensa em nenhum dos 104 arquivos. Ver [[controle-entrega]].
+
+A pergunta ao cliente continua válida e fica **mais forte**: os quatro estados cobrem o que a operação escreve à mão? Em particular, `DISPENSA GIA` e `NÃO EXISTE ESSA OBRIGAÇÃO` são o mesmo `Não aplicável`, ou são coisas diferentes?
+
+Consequência prática: a migração do histórico não pode casar por igualdade de string.
 
 **Resposta:**
 
@@ -405,7 +430,7 @@ Abraço!
 ### Bloco 2 · Decisões que travam o desenvolvimento
 
 ```
-Olá! Quatro definições que dependem de vocês, e dois arquivos que
+Olá! Três definições que dependem de vocês, e dois arquivos que
 faltam.
 
 1. O material diz que variação "superior a 15% ou 20%" gera alerta. Qual
@@ -414,15 +439,13 @@ faltam.
 2. Qual diferença entre documento e balancete ainda conta como
    conferido? Um centavo? Um real? Um percentual?
 
-3. Das 61 pastas, quais são obrigatórias todo mês?
-
-4. As planilhas de consolidação continuam existindo depois do novo
+3. As planilhas de consolidação continuam existindo depois do novo
    sistema? Para quê?
 
-5. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do
+4. Podem enviar o Gestão Técnico2.xlsx? É a fonte das tabelas do
    "Manual de Operações_Área Técnica_V2.xlsx", aba "TD consolidada".
 
-6. O "Manual de Operações_Área Técnica_V2.xlsx" (aba CAPA, controle de
+5. O "Manual de Operações_Área Técnica_V2.xlsx" (aba CAPA, controle de
    alterações de 04/04/2024) diz que os check lists foram retirados dele
    e viraram arquivos individualizados. Podem enviar esses arquivos?
 
@@ -448,13 +471,21 @@ PASTAS E DOCUMENTOS
 3. Ainda nos comentários, as pastas 31, 34 e 35 dizem "pode ter
    conciliação". Como se decide caso a caso?
 
-4. Em "01 - Controle de entrega de documentos 2025.xlsx", coluna
-   STATUS 1: os valores possíveis são só Apresentado, Não Apresentado,
-   Não aplicável e Parcial?
+4. Em "01 - Controle de entrega de documentos 2025.xlsx", a coluna
+   STATUS 1 tem 4 valores (Apresentado, Não Apresentado, Não aplicável,
+   Parcial), mas na prática vocês preenchem a coluna "APRESENTADO PELA
+   RECUPERANDA" em texto livre. Os 4 valores dão conta de tudo que
+   aparece lá? "DISPENSA GIA" e "NÃO EXISTE ESSA OBRIGAÇÃO" são os dois
+   "Não aplicável", ou são coisas diferentes?
 
-5. No mesmo arquivo, as colunas "DUVIDAS / ESCLARECIMENTOS" e "STATUS 2"
-   estão vazias em todas as 105 planilhas que recebemos. Elas são
-   usadas?
+5. Levantamos, nas 75 planilhas de controle preenchidas de GERATHERM e
+   DIPLOMATA, quais documentos foram entregues em todos os meses e
+   quais nunca foram. Vamos usar isso como a obrigatoriedade padrão do
+   check list. Mandamos a tabela para vocês conferirem?
+   Uma dúvida específica: os 8 documentos que variam (extrato de
+   aplicações, rescisões, PJ contratadas, ACC, GIA/ICMS, contingência,
+   parcelamentos, pagamentos a credores) dependem do quê? Da UF, do
+   segmento, ou do estágio do processo?
 
 NÚMEROS
 
@@ -504,11 +535,23 @@ SISTEMA E TELAS
     "Processando IA", "Processados IA" e "Erros IA". Tem algum processo
     usando essas pastas hoje?
 
-AVISO, sem necessidade de resposta
+AVISOS, sem necessidade de resposta
 
 18. A numeração das pastas mudou ao longo do tempo: na GERATHERM o
     balancete era a pasta 02 até 2022 e é a 07 desde 2023; na DIPLOMATA
     continua sendo a 02. Vamos tratar as duas formas.
+
+19. As colunas "DUVIDAS / ESCLARECIMENTOS" e "STATUS 2" do controle de
+    entrega estão vazias nas 104 planilhas que recebemos, de 2022 a
+    2026. Vamos assumir uma rodada de esclarecimento só, e a segunda
+    entra depois se vocês precisarem.
+
+20. Um ponto de privacidade: os arquivos de controle de entrega da
+    GERATHERM e da DIPLOMATA têm uma segunda aba, em branco, que ficou
+    do template de outro cliente. Ela leva o nome "Grupo TTT" e o número
+    de processo dele em todo arquivo dos outros dois, desde 2022. Não
+    tem dado preenchido, mas o identificador viaja junto. No sistema
+    novo isso não acontece.
 
 Abraço!
 ```

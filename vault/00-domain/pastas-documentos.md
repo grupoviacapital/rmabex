@@ -2,7 +2,9 @@
 
 > Fonte: `OLD_RMA/escopo/Acessos da Plataforma RMA - Retorno da Plataforma/Código de Pastas Onedrive_Documentos (2) - identificação.xlsx`, aba `Pastas Onedrive` (ver [[fontes-escopo]]).
 >
-> São **61 pastas**. Cada uma tem um número canônico e um tipo de análise. O número é a chave estável; o nome varia entre clientes.
+> São **61 pastas**. Cada uma tem um número canônico e um tipo de análise.
+>
+> **O número não é chave estável.** A tabela abaixo é a taxonomia de referência, não a realidade dos clientes: a numeração desloca entre clientes, muda ao longo do tempo dentro do mesmo cliente, e a lista de itens cobrados varia por competência. Ver a seção "A realidade diverge da tabela" e, para a medição, [[controle-entrega]].
 
 ## Tipos de análise
 
@@ -93,7 +95,14 @@ Conferido contra os dados reais de dois clientes (`OneDrive/DIPLOMATA/`, `OneDri
 5. **Pastas fora da taxonomia aparecem na prática**, geralmente por evento: `23 - Esclarecimentos RMA-12-2025`, `Diligência Complementar ...`, `EXTRATO SISBAJUD`, `Cras - Tresbomm - Cooatol`, `Plusval`.
 6. **Já existe convenção de pipeline de IA no OneDrive**, replicada nos dois clientes: `Entradas IA`, `Processando IA`, `Processados IA`, `Erros IA`, `Auditoria IA`, `Relatórios IA`. O sistema novo deve decidir se mantém ou substitui esse contrato.
 
+7. **A numeração se desloca entre clientes dentro do próprio check list.** A partir do item 23, DIPLOMATA e GERATHERM deixam de estar alinhados: "Inscrição na dívida ativa" é o item 23 num e o 30 no outro. Medido nas 104 planilhas de controle, em [[controle-entrega]].
+8. **A lista de itens cobrados muda por cliente e por período**: 36, 38, 39, 42 e 44 itens convivem na série. A obrigatoriedade é atributo do par cliente/competência, não constante do sistema.
+
 Consequência de projeto: a classificação de documento tem de ser por **correspondência tolerante de nome** (normalizando acento, caixa, separador e erro de digitação) com o número como pista secundária, e precisa de um caminho explícito para "não classificado".
+
+## Obrigatoriedade observada
+
+Qual documento é de fato exigido todo mês não está nesta tabela: está medido em 75 meses de operação real dos dois clientes, em [[controle-entrega]]. Resumo: 18 documentos entregues em 100% dos meses, 6 nunca entregues em 75 meses, 8 genuinamente condicionais, e 4 itens que não são documentos, e sim perguntas de questionário.
 
 ## Links
 

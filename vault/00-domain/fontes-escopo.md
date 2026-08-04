@@ -16,7 +16,8 @@
 | `Manual de Operações_Área Técnica_V2.xlsx` | Organograma da área técnica e fluxos por produto (RMA, DAL, Constatação Prévia, Prospecção, Prestação de Contas), com os prazos de cada um. Estava em shapes. | [[fluxos-area-tecnica]] |
 | `01.BASE RELATÓRIO_xi teste.XLSM` | **O motor de cálculo do RMA.** 14 abas. `P&L + EBITDA` define o EBITDA; `INDICE` define liquidez e endividamento; `BS` monta o balanço a partir do balancete por `SUMIF` de referência de capital; `Folha` define o quadro de funcionários; `Dados para Graficos` alimenta os gráficos. É a fonte mais autoritativa de fórmula que existe no projeto. | [[formulas-sistema-anterior]] |
 | `RMA_RMA-DIP-01-2026_jan_de_2026 indicação de pastas.docx` | RMA anotado. **A informação está nos 45 comentários de margem**, não no corpo: para cada seção, a pasta de origem, se há conciliação, e exemplos de documento. | [[mapa-secao-pasta]] |
-| `01 - Controle de entrega de documentos 2025.xlsx` | O controle que a recuperanda preenche. 42 itens na mesma numeração canônica, com subitens por conta bancária. Colunas de status e de dúvidas/esclarecimentos. | [[pastas-documentos]] |
+| `01 - Controle de entrega de documentos 2025.xlsx` | O **template em branco** do controle que a recuperanda preenche, 42 itens. As 104 instâncias preenchidas vivem em `OneDrive/DIPLOMATA/` e `OneDrive/GERATHERM/`, e mostram que a lista de itens varia por cliente e por período. | [[controle-entrega]], [[pastas-documentos]] |
+| `OneDrive/DIPLOMATA/**/*Controle de entrega*.xlsx` e idem GERATHERM | **104 planilhas de controle preenchidas**, de 2022 a 2026. Fonte da obrigatoriedade real de documento e do vocabulário de status usado na prática. Lidas célula a célula em 04/08/2026. | [[controle-entrega]] |
 
 ## Documentos de apoio (exemplo, não regra)
 

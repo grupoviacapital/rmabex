@@ -12,8 +12,9 @@ O que foi feito até aqui:
 
 1. O material legado foi indexado, e o escopo foi **lido integralmente**, arquivo por arquivo, incluindo shapes de Excel, comentários de Word, macros VBA e as capturas de tela em resolução nativa.
 2. Os três repositórios do sistema anterior foram minerados.
-3. O domínio foi documentado em 11 notas.
+3. O domínio foi documentado em 12 notas.
 4. As perguntas ao cliente foram consolidadas, filtradas e a primeira rodada começou a ser enviada.
+5. **As 104 planilhas de controle de entrega foram lidas célula a célula** (3.900 linhas de item). Isso destravou a spec 004, fechou a P-32 e corrigiu a P-33. Ver [[controle-entrega]].
 
 ## Decisões do cliente, com data
 
@@ -41,7 +42,7 @@ O que foi feito até aqui:
 | Spec | Situação |
 |---|---|
 | 001 Scaffold, 002 Cadastro, 003 Taxonomia, 005 Balancete | Sem bloqueio técnico. **Travadas por decisão do usuário**, não por falta de informação. |
-| 004 Check list | Depende de "quais pastas são obrigatórias" |
+| 004 Check list | **Destravada em 04/08/2026.** A obrigatoriedade foi medida em 75 meses reais ([[controle-entrega]]); o que falta é o cliente revisar a tabela, e ela é dado editável de qualquer forma. |
 | 006 Conciliação | Depende da tolerância de conferência |
 | 007 Alertas | Depende do limiar de variação |
 
@@ -54,6 +55,7 @@ O que foi feito até aqui:
 | De qual pasta sai cada seção do relatório | [[mapa-secao-pasta]] |
 | Como o relatório é calculado, e a coluna "Ref 1" | [[motor-calculo]] |
 | Os quatro layouts de balancete | [[formatos-balancete]] |
+| Qual documento é obrigatório, medido em 75 meses reais | [[controle-entrega]] |
 | A estrutura das 18 seções do RMA | [[anatomia-rma]] |
 | O processo, manual e automatizado | [[fluxo-processo]] e [[fluxos-area-tecnica]] |
 | O que o sistema anterior fez, e onde falhou | [[sistema-legado]] |
@@ -76,7 +78,10 @@ Registrados porque uma sessão nova pode refazer o mesmo caminho.
 4. **Generalizei de uma amostra.** Registrei a estrutura do balancete da XPT como se fosse regra de domínio. Existem quatro layouts diferentes.
 5. **Tratei documentação do KANTIZ como autoridade.** O cliente depois informou que aquele repositório é de outro produto.
 
-O padrão é o mesmo nos cinco: **trocar o material real por um resumo dele**. Em escopo, ler o conteúdo antes de decidir o que ele é.
+6. **Contei ocorrências sem olhar a distribuição.** Dei a P-33 como "resolvida pelo uso real em 105 planilhas". As 110 ocorrências estavam em **3 planilhas**, de um cliente, em dois meses. Volume de dado não é cobertura de dado.
+7. **Cruzei dois clientes pelo número do item.** As listas de check list se deslocam em uma posição a partir do item 23, então "item 28" é um documento na DIPLOMATA e outro na GERATHERM. A primeira versão da análise de obrigatoriedade acusou divergências que não existiam. Refeita chaveando pelo nome do documento.
+
+O padrão é o mesmo nos sete: **trocar o material real por um resumo dele**, ou trocar a chave certa por uma conveniente. Em escopo, ler o conteúdo antes de decidir o que ele é, e conferir em quantas fontes distintas cada evidência aparece.
 
 ## Próximo passo
 
