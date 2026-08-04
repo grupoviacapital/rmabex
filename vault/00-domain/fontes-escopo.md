@@ -38,6 +38,24 @@ Detalhamento das telas em [[telas-legado]].
 - Nunca entram no repositório, nem em teste, nem em prompt de IA sem anonimização. Ver [[seguranca]].
 - Os `.zip` originais foram mantidos ao lado dos diretórios extraídos.
 
+## Rodada adicional de material (04/08/2026)
+
+Pasta `escopo/mais_documentacoes/`, com três arquivos:
+
+| Arquivo | Situação |
+|---|---|
+| `Código de Pastas Onedrive_Documentos (2) - identificação.xlsx` | **Duplicata byte a byte** do que já tínhamos. |
+| `RMA_RMA-DIP-01-2026_jan_de_2026 indicação de pastas.docx` | **Duplicata byte a byte.** |
+| `01.BASE RELATÓRIO - GIANNINI 08.2024 teste (1).XLSM` | **Novo.** Outra instância do mesmo template, para o cliente Giannini, mesma competência 08.2024. Mesmas 14 abas. |
+
+**O arquivo da Giannini reproduz os três defeitos** encontrados em [[motor-calculo]], idênticos:
+
+- Linha 45 da aba `P&L + EBITDA` rotulada "Depreciações e Amortizações" com referência `40.G` (Compromissos RJ), enquanto a linha 29 usa corretamente `30.E`. O bloco de EBITDA estorna as duas.
+- `FOLHA DE ROSTO!N3` busca "Agosto 2024" numa faixa que termina na coluna M (junho).
+- `Dados para Graficos` linhas 36 e 38 dividindo pelo lucro líquido.
+
+Consequência: **não são defeitos da cópia de teste, são defeitos do template**, presentes numa planilha de cliente real. Nenhum dos três arquivos é a versão `2-2` citada na documentação do sistema antigo, que continua faltando.
+
 ## Derivados gerados por nós
 
 Pastas criadas a partir do material original, que continua intacto no lugar.
