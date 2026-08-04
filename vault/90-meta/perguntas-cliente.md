@@ -143,7 +143,7 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Pergunta:** o OneDrive continua sendo o repositório dos documentos, com o sistema apenas lendo de lá?
 
-**O que já sabemos:** era assim. O sistema guardava só o ponteiro e buscava o arquivo sob demanda, com a hierarquia `Projeto RMA / Cliente / Ano / Mês` imposta em código. Havia também uma rota paralela de upload manual. Só precisamos confirmar que segue valendo.
+**RESOLVIDA PELO CÓDIGO (04/08/2026).** Era assim: o sistema guardava só o ponteiro (`file_id`, `drive_id`, `path`, `etag`, `hash`) e buscava os bytes sob demanda, com a hierarquia `Projeto RMA / Cliente / Ano / Mês` imposta em código, lançando exceção se o caminho saísse da base. Os artefatos produzidos iam para storage próprio. Havia ainda uma rota paralela de upload manual. Ver [[sistema-legado]]. Resta só confirmar que segue valendo.
 
 **Resposta:**
 
@@ -151,7 +151,7 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Pergunta:** os balancetes que recebemos trazem os saldos de resultado acumulados no ano, exigindo subtrair o mês anterior para obter o mês isolado?
 
-**O que já sabemos:** o sistema anterior fazia essa desacumulação de forma determinística, pulando a virada de ano. Não está em nenhum documento do escopo. Se a premissa estiver errada, todo indicador de resultado sai errado.
+**RESOLVIDA PELOS DADOS (04/08/2026).** Sim, e está **provado**, não inferido: no balancete de exemplo, a conta `311010 Vendas - Mercado Interno` vai de −7,16 mi em janeiro a −49,08 mi em julho, crescendo monotonicamente. O sistema anterior já fazia a desacumulação, pulando a virada de ano. Ver [[motor-calculo]] e [[regras-negocio#RN-50]]. Resta só o cliente confirmar que é assim em todos os clientes, não só neste.
 
 **Resposta:**
 
@@ -279,7 +279,7 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Pergunta:** o balancete chega como no exemplo - uma coluna por mês, código de conta hierárquico - e os valores de resultado vêm acumulados no ano?
 
-**Por que importa:** junta-se à P-9. O formato do arquivo de exemplo confirma a estrutura de entrada.
+**RESOLVIDA PELOS DADOS (04/08/2026).** Confirmado célula a célula: uma coluna por mês, com o cabeçalho em texto no padrão "Mês por extenso AAAA"; código de conta como texto, com hierarquia por comprimento (1, 2, 3 e 6 dígitos são sintéticas, 10 dígitos é analítica), pai obtido por truncamento de prefixo; convenção de sinal em partida dobrada (ativo positivo, passivo e receitas negativos), com o prefixo `(-)` na descrição marcando conta redutora; e a soma algébrica dos grupos de nível 1 fechando em zero. A validação aritmética bateu em 114 de 114 sintéticas, nos 7 meses. Ver [[motor-calculo]]. Absorve a P-9.
 
 **Resposta:**
 
@@ -335,7 +335,7 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Pergunta:** confirmam que os únicos status possíveis de um documento entregue são **Apresentado**, **Não Apresentado**, **Não aplicável** e **Parcial**?
 
-**O que já sabemos:** foi o vocabulário extraído do uso real nas 105 planilhas. Não há lista suspensa no Excel; os valores são digitados.
+**RESOLVIDA PELOS DADOS (04/08/2026).** Vocabulário extraído do uso real em **105 planilhas de controle** dos dois clientes: `Apresentado` (78 ocorrências), `Não aplicável` (17), `Não Apresentado` (14), `Parcial` (1). Não existe lista suspensa em nenhuma das planilhas - os valores são digitados, e essa é a razão da variação de grafia. Resta só o cliente confirmar que são esses quatro e mais nenhum.
 
 **Resposta:**
 
@@ -355,103 +355,202 @@ Registrada em [[regras-negocio#RN-41]]. Detalhe e rastreabilidade em [[formulas-
 
 **Resposta:**
 
-## Texto para envio
+## Textos para envio
+
+Três blocos, para mandar em momentos diferentes. Não mande os 35 itens de uma vez.
+
+### Bloco 1 · Urgente - defeitos que afetam relatório protocolado
 
 ```
-Assunto: RMA BEx - confirmações necessárias antes de iniciarmos
+Assunto: RMA BEx - dois pontos que encontramos na planilha padrão
 
 Olá,
 
-Concluímos a leitura de todo o material de escopo e também a análise dos
-três sistemas desenvolvidos pela equipe anterior. Isso respondeu boa
-parte das nossas dúvidas, e transformou outras em perguntas mais
-específicas.
+Ao mapear a planilha 01.BASE RELATÓRIO em detalhe, encontramos duas
+coisas que achamos que vocês precisam saber antes de qualquer outra
+conversa.
 
-São 17 pontos. Os seis primeiros nos impedem de começar; o resto é
-confirmação, e a maioria se responde em uma linha.
+1. O EBITDA pode estar somando Compromissos RJ como se fosse
+   depreciação.
 
-BLOQUEANTES
+   Na aba "P&L + EBITDA", a linha rotulada "Depreciações e
+   Amortizações" dentro do bloco de despesas usa a referência 40.G. No
+   dicionário de referências da própria planilha, 40.G é "Compromissos
+   RJ". O cálculo do EBITDA estorna essa linha como se fosse
+   depreciação.
 
-1. Qual é a fórmula correta de EBITDA, dos índices de liquidez, da
-   relação receita x custo (CMV) e da relação receita x resultado?
-   Encontramos cinco fórmulas diferentes de EBITDA no sistema anterior,
-   uma delas com um fator de 10% marcado no código apenas como
-   "aproximação simplificada". Precisamos saber qual é a boa.
+   No arquivo de exemplo o efeito é zero, porque nenhuma conta usa essa
+   referência. Mas numa recuperanda que contabilize compromissos do
+   plano, o EBITDA sairia maior do que deveria.
 
-2. A partir de que variação de saldo de um mês para o outro o sistema
-   deve alertar? O material diz "geralmente 15% ou 20%", e o sistema
-   anterior usava três valores diferentes conforme o caso.
+   É intencional?
 
-3. Qual diferença entre o valor de um documento e o saldo da conta ainda
-   é aceitável para considerarmos a conferência correta? O sistema
-   anterior usava de um centavo a um por cento, dependendo do ponto.
+2. O mês de fechamento pode estar saindo em branco na capa.
 
-4. Quando um processo tem várias empresas em recuperação, o relatório é
-   um por empresa, um consolidado do grupo, ou os dois? O sistema
-   anterior trabalhava sempre por empresa e descartava a informação de
-   grupo que vem na planilha de controle. Isso era o desejado?
+   As buscas que alimentam a Folha de Rosto e os gráficos terminam em
+   junho ou julho, enquanto o cubo de indicadores vai até agosto. No
+   arquivo que recebemos, o faturamento, o resultado líquido e os quatro
+   índices de liquidez do mês de referência aparecem como #N/A.
 
-5. Das 61 pastas de documentos, quais são obrigatórias todo mês? Essa
-   lista muda conforme o segmento da empresa ou o estágio do processo?
-   O sistema anterior tinha a estrutura pronta para isso e nunca foi
-   preenchida, então não temos de onde tirar.
+   Isso acontece no arquivo de vocês também, ou é particularidade desta
+   cópia de teste?
 
-6. As planilhas de consolidação usadas hoje continuam existindo depois
-   do novo sistema? Se sim, com que finalidade?
+Um terceiro ponto, menor: na aba "Dados para Graficos", as linhas
+"RESULTADO / RECEITA LIQUIDA (%)" e "CMV + DESPESA / RECEITA LIQUIDA
+(%)" estão dividindo pelo lucro líquido, não pela receita líquida. A
+linha do CMV sozinho divide corretamente.
 
-CONFIRMAÇÕES
+Abraço,
+```
 
-7. Qual é a numeração canônica das pastas de documentos? Nos dados que
-   recebemos, "Resumo da folha de pagamento" é a pasta 15 em um cliente
-   e a 09 em outro, e muda de um ano para o outro dentro do mesmo
-   cliente. E o que deve acontecer quando as pastas não seguem o padrão?
+### Bloco 2 · Decisões que precisamos para começar
 
-8. O OneDrive continua sendo o lugar onde a empresa deposita os
-   documentos, com o sistema apenas lendo de lá?
+```
+Assunto: RMA BEx - quatro definições para destravar o desenvolvimento
 
-9. Os balancetes trazem os valores de resultado acumulados no ano,
-   exigindo subtrair o mês anterior para obter o mês isolado? O sistema
-   anterior fazia essa conta.
+Olá,
 
-10. No plano de contas dos clientes, o grupo 4 é receita ou custo da
-    mercadoria vendida? O sistema anterior tratava das duas formas em
-    lugares diferentes.
+Com as fórmulas que a Gisele confirmou, e depois de mapear todo o
+material que vocês nos passaram, sobraram quatro definições que
+dependem de vocês. Elas travam partes específicas do sistema.
 
-11. As faixas de vencimento de contas a pagar e a receber são 0-30,
-    30-90, 90-180 e acima de 180 dias, ou existe corte adicional em 60?
+1. LIMIAR DO ALERTA DE VARIAÇÃO
+   A partir de que variação de saldo de um mês para o outro o sistema
+   deve alertar o analista? O material diz "geralmente 15% ou 20%". O
+   limite é o mesmo para todas as contas e todos os clientes?
 
-12. Continua valendo a regra de que o Ativo Não Circulante é o grupo 12,
-    e que o grupo 13 (Ativo Permanente) fica de fora do ANC e do Ativo
-    Total? Está registrada no sistema anterior como definição de
-    28/05/2026.
+2. TOLERÂNCIA DE CONFERÊNCIA
+   Qual diferença entre o valor de um documento e o saldo da conta
+   ainda é aceitável para considerarmos conferido? Sem isso, diferença
+   de centavos vira divergência falsa todo mês.
 
-13. O sistema anterior tinha valores contábeis reais de um cliente e
-    textos de parecer prontos gravados dentro do código. Isso foi
-    intencional?
+3. DOCUMENTOS OBRIGATÓRIOS
+   Das 61 pastas, quais são obrigatórias todo mês? Essa lista muda
+   conforme o segmento da empresa ou o estágio do processo? Não achamos
+   critério documentado em lugar nenhum.
 
-SOBRE O ESCOPO E O MATERIAL
+4. PLANILHAS DE CONSOLIDAÇÃO
+   As planilhas usadas hoje continuam existindo depois do novo sistema?
+   Se sim, com que finalidade?
 
-14. O sistema deve atender também DAL, Constatação Prévia, Prospecção e
-    Prestação de Contas, agora ou mais adiante? Os cinco processos estão
-    no Manual de Operações, mas só RMA e parte de Prospecção existem no
-    sistema anterior.
+E dois pedidos de material que faltam no que recebemos:
 
-15. Os prazos do Manual de Operações continuam valendo? Dia 10 para a
+   - Gestão Técnico2.xlsx, que é a fonte dos indicadores de desempenho
+     do Manual de Operações.
+   - Os check lists. O próprio Manual registra que foram retirados dele
+     em 04/04/2024 e viraram arquivos individualizados. Eles não vieram.
+
+Abraço,
+```
+
+### Bloco 3 · Confirmações objetivas
+
+```
+Assunto: RMA BEx - confirmações rápidas
+
+Olá,
+
+Lista de pontos que se respondem em uma linha cada. Vários vêm de
+divergências entre documentos que vocês nos enviaram; queremos saber
+qual versão vale.
+
+SOBRE AS PASTAS E OS DOCUMENTOS
+
+1. A pasta 21 (GFIP, INSS e FGTS) tem conferência com o balancete? A
+   planilha de identificação diz que sim, com regra detalhada; os
+   comentários do RMA anotado dizem que não.
+
+2. Confirmam que a mesma pasta pode ter conferência num item do
+   relatório e não ter em outro? A pasta 15 aparece sem conferência nos
+   itens 5, 5.1 e 5.2, e com conferência nos itens 5.4 e 5.5.
+
+3. Para contingência, arrendamento mercantil e ACC, o material diz
+   "algumas empresas contabilizam" e "pode ter conferência". Como se
+   decide, caso a caso?
+
+4. Qual é a numeração canônica das pastas? Nos dados que recebemos,
+   "Resumo da folha de pagamento" é a pasta 15 num cliente e a 09 em
+   outro, e muda de um ano para o outro dentro do mesmo cliente.
+
+5. Os status possíveis de um documento entregue são apenas Apresentado,
+   Não Apresentado, Não aplicável e Parcial? Foi o que encontramos em
+   105 planilhas de controle.
+
+6. As colunas "Dúvidas / Esclarecimentos" e "Status 2" da planilha de
+   controle estão vazias em todas as 105. O segundo ciclo de cobrança
+   existe na prática?
+
+SOBRE OS NÚMEROS
+
+7. No plano de contas, o grupo 4 é receita ou custo da mercadoria
+   vendida? Encontramos as duas interpretações.
+
+8. As faixas de vencimento são 0-30, 30-90, 90-180 e acima de 180 dias,
+   ou existe corte adicional em 60?
+
+9. Continua valendo que o Ativo Não Circulante é o grupo 12, e que o
+   grupo 13 fica de fora dele e do Ativo Total?
+
+10. Os balancetes trazem os valores de resultado acumulados no ano?
+    Confirmamos isso nos dados, mas queremos saber se vale para todos os
+    clientes.
+
+11. O endividamento é calculado sobre o patrimônio líquido ou sobre o
+    ativo total? A planilha tem os dois.
+
+12. Os prazos médios usam base de 30 ou de 360 dias? A planilha usa as
+    duas em lugares diferentes.
+
+13. ROA e ROE são anualizados multiplicando o resultado do mês por 12?
+
+14. Quando se usa o Termômetro de Kanitz e quando se usa o Índice de
+    Solvência Geral? O parecer da Raízen registra a decisão de trocar um
+    pelo outro.
+
+15. A validação de comprovantes é feita "por amostragem". Existe
+    critério de tamanho de amostra ou de seleção?
+
+SOBRE O SISTEMA
+
+16. Nas telas, o RMA aparece como duas coisas: o relatório mensal de uma
+    recuperanda, com seções e percentual de preenchimento; e um
+    protocolo numerado com solicitante, setor e prioridade. Qual é o
+    certo, ou os dois coexistem?
+
+17. Confirmam os seis perfis de acesso: Administrador, Coordenador,
+    Colaborador, Administrador Judicial, Recuperanda e Magistrado? Três
+    deles não têm nenhuma tela desenhada. Entram no produto?
+
+18. O sistema atende mais de um administrador judicial, cada um com seu
+    logotipo nos relatórios?
+
+19. As telas mostram 7 tipos de documento. Isso substitui as 61 pastas
+    ou é só agrupamento de visualização?
+
+20. A tela de progresso mostra 6 blocos, mas o relatório real tem 18
+    seções. São agrupamentos ou outra estrutura?
+
+21. Os prazos do Manual de Operações continuam valendo? Dia 10 para a
     cobrança, dia 20 como prazo da empresa, dois dias úteis para a
-    checagem e último dia útil para o protocolo. O fluxo automatizado
-    que recebemos não menciona prazo nenhum.
+    checagem e último dia útil para o protocolo.
 
-16. No relatório de março de 2026, a numeração vai da seção 12 direto
-    para a 14. A seção 13 foi removida, ficou vazia naquele mês, ou é
-    assim mesmo?
+22. O sistema deve atender também DAL, Constatação Prévia, Prospecção e
+    Prestação de Contas, agora ou mais adiante?
 
-17. O conjunto de telas tem 19 imagens numeradas de 1 a 20, sem a de
-    número 4 - falta alguma? E as pastas com nome de IA que aparecem no
-    OneDrive (Entradas IA, Processando IA, Processados IA, Erros IA,
-    Auditoria IA, Relatórios IA) fazem parte de algum processo em
-    funcionamento hoje?
+SOBRE O MATERIAL
 
-Qualquer um desses pontos que renda conversa, podemos marcar uma call.
+23. No relatório de março de 2026, a numeração vai da seção 12 direto
+    para a 14. A seção 13 foi removida?
+
+24. O conjunto de telas tem 19 imagens numeradas de 1 a 20, sem a 4, e
+    duas delas são idênticas. Falta alguma?
+
+25. As pastas com nome de IA que aparecem no OneDrive fazem parte de
+    algum processo em funcionamento?
+
+26. O sistema anterior tinha valores contábeis reais de um cliente e
+    textos de parecer prontos gravados dentro do código. Foi
+    intencional?
 
 Abraço,
 ```
