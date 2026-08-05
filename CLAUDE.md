@@ -3,6 +3,21 @@
 Projeto RMA BEx
 Stack: **Next.js (App Router) + TypeScript estrito + Prisma + SQLite + Zod + Vitest + Playwright** (ver `vault/20-decisions/adr-001-stack.md`).
 
+## Onde o projeto está (05/08/2026): reinício do zero
+
+O escopo anterior estava errado. **Todo o domínio que havia sido escrito foi descartado** e o material legado (`OLD_RMA/`) foi apagado. Estamos remontando o entendimento do zero, em quatro etapas:
+
+1. **Rascunho do escopo** -> `RASCUNHO.md` na raiz. **É o ponto de partida de qualquer sessão.** Etapa atual.
+2. Fluxograma e análise de requisitos.
+3. Specs.
+4. Código.
+
+Regras enquanto durar esta fase:
+
+- **Não consulte `vault/99-descartado/`.** Nada ali é confiável, nem os detalhes que parecem inofensivos.
+- Não afirme nada de domínio que não esteja confirmado no `RASCUNHO.md`. Sem fonte, é dúvida `D-x`, não fato.
+- As notas de domínio do vault estão vazias de propósito. Vão sendo preenchidas a partir do rascunho.
+
 ## Regra de ouro
 
 **Nenhum código sem spec aprovada.** Toda mudança nasce de uma spec em `vault/10-specs/NNN-slug/` e percorre o loop `requirements -> design -> tasks -> implement -> verify`. O processo está em `vault/90-meta/como-trabalhamos.md`.
@@ -16,15 +31,9 @@ Stack: **Next.js (App Router) + TypeScript estrito + Prisma + SQLite + Zod + Vit
 
 Não duplique regras de negócio aqui: elas vivem em `vault/00-domain/regras-negocio.md`. Leia a spec relevante em vez de carregar o projeto inteiro.
 
-## Material legado (consulta, não versionado)
+## Material legado
 
-O sistema RMA antigo e demais referências vivem em `OLD_RMA/` (ignorado pelo git). Toda consulta a código ou documentação legada é feita ali:
-
-- `OLD_RMA/projetos_antigos/RMA-VS-1-FINAL-main/` -> sistema RMA legado.
-- `OLD_RMA/projetos_antigos/KANTIZ-VS-1-FINAL-main/`, `OLD_RMA/projetos_antigos/PROSPECCAO-VS1-main/` -> outros sistemas de referência.
-- `OLD_RMA/escopo/`, `OLD_RMA/projetos_antigos/auditoria/`, `OLD_RMA/projetos_antigos/backup/` -> documentação de escopo e auditorias.
-
-É referência, não fonte de verdade: o que vale é o vault.
+Não existe mais. `OLD_RMA/` foi apagado em 05/08/2026 e não deve ser procurado nem reconstruído.
 
 ## O loop (comandos)
 
@@ -39,7 +48,7 @@ O sistema RMA antigo e demais referências vivem em `OLD_RMA/` (ignorado pelo gi
 
 A verdade do progresso vive no disco, não no chat. Ao retomar (sessão nova ou após `/compact`):
 
-1. **Leia `vault/90-meta/estado-atual.md` primeiro.** É o ponto de retomada: onde o projeto está, as decisões do cliente com data, o que está travado e em quem, e o mapa de qual nota ler para cada assunto.
+1. **Leia `RASCUNHO.md` primeiro.** É o ponto de retomada enquanto durar o reinício: o que já foi confirmado, e as dúvidas `D-x` ainda abertas.
 2. Leia o `tasks.md` da spec ativa (`- [x]` vs `- [ ]`), se já houver spec.
 3. Rode `git status` e `git log --oneline -15`.
 4. Se o disco divergir do `tasks.md`, ajuste o `tasks.md` antes de prosseguir.
