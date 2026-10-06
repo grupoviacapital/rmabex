@@ -11,6 +11,7 @@ Stack: **Next.js (App Router) + TypeScript estrito + Prisma + SQLite + Zod + Vit
 
 ## Onde está o quê (o vault é a fonte de verdade)
 
+- **Descoberta** -> `vault/05-descoberta/` (briefing, leitura das fontes do cliente, dúvidas `D-x`). Enquanto o escopo não fecha, comece por aqui.
 - **Domínio** -> `vault/00-domain/` (glossário, regras de negócio, modelo de dados, referência de UI).
 - **Specs** -> `vault/10-specs/` (uma pasta por feature).
 - **Decisões** -> `vault/20-decisions/` (ADRs).

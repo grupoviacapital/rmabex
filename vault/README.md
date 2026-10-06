@@ -10,10 +10,17 @@ Projeto RMA BEx.
 
 | Pasta | O que vive aqui |
 |-------|-----------------|
+| `05-descoberta/` | Descoberta do escopo: briefing, leitura das fontes, dúvidas D-x |
 | `00-domain/` | Domínio: glossário, regras de negócio, modelo de dados, UI |
 | `10-specs/` | Uma pasta por feature: `requirements -> design -> tasks` |
 | `20-decisions/` | ADRs: decisões de arquitetura registradas |
 | `90-meta/` | Como trabalhamos + convenções + qualidade + segurança |
+
+## Descoberta
+
+- [[briefing]] - fontes, pedido do cliente e decisões
+- [[fluxo-v8]] - leitura do fluxo v8 do cliente
+- [[duvidas]] - dúvidas D-x, roteiro da reunião
 
 ## Domínio
 
