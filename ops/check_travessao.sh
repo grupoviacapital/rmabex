@@ -13,9 +13,9 @@
 # "o teto recusa 3 MB (e deixa passar 65 MB)" o parêntese esconde o ponto da frase.
 #
 # Uso:
-#   scripts/check_travessao.sh            # o que está staged (o que o hook faz)
-#   scripts/check_travessao.sh --tudo     # todos os arquivos rastreados
-#   scripts/check_travessao.sh --teste    # autoteste
+#   ops/check_travessao.sh            # o que está staged (o que o hook faz)
+#   ops/check_travessao.sh --tudo     # todos os arquivos rastreados
+#   ops/check_travessao.sh --teste    # autoteste
 #
 # ⚠️ Escapes unicode de propósito: com o caractere literal, o script se acusaria sozinho.
 set -uo pipefail
@@ -27,7 +27,7 @@ EM=$'—'   # em dash
 PADRAO="[${EN}${EM}]"
 
 # O próprio script é a única exceção: ele precisa dos caracteres para procurar por eles.
-EXCLUI='^scripts/check_travessao\.sh$|\.(min\.(js|css)|map|lock)$'
+EXCLUI='^ops/check_travessao\.sh$|\.(min\.(js|css)|map|lock)$'
 
 if [ "${1:-}" = "--teste" ]; then
     TMP=$(mktemp); trap 'rm -f "$TMP"' EXIT

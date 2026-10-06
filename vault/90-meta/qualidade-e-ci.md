@@ -96,7 +96,7 @@ Estas nascem junto do `package.json`, na primeira `/implement`:
 - **ESLint** (`@typescript-eslint`, `eslint-plugin-import`) - regras de código e ordem de imports.
 - **Husky** - hooks de git: `pre-commit` (lint-staged) e `commit-msg` (commitlint).
 - **lint-staged** - roda lint/format/test só nos arquivos alterados (rápido).
-- **check_travessao** - `scripts/check_travessao.sh`, plugado no pre-commit. Falha se
+- **check_travessao** - `ops/check_travessao.sh`, plugado no pre-commit. Falha se
   en dash ou em dash aparecer em arquivo versionado, e **imprime qual alternativa usar em
   cada caso** (aparte vira parênteses; ênfase vira hífen ou ponto; intervalo vira hífen).
   Tem autoteste (`--teste`) e varre a base inteira com `--tudo`.

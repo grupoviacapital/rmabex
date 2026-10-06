@@ -42,3 +42,6 @@ npm-debug.log*
 vault/.obsidian/workspace.json
 vault/.obsidian/workspace-mobile.json
 vault/.obsidian/cache
+
+# Material de entrada do cliente (e-mails, planilhas): so local, nunca versionar
+scripts/
