@@ -1,9 +1,17 @@
-# Glossário
+# Glossário - Domínio RMABEx
 
-> **Vazio de propósito.** O projeto reiniciou do zero em 05/08/2026. Os termos serão levantados de novo a partir do `RASCUNHO.md`, um por um, conforme forem confirmados.
->
-> A versão anterior está em `vault/99-descartado/glossario.md` e não deve ser consultada.
+> Termos do domínio, em PT-BR. No código, os identificadores em inglês correspondentes aparecem em `code`. Preencha conforme o domínio do projeto.
 
-| Termo | O que é | Confirmado em |
-|---|---|---|
-|  |  |  |
+## Como usar
+
+- Um termo por linha ou seção.
+- Sempre que um conceito de negócio aparecer numa spec, ele deve estar aqui.
+- Ligue termos relacionados com `[[wikilinks]]`.
+
+## Termos
+
+- **{{ExemploTermo}}** (`codeName`) - definição curta. (substitua pelos termos reais)
+
+---
+
+*(Este arquivo é um stub do template. Preencha com o domínio real antes da primeira spec.)*

@@ -7,12 +7,17 @@
   "permissions": {
     "allow": [
       "Bash(npx vitest:*)",
+      "Bash(npx jest:*)",
+      "Bash(pytest:*)",
+      "Bash(go test:*)",
       "Bash(npx tsc:*)",
       "Bash(npx prettier:*)",
       "Bash(npx prisma:*)",
       "Bash(npm run:*)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
+      "Bash(git --no-pager diff:*)",
+      "Bash(git --no-pager log:*)",
       "Bash(git log:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",

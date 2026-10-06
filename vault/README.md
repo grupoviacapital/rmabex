@@ -2,13 +2,7 @@
 
 > **Map of Content**: a "home" do conhecimento do projeto. Este vault é a **fonte de verdade** de domínio, specs e decisões. Todo código nasce de uma spec daqui.
 
-Projeto RMA BEx
-
-> ## Reinício em 05/08/2026
->
-> O escopo anterior estava errado e foi descartado. **As notas de domínio estão vazias de propósito.**
->
-> O ponto de partida agora é o **`RASCUNHO.md` na raiz do projeto**, onde o escopo está sendo remontado do zero. O que foi descartado está em `99-descartado/` e **não deve ser consultado**.
+Projeto RMA BEx.
 
 ---
 
@@ -20,7 +14,6 @@ Projeto RMA BEx
 | `10-specs/` | Uma pasta por feature: `requirements -> design -> tasks` |
 | `20-decisions/` | ADRs: decisões de arquitetura registradas |
 | `90-meta/` | Como trabalhamos + convenções + qualidade + segurança |
-| `99-descartado/` | Escopo antigo, errado. **Não usar.** |
 
 ## Domínio
 

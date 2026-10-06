@@ -1,6 +1,6 @@
 # RMABEx
 
-Projeto RMA BEx
+Projeto RMA BEx.
 
 > Projeto estruturado com **Spec-Driven Development**: o vault Obsidian (`vault/`) é a fonte de verdade e o Claude Code é o executor. Nenhum código nasce sem uma spec aprovada.
 
@@ -15,9 +15,14 @@ Next.js (App Router) + TypeScript estrito + Prisma + SQLite + Zod + Vitest + Pla
 /plan <spec>    -> design.md         (spec-designer)
 /tasks <spec>   -> tasks.md          (task-planner)
 /implement      -> código + testes   (implementer, TDD, commit por task)
+   ⏸ PARADA     -> você testa na tela e aponta o que estiver errado
 /verify         -> auditoria vs spec (spec-reviewer) + segurança
 /identidade     -> identidade visual (brand-designer)
 ```
+
+O `tasks.md` vem em três blocos: núcleo, a parada para o seu teste manual, e o fechamento. O
+`/implement` para no marco `⏸ PARADA` (é onde a sessão termina) e o `/verify` só roda depois que você
+disser que está certo.
 
 Processo completo em [`vault/90-meta/como-trabalhamos.md`](vault/90-meta/como-trabalhamos.md).
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-`Aceito` (2026-08-04)
+`Aceito` (2026-10-06)
 
 ## Contexto
 

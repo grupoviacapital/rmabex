@@ -1,11 +1,18 @@
-# Modelo de Dados
+# Modelo de Dados - RMABEx
 
-> **Vazio de propósito.** O projeto reiniciou do zero em 05/08/2026. As entidades saem da análise de requisitos, que ainda não começou.
->
-> A versão anterior está em `vault/99-descartado/modelo-dados.md` e não deve ser consultada.
+> Entidades do domínio. Esta nota é a **base do schema** (Prisma/ORM). O `design.md` de cada spec referencia entidades daqui por `[[modelo-dados#Entidade]]`. Nomes de domínio em PT-BR; nomes de código em inglês.
 
-Quando for preenchido, esta nota traz: entidades, campos, tipos, e o mapa domínio (PT-BR) para código (inglês). Ver [[convencoes-codigo]].
+## Visão geral
 
-| Entidade | Nome no código | Campos |
-|---|---|---|
-|  |  |  |
+```
+(diagrama simples das entidades e relações, ex.: A 1-* B)
+```
+
+## Entidade (exemplo)
+
+| Domínio | Código | Tipo | Notas |
+|---------|--------|------|-------|
+| identificador | `id` | string/int | chave primária |
+| ... | ... | ... | ... |
+
+*(Substitua pelas entidades reais. Valores monetários, se houver, em tipo decimal, nunca float.)*

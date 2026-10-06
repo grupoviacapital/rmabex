@@ -15,7 +15,7 @@ A spec alvo: `requirements.md`, `design.md`, `tasks.md`, e o código produzido.
 1. **Cobertura de requisitos** - para cada `R-x`/`RN-x` do `requirements.md`, existe código **e** teste que o realiza? Liste requisitos sem cobertura ou com cobertura fraca.
 2. **Conformidade com o design** - o código segue os contratos (Prisma/Zod), camadas e fluxos do `design.md`? Aponte desvios.
 3. **Convenções** - [[convencoes-codigo]]: TS estrito, sem `any` injustificado, decimal para dinheiro (nunca float), Zod nas bordas, lógica em `src/lib/`.
-4. **Testes de verdade** - rode `npx vitest run` e `npx tsc --noEmit`. Testes que não asseguram o comportamento (asserts vazios, mocks que escondem a regra) contam como gap.
+4. **Testes de verdade** - rode a suíte do runner do projeto e o `npx tsc --noEmit`, sempre com a saída **filtrada** (`npx vitest run --silent --reporter=dot 2>&1 | tail -6`, ou o equivalente em Jest, pytest ou Go): a saída crua custa cerca de 18 mil tokens contra cerca de 50 da filtrada, e onde o runner paraleliza o limite de workers é obrigatório. Testes que não asseguram o comportamento (asserts vazios, mocks que escondem a regra) contam como gap.
 5. **Regras críticas** - confirme por teste ou leitura que cada `RN-x` tocada pela spec se comporta como em [[regras-negocio]] (atenção redobrada às regras que mutam estado sensível).
 6. **Tasks** - toda `T-x` marcada `[x]` está de fato feita?
 

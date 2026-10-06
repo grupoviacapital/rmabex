@@ -1,7 +1,25 @@
 # Pendências Externas
 
-> **Vazio de propósito.** O projeto reiniciou do zero em 05/08/2026. A lista anterior está em `vault/99-descartado/pendencias-externas.md` e não deve ser consultada.
+> Coisas que ficam **fora** do que fazemos aqui no código, mas que o projeto vai precisar antes de produção. Lista simples e direta. Aprofundamos cada item depois.
 
-Aqui entram as coisas que ficam **fora** do código mas que o projeto vai precisar antes de produção (infra, pentest, compliance, decisões que dependem de terceiros). A lista será remontada quando o escopo novo estiver de pé.
+## Segurança e infra
 
--
+- [ ] Pentest profissional (antes de produção, por lidar com dinheiro).
+- [ ] Segurança de infra: HTTPS/TLS, WAF, headers de segurança no deploy.
+- [ ] Backups do banco + criptografia em repouso.
+- [ ] Hardening do servidor/hosting.
+- [ ] Rotação e cofre de segredos (ex.: gestor de secrets no ambiente de deploy).
+
+## Compliance
+
+- [ ] LGPD: análise formal se houver dado de terceiros (base legal, retenção, direitos do titular).
+
+## Design / Marca
+
+- [ ] Arte final de logo (vetor refinado) por designer em Figma/Illustrator.
+- [ ] Manual de marca completo, se necessário.
+
+## Operação
+
+- [ ] Monitoramento/observabilidade (logs, alertas, uptime) em produção.
+- [ ] Estratégia de deploy e ambiente (staging vs produção).

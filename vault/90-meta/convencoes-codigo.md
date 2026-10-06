@@ -49,9 +49,28 @@ Estas são regras explícitas do projeto. O `implementer` e o `spec-reviewer` as
 
 ### Pontuação: proibido travessão
 
-- **Nunca** usar travessão longo `-` (em dash) nem `-` (en dash), em hipótese alguma. Vale para **código, comentários, docs do vault, mensagens de commit e PRs**.
-- No lugar: use hífen simples `-`, dois-pontos `:`, parênteses, ou reescreva a frase.
-- Exemplo: em vez de "status - ativo - editável", escreva "status: ativo (editável)".
+**Nunca** usar em dash nem en dash, em hipótese alguma. Vale para código, comentário, string
+de UI, docs do vault, mensagem de commit e PR. É a assinatura visual mais óbvia de texto
+gerado por IA, e o que se entrega precisa passar credibilidade de trabalho humano.
+
+**A troca depende do que o travessão estava fazendo**, e não é sempre parênteses:
+
+| o travessão era | vira |
+|---|---|
+| **aparte**, comentário que sai da frase | **parênteses**: `a mensagem (foi legal)` |
+| **ênfase ou conclusão** | hífen, dois-pontos ou ponto final. Parêntese aqui **esconde** o que a frase quer destacar |
+| **separador** em lista ou tabela | dois-pontos ou hífen: `status: ativo` |
+| **aposto** no meio da frase | vírgulas ou parênteses: `a regra, que ninguém leu, falhou` |
+| **intervalo** ou palavra composta | hífen simples: `10-15 min`, `pré-fix` |
+
+Trocar tudo por hífen resolve a gramática e não resolve o problema: `frase - continuação`
+mantém o mesmo ritmo do travessão, e é o ritmo que denuncia o texto.
+
+O `ops/check_travessao.sh` barra no pre-commit e imprime esta tabela na hora, porque
+documento se lê uma vez e hook se lê toda vez.
+
+⚠️ Não encha o texto de parênteses. Dois incisos na mesma frase é sinal de que ela precisa
+virar duas.
 
 ### Comentários
 

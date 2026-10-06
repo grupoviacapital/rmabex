@@ -35,6 +35,6 @@ Leia também `vault/00-domain/.identity-brief` (resumo do produto e tom desejado
 ## Regras
 
 - Logos aqui são **direções de marca simples**, não arte final (isso é [[pendencias-externas]]).
-- Sem travessão (em/en dash) em nada que você escrever; use hífen.
+- Sem travessão (em/en dash) em nada que você escrever. Troque por parênteses, não por hífen.
 - Após gravar `ui-referencia.md`, atualize o status dele para `Definido` e aponte a spec de UI/tema no [[ROADMAP]].
 - Retorno final (texto): o que foi definido (importado ou gerado + escolha), arquivos escritos, e o link do Artifact se houver.

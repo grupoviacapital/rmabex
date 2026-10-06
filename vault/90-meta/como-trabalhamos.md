@@ -18,6 +18,50 @@
 
 Entre cada estágio, **você (humano) revisa e aprova** o artefato no Obsidian. O loop não avança sozinho de requirements até código sem checkpoint.
 
+## Os três blocos do `tasks.md` e a parada para teste manual
+
+O estágio 3 não entrega uma lista corrida de tarefas: entrega **três blocos**, com um marco de parada
+escrito no meio do arquivo.
+
+| Bloco | O que entra | Quem executa |
+|---|---|---|
+| **1 Núcleo** | o que faz a feature existir (migração, regra de domínio, endpoint, tela), **com o teste da própria tarefa dentro** (TDD) | `/implement`, que **para no marco** |
+| ⏸ **PARADA** | o usuário testa a feature na tela e aponta o que estiver errado | o humano. **A sessão termina aqui** |
+| **2 Correções** | só o que o usuário apontou no teste (vazio no planejamento) | sessão nova, retomando pelo disco |
+| **3 Fechamento** | prova de runtime ponta a ponta, `/verify`, gate de segurança, ADR e registro no vault | depois do "está certo" dele |
+
+O marco fica escrito no próprio `tasks.md`, entre os blocos 1 e 2:
+
+```markdown
+---
+
+## ⏸ PARADA - teste manual do usuário
+
+O usuário testa a feature na tela e aponta o que estiver errado. A sessão termina aqui: as
+correções entram em **sessão nova**, que retoma lendo este `tasks.md` e o estado no disco.
+
+---
+```
+
+Consequências, que valem para os três arquivos do harness:
+
+- o **task-planner** emite os três blocos e, no retorno, diz quantas tarefas há em cada um e **o que
+  exatamente o usuário vai testar na parada** (tela, ação, resultado esperado);
+- o **`/implement` para no marco**, mesmo no modo "implemente tudo": mostra o diff, diz o que testar
+  e avisa que a sessão deve terminar ali;
+- o **`/verify` recusa rodar antes do teste manual**. É pré-condição explícita, não recomendação.
+
+Por que, com os números da medição de 2026-09-20 (projeto `sgcbex`, arco de quatro specs):
+
+- a parada é o ponto natural de **encerrar a sessão**, e 97,5% do gasto do arco foi releitura de
+  contexto;
+- o `/verify` custou 7,9% e devolveu 19 correções e 3 bloqueantes. Rodado antes do teste manual, o
+  código muda depois e ele é refeito: 7,9% pagos duas vezes.
+
+⛔ **O teste unitário da tarefa não vai para o bloco 3.** Ele nasce dentro da própria tarefa, porque
+é ele que protege o teste manual do usuário: filtrado, custa cerca de 50 tokens e poucos segundos, e
+mandar o usuário testar na tela um cálculo que o teste reprovaria gasta o tempo dele, que é o caro.
+
 ## Paralelização (sempre que houver fila de specs)
 
 **Regra: quando há uma sequência de specs pela frente, paralelize o PLANEJAMENTO, mantenha a IMPLEMENTAÇÃO sequencial.** Isso é padrão, não exceção - aplicar toda vez que o ROADMAP tiver mais de uma spec na fila.
@@ -49,3 +93,32 @@ Cada item de `tasks.md` cita o requisito que satisfaz (`req R-3` / `RN-5`). O `s
 - Review pesado → **spec-reviewer** (isolado).
 - Instruções detalhadas → **skills** carregam sob demanda.
 - `CLAUDE.md` curto → aponta pro vault em vez de repetir regras.
+
+### O custo deste loop, medido em 2026-09-20
+
+Um arco de quatro specs seguidas foi medido de ponta a ponta no projeto `sgcbex`: **462,8M de tokens,
+US$ 316 a preço de lista, 8,2 h ativas**. O que saiu de lá vale aqui também, porque é sobre o
+processo, não sobre a stack. São seis pontos, e três deles são sobre o que **não** cortar:
+
+1. **Sessão nova a cada spec** (ou `/compact` no meio dela). **97,5% do gasto é releitura de
+   contexto**: a sessão foi de 66k para 731k em três dias, e os mesmos 127 turnos que custaram 55M a
+   548k custariam cerca de **13M a 130k**. É a economia de maior efeito e **não tira proteção
+   nenhuma**, porque a verdade do progresso está no disco (ROADMAP, spec e `tasks.md`).
+2. **Design curto quando o módulo já é conhecido**: contratos, migração e fronteira de arquivos, e só.
+   O design foi **8%** do arco e repetia o que o `tasks.md` dizia de novo. Onde a decisão é cara de
+   reverter, a análise de alternativas continua obrigatória.
+3. **Não cortar requisitos nem tasks**: juntos são **6,6%** do arco. Cortar economiza quase nada e
+   tira justamente o que amarra código a requisito.
+4. **Manter o `/verify`**: **7,9%** do arco, e devolveu **19 correções e 3 bloqueantes**, entre elas
+   uma regressão que a própria correção anterior havia criado. É o melhor troco entre custo e defeito
+   pego.
+5. **A régua do que vai direto e do que vai por spec**: mudança de **um ou dois arquivos, sem banco e
+   sem regra de domínio**, vai direto e custou de **5M a 22M de tokens** por correção; mudança que
+   toca **cálculo, banco ou regra de domínio** vai por spec e custou de **106M a 124M** por spec.
+6. **Parar para o teste manual antes de fechar a spec**: é o que dá lugar certo aos pontos 1 e 4,
+   porque marca onde a sessão termina e onde o `/verify` entra. Detalhe na seção "Os três blocos do
+   `tasks.md`", acima.
+
+Sobre teste, a mesma medição mostrou que **o runner não gasta token de IA; a saída dele, sim**: ver
+[[qualidade-e-ci]].
+

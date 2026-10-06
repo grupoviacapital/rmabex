@@ -1,9 +1,20 @@
-# Regras de Negócio
+# Regras de Negócio - RMABEx
 
-> **Vazio de propósito.** O projeto reiniciou do zero em 05/08/2026. As regras serão reconstruídas a partir do `RASCUNHO.md`, e só entram aqui depois de confirmadas com fonte.
->
-> A versão anterior está em `vault/99-descartado/regras-negocio.md` e não deve ser consultada. A numeração `RN-x` recomeça do 1.
+> Fonte de verdade das regras. Toda spec que toca uma regra referencia esta nota por `[[regras-negocio#RN-x]]`. Termos em [[glossario]], entidades em [[modelo-dados]].
 
-| Regra | Enunciado | Fonte | Confirmada em |
-|---|---|---|---|
-|  |  |  |  |
+## Formato
+
+Cada regra é numerada `RN-x` e escrita em **EARS** (testável, sem ambiguidade):
+
+- Ubíquo: "O SISTEMA DEVE ..."
+- Evento: "QUANDO <gatilho>, O SISTEMA DEVE ..."
+- Estado: "ENQUANTO <estado>, O SISTEMA DEVE ..."
+- Condicional: "SE <condição>, ENTÃO O SISTEMA DEVE ..."
+
+## Regras
+
+### RN-1 · <título>
+
+QUANDO <gatilho>, O SISTEMA DEVE <comportamento>.
+
+*(Substitua pelos requisitos reais do domínio. Cada RN-x tocada por uma spec deve ter ao menos um teste que a nomeia.)*
