@@ -33,3 +33,12 @@
 ## Diligência (item opcional, fora do v8)
 
 - **D-20** Agenda no cadastro do processo (por mês), virtual ou presencial, base de profissionais: quem cadastra, quem agenda, há notificação, e como o resultado entra no RMA?
+
+## Perfis de acesso (camada 0, ver [[camadas/0-plataforma]])
+
+- **D-21** O perfil de administrador (usuários, checklist padrão, modelos, parâmetros) é uma pessoa à parte ou alguém da coordenação acumula? Um usuário pode ter mais de um perfil?
+- **D-22** Quem cria o processo: o técnico (como no desenho) ou a coordenação, que cria e já atribui a um técnico?
+- **D-23** O técnico vê só os processos atribuídos a ele ou todos? Como fica a substituição em férias?
+- **D-24** Do lado da recuperanda entra uma pessoa ou várias? Num grupo com várias recuperandas no mesmo processo, um login vê todas?
+- **D-25** O contador precisa de login (por exemplo, para enviar o balancete) ou é só um cadastro com CRC?
+- **D-26** A "auditoria" citada na etapa de conclusão (E10) é um ator externo que acessa o sistema ou só um documento recebido?
