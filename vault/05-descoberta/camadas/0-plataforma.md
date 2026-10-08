@@ -78,15 +78,14 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 - **Vê** os dados dos processos dele, mas **não altera** os cadastros de processo, recuperanda e AJ (D-32).
 - **Treinar a IA** (ajustar regras e prompts): **em standby, para o final do projeto**. Fora do valor fechado até lá.
 
-**Administrador Judicial.** **Só leitura**, não modifica nada.
+**Administrador Judicial.** **Não escreve nada no RMA, mas é quem dá a aprovação final** (E-1, Saulo, 2026-10-08; substitui o "só leitura" da D-28).
 - Painel com a esteira, gráficos e o que está sendo feito em cada processo.
-- Acesso aos RMAs feitos.
-- Recebe aviso de **RMA pronto**, para levá-lo ao tribunal.
 - Vê **só os processos ligados a ele** no cadastro (D-35).
-- Fica **fora do fluxo de aprovação**: a revisão continua terminando na coordenação, como no v8.
+- Depois da aprovação da coordenação, **lê e conclui o RMA**: se precisar, **revisa e manda ajustes** para corrigir. Esse **lá e cá** se repete até o AJ **aprovar por completo**. Só então o RMA vira final.
+- Recebe aviso de **RMA para revisão**.
 
 **Magistrado.**
-- Acessa o RMA e os gráficos (DRE e do RMA) **só depois que a BEx clica "liberar para o magistrado"** (Saulo, 2026-10-08). Motivo: a plataforma não sabe quando o RMA chegou ao tribunal, então o juiz não lê algo que oficialmente ainda não foi entregue. Proposta nossa: quem libera é a coordenação.
+- Acessa o RMA e os gráficos (DRE e do RMA) **só depois que o técnico clica "registrar protocolo"** (Saulo, 2026-10-08). O mesmo botão registra o protocolo feito fora e libera o RMA para o magistrado; antes disso o juiz não lê algo que oficialmente ainda não foi entregue.
 - Os gráficos que ele vê seguem uma **seleção padrão**, não escolhida a cada RMA (D-34).
 - **Cadastrado pela coordenação** e **ligado aos processos**, como o AJ; vê só os dele (confirmado pelo Saulo, 2026-10-08).
 
@@ -113,11 +112,11 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 | Subir documentos | ✅ | ✅ | ✅ seus | | | ✅ só os seus |
 | Ver relatórios, apontamentos, análises | ✅ | ✅ | ✅ seus | 👁 | | |
 | Editar RMA e parecer | ✅ | ✅ | ✅ seus | | | |
-| Aprovar ou devolver RMA e parecer | ✅ | ✅ | | | | |
+| Aprovar ou devolver RMA e parecer | ✅ | ✅ | | ✅ aprovação final, com pedido de ajustes | | |
 | Ver RMA final | ✅ | ✅ | ✅ seus | 👁 | 👁 só o liberado, dos seus | |
-| Liberar o RMA para o magistrado | ✅ | ✅ | | | | |
+| Registrar protocolo (libera para o magistrado) | ✅ | ✅ | ✅ seus | | | |
 | Ver gráficos (o magistrado vê a seleção padrão) | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
-| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto | RMA liberado (proposta) | pedido de documentos |
+| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo, ajustes pedidos pelo AJ, RMA aprovado (registrar protocolo) | RMA para revisão | RMA liberado | pedido de documentos |
 
 ## 0.3 a 0.13 decididos (Saulo, 2026-10-08)
 
@@ -158,7 +157,7 @@ Cada pessoa cadastrada recebe convite por e-mail com link para criar a senha (va
 
 Pedido do cliente (Saulo, 2026-10-08): uma timeline do passo a passo de cada processo, **bem detalhista**. Exemplo dado: "passo 1 fazer tal coisa, passo 2 esperar tal prazo, passo 3 encaminhar para tal pessoa e esperar resposta", com **%**, **cores** e **avisos**.
 
-Decidido: **uma esteira por RMA mensal** (o processo é contínuo; a esteira recomeça a cada mês). Passos tirados do v8: (1) pedido de documentos; (2) envio pela recuperanda; (3) conferência e faltantes; (4) análises (balancete, conciliações, DRE, documental, passivo); (5) cálculos e índices; (6) geração do RMA; (7) revisão do técnico; (8) aprovação da coordenação; (9) RMA final; (10) liberado para o magistrado. Cada passo tem responsável, prazo, cor (cinza não iniciado, azul em andamento, verde concluído, amarelo prazo perto, vermelho atrasado) e aviso. O % do RMA sai dos passos concluídos. **Falta o cliente dar os prazos reais** (D-37). Em 2026-10-08 chegou a planilha [[../etapas-rma|etapas do RMA]], com 32 etapas: os passos da esteira podem passar a seguir os 20 blocos do "Fluxo Macro" dela (decidir junto com E-5). **Passos e prazos fixos, iguais para todo processo, inicialmente** (D-36); torná-los configuráveis fica para depois. A esteira aparece para coordenação, técnico e AJ.
+Decidido: **uma esteira por RMA mensal** (o processo é contínuo; a esteira recomeça a cada mês). Passos (proposta, seguindo a planilha [[../etapas-rma|etapas do RMA]], que substitui o v8): (1) envio pela recuperanda; (2) triagem; (3) Apenso I e pedido do que faltou; (4) análises (etapas 4 a 18); (5) indicadores e rural (19 a 23); (6) Apenso II e reanálise (25 a 27); (7) minuta e conclusão (28, 29); (8) revisão do técnico; (9) aprovação da coordenação; (10) revisão e aprovação do AJ, com o lá e cá de ajustes; (11) RMA final; (12) protocolo registrado, que libera para o magistrado. Cada passo tem responsável, prazo, cor (cinza não iniciado, azul em andamento, verde concluído, amarelo prazo perto, vermelho atrasado) e aviso. O % do RMA sai dos passos concluídos. **Falta o cliente dar os prazos reais** (D-37). **Passos e prazos fixos, iguais para todo processo, inicialmente** (D-36); torná-los configuráveis fica para depois. A esteira aparece para coordenação, técnico e AJ.
 
 ## 0.1 Perfis (proposta anterior, de 2026-10-07)
 

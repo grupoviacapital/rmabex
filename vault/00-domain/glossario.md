@@ -17,7 +17,7 @@ Lista fechada pelo cliente em 2026-10-08 (detalhe e dúvidas em [[../05-descober
 - **Administrador** (`admin`) - usuários, checklist padrão, modelos e parâmetros.
 - **Coordenação** (`coordinator`) - equipe da BEx que revisa e aprova ou devolve o RMA e o parecer.
 - **Técnico** (`technician`) - equipe da BEx que cadastra o processo, monta o checklist, analisa e corrige o RMA. O cliente também chama de **Colaborador**; o nome usado é sempre **Técnico**, como nos desenhos.
-- **Administrador Judicial** (`judicialAdministrator`) - só leitura: painel com esteira e gráficos dos processos ligados a ele, RMAs e aviso de RMA pronto. Fora da aprovação.
+- **Administrador Judicial** (`judicialAdministrator`) - não escreve no RMA, mas dá a **aprovação final**: lê, pede ajustes (lá e cá) até aprovar. Vê só os processos ligados a ele, com esteira e gráficos.
 - **Recuperanda** (`debtor`) - empresa em recuperação; faz upload dos documentos. Cada recuperanda tem **um único login**.
 - **Magistrado** (`judge`) - juiz do processo, externo, só leitura: vê o RMA e os gráficos padrão depois de **liberados para o magistrado**.
 
@@ -25,8 +25,8 @@ Cada pessoa tem **um só perfil**. O sistema é só da BEx. Contador e auditoria
 
 ### Fluxo
 
-- **RMA final** (`finalReport`) - o RMA gerado pela plataforma depois da aprovação da coordenação. Depois dele, o único passo no sistema é **liberar para o magistrado**.
-- **Liberar para o magistrado** (`releaseToJudge`) - botão que a coordenação clica depois de subir o RMA no portal do tribunal; só então o magistrado vê o RMA e os gráficos.
+- **RMA final** (`finalReport`) - o RMA depois da aprovação da coordenação **e da aprovação final do AJ**. Depois dele, o único passo no sistema é **registrar protocolo**.
+- **Registrar protocolo** (`registerFiling`) - botão que o técnico clica depois de protocolar o RMA no portal do tribunal (fora do sistema). Registra o protocolo e **libera o RMA para o magistrado**, que só então vê o RMA e os gráficos.
 - **Protocolo** - termo do v8 que **não é usado no sistema**. Subir o RMA no portal do tribunal (TJSP, TJGO etc.) e assinar com o certificado digital do AJ é manual e externo.
 - **Competência** (`period`) - mês de referência do RMA e do lote de documentos.
 - **Apenso I - Controle de Documentos** (`documentControl`) - checklist do mês com a situação de cada documento.
