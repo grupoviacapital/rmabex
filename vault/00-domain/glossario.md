@@ -22,3 +22,8 @@ Lista fechada pelo cliente em 2026-10-08 (detalhe e dúvidas em [[../05-descober
 - **Magistrado** (`judge`) - juiz do processo, externo; papel no sistema a confirmar (D-29).
 
 Contador e auditoria **não são usuários**: o contador é só cadastro com CRC, e a auditoria é só documento.
+
+### Fluxo
+
+- **RMA final** (`finalReport`) - o RMA gerado pela plataforma depois da aprovação da coordenação. É o **último passo dentro do sistema**.
+- **Protocolo** - termo do v8 que **não é usado no sistema**. Subir o RMA no portal do tribunal (TJSP, TJGO etc.) e assinar com o certificado digital do AJ é manual e externo.

@@ -6,7 +6,7 @@
 
 | Ator | Onde aparece | O que faz |
 | --- | --- | --- |
-| Técnico (BEx) | raia "Técnico - Cadastro e Check list" | cadastra, confere, recebe relatórios, analisa, protocola |
+| Técnico (BEx) | raia "Técnico - Cadastro e Check list" | cadastra, confere, recebe relatórios, analisa (o "protocolo" do v8 é feito fora do sistema) |
 | Coordenação (BEx) | passo dentro das raias (E11, P) | revisa RMA e parecer, devolve ou aprova |
 | Recuperanda (externa) | raia "Recuperanda" | recebe acesso, faz upload |
 | Contador | só "cadastro do contador e CRC" | não age em nenhum passo |
@@ -22,7 +22,7 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 | 0.2 | Quem vê o quê | matriz em "0.2 Quem vê o quê" abaixo | cliente | **Respondido** em 2026-10-08; matriz a validar |
 | 0.3 | Login interno | e-mail e senha | nós | A discutir |
 | 0.4 | Login da recuperanda | convite por e-mail com link para criar senha ("Comunica a recuperanda"); um login por pessoa | nós | A discutir |
-| 0.5 | E-mail | envio próprio com modelos editáveis (convite, pedido de documentos, aviso ao técnico, aviso à coordenação, protocolo) | nós; remetente com o cliente | A discutir |
+| 0.5 | E-mail | envio próprio com modelos editáveis (convite, pedido de documentos, aviso ao técnico, aviso à coordenação, RMA pronto) | nós; remetente com o cliente | A discutir |
 | 0.6 | "Comunica técnico" | painel de pendências ("minha fila") mais e-mail | nós | A discutir |
 | 0.7 | Histórico | quem fez o quê e quando, por processo | nós | A discutir |
 | 0.8 | LGPD e segurança | arquivos criptografados, acesso só com login, backup diário | nós; retenção com o cliente | A discutir |
@@ -56,7 +56,7 @@ O que a lista traz de novo e precisa de confirmação:
 | Perfil | Leitura provável | Dúvida |
 | --- | --- | --- |
 | Administrador Judicial | o AJ responsável pelo processo, acima da coordenação (assina ou aprova o RMA?) | D-28 |
-| Magistrado | o juiz da vara, externo, só leitura do que foi protocolado | D-29 |
+| Magistrado | o juiz da vara, externo, só leitura do RMA final | D-29 |
 | (todos) | se o AJ é usuário, a plataforma pode atender **mais de um AJ** (multiempresa), o que muda o desenho e o orçamento | D-30 |
 
 ## 0.1 Papéis de cada perfil (2026-10-08)
@@ -81,17 +81,21 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 **Administrador Judicial.** **Só leitura**, não modifica nada.
 - Painel com a esteira, gráficos e o que está sendo feito em cada processo.
 - Acesso aos RMAs feitos.
-- Recebe avisos: RMA pronto, precisa fazer protocolo. O aviso é **só informativo**: o protocolo físico é feito **fora do sistema** (D-33).
+- Recebe aviso de **RMA pronto**, para levá-lo ao tribunal.
 - Vê **só os processos ligados a ele** no cadastro (D-35).
 - Fica **fora do fluxo de aprovação**: a revisão continua terminando na coordenação, como no v8.
 
 **Magistrado.**
-- Acessa o **RMA protocolado** e os gráficos (DRE e do RMA).
+- Acessa o **RMA final** (aprovado pela coordenação) e os gráficos (DRE e do RMA).
 - Os gráficos que ele vê seguem uma **seleção padrão**, não escolhida a cada RMA (D-34).
 - **Cadastrado pela coordenação**, como o AJ. Proposta nossa: ligado aos processos, e vê só os dele.
 
 **Recuperanda.**
 - Todo **fim de mês** sobe os documentos: balancete, relatórios e demais documentos. Responde em parte D-12: o ciclo é mensal.
+
+## Fim do fluxo: sem protocolo no sistema (Saulo, 2026-10-08)
+
+**Esqueça o nome "protocolo".** A plataforma termina ao **gerar o RMA** final, já aprovado pela coordenação. Depois disso, tudo é **manual e fora da plataforma**: alguém sobe o RMA no portal do tribunal (TJSP, TJGO etc.) e o AJ assina com o **certificado digital** dele. A plataforma não faz mais nada. Os passos "protocolo" e "arquivamento" do v8 (E11 e P) saem do escopo.
 
 ## 0.2 Quem vê o quê (matriz a validar)
 
@@ -110,10 +114,9 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 | Ver relatórios, apontamentos, análises | ✅ | ✅ | ✅ seus | 👁 | | |
 | Editar RMA e parecer | ✅ | ✅ | ✅ seus | | | |
 | Aprovar ou devolver RMA e parecer | ✅ | ✅ | | | | |
-| Registrar que foi protocolado (o protocolo é feito fora) | ✅ | ✅ | ✅ seus | | | |
-| Ver RMA pronto e protocolado | ✅ | ✅ | ✅ seus | 👁 | 👁 só protocolado, dos seus | |
+| Ver RMA final | ✅ | ✅ | ✅ seus | 👁 | 👁 só o final, dos seus | |
 | Ver gráficos escolhidos pela BEx | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
-| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto, precisa protocolar (informativo) | RMA protocolado (proposta) | pedido de documentos |
+| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto | RMA disponível (proposta) | pedido de documentos |
 
 ## 0.12 Esteira do processo
 

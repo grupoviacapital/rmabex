@@ -10,7 +10,7 @@
 | 3 | Motor de verificação (balancete, conciliações, DRE, documental, passivo) | E3 a E7 | faixa | A tratar |
 | 4 | Cálculos: endividamento, índices, fórmulas e produtor rural | E8, E9 | faixa | A tratar |
 | 5 | Geração do RMA e do Parecer (conteúdo, gráficos, layout) | E10, P | faixa | A tratar |
-| 6 | Revisão, aprovação e protocolo | E11 + revisão do P | fechado | A tratar |
+| 6 | Revisão e aprovação (o protocolo é manual, fora do sistema) | E11 + revisão do P | fechado | A tratar |
 | opc. | Diligência | fora do v8 | à parte | A tratar |
 
 "Fechado" e "faixa" seguem a decisão 1 do [[briefing]].
