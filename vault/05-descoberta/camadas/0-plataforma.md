@@ -19,13 +19,13 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 | # | Tema | Proposta nossa | Onde decide | Status |
 | --- | --- | --- | --- | --- |
 | 0.1 | Perfis | 6 perfis com papéis definidos em 2026-10-08 (ver abaixo) | cliente | **Fechado** (D-31 a D-36 respondidas em 2026-10-08) |
-| 0.2 | Quem vê o quê | matriz em "0.2 Quem vê o quê" abaixo | cliente | **Respondido** em 2026-10-08; matriz a validar |
+| 0.2 | Quem vê o quê | matriz em "0.2 Quem vê o quê" abaixo | cliente | **Fechado** 2026-10-08 |
 | 0.3 | Login interno | e-mail, senha e **código por e-mail** (ver abaixo) | Saulo | **Fechado** 2026-10-08 |
 | 0.4 | Cadastro e login externo | cadastro em cascata e convite por e-mail (ver abaixo) | Saulo | **Fechado** 2026-10-08 |
 | 0.5 | E-mail | Brevo, mesma estrutura do sgcbex; tudo desviado para o Saulo até a produção | Saulo | **Fechado** 2026-10-08 |
 | 0.6 | Notificações | sino na plataforma mais e-mail | Saulo | **Fechado** 2026-10-08 |
 | 0.7 | Histórico | quem fez o quê e quando, mais versões do RMA | Saulo | **Fechado** 2026-10-08 |
-| 0.8 | Segurança e LGPD | ver abaixo | Saulo; retenção com o cliente | **Fechado**, falta a retenção |
+| 0.8 | Segurança e LGPD | ver abaixo | Saulo | **Fechado** 2026-10-08 |
 | 0.9 | Hospedagem | VM da BEx na AWS; infra e IA pagas pela BEx | cliente | **Fechado** 2026-10-08 |
 | 0.10 | Ambientes | homologação local (dev) e produção na VM | Saulo | **Fechado** 2026-10-08 |
 | 0.11 | Identidade visual | a mesma do sgcbex | Saulo | **Fechado** 2026-10-08 |
@@ -49,7 +49,7 @@ O que a lista já responde:
 
 - **Contador não tem login** (fecha D-25 e P5): fica só como cadastro com CRC.
 - **Auditoria não é usuário** (fecha D-26 e P6): é só documento.
-- **Administrador é perfil próprio** (responde metade de D-21; falta saber se uma pessoa pode acumular perfis).
+- **Administrador é perfil próprio**, e cada pessoa tem um só perfil (D-21).
 
 O que a lista traz de novo e precisa de confirmação:
 
@@ -97,7 +97,7 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 
 **Esqueça o nome "protocolo".** A plataforma termina ao **gerar o RMA** final, já aprovado pela coordenação. Depois disso, tudo é **manual e fora da plataforma**: alguém sobe o RMA no portal do tribunal (TJSP, TJGO etc.) e o AJ assina com o **certificado digital** dele. A plataforma não faz mais nada. Os passos "protocolo" e "arquivamento" do v8 (E11 e P) saem do escopo.
 
-## 0.2 Quem vê o quê (matriz a validar)
+## 0.2 Quem vê o quê
 
 Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só processos vinculados a ele.
 
@@ -116,7 +116,7 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 | Aprovar ou devolver RMA e parecer | ✅ | ✅ | | | | |
 | Ver RMA final | ✅ | ✅ | ✅ seus | 👁 | 👁 só o liberado, dos seus | |
 | Liberar o RMA para o magistrado | ✅ | ✅ | | | | |
-| Ver gráficos escolhidos pela BEx | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
+| Ver gráficos (o magistrado vê a seleção padrão) | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
 | Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto | RMA liberado (proposta) | pedido de documentos |
 
 ## 0.3 a 0.13 decididos (Saulo, 2026-10-08)
@@ -125,9 +125,9 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 
 **0.4 Cadastro e login externo.** **Nada se cadastra por fora**, o cadastro é em cascata:
 - o **admin** cadastra os **coordenadores**;
-- a **coordenação** cadastra os **técnicos**, as **recuperandas** (e as pessoas de cada uma), os **AJs** e os **magistrados**.
+- a **coordenação** cadastra os **técnicos**, as **recuperandas** (um login por recuperanda), os **AJs** e os **magistrados**.
 
-Cada pessoa cadastrada recebe convite por e-mail com link para criar a senha (vale 7 dias, pode ser reenviado). Um login por pessoa; uma recuperanda pode ter várias pessoas (responde D-24 como proposta).
+Cada pessoa cadastrada recebe convite por e-mail com link para criar a senha (vale 7 dias, pode ser reenviado). Um login por pessoa e **um perfil por pessoa** (D-21). **Cada recuperanda tem um único login** (D-24): num processo com várias recuperandas, cada uma entra com o seu. O sistema é **só da BEx**, sem multiempresa (D-30).
 
 **0.5 E-mail.** Brevo, reaproveitando a estrutura do `Projects/sgcbex` (provedor, fila e webhook de eventos). **Até a produção, todo e-mail é desviado para `saulodesenvolvedor@gmail.com`**, com o destinatário real gravado, como o modo seguro do sgcbex (só que com um único destino). O desvio é tirado na liberação para produção. Textos fixos na v1.
 
@@ -135,7 +135,7 @@ Cada pessoa cadastrada recebe convite por e-mail com link para criar a senha (va
 
 **0.7 Histórico.** Registro por processo de quem fez o quê e quando. **Versões do RMA**: a coordenação vê o que mudou (antes e depois) entre uma versão e outra para aprovar (entra na camada 6).
 
-**0.8 Segurança e LGPD.** HTTPS; senha com hash; arquivos fora de pasta pública, servidos só após checar login e perfil; permissão checada no servidor; backup diário com 30 dias. Falta o cliente dizer a retenção dos dados após o encerramento do processo.
+**0.8 Segurança e LGPD.** HTTPS; senha com hash; arquivos fora de pasta pública, servidos só após checar login e perfil; permissão checada no servidor; backup diário com 30 dias. **Retenção: para sempre, nada é apagado** (D-38). Consequência: nenhuma exclusão definitiva no sistema (o que "sai" é desativado ou arquivado) e o armazenamento de arquivos só cresce, o que pesa no custo da AWS da BEx.
 
 **0.9 Hospedagem.** **AWS, em VM da BEx.** Infraestrutura e consumo de IA são pagos pela BEx, fora do valor de desenvolvimento.
 

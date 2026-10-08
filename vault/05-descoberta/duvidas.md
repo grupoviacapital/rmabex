@@ -17,7 +17,7 @@
 ## Produto e processo
 
 - **D-10** Parecer e RMA: o Parecer é emitido só quando o balancete não vem? São dois documentos entregues e protocolados separadamente?
-- **D-11** Papéis no sistema: técnico, coordenação, recuperanda. O contador (cadastrado com CRC) acessa a plataforma? Há mais perfis?
+- **D-11** ✅ _Respondida (Saulo, 2026-10-08): substituída pela lista de 6 perfis (ver D-21 a D-36); o contador não acessa._ Papéis no sistema: técnico, coordenação, recuperanda. O contador (cadastrado com CRC) acessa a plataforma? Há mais perfis?
 - **D-12** _(parcial, 2026-10-08: a recuperanda sobe os documentos todo fim de mês; falta o volume)_ Periodicidade: o RMA é mensal, com novo upload e nova análise a cada mês? Quantos processos e recuperandas ativos por mês?
 - **D-13** Um processo pode ter várias recuperandas e vários CNPJs. A análise e o RMA são por CNPJ, por recuperanda ou consolidados?
 - **D-14** ✅ _Respondida (Saulo, 2026-10-08): o sistema só gera o RMA; subir no portal do TJ (TJSP, TJGO etc.) e assinar com o certificado digital do AJ é manual, fora da plataforma._ Protocolo: é manual (o técnico protocola no tribunal e anexa) ou o sistema deve peticionar?
@@ -36,10 +36,10 @@
 
 ## Perfis de acesso (camada 0, ver [[camadas/0-plataforma]])
 
-- **D-21** _(parcial, 2026-10-08: Administrador é perfil próprio, com acesso a tudo; a coordenação tem cerca de 80% dele; falta o acúmulo de perfis)_ O perfil de administrador (usuários, checklist padrão, modelos, parâmetros) é uma pessoa à parte ou alguém da coordenação acumula? Um usuário pode ter mais de um perfil?
+- **D-21** ✅ _Respondida (Saulo, 2026-10-08): Administrador é perfil próprio; **1 pessoa = 1 perfil**, sem acúmulo._ O perfil de administrador (usuários, checklist padrão, modelos, parâmetros) é uma pessoa à parte ou alguém da coordenação acumula? Um usuário pode ter mais de um perfil?
 - **D-22** ✅ _Respondida (Saulo, 2026-10-08): a coordenação cadastra processo, recuperanda e AJ e vincula os técnicos._ Quem cria o processo: o técnico (como no desenho) ou a coordenação, que cria e já atribui a um técnico?
 - **D-23** ✅ _Respondida (Saulo, 2026-10-08): só os vinculados a ele; **um técnico por processo** (corrigido no mesmo dia); a coordenação troca o técnico quando precisar._ O técnico vê só os processos atribuídos a ele ou todos? Como fica a substituição em férias?
-- **D-24** _(proposta, 2026-10-08: várias pessoas por recuperanda, cadastradas pela coordenação; confirmar com o cliente)_ Do lado da recuperanda entra uma pessoa ou várias? Num grupo com várias recuperandas no mesmo processo, um login vê todas?
+- **D-24** ✅ _Respondida (Saulo, 2026-10-08): **1 recuperanda = 1 login = 1 pessoa**. Num processo com várias recuperandas, cada uma tem o seu login._ Do lado da recuperanda entra uma pessoa ou várias? Num grupo com várias recuperandas no mesmo processo, um login vê todas?
 - **D-25** ✅ _Respondida (Saulo, 2026-10-08): contador não tem login, a lista de perfis não o inclui._ O contador precisa de login (por exemplo, para enviar o balancete) ou é só um cadastro com CRC?
 - **D-26** ✅ _Respondida (Saulo, 2026-10-08): não é usuário, a lista de perfis não a inclui._ A "auditoria" citada na etapa de conclusão (E10) é um ator externo que acessa o sistema ou só um documento recebido?
 
@@ -47,8 +47,8 @@
 
 - **D-27** ✅ _Respondida (Saulo, 2026-10-08): Colaborador é o Técnico; o nome usado sempre é **Técnico**, compatível com os desenhos._ "Colaborador" é o mesmo papel que o desenho chama de "Técnico"? Há colaborador que não é técnico (por exemplo, administrativo, que só cadastra e pede documentos)?
 - **D-28** ✅ _Respondida (Saulo, 2026-10-08): só leitura; painel com esteira e gráficos, acesso aos RMAs, aviso de RMA pronto; fora da aprovação._ O que o Administrador Judicial faz no sistema: só acompanha, ou aprova e assina o RMA e o parecer depois da coordenação? Ele entra no fluxo de revisão (E11)?
-- **D-29** _(parcial, 2026-10-08: vê o RMA final e os gráficos que a BEx escolher; acesso e notificação seguem em D-34)_ O que o Magistrado vê e faz: só lê os RMAs e pareceres protocolados dos processos da vara dele? Comenta ou pede algo? Como ganha acesso (convite da BEx, por vara, por processo)? Isso muda o protocolo (D-14): o RMA passa a ser entregue pelo sistema?
-- **D-30** O sistema atende só a BEx como administradora judicial ou outros AJs também (cada um com sua equipe, processos e modelos)? Multiempresa pesa no orçamento.
+- **D-29** ✅ _Respondida (Saulo, 2026-10-08): só leitura; vê o RMA e os gráficos padrão depois que a BEx libera; é cadastrado pela coordenação (D-34)._ O que o Magistrado vê e faz: só lê os RMAs e pareceres protocolados dos processos da vara dele? Comenta ou pede algo? Como ganha acesso (convite da BEx, por vara, por processo)? Isso muda o protocolo (D-14): o RMA passa a ser entregue pelo sistema?
+- **D-30** ✅ _Respondida (Saulo, 2026-10-08): só da BEx, sem multiempresa._ O sistema atende só a BEx como administradora judicial ou outros AJs também (cada um com sua equipe, processos e modelos)? Multiempresa pesa no orçamento.
 
 ## Pontos finos dos papéis (respostas de 2026-10-08, ver [[camadas/0-plataforma]])
 
@@ -62,4 +62,4 @@
 ## Camada 0, itens que dependem do cliente (2026-10-08)
 
 - **D-37** Prazos reais da esteira: até que dia do mês a recuperanda envia os documentos, e quantos dias tem cada etapa (conferência, análise, revisão do técnico, aprovação da coordenação)?
-- **D-38** Retenção dos dados (LGPD): por quanto tempo os documentos e RMAs ficam guardados depois que o processo encerra?
+- **D-38** ✅ _Respondida (Saulo, 2026-10-08): **guardados para sempre, nada é apagado**._ Retenção dos dados (LGPD): por quanto tempo os documentos e RMAs ficam guardados depois que o processo encerra?

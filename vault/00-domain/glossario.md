@@ -17,11 +17,11 @@ Lista fechada pelo cliente em 2026-10-08 (detalhe e dúvidas em [[../05-descober
 - **Administrador** (`admin`) - usuários, checklist padrão, modelos e parâmetros.
 - **Coordenação** (`coordinator`) - equipe da BEx que revisa e aprova ou devolve o RMA e o parecer.
 - **Técnico** (`technician`) - equipe da BEx que cadastra o processo, monta o checklist, analisa e corrige o RMA. O cliente também chama de **Colaborador**; o nome usado é sempre **Técnico**, como nos desenhos.
-- **Administrador Judicial** (`judicialAdministrator`) - papel no sistema a confirmar (D-28).
-- **Recuperanda** (`debtor`) - empresa em recuperação; faz upload dos documentos.
-- **Magistrado** (`judge`) - juiz do processo, externo; papel no sistema a confirmar (D-29).
+- **Administrador Judicial** (`judicialAdministrator`) - só leitura: painel com esteira e gráficos dos processos ligados a ele, RMAs e aviso de RMA pronto. Fora da aprovação.
+- **Recuperanda** (`debtor`) - empresa em recuperação; faz upload dos documentos. Cada recuperanda tem **um único login**.
+- **Magistrado** (`judge`) - juiz do processo, externo, só leitura: vê o RMA e os gráficos padrão depois de **liberados para o magistrado**.
 
-Contador e auditoria **não são usuários**: o contador é só cadastro com CRC, e a auditoria é só documento.
+Cada pessoa tem **um só perfil**. O sistema é só da BEx. Contador e auditoria **não são usuários**: o contador é só cadastro com CRC, e a auditoria é só documento.
 
 ### Fluxo
 
