@@ -37,7 +37,7 @@ Como será o extra: ao digitar o número, a plataforma consulta **TJ (scraper) +
 O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de credores (cartas, editais dos arts. 52 e 7º, quadro QGC, corte de auditoria) e **não entra**. Proposta para o RMA:
 
 **Processo**
-- número CNJ (único; o tribunal sai do número), tipo de ação (recuperação judicial ou falência), vara, comarca, UF, sistema do tribunal (e-SAJ, PJe, Projudi, eproc), endereço do juízo
+- número CNJ (único; o tribunal sai do número), **sem campo de tipo de ação** (só recuperação judicial), vara, comarca, UF, sistema do tribunal (e-SAJ, PJe, Projudi, eproc), endereço do juízo
 - data do pedido de RJ (= ajuizamento, base do "endividamento pós-RJ"), data do deferimento
 - **consolidação**: processual ou substancial (já existe no sgcbex)
 - **produtor rural** (novo; o sgcbex não tem)
@@ -53,7 +53,7 @@ O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de cr
 - contato: nome, telefone, **e-mail (é o login da recuperanda)**
 - **filiais**: razão social e CNPJ de cada uma (tabela à parte, como no sgcbex)
 
-**Fora**: cartas, editais, quadro de credores, datas de corte, convolação em falência, e-mail do edital.
+**Fora**: tipo de ação e tudo de falência, cartas, editais, quadro de credores, datas de corte, convolação em falência, e-mail do edital.
 
 ## Pontos a discutir
 
@@ -61,4 +61,4 @@ O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de cr
 - **Lista do Técnico** (checklist que a E2 usa): a raia chama "Cadastro e Check list", então nasce aqui. Lista padrão por tipo (normal ou produtor rural) ajustável por processo?
 - ✅ **Contador** (Saulo, 2026-10-08): **um por processo**, cuida de todas as recuperandas do grupo. Sem login (D-25).
 - **Produtor rural**: marcação do processo ou de cada recuperanda? Pode misturar?
-- ✅ **Tipo de ação** (C-2, Saulo, 2026-10-08): **os dois**, recuperação judicial e falência. Na falência o **layout do RMA parece mudar** (a confirmar com o cliente; entra na camada 5).
+- ✅ **Tipo de ação** (C-2, cliente via Saulo, 2026-10-08): **só recuperação judicial, sem falência**. (Na mesma data se cogitou ter os dois; a confirmação do cliente que chegou depois descartou a falência.)

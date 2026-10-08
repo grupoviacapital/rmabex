@@ -74,4 +74,4 @@
 
 ## Camada 5 (aberta em 2026-10-08)
 
-- **F-1** O RMA de **falência** tem layout diferente do de recuperação judicial? Há um modelo de RMA de falência para referência?
+- **F-1** ✅ _Descartada (cliente via Saulo, 2026-10-08): o sistema é só de recuperação judicial, sem falência._ O RMA de **falência** tem layout diferente do de recuperação judicial? Há um modelo de RMA de falência para referência?

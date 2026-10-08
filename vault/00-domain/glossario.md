@@ -33,3 +33,7 @@ Cada pessoa tem **um só perfil**. O sistema é só da BEx. Contador e auditoria
 - **Apenso II - Pendências** (`pendingIssues`) - divergências do mês; a pendência não sanada passa para o RMA seguinte.
 - **Consolidação substancial** (`substantive`) - as análises dos CNPJs podem ir ao RMA consolidadas.
 - **Consolidação processual** (`procedural`) - a análise no RMA é individualizada por CNPJ.
+
+### Escopo
+
+- O sistema trata **só de recuperação judicial**. Falência está fora (cliente, 2026-10-08).
