@@ -95,7 +95,7 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 
 ## Fim do fluxo: sem protocolo no sistema (Saulo, 2026-10-08)
 
-**Esqueça o nome "protocolo".** A plataforma termina ao **gerar o RMA** final, já aprovado pela coordenação. Depois disso, tudo é **manual e fora da plataforma**: alguém sobe o RMA no portal do tribunal (TJSP, TJGO etc.) e o AJ assina com o **certificado digital** dele. A plataforma não faz mais nada. Os passos "protocolo" e "arquivamento" do v8 (E11 e P) saem do escopo.
+**Esqueça o nome "protocolo".** A plataforma termina ao **gerar o RMA** final, já aprovado pela coordenação. Depois disso, tudo é **manual e fora da plataforma** (atualização em 2026-10-08, E-2: do nosso lado fica só um **botão que registra o protocolo**; protocolo automático é extra da v1, fora da proposta): alguém sobe o RMA no portal do tribunal (TJSP, TJGO etc.) e o AJ assina com o **certificado digital** dele. A plataforma não faz mais nada. Os passos "protocolo" e "arquivamento" do v8 (E11 e P) saem do escopo.
 
 ## 0.2 Quem vê o quê
 

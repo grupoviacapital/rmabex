@@ -48,7 +48,9 @@ Colunas da planilha: etapa, fase, atividade, **automação/IA**, **validação h
 - **Apenso II - Pendências**: todas as divergências do mês, com empresa, tópico, documento, solicitação, data e status. **Pendência não sanada passa para o RMA seguinte.**
 - Cada etapa separa o que a **IA** faz do que o **humano valida**: é o desenho de "IA propõe, técnico confirma".
 
-## Divergências com o que já decidimos (para resolver)
+## Divergências com o que já decidimos
+
+Respostas de 2026-10-08 em [[duvidas]] (E-1 a E-5): **esta planilha substitui o v8 de E2 em diante**; a 32 vira um botão "registrar protocolo"; a diligência ganha camada própria; o protocolo automático é extra da v1, fora da proposta. O papel do AJ (E-1) segue aberto.
 
 1. **Papel do AJ.** Aqui o AJ define a conclusão (29) e revisa junto com a equipe (30). Em 2026-10-08 decidimos que o AJ é **só leitura** e fica fora da aprovação. (E-1)
 2. **Protocolo.** A etapa 32 protocola nos autos. Decidimos que o sistema termina no RMA final e no "liberar para o magistrado"; o protocolo é manual e externo. Leitura provável: a 32 vira só "registrar versão e competência". (E-2)

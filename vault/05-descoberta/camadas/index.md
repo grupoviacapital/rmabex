@@ -2,16 +2,17 @@
 
 > O fluxo v8 separado em camadas, tratadas em sequência com o Saulo. Cada camada fecha **telas, dados, o que decidimos nós e o que vai para a reunião**. A proposta comercial sai da soma das camadas. Divisão aprovada em 2026-10-07.
 
-| # | Camada | Etapas do v8 ([[fluxo-v8]]) | Orçamento | Status |
+| # | Camada | Etapas ([[../etapas-rma\|etapas do RMA]], que substitui o v8 de E2 em diante) | Orçamento | Status |
 | --- | --- | --- | --- | --- |
-| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Fechada** em 2026-10-08; pendentes do cliente: D-21, D-24, D-30, D-37, D-38 |
+| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Fechada** em 2026-10-08; pendente do cliente: D-37 (prazos) |
 | 1 | [[1-cadastro\|Cadastro do processo]] | E1 + aba "Cadastros" | fechado | Apresentada, não discutida |
-| 2 | Envio e conferência de documentos | E2 | fechado | A tratar |
-| 3 | Motor de verificação (balancete, conciliações, DRE, documental, passivo) | E3 a E7 | faixa | A tratar |
-| 4 | Cálculos: endividamento, índices, fórmulas e produtor rural | E8, E9 | faixa | A tratar |
-| 5 | Geração do RMA e do Parecer (conteúdo, gráficos, layout) | E10, P | faixa | A tratar |
-| 6 | Revisão e aprovação (o protocolo é manual, fora do sistema) | E11 + revisão do P | fechado | A tratar |
-| opc. | Diligência | fora do v8 | à parte | A tratar |
+| 2 | Envio e conferência de documentos (Apenso I) | 1 a 3 | fechado | A tratar |
+| 3 | Motor de verificação (operacional, trabalhista, contábil, conciliações, passivo, caixa, DRE) e pendências (Apenso II) | 4 a 18, 25 a 27 | faixa | A tratar |
+| 4 | Indicadores e rural (safra, colheita, comercialização, garantias) | 19 a 23 | faixa | A tratar |
+| 5 | Geração do RMA e do Parecer (minuta, conclusão, gráficos, layout) | 28, 29 e o Parecer do v8 | faixa | A tratar |
+| 6 | Revisão, aprovação e registro do protocolo (o protocolo em si é externo) | 30 a 32 + revisão do Parecer | fechado | A tratar |
+| opc. | Diligência: **camada própria de perguntas**, por ser muito flexível e dinâmica | 24 | à parte | A tratar |
+| extra | Protocolo automático no TJ | 32 | **fora da proposta**: orçado quando chegarmos lá | Medir antes |
 
 "Fechado" e "faixa" seguem a decisão 1 do [[briefing]].
 
@@ -28,3 +29,5 @@ Ainda em 2026-10-08: o Saulo descreveu o papel de cada perfil (fecha D-22, D-23,
 Fechando 2026-10-08: itens **0.3 a 0.13 decididos** (2FA por e-mail para todos, cadastro em cascata, Brevo do sgcbex com desvio para o Saulo, AWS em VM da BEx, homologação local, identidade do sgcbex). **Camada 0 fechada.** Próximo passo: **camada 1, Cadastro do processo** (já apresentada, ver [[1-cadastro]]).
 
 Ainda em 2026-10-08: chegou a planilha [[../etapas-rma|etapas do RMA]] (32 etapas). Vários CNPJs e consolidação respondidos (D-13); TJ só no cadastro (D-16 parcial). A planilha diverge em 3 pontos do que decidimos (E-1 a E-5 em [[../duvidas|dúvidas]]).
+
+Respostas E-1 a E-5 (2026-10-08): a planilha **substitui** o v8 de E2 em diante (a tabela acima já usa as etapas dela); a etapa 32 vira um **botão "registrar protocolo"**; a diligência ganha **camada própria**; o **protocolo automático** vira **extra da v1**, fora da proposta, orçado quando chegarmos lá (o técnico provavelmente precisa estar logado no portal do TJ, então tem de ser medido antes).

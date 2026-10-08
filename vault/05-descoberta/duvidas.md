@@ -4,14 +4,14 @@
 
 ## Quebras no desenho do fluxo v8 (ver [[fluxo-v8]])
 
-- **D-1** "Arrendamento mercantil" não tem saída e "Adiantamento, contrato e câmbio" não tem entrada. A sequência é uma depois da outra?
-- **D-2** A seta de "Gerar fórmulas" está solta e "Tabelas com as fórmulas" não tem entrada. Ligam-se?
-- **D-3** "Técnico recebe o relatório" (de faltantes ou de apontamentos) tem a seta solta, e "Falta documentos?" não tem entrada. Ligam-se?
-- **D-4** "Teve diligência?": tanto o S quanto o N terminam em "Inseri no RMA" (o N passa por "Não haverá o tópico no RMA"). O mesmo acontece no ramo do produtor rural. O que o N insere no RMA?
-- **D-5** Na revisão do RMA pela Coordenação, "Tem correções?" só tem a saída S (volta ao técnico). O N vai para o protocolo?
+- **D-1** _(superada em 2026-10-08: a planilha [[etapas-rma]] substitui as etapas E2 a E11 do v8, E-5)_ "Arrendamento mercantil" não tem saída e "Adiantamento, contrato e câmbio" não tem entrada. A sequência é uma depois da outra?
+- **D-2** _(superada em 2026-10-08: a planilha [[etapas-rma]] substitui as etapas E2 a E11 do v8, E-5)_ A seta de "Gerar fórmulas" está solta e "Tabelas com as fórmulas" não tem entrada. Ligam-se?
+- **D-3** _(superada em 2026-10-08: a planilha [[etapas-rma]] substitui as etapas E2 a E11 do v8, E-5)_ "Técnico recebe o relatório" (de faltantes ou de apontamentos) tem a seta solta, e "Falta documentos?" não tem entrada. Ligam-se?
+- **D-4** _(superada em 2026-10-08: a planilha [[etapas-rma]] substitui as etapas E2 a E11 do v8, E-5)_ "Teve diligência?": tanto o S quanto o N terminam em "Inseri no RMA" (o N passa por "Não haverá o tópico no RMA"). O mesmo acontece no ramo do produtor rural. O que o N insere no RMA?
+- **D-5** _(superada em 2026-10-08: a planilha [[etapas-rma]] substitui as etapas E2 a E11 do v8, E-5)_ Na revisão do RMA pela Coordenação, "Tem correções?" só tem a saída S (volta ao técnico). O N vai para o protocolo?
 - **D-6** No Parecer, "Analisa relatório do parecer" não tem entrada, e "Recebe relatório do parecer" vai direto para "Efetua correção". A análise vem antes da correção?
-- **D-7** Rótulos que parecem invertidos: (a) no RMA, técnico "Tem correções?" S vai para a Coordenação e N vai para o protocolo; (b) no Parecer, Coordenação "Tem correções?" N vai para "Retorna para técnico" e daí para o protocolo. Confirmar o sentido.
-- **D-8** O ramo do produtor rural vai direto a "Gerar RMA" e pula "Gerar conclusão" e "Incluir informações do contador e da auditoria". É de propósito?
+- **D-7** _(a parte (a) foi superada pela planilha, E-5; a (b), do Parecer, continua)_ Rótulos que parecem invertidos: (a) no RMA, técnico "Tem correções?" S vai para a Coordenação e N vai para o protocolo; (b) no Parecer, Coordenação "Tem correções?" N vai para "Retorna para técnico" e daí para o protocolo. Confirmar o sentido.
+- **D-8** _(superada em 2026-10-08: a planilha [[etapas-rma]] substitui as etapas E2 a E11 do v8, E-5)_ O ramo do produtor rural vai direto a "Gerar RMA" e pula "Gerar conclusão" e "Incluir informações do contador e da auditoria". É de propósito?
 - **D-9** O desenho tem 7 setas em forma de pentágono, sem texto (perto de: cadastro do contador, parecer (2), imobilizado, fluxo de caixa realizado, análise da DRE, informações do contador e da auditoria). O que marcam? Novidades da v8?
 
 ## Produto e processo
@@ -66,8 +66,8 @@
 
 ## Etapas do RMA (planilha de 2026-10-08, ver [[etapas-rma]])
 
-- **E-1** Na planilha, o AJ define a conclusão do RMA (etapa 29) e revisa junto com a equipe (30). Decidimos que o AJ é só leitura. Qual vale? Se o AJ escreve a conclusão, ele precisa editar dentro da plataforma.
-- **E-2** A etapa 32 "Protocolo" fica só como "registrar versão e competência", já que protocolar é manual e externo?
-- **E-3** A diligência (etapa 24) faz parte do fluxo normal ou só do rural? Ela deixa de ser opcional à parte?
+- **E-1** _(resposta do cliente, 2026-10-08, sobre o protocolo: "se for possível fazer o protocolo de forma automática: após o RMA ser aprovado pela coordenadora, o técnico clica no botão, abre a tela do TJ e a plataforma anexa o RMA e efetua o protocolo". Resposta do Saulo: talvez, mas é preciso medir antes, porque o técnico provavelmente já precisa estar logado no portal. Fica como **extra da v1, fora da proposta**, orçado quando chegarmos lá. **O papel do AJ na conclusão (29) e na revisão (30) segue em aberto.**)_ Na planilha, o AJ define a conclusão do RMA (etapa 29) e revisa junto com a equipe (30). Decidimos que o AJ é só leitura. Qual vale? Se o AJ escreve a conclusão, ele precisa editar dentro da plataforma.
+- **E-2** ✅ _Respondida (Saulo, 2026-10-08): sim; a etapa 32 é só um botão do nosso lado que registra o protocolo; o resto é feito fora._ A etapa 32 "Protocolo" fica só como "registrar versão e competência", já que protocolar é manual e externo?
+- **E-3** ✅ _Respondida (Saulo, 2026-10-08): a diligência ganha uma **camada própria de perguntas**, porque é muito flexível e dinâmica._ A diligência (etapa 24) faz parte do fluxo normal ou só do rural? Ela deixa de ser opcional à parte?
 - **E-4** = D-37: a planilha não tem prazos.
-- **E-5** Esta planilha substitui as etapas E2 a E11 do v8 como roteiro da análise, ou as duas valem juntas?
+- **E-5** ✅ _Respondida (Saulo, 2026-10-08): ela substitui._ Esta planilha substitui as etapas E2 a E11 do v8 como roteiro da análise, ou as duas valem juntas?
