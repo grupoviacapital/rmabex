@@ -44,6 +44,7 @@ O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de cr
 - status (ativo, suspenso, encerrado)
 - ligações: técnico (um), AJ, magistrado
 - advogado da recuperanda (nome e contato)
+- **contador**: nome e CRC (novo; o sgcbex não tem), **um por processo**
 
 **Recuperanda** (N por processo, papel matriz ou filial)
 - razão social, CPF ou CNPJ, tipo de pessoa (PF cobre o produtor rural pessoa física), nome fantasia
@@ -51,14 +52,13 @@ O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de cr
 - endereço completo
 - contato: nome, telefone, **e-mail (é o login da recuperanda)**
 - **filiais**: razão social e CNPJ de cada uma (tabela à parte, como no sgcbex)
-- contador: nome e CRC (novo; o sgcbex não tem)
 
 **Fora**: cartas, editais, quadro de credores, datas de corte, convolação em falência, e-mail do edital.
 
 ## Pontos a discutir
 
-- **Estrutura**: o **processo** é a entidade principal (1 processo, N recuperandas, cada uma com N filiais). **A análise é por recuperanda (CNPJ da matriz, que consolida as filiais) ou por CNPJ de cada filial também?** (C-1)
+- ✅ **Estrutura** (C-1, Saulo, 2026-10-08): **um processo reúne várias recuperandas do mesmo grupo**, cada uma com o seu CNPJ. A análise mensal é **por recuperanda** (mais o consolidado); as filiais ficam só como dado cadastral.
 - **Lista do Técnico** (checklist que a E2 usa): a raia chama "Cadastro e Check list", então nasce aqui. Lista padrão por tipo (normal ou produtor rural) ajustável por processo?
-- **Contador**: um por recuperanda ou por processo? Login? (ver P5 em [[0-plataforma]])
+- ✅ **Contador** (Saulo, 2026-10-08): **um por processo**, cuida de todas as recuperandas do grupo. Sem login (D-25).
 - **Produtor rural**: marcação do processo ou de cada recuperanda? Pode misturar?
-- **Tipo de ação**: o RMA também é feito em **falência**, ou só em recuperação judicial? (C-2)
+- ✅ **Tipo de ação** (C-2, Saulo, 2026-10-08): **os dois**, recuperação judicial e falência. Na falência o **layout do RMA parece mudar** (a confirmar com o cliente; entra na camada 5).

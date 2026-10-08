@@ -71,3 +71,7 @@
 - **E-3** ✅ _Respondida (Saulo, 2026-10-08): a diligência ganha uma **camada própria de perguntas**, porque é muito flexível e dinâmica._ A diligência (etapa 24) faz parte do fluxo normal ou só do rural? Ela deixa de ser opcional à parte?
 - **E-4** = D-37: a planilha não tem prazos.
 - **E-5** ✅ _Respondida (Saulo, 2026-10-08): ela substitui._ Esta planilha substitui as etapas E2 a E11 do v8 como roteiro da análise, ou as duas valem juntas?
+
+## Camada 5 (aberta em 2026-10-08)
+
+- **F-1** O RMA de **falência** tem layout diferente do de recuperação judicial? Há um modelo de RMA de falência para referência?
