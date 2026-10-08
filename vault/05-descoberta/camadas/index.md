@@ -4,7 +4,7 @@
 
 | # | Camada | Etapas do v8 ([[fluxo-v8]]) | Orçamento | Status |
 | --- | --- | --- | --- | --- |
-| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Em andamento**: 0.1 aguarda o cliente |
+| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Em andamento**: 0.1 com lista de perfis, papéis a confirmar |
 | 1 | [[1-cadastro\|Cadastro do processo]] | E1 + aba "Cadastros" | fechado | Apresentada, não discutida |
 | 2 | Envio e conferência de documentos | E2 | fechado | A tratar |
 | 3 | Motor de verificação (balancete, conciliações, DRE, documental, passivo) | E3 a E7 | faixa | A tratar |
@@ -18,3 +18,7 @@
 ## Onde paramos (2026-10-07)
 
 Na camada 0, item **0.1 Perfis**: a proposta está em [[0-plataforma]] e as perguntas P1 a P6 viraram D-21 a D-26 em [[duvidas]]. O Saulo vai levar essas perguntas ao cliente. Próximo passo: registrar as respostas e seguir para o **0.2 Quem vê o quê**.
+
+## Atualização (2026-10-08)
+
+O cliente mandou a lista fechada de perfis: Administrador, Coordenação, Colaborador, Administrador Judicial, Recuperanda e Magistrado. Fecha D-25 e D-26 (contador e auditoria sem login) e abre D-27 a D-30 (papel do Colaborador, do AJ, do Magistrado e se é multiempresa). Próximo passo: **0.2 Quem vê o quê**, já com os 6 perfis.

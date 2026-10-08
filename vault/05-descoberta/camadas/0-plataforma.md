@@ -18,7 +18,7 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 
 | # | Tema | Proposta nossa | Onde decide | Status |
 | --- | --- | --- | --- | --- |
-| 0.1 | Perfis | ver abaixo | cliente | **Aguarda cliente** (D-21 a D-26) |
+| 0.1 | Perfis | lista de 6 tipos recebida em 2026-10-08 (ver abaixo) | cliente | **Lista fechada**; papéis a confirmar (D-27 a D-30) |
 | 0.2 | Quem vê o quê | Coordenação vê tudo; técnico vê os processos atribuídos (campo "técnico responsável"); recuperanda vê só o seu (upload, pendências, status), sem análises nem RMA | cliente | A discutir |
 | 0.3 | Login interno | e-mail e senha | nós | A discutir |
 | 0.4 | Login da recuperanda | convite por e-mail com link para criar senha ("Comunica a recuperanda"); um login por pessoa | nós | A discutir |
@@ -32,7 +32,35 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 
 Opcionais fora do valor fechado: **SSO Microsoft 365** (a BEx parece usar M365, ver D-17) e **verificação em duas etapas**.
 
-## 0.1 Perfis (proposta)
+## 0.1 Perfis: lista do cliente (2026-10-08)
+
+Fonte: Saulo, 2026-10-08, repassando a lista do cliente. **São todos os tipos de usuário do sistema:**
+
+1. Administrador
+2. Coordenação
+3. Colaborador
+4. Administrador Judicial
+5. Recuperanda
+6. Magistrado
+
+O que a lista já responde:
+
+- **Contador não tem login** (fecha D-25 e P5): fica só como cadastro com CRC.
+- **Auditoria não é usuário** (fecha D-26 e P6): é só documento.
+- **Administrador é perfil próprio** (responde metade de D-21; falta saber se uma pessoa pode acumular perfis).
+
+O que a lista traz de novo e precisa de confirmação:
+
+| Perfil | Leitura provável | Dúvida |
+| --- | --- | --- |
+| Colaborador | é o "Técnico" do v8 | D-27 |
+| Administrador Judicial | o AJ responsável pelo processo, acima da coordenação (assina ou aprova o RMA?) | D-28 |
+| Magistrado | o juiz da vara, externo, só leitura do que foi protocolado | D-29 |
+| (todos) | se o AJ é usuário, a plataforma pode atender **mais de um AJ** (multiempresa), o que muda o desenho e o orçamento | D-30 |
+
+## 0.1 Perfis (proposta anterior, de 2026-10-07)
+
+> Escrita antes da lista do cliente. Vale como base; a tabela de permissões será refeita com os 6 perfis depois das respostas D-27 a D-30.
 
 O RMA é o relatório que o administrador judicial entrega ao juízo; os usuários internos são a equipe da BEx.
 
