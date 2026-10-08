@@ -4,7 +4,7 @@
 
 | # | Camada | Etapas do v8 ([[fluxo-v8]]) | Orçamento | Status |
 | --- | --- | --- | --- | --- |
-| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Em andamento**: 0.1 e 0.2 respondidos; pontos finos em D-31 a D-36 |
+| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Em andamento**: 0.1 e 0.2 fechados; falta D-30 e os itens 0.3 a 0.13 |
 | 1 | [[1-cadastro\|Cadastro do processo]] | E1 + aba "Cadastros" | fechado | Apresentada, não discutida |
 | 2 | Envio e conferência de documentos | E2 | fechado | A tratar |
 | 3 | Motor de verificação (balancete, conciliações, DRE, documental, passivo) | E3 a E7 | faixa | A tratar |

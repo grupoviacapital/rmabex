@@ -18,7 +18,7 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 
 | # | Tema | Proposta nossa | Onde decide | Status |
 | --- | --- | --- | --- | --- |
-| 0.1 | Perfis | 6 perfis com papéis definidos em 2026-10-08 (ver abaixo) | cliente | **Fechado**, com pontos finos em D-31 a D-36 |
+| 0.1 | Perfis | 6 perfis com papéis definidos em 2026-10-08 (ver abaixo) | cliente | **Fechado** (D-31 a D-36 respondidas em 2026-10-08) |
 | 0.2 | Quem vê o quê | matriz em "0.2 Quem vê o quê" abaixo | cliente | **Respondido** em 2026-10-08; matriz a validar |
 | 0.3 | Login interno | e-mail e senha | nós | A discutir |
 | 0.4 | Login da recuperanda | convite por e-mail com link para criar senha ("Comunica a recuperanda"); um login por pessoa | nós | A discutir |
@@ -65,7 +65,7 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 
 **Administrador.** Acesso a tudo.
 
-**Coordenação.** Cerca de 80% do que o administrador tem (o que fica de fora: D-31).
+**Coordenação.** Quase tudo o que o administrador tem. O "80%" foi só uma referência; a divisão fina fica para depois (D-31).
 - Painel para acompanhar os técnicos: processos de cada um, informações de cada técnico, **% de evolução de cada RMA**.
 - Recebe notificação quando o técnico altera o RMA, **vê a alteração e aprova**.
 - **Cadastra** o processo, a recuperanda e o administrador judicial. Isso muda o v8, onde quem cadastra é o técnico (ver [[1-cadastro]]).
@@ -73,20 +73,22 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 
 **Técnico.**
 - Acessa **só os processos vinculados a ele**; não vê os de outro técnico.
-- Um processo pode ter **vários técnicos**.
+- **Um técnico por processo** (correção do Saulo, 2026-10-08). A coordenação pode trocar o técnico do processo quando precisar.
 - Edita os pareceres (e o RMA), sobe documentação (inclusive a que está faltando).
-- **Não altera** os cadastros de processo, recuperanda e AJ (ver D-32).
+- **Vê** os dados dos processos dele, mas **não altera** os cadastros de processo, recuperanda e AJ (D-32).
 - **Treinar a IA** (ajustar regras e prompts): **em standby, para o final do projeto**. Fora do valor fechado até lá.
 
 **Administrador Judicial.** **Só leitura**, não modifica nada.
 - Painel com a esteira, gráficos e o que está sendo feito em cada processo.
 - Acesso aos RMAs feitos.
-- Recebe avisos: RMA pronto, precisa fazer protocolo (ver D-33).
+- Recebe avisos: RMA pronto, precisa fazer protocolo. O aviso é **só informativo**: o protocolo físico é feito **fora do sistema** (D-33).
+- Vê **só os processos ligados a ele** no cadastro (D-35).
 - Fica **fora do fluxo de aprovação**: a revisão continua terminando na coordenação, como no v8.
 
 **Magistrado.**
 - Acessa o **RMA protocolado** e os gráficos (DRE e do RMA).
-- **A BEx escolhe quais gráficos aparecem** para ele (ver D-34).
+- Os gráficos que ele vê seguem uma **seleção padrão**, não escolhida a cada RMA (D-34).
+- **Cadastrado pela coordenação**, como o AJ. Proposta nossa: ligado aos processos, e vê só os dele.
 
 **Recuperanda.**
 - Todo **fim de mês** sobe os documentos: balancete, relatórios e demais documentos. Responde em parte D-12: o ciclo é mensal.
@@ -97,27 +99,27 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 
 | Ação | Admin | Coord. | Técnico | AJ | Magistrado | Recup. |
 | --- | :-: | :-: | :-: | :-: | :-: | :-: |
-| Gerenciar usuários e perfis | ✅ | D-31 | | | | |
-| Modelos, parâmetros, checklist padrão | ✅ | D-31 | | | | |
+| Gerenciar usuários e perfis | ✅ | depois (D-31) | | | | |
+| Modelos, parâmetros, checklist padrão | ✅ | depois (D-31) | | | | |
 | Treinar a IA (regras, prompts) | ✅ | | standby | | | |
-| Cadastrar processo, recuperanda, AJ | ✅ | ✅ | 👁 seus (D-32) | | | |
-| Vincular e trocar técnicos | ✅ | ✅ | | | | |
+| Cadastrar processo, recuperanda, AJ, magistrado | ✅ | ✅ | 👁 seus | | | |
+| Vincular e trocar o técnico (um por processo) | ✅ | ✅ | | | | |
 | Painel de acompanhamento dos técnicos | ✅ | ✅ | | | | |
-| Esteira e painel do processo | ✅ | ✅ | ✅ seus | 👁 (D-35) | | |
+| Esteira e painel do processo | ✅ | ✅ | ✅ seus | 👁 só os ligados a ele | | |
 | Subir documentos | ✅ | ✅ | ✅ seus | | | ✅ só os seus |
 | Ver relatórios, apontamentos, análises | ✅ | ✅ | ✅ seus | 👁 | | |
 | Editar RMA e parecer | ✅ | ✅ | ✅ seus | | | |
 | Aprovar ou devolver RMA e parecer | ✅ | ✅ | | | | |
-| Protocolar | ✅ | ✅ | ✅ seus (D-33) | | | |
-| Ver RMA pronto e protocolado | ✅ | ✅ | ✅ seus | 👁 | 👁 só protocolado (D-34) | |
+| Registrar que foi protocolado (o protocolo é feito fora) | ✅ | ✅ | ✅ seus | | | |
+| Ver RMA pronto e protocolado | ✅ | ✅ | ✅ seus | 👁 | 👁 só protocolado, dos seus | |
 | Ver gráficos escolhidos pela BEx | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
-| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto, protocolo | D-34 | pedido de documentos |
+| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto, precisa protocolar (informativo) | RMA protocolado (proposta) | pedido de documentos |
 
 ## 0.12 Esteira do processo
 
 Pedido do cliente (Saulo, 2026-10-08): uma timeline do passo a passo de cada processo, **bem detalhista**. Exemplo dado: "passo 1 fazer tal coisa, passo 2 esperar tal prazo, passo 3 encaminhar para tal pessoa e esperar resposta", com **%**, **cores** e **avisos**.
 
-Proposta nossa: os passos saem das etapas do v8 (E1 a E11 e P), cada um com responsável, prazo, status (cor) e aviso de atraso; o % do RMA, que a coordenação acompanha, vem da mesma esteira. Prazos padrão definidos pelo admin, ajustáveis por processo (D-36). A esteira aparece para coordenação, técnico e AJ.
+Proposta nossa: os passos saem das etapas do v8 (E1 a E11 e P), cada um com responsável, prazo, status (cor) e aviso de atraso; o % do RMA, que a coordenação acompanha, vem da mesma esteira. **Passos e prazos fixos, iguais para todo processo, inicialmente** (D-36); torná-los configuráveis fica para depois. A esteira aparece para coordenação, técnico e AJ.
 
 ## 0.1 Perfis (proposta anterior, de 2026-10-07)
 
