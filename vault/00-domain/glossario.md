@@ -36,4 +36,4 @@ Cada pessoa tem **um só perfil**. O sistema é só da BEx. Contador e auditoria
 
 ### Escopo
 
-- O sistema trata **só de recuperação judicial**. Falência está fora (cliente, 2026-10-08).
+- O sistema trata **só de recuperação judicial**. Falência está fora (cliente, 2026-10-08).- **Produtor rural** (`isRuralProducer`) - marcação de **cada recuperanda** (não do processo). Só a recuperanda rural passa pela análise rural (etapas 20 a 23) e recebe o checklist rural.

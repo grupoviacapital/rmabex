@@ -40,7 +40,6 @@ O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de cr
 - número CNJ (único; o tribunal sai do número), **sem campo de tipo de ação** (só recuperação judicial), vara, comarca, UF, sistema do tribunal (e-SAJ, PJe, Projudi, eproc), endereço do juízo
 - data do pedido de RJ (= ajuizamento, base do "endividamento pós-RJ"), data do deferimento
 - **consolidação**: processual ou substancial (já existe no sgcbex)
-- **produtor rural** (novo; o sgcbex não tem)
 - status (ativo, suspenso, encerrado)
 - ligações: técnico (um), AJ, magistrado
 - advogado da recuperanda (nome e contato)
@@ -48,6 +47,7 @@ O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de cr
 
 **Recuperanda** (N por processo, papel matriz ou filial)
 - razão social, CPF ou CNPJ, tipo de pessoa (PF cobre o produtor rural pessoa física), nome fantasia
+- **produtor rural** (sim ou não; novo, o sgcbex não tem)
 - inscrição estadual e municipal, data de constituição, natureza jurídica, porte, CNAE, situação cadastral na Receita
 - endereço completo
 - contato: nome, telefone, **e-mail (é o login da recuperanda)**
@@ -60,5 +60,5 @@ O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de cr
 - ✅ **Estrutura** (C-1, Saulo, 2026-10-08): **um processo reúne várias recuperandas do mesmo grupo**, cada uma com o seu CNPJ. A análise mensal é **por recuperanda** (mais o consolidado); as filiais ficam só como dado cadastral.
 - **Lista do Técnico** (checklist que a E2 usa): a raia chama "Cadastro e Check list", então nasce aqui. Lista padrão por tipo (normal ou produtor rural) ajustável por processo?
 - ✅ **Contador** (Saulo, 2026-10-08): **um por processo**, cuida de todas as recuperandas do grupo. Sem login (D-25).
-- **Produtor rural**: marcação do processo ou de cada recuperanda? Pode misturar?
+- ✅ **Produtor rural** (Saulo, 2026-10-08): marcado **em cada recuperanda**. Um processo pode misturar recuperandas rurais e não rurais; só as rurais passam pelas etapas 20 a 23 ([[../etapas-rma|etapas do RMA]]) e recebem o checklist rural.
 - ✅ **Tipo de ação** (C-2, cliente via Saulo, 2026-10-08): **só recuperação judicial, sem falência**. (Na mesma data se cogitou ter os dois; a confirmação do cliente que chegou depois descartou a falência.)
