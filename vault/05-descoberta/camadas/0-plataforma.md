@@ -18,8 +18,8 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 
 | # | Tema | Proposta nossa | Onde decide | Status |
 | --- | --- | --- | --- | --- |
-| 0.1 | Perfis | lista de 6 tipos recebida em 2026-10-08 (ver abaixo) | cliente | **Lista fechada**; papéis a confirmar (D-28 a D-30) |
-| 0.2 | Quem vê o quê | Coordenação vê tudo; técnico vê os processos atribuídos (campo "técnico responsável"); recuperanda vê só o seu (upload, pendências, status), sem análises nem RMA | cliente | A discutir |
+| 0.1 | Perfis | 6 perfis com papéis definidos em 2026-10-08 (ver abaixo) | cliente | **Fechado**, com pontos finos em D-31 a D-36 |
+| 0.2 | Quem vê o quê | matriz em "0.2 Quem vê o quê" abaixo | cliente | **Respondido** em 2026-10-08; matriz a validar |
 | 0.3 | Login interno | e-mail e senha | nós | A discutir |
 | 0.4 | Login da recuperanda | convite por e-mail com link para criar senha ("Comunica a recuperanda"); um login por pessoa | nós | A discutir |
 | 0.5 | E-mail | envio próprio com modelos editáveis (convite, pedido de documentos, aviso ao técnico, aviso à coordenação, protocolo) | nós; remetente com o cliente | A discutir |
@@ -29,6 +29,8 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 | 0.9 | Hospedagem | a VM é da BEx ou nossa? Quem paga infra e IA? Pesa no orçamento | cliente | A discutir |
 | 0.10 | Ambientes | homologação (call de teste) e produção (VM) | nós | A discutir |
 | 0.11 | Identidade visual | pedir o manual de marca da BEx; sem ele, `/identidade` gera opções | cliente | A discutir |
+| 0.12 | Esteira do processo | timeline detalhada por processo (ver abaixo) | nós, com o cliente | Novo (2026-10-08) |
+| 0.13 | Painéis | um por perfil: coordenação, técnico, AJ | nós, com o cliente | Novo (2026-10-08) |
 
 Opcionais fora do valor fechado: **SSO Microsoft 365** (a BEx parece usar M365, ver D-17) e **verificação em duas etapas**.
 
@@ -57,9 +59,70 @@ O que a lista traz de novo e precisa de confirmação:
 | Magistrado | o juiz da vara, externo, só leitura do que foi protocolado | D-29 |
 | (todos) | se o AJ é usuário, a plataforma pode atender **mais de um AJ** (multiempresa), o que muda o desenho e o orçamento | D-30 |
 
+## 0.1 Papéis de cada perfil (2026-10-08)
+
+Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-21 e D-29.
+
+**Administrador.** Acesso a tudo.
+
+**Coordenação.** Cerca de 80% do que o administrador tem (o que fica de fora: D-31).
+- Painel para acompanhar os técnicos: processos de cada um, informações de cada técnico, **% de evolução de cada RMA**.
+- Recebe notificação quando o técnico altera o RMA, **vê a alteração e aprova**.
+- **Cadastra** o processo, a recuperanda e o administrador judicial. Isso muda o v8, onde quem cadastra é o técnico (ver [[1-cadastro]]).
+- **Vincula** o processo aos técnicos, e pode tirar um técnico e pôr outro.
+
+**Técnico.**
+- Acessa **só os processos vinculados a ele**; não vê os de outro técnico.
+- Um processo pode ter **vários técnicos**.
+- Edita os pareceres (e o RMA), sobe documentação (inclusive a que está faltando).
+- **Não altera** os cadastros de processo, recuperanda e AJ (ver D-32).
+- **Treinar a IA** (ajustar regras e prompts): **em standby, para o final do projeto**. Fora do valor fechado até lá.
+
+**Administrador Judicial.** **Só leitura**, não modifica nada.
+- Painel com a esteira, gráficos e o que está sendo feito em cada processo.
+- Acesso aos RMAs feitos.
+- Recebe avisos: RMA pronto, precisa fazer protocolo (ver D-33).
+- Fica **fora do fluxo de aprovação**: a revisão continua terminando na coordenação, como no v8.
+
+**Magistrado.**
+- Acessa o **RMA protocolado** e os gráficos (DRE e do RMA).
+- **A BEx escolhe quais gráficos aparecem** para ele (ver D-34).
+
+**Recuperanda.**
+- Todo **fim de mês** sobe os documentos: balancete, relatórios e demais documentos. Responde em parte D-12: o ciclo é mensal.
+
+## 0.2 Quem vê o quê (matriz a validar)
+
+Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só processos vinculados a ele.
+
+| Ação | Admin | Coord. | Técnico | AJ | Magistrado | Recup. |
+| --- | :-: | :-: | :-: | :-: | :-: | :-: |
+| Gerenciar usuários e perfis | ✅ | D-31 | | | | |
+| Modelos, parâmetros, checklist padrão | ✅ | D-31 | | | | |
+| Treinar a IA (regras, prompts) | ✅ | | standby | | | |
+| Cadastrar processo, recuperanda, AJ | ✅ | ✅ | 👁 seus (D-32) | | | |
+| Vincular e trocar técnicos | ✅ | ✅ | | | | |
+| Painel de acompanhamento dos técnicos | ✅ | ✅ | | | | |
+| Esteira e painel do processo | ✅ | ✅ | ✅ seus | 👁 (D-35) | | |
+| Subir documentos | ✅ | ✅ | ✅ seus | | | ✅ só os seus |
+| Ver relatórios, apontamentos, análises | ✅ | ✅ | ✅ seus | 👁 | | |
+| Editar RMA e parecer | ✅ | ✅ | ✅ seus | | | |
+| Aprovar ou devolver RMA e parecer | ✅ | ✅ | | | | |
+| Protocolar | ✅ | ✅ | ✅ seus (D-33) | | | |
+| Ver RMA pronto e protocolado | ✅ | ✅ | ✅ seus | 👁 | 👁 só protocolado (D-34) | |
+| Ver gráficos escolhidos pela BEx | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
+| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto, protocolo | D-34 | pedido de documentos |
+
+## 0.12 Esteira do processo
+
+Pedido do cliente (Saulo, 2026-10-08): uma timeline do passo a passo de cada processo, **bem detalhista**. Exemplo dado: "passo 1 fazer tal coisa, passo 2 esperar tal prazo, passo 3 encaminhar para tal pessoa e esperar resposta", com **%**, **cores** e **avisos**.
+
+Proposta nossa: os passos saem das etapas do v8 (E1 a E11 e P), cada um com responsável, prazo, status (cor) e aviso de atraso; o % do RMA, que a coordenação acompanha, vem da mesma esteira. Prazos padrão definidos pelo admin, ajustáveis por processo (D-36). A esteira aparece para coordenação, técnico e AJ.
+
 ## 0.1 Perfis (proposta anterior, de 2026-10-07)
 
-> Escrita antes da lista do cliente. Vale como base; a tabela de permissões será refeita com os 6 perfis depois das respostas D-27 a D-30.
+> Substituída pela seção "Papéis de cada perfil" acima. Fica como histórico.
+
 
 O RMA é o relatório que o administrador judicial entrega ao juízo; os usuários internos são a equipe da BEx.
 

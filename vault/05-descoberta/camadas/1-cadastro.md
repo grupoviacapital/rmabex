@@ -11,6 +11,10 @@
 
 Aba "Cadastros" (Cadastro Recuperanda): nome da recuperanda, nº do processo, CNPJs, "Seguimento" (segmento).
 
+## Mudança em relação ao desenho (Saulo, 2026-10-08)
+
+Quem cadastra processo, recuperanda e administrador judicial é a **coordenação**, que também vincula os técnicos (um ou vários por processo). O técnico não altera esses cadastros. Ver [[0-plataforma]].
+
 ## Pontos a discutir
 
 - **Ordem estranha**: a recuperanda é cadastrada antes do nº e de novo depois da consulta ao TJ. Proposta: o **processo** é a entidade principal (1 processo, N recuperandas, cada uma com N CNPJs). Liga com D-13.
