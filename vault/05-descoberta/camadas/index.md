@@ -4,7 +4,7 @@
 
 | # | Camada | Etapas do v8 ([[fluxo-v8]]) | Orçamento | Status |
 | --- | --- | --- | --- | --- |
-| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Em andamento**: 0.1 e 0.2 fechados; falta D-30 e os itens 0.3 a 0.13 |
+| 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Fechada** em 2026-10-08; pendentes do cliente: D-21, D-24, D-30, D-37, D-38 |
 | 1 | [[1-cadastro\|Cadastro do processo]] | E1 + aba "Cadastros" | fechado | Apresentada, não discutida |
 | 2 | Envio e conferência de documentos | E2 | fechado | A tratar |
 | 3 | Motor de verificação (balancete, conciliações, DRE, documental, passivo) | E3 a E7 | faixa | A tratar |
@@ -24,3 +24,5 @@ Na camada 0, item **0.1 Perfis**: a proposta está em [[0-plataforma]] e as perg
 O cliente mandou a lista fechada de perfis: Administrador, Coordenação, Técnico, Administrador Judicial, Recuperanda e Magistrado (o cliente escreveu "Colaborador"; é o Técnico, e o nome usado é sempre Técnico). Fecha D-25, D-26 e D-27 e abre D-28 a D-30 (papel do AJ, do Magistrado e se é multiempresa). Próximo passo: **0.2 Quem vê o quê**, já com os 6 perfis.
 
 Ainda em 2026-10-08: o Saulo descreveu o papel de cada perfil (fecha D-22, D-23, D-28). Montamos a matriz do **0.2** e abrimos dois itens novos: **0.12 Esteira do processo** e **0.13 Painéis**. Treinar a IA fica em **standby para o final**. Próximo passo: validar a matriz e seguir para os itens 0.3 a 0.11.
+
+Fechando 2026-10-08: itens **0.3 a 0.13 decididos** (2FA por e-mail para todos, cadastro em cascata, Brevo do sgcbex com desvio para o Saulo, AWS em VM da BEx, homologação local, identidade do sgcbex). **Camada 0 fechada.** Próximo passo: **camada 1, Cadastro do processo** (já apresentada, ver [[1-cadastro]]).

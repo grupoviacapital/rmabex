@@ -13,7 +13,7 @@ Aba "Cadastros" (Cadastro Recuperanda): nome da recuperanda, nº do processo, CN
 
 ## Mudança em relação ao desenho (Saulo, 2026-10-08)
 
-Quem cadastra processo, recuperanda e administrador judicial é a **coordenação**, que também cadastra o magistrado e vincula o técnico (**um por processo**, trocável). O técnico não altera esses cadastros. Ver [[0-plataforma]].
+Quem cadastra processo, recuperanda e administrador judicial é a **coordenação** (o admin só cadastra coordenadores; nada se cadastra por fora), que também cadastra o magistrado e vincula o técnico (**um por processo**, trocável). O técnico não altera esses cadastros. Ver [[0-plataforma]].
 
 ## Pontos a discutir
 

@@ -26,7 +26,7 @@
 ## Integrações e dados (pesam no orçamento)
 
 - **D-16** "Verifica nos TJs o nº do processo": quais tribunais, e por qual meio (API, serviço pago, consulta manual assistida)?
-- **D-17** Arquivos acima de 1 GB vão para o OneDrive: é o OneDrive da BEx (Microsoft 365)? O sistema lê de lá ou só guarda?
+- **D-17** _(parcial, 2026-10-08: hospedagem na AWS, VM da BEx; o OneDrive segue em aberto)_ Arquivos acima de 1 GB vão para o OneDrive: é o OneDrive da BEx (Microsoft 365)? O sistema lê de lá ou só guarda?
 - **D-18** Formatos dos documentos enviados (PDF, planilha, XML, imagem escaneada) e se o balancete tem layout padrão ou varia por contador.
 - **D-19** O que se espera da "IA": ler e extrair dados dos documentos, apontar divergências, redigir texto do parecer e do RMA? O cálculo das fórmulas é determinístico (regra fixa) ou interpretado?
 
@@ -39,7 +39,7 @@
 - **D-21** _(parcial, 2026-10-08: Administrador é perfil próprio, com acesso a tudo; a coordenação tem cerca de 80% dele; falta o acúmulo de perfis)_ O perfil de administrador (usuários, checklist padrão, modelos, parâmetros) é uma pessoa à parte ou alguém da coordenação acumula? Um usuário pode ter mais de um perfil?
 - **D-22** ✅ _Respondida (Saulo, 2026-10-08): a coordenação cadastra processo, recuperanda e AJ e vincula os técnicos._ Quem cria o processo: o técnico (como no desenho) ou a coordenação, que cria e já atribui a um técnico?
 - **D-23** ✅ _Respondida (Saulo, 2026-10-08): só os vinculados a ele; **um técnico por processo** (corrigido no mesmo dia); a coordenação troca o técnico quando precisar._ O técnico vê só os processos atribuídos a ele ou todos? Como fica a substituição em férias?
-- **D-24** Do lado da recuperanda entra uma pessoa ou várias? Num grupo com várias recuperandas no mesmo processo, um login vê todas?
+- **D-24** _(proposta, 2026-10-08: várias pessoas por recuperanda, cadastradas pela coordenação; confirmar com o cliente)_ Do lado da recuperanda entra uma pessoa ou várias? Num grupo com várias recuperandas no mesmo processo, um login vê todas?
 - **D-25** ✅ _Respondida (Saulo, 2026-10-08): contador não tem login, a lista de perfis não o inclui._ O contador precisa de login (por exemplo, para enviar o balancete) ou é só um cadastro com CRC?
 - **D-26** ✅ _Respondida (Saulo, 2026-10-08): não é usuário, a lista de perfis não a inclui._ A "auditoria" citada na etapa de conclusão (E10) é um ator externo que acessa o sistema ou só um documento recebido?
 
@@ -58,3 +58,8 @@
 - **D-34** ✅ _Respondida (Saulo, 2026-10-08): a seleção de gráficos é padrão; quem cadastra o magistrado é a coordenação._ Magistrado: como ganha acesso (convite da BEx, por processo ou por vara)? A escolha dos gráficos que ele vê é por RMA ou um padrão? Ele recebe aviso quando um RMA é protocolado?
 - **D-35** ✅ _Respondida (Saulo, 2026-10-08): só os ligados a ele._ O AJ vê todos os processos ou só os que a coordenação ligou a ele no cadastro?
 - **D-36** ✅ _Respondida (Saulo, 2026-10-08): passos e prazos fixos, inicialmente._ Esteira: os passos e prazos são os mesmos para todo processo (a partir do v8) ou mudam por processo (produtor rural, parecer)? Quem define os prazos?
+
+## Camada 0, itens que dependem do cliente (2026-10-08)
+
+- **D-37** Prazos reais da esteira: até que dia do mês a recuperanda envia os documentos, e quantos dias tem cada etapa (conferência, análise, revisão do técnico, aprovação da coordenação)?
+- **D-38** Retenção dos dados (LGPD): por quanto tempo os documentos e RMAs ficam guardados depois que o processo encerra?

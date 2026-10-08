@@ -20,19 +20,19 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 | --- | --- | --- | --- | --- |
 | 0.1 | Perfis | 6 perfis com papéis definidos em 2026-10-08 (ver abaixo) | cliente | **Fechado** (D-31 a D-36 respondidas em 2026-10-08) |
 | 0.2 | Quem vê o quê | matriz em "0.2 Quem vê o quê" abaixo | cliente | **Respondido** em 2026-10-08; matriz a validar |
-| 0.3 | Login interno | e-mail e senha | nós | A discutir |
-| 0.4 | Login da recuperanda | convite por e-mail com link para criar senha ("Comunica a recuperanda"); um login por pessoa | nós | A discutir |
-| 0.5 | E-mail | envio próprio com modelos editáveis (convite, pedido de documentos, aviso ao técnico, aviso à coordenação, RMA pronto) | nós; remetente com o cliente | A discutir |
-| 0.6 | "Comunica técnico" | painel de pendências ("minha fila") mais e-mail | nós | A discutir |
-| 0.7 | Histórico | quem fez o quê e quando, por processo | nós | A discutir |
-| 0.8 | LGPD e segurança | arquivos criptografados, acesso só com login, backup diário | nós; retenção com o cliente | A discutir |
-| 0.9 | Hospedagem | a VM é da BEx ou nossa? Quem paga infra e IA? Pesa no orçamento | cliente | A discutir |
-| 0.10 | Ambientes | homologação (call de teste) e produção (VM) | nós | A discutir |
-| 0.11 | Identidade visual | pedir o manual de marca da BEx; sem ele, `/identidade` gera opções | cliente | A discutir |
-| 0.12 | Esteira do processo | timeline detalhada por processo (ver abaixo) | nós, com o cliente | Novo (2026-10-08) |
-| 0.13 | Painéis | um por perfil: coordenação, técnico, AJ | nós, com o cliente | Novo (2026-10-08) |
+| 0.3 | Login interno | e-mail, senha e **código por e-mail** (ver abaixo) | Saulo | **Fechado** 2026-10-08 |
+| 0.4 | Cadastro e login externo | cadastro em cascata e convite por e-mail (ver abaixo) | Saulo | **Fechado** 2026-10-08 |
+| 0.5 | E-mail | Brevo, mesma estrutura do sgcbex; tudo desviado para o Saulo até a produção | Saulo | **Fechado** 2026-10-08 |
+| 0.6 | Notificações | sino na plataforma mais e-mail | Saulo | **Fechado** 2026-10-08 |
+| 0.7 | Histórico | quem fez o quê e quando, mais versões do RMA | Saulo | **Fechado** 2026-10-08 |
+| 0.8 | Segurança e LGPD | ver abaixo | Saulo; retenção com o cliente | **Fechado**, falta a retenção |
+| 0.9 | Hospedagem | VM da BEx na AWS; infra e IA pagas pela BEx | cliente | **Fechado** 2026-10-08 |
+| 0.10 | Ambientes | homologação local (dev) e produção na VM | Saulo | **Fechado** 2026-10-08 |
+| 0.11 | Identidade visual | a mesma do sgcbex | Saulo | **Fechado** 2026-10-08 |
+| 0.12 | Esteira do processo | uma esteira por RMA mensal (ver abaixo) | Saulo; prazos com o cliente | **Fechado**, faltam os prazos |
+| 0.13 | Painéis | um por perfil (ver abaixo) | Saulo | **Fechado** 2026-10-08 |
 
-Opcionais fora do valor fechado: **SSO Microsoft 365** (a BEx parece usar M365, ver D-17) e **verificação em duas etapas**.
+Sem opcionais de login: o login com Microsoft 365 **saiu** e a verificação em duas etapas **entrou no valor fechado** (Saulo, 2026-10-08).
 
 ## 0.1 Perfis: lista do cliente (2026-10-08)
 
@@ -103,7 +103,7 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 
 | Ação | Admin | Coord. | Técnico | AJ | Magistrado | Recup. |
 | --- | :-: | :-: | :-: | :-: | :-: | :-: |
-| Gerenciar usuários e perfis | ✅ | depois (D-31) | | | | |
+| Cadastrar usuários | ✅ coordenadores | ✅ técnicos, recuperandas, AJ, magistrados | | | | |
 | Modelos, parâmetros, checklist padrão | ✅ | depois (D-31) | | | | |
 | Treinar a IA (regras, prompts) | ✅ | | standby | | | |
 | Cadastrar processo, recuperanda, AJ, magistrado | ✅ | ✅ | 👁 seus | | | |
@@ -119,11 +119,46 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 | Ver gráficos escolhidos pela BEx | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
 | Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto | RMA liberado (proposta) | pedido de documentos |
 
+## 0.3 a 0.13 decididos (Saulo, 2026-10-08)
+
+**0.3 Login interno.** E-mail e senha, "esqueci a senha" por e-mail, bloqueio temporário após 5 tentativas erradas, sessão expira após 8 h sem uso. **Verificação em duas etapas por código enviado por e-mail, obrigatória para todos os perfis, internos e externos.** Login com Microsoft 365: fora.
+
+**0.4 Cadastro e login externo.** **Nada se cadastra por fora**, o cadastro é em cascata:
+- o **admin** cadastra os **coordenadores**;
+- a **coordenação** cadastra os **técnicos**, as **recuperandas** (e as pessoas de cada uma), os **AJs** e os **magistrados**.
+
+Cada pessoa cadastrada recebe convite por e-mail com link para criar a senha (vale 7 dias, pode ser reenviado). Um login por pessoa; uma recuperanda pode ter várias pessoas (responde D-24 como proposta).
+
+**0.5 E-mail.** Brevo, reaproveitando a estrutura do `Projects/sgcbex` (provedor, fila e webhook de eventos). **Até a produção, todo e-mail é desviado para `saulodesenvolvedor@gmail.com`**, com o destinatário real gravado, como o modo seguro do sgcbex (só que com um único destino). O desvio é tirado na liberação para produção. Textos fixos na v1.
+
+**0.6 Notificações.** Sino na plataforma mais e-mail, para os eventos da matriz do 0.2. Sem preferências por usuário na v1.
+
+**0.7 Histórico.** Registro por processo de quem fez o quê e quando. **Versões do RMA**: a coordenação vê o que mudou (antes e depois) entre uma versão e outra para aprovar (entra na camada 6).
+
+**0.8 Segurança e LGPD.** HTTPS; senha com hash; arquivos fora de pasta pública, servidos só após checar login e perfil; permissão checada no servidor; backup diário com 30 dias. Falta o cliente dizer a retenção dos dados após o encerramento do processo.
+
+**0.9 Hospedagem.** **AWS, em VM da BEx.** Infraestrutura e consumo de IA são pagos pela BEx, fora do valor de desenvolvimento.
+
+**0.10 Ambientes.** **Homologação = ambiente local de dev** (as calls de teste rodam nele). **Produção = a VM**, onde a BEx passa a usar. **No go-live, a base de produção é zerada** e começa do zero.
+
+**0.11 Identidade visual.** **A mesma do sgcbex** (cores do Manual da Logomarca BEx: navy `#0B2A63`, teal `#00728C`; fonte em `Projects/sgcbex/vault/00-domain/ui-referencia.md`). O sgcbex usa Ant Design; aqui a stack é outra (Next.js), então importamos os tokens via `/identidade`, não os componentes.
+
+**0.12 e 0.13** como descritos abaixo.
+
+## 0.13 Painéis
+
+- **Coordenação**: técnicos × processos, % de cada RMA, atrasos, aprovações pendentes.
+- **Técnico**: "minha fila", com pendências e prazos dos processos dele.
+- **AJ**: processos ligados a ele, com esteira, gráficos e RMAs.
+- **Recuperanda**: o que falta enviar no mês e até quando.
+- **Magistrado**: RMAs liberados, com os gráficos.
+- **Admin**: tudo.
+
 ## 0.12 Esteira do processo
 
 Pedido do cliente (Saulo, 2026-10-08): uma timeline do passo a passo de cada processo, **bem detalhista**. Exemplo dado: "passo 1 fazer tal coisa, passo 2 esperar tal prazo, passo 3 encaminhar para tal pessoa e esperar resposta", com **%**, **cores** e **avisos**.
 
-Proposta nossa: os passos saem das etapas do v8 (E1 a E11 e P), cada um com responsável, prazo, status (cor) e aviso de atraso; o % do RMA, que a coordenação acompanha, vem da mesma esteira. **Passos e prazos fixos, iguais para todo processo, inicialmente** (D-36); torná-los configuráveis fica para depois. A esteira aparece para coordenação, técnico e AJ.
+Decidido: **uma esteira por RMA mensal** (o processo é contínuo; a esteira recomeça a cada mês). Passos tirados do v8: (1) pedido de documentos; (2) envio pela recuperanda; (3) conferência e faltantes; (4) análises (balancete, conciliações, DRE, documental, passivo); (5) cálculos e índices; (6) geração do RMA; (7) revisão do técnico; (8) aprovação da coordenação; (9) RMA final; (10) liberado para o magistrado. Cada passo tem responsável, prazo, cor (cinza não iniciado, azul em andamento, verde concluído, amarelo prazo perto, vermelho atrasado) e aviso. O % do RMA sai dos passos concluídos. **Falta o cliente dar os prazos reais** (D-37). **Passos e prazos fixos, iguais para todo processo, inicialmente** (D-36); torná-los configuráveis fica para depois. A esteira aparece para coordenação, técnico e AJ.
 
 ## 0.1 Perfis (proposta anterior, de 2026-10-07)
 
