@@ -12,6 +12,7 @@
 | 5 | Geração do RMA e do Parecer (minuta, conclusão, gráficos, layout) | 28, 29 e o Parecer do v8 | faixa | A tratar |
 | 6 | Revisão, aprovação e registro do protocolo (o protocolo em si é externo) | 30 a 32 + revisão do Parecer | fechado | A tratar |
 | opc. | Diligência: **camada própria de perguntas**, por ser muito flexível e dinâmica | 24 | à parte | A tratar |
+| extra | Consulta ao processo no cadastro (scraper TJ + DJEN + DataJud, autocompleta o cadastro) | cadastro | **fora da proposta**: orçado quando chegarmos lá | Medir antes |
 | extra | Protocolo automático no TJ | 32 | **fora da proposta**: orçado quando chegarmos lá | Medir antes |
 
 "Fechado" e "faixa" seguem a decisão 1 do [[briefing]].

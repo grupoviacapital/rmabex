@@ -20,12 +20,45 @@ Quem cadastra processo, recuperanda e administrador judicial é a **coordenaçã
 - A consulta aos TJs serve **só para buscar os dados do processo no cadastro** (TJSP, TJGO etc.).
 - Vários CNPJs por processo, **análise separada por CNPJ** mais um consolidado; o cadastro precisa do **tipo de consolidação** (substancial ou processual), que decide como o RMA apresenta as análises. Ver [[../briefing|briefing]].
 
+## Consulta ao tribunal: extra da v1 (Saulo, 2026-10-08)
+
+Fica **fora do valor fechado**, como extra da v1. Na v1, o cadastro é **manual**, com validação do número CNJ (o número já identifica o tribunal).
+
+Como será o extra: ao digitar o número, a plataforma consulta **TJ (scraper) + DJEN + DataJud**, junta os dados mais recentes e **autocompleta** o cadastro. Mesma base técnica do `Projects/iajuridica`. O que o levantamento de 2026-10-08 achou lá:
+
+- **O que reaproveita**: Node/TS com axios + cheerio (e puppeteer onde precisa), cliente DataJud, cliente DJEN, proxy residencial brasileiro, resolução de captcha (2Captcha), infra AWS São Paulo (`sa-east-1`, x86).
+- **O que é novo**: o iajuridica coleta **por janela de data** (jurisprudência), nunca **por número de processo**. Aqui a busca é pelo número, na **consulta processual** de cada tribunal (e-SAJ, PJe, Projudi, eproc), que são telas diferentes das de jurisprudência. Cada sistema de tribunal é um scraper novo.
+- **DataJud** (busca por número, chave pública do CNJ): classe, órgão julgador (vara), assuntos, data de ajuizamento, movimentos. **Não traz as partes** (as recuperandas).
+- **DJEN**: publicações com número do processo, órgão, classe e texto; o campo de destinatários traz as partes. O iajuridica não filtra por número; falta confirmar que a API aceita esse filtro.
+- **Custos e riscos**: exige IP brasileiro (os `.jus.br` bloqueiam IP de fora); TJGO usa Cloudflare Turnstile e o e-SAJ (TJSP) usa reCAPTCHA na busca de 2º grau, com custo por captcha resolvido; os portais mudam sem aviso.
+
+## Campos do cadastro (base: `Projects/sgcbex`, levantado em 2026-10-08)
+
+O sgcbex tem 76 colunas em `processos`; a maior parte é do fluxo de lista de credores (cartas, editais dos arts. 52 e 7º, quadro QGC, corte de auditoria) e **não entra**. Proposta para o RMA:
+
+**Processo**
+- número CNJ (único; o tribunal sai do número), tipo de ação (recuperação judicial ou falência), vara, comarca, UF, sistema do tribunal (e-SAJ, PJe, Projudi, eproc), endereço do juízo
+- data do pedido de RJ (= ajuizamento, base do "endividamento pós-RJ"), data do deferimento
+- **consolidação**: processual ou substancial (já existe no sgcbex)
+- **produtor rural** (novo; o sgcbex não tem)
+- status (ativo, suspenso, encerrado)
+- ligações: técnico (um), AJ, magistrado
+- advogado da recuperanda (nome e contato)
+
+**Recuperanda** (N por processo, papel matriz ou filial)
+- razão social, CPF ou CNPJ, tipo de pessoa (PF cobre o produtor rural pessoa física), nome fantasia
+- inscrição estadual e municipal, data de constituição, natureza jurídica, porte, CNAE, situação cadastral na Receita
+- endereço completo
+- contato: nome, telefone, **e-mail (é o login da recuperanda)**
+- **filiais**: razão social e CNPJ de cada uma (tabela à parte, como no sgcbex)
+- contador: nome e CRC (novo; o sgcbex não tem)
+
+**Fora**: cartas, editais, quadro de credores, datas de corte, convolação em falência, e-mail do edital.
+
 ## Pontos a discutir
 
-- **Ordem estranha**: a recuperanda é cadastrada antes do nº e de novo depois da consulta ao TJ. Proposta: o **processo** é a entidade principal (1 processo, N recuperandas, cada uma com N CNPJs). Liga com D-13.
-- **Campos faltando** que as camadas seguintes exigem: **data do ajuizamento** (E8 "endividamento após o ajuizamento"), vara e comarca, mês de referência ou periodicidade do RMA (D-12).
+- **Estrutura**: o **processo** é a entidade principal (1 processo, N recuperandas, cada uma com N filiais). **A análise é por recuperanda (CNPJ da matriz, que consolida as filiais) ou por CNPJ de cada filial também?** (C-1)
 - **Lista do Técnico** (checklist que a E2 usa): a raia chama "Cadastro e Check list", então nasce aqui. Lista padrão por tipo (normal ou produtor rural) ajustável por processo?
-- **Consulta aos TJs (D-16)**: maior risco de custo. Até onde sabemos, a API pública do CNJ (DataJud) não traz as partes; achar as recuperandas pelo nº pede serviço pago ou integração por tribunal (confirmar). Proposta: valor fechado com cadastro manual e validação do número CNJ (o dígito verificador identifica o tribunal); busca automática como opcional.
 - **Contador**: um por recuperanda ou por processo? Login? (ver P5 em [[0-plataforma]])
 - **Produtor rural**: marcação do processo ou de cada recuperanda? Pode misturar?
-- **"Comunica a recuperanda"**: e-mail com convite e criação de login? Acesso por recuperanda ou por processo? (ver 0.4)
+- **Tipo de ação**: o RMA também é feito em **falência**, ou só em recuperação judicial? (C-2)

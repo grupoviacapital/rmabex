@@ -25,7 +25,7 @@
 
 ## Integrações e dados (pesam no orçamento)
 
-- **D-16** _(parcial, 2026-10-08: a consulta aos TJs é só no cadastro, para buscar os dados do processo; tribunais citados: TJSP, TJGO; falta o meio)_ "Verifica nos TJs o nº do processo": quais tribunais, e por qual meio (API, serviço pago, consulta manual assistida)?
+- **D-16** ✅ _Respondida (Saulo, 2026-10-08): só no cadastro; scraper TJ + DJEN + DataJud que autocompleta o cadastro, como no iajuridica; vira extra da v1, fora da proposta. Ver [[camadas/1-cadastro]]._ "Verifica nos TJs o nº do processo": quais tribunais, e por qual meio (API, serviço pago, consulta manual assistida)?
 - **D-17** _(parcial, 2026-10-08: hospedagem na AWS, VM da BEx; o OneDrive segue em aberto)_ Arquivos acima de 1 GB vão para o OneDrive: é o OneDrive da BEx (Microsoft 365)? O sistema lê de lá ou só guarda?
 - **D-18** Formatos dos documentos enviados (PDF, planilha, XML, imagem escaneada) e se o balancete tem layout padrão ou varia por contador.
 - **D-19** O que se espera da "IA": ler e extrair dados dos documentos, apontar divergências, redigir texto do parecer e do RMA? O cálculo das fórmulas é determinístico (regra fixa) ou interpretado?
