@@ -18,7 +18,7 @@ Nenhum ator cria usuários, mantém o checklist padrão nem os modelos: falta um
 
 | # | Tema | Proposta nossa | Onde decide | Status |
 | --- | --- | --- | --- | --- |
-| 0.1 | Perfis | lista de 6 tipos recebida em 2026-10-08 (ver abaixo) | cliente | **Lista fechada**; papéis a confirmar (D-27 a D-30) |
+| 0.1 | Perfis | lista de 6 tipos recebida em 2026-10-08 (ver abaixo) | cliente | **Lista fechada**; papéis a confirmar (D-28 a D-30) |
 | 0.2 | Quem vê o quê | Coordenação vê tudo; técnico vê os processos atribuídos (campo "técnico responsável"); recuperanda vê só o seu (upload, pendências, status), sem análises nem RMA | cliente | A discutir |
 | 0.3 | Login interno | e-mail e senha | nós | A discutir |
 | 0.4 | Login da recuperanda | convite por e-mail com link para criar senha ("Comunica a recuperanda"); um login por pessoa | nós | A discutir |
@@ -38,7 +38,7 @@ Fonte: Saulo, 2026-10-08, repassando a lista do cliente. **São todos os tipos d
 
 1. Administrador
 2. Coordenação
-3. Colaborador
+3. Técnico (o cliente chamou de "Colaborador"; o Saulo confirmou que é o mesmo papel e que o nome usado em tudo é **Técnico**, igual aos desenhos)
 4. Administrador Judicial
 5. Recuperanda
 6. Magistrado
@@ -53,7 +53,6 @@ O que a lista traz de novo e precisa de confirmação:
 
 | Perfil | Leitura provável | Dúvida |
 | --- | --- | --- |
-| Colaborador | é o "Técnico" do v8 | D-27 |
 | Administrador Judicial | o AJ responsável pelo processo, acima da coordenação (assina ou aprova o RMA?) | D-28 |
 | Magistrado | o juiz da vara, externo, só leitura do que foi protocolado | D-29 |
 | (todos) | se o AJ é usuário, a plataforma pode atender **mais de um AJ** (multiempresa), o que muda o desenho e o orçamento | D-30 |

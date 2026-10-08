@@ -21,4 +21,4 @@ Na camada 0, item **0.1 Perfis**: a proposta está em [[0-plataforma]] e as perg
 
 ## Atualização (2026-10-08)
 
-O cliente mandou a lista fechada de perfis: Administrador, Coordenação, Colaborador, Administrador Judicial, Recuperanda e Magistrado. Fecha D-25 e D-26 (contador e auditoria sem login) e abre D-27 a D-30 (papel do Colaborador, do AJ, do Magistrado e se é multiempresa). Próximo passo: **0.2 Quem vê o quê**, já com os 6 perfis.
+O cliente mandou a lista fechada de perfis: Administrador, Coordenação, Técnico, Administrador Judicial, Recuperanda e Magistrado (o cliente escreveu "Colaborador"; é o Técnico, e o nome usado é sempre Técnico). Fecha D-25, D-26 e D-27 e abre D-28 a D-30 (papel do AJ, do Magistrado e se é multiempresa). Próximo passo: **0.2 Quem vê o quê**, já com os 6 perfis.

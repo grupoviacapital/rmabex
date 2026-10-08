@@ -37,7 +37,7 @@
 ## Perfis de acesso (camada 0, ver [[camadas/0-plataforma]])
 
 - **D-21** _(parcial, 2026-10-08: Administrador é perfil próprio; falta o acúmulo)_ O perfil de administrador (usuários, checklist padrão, modelos, parâmetros) é uma pessoa à parte ou alguém da coordenação acumula? Um usuário pode ter mais de um perfil?
-- **D-22** Quem cria o processo: o técnico (Colaborador) (como no desenho) ou a coordenação, que cria e já atribui a um técnico?
+- **D-22** Quem cria o processo: o técnico (como no desenho) ou a coordenação, que cria e já atribui a um técnico?
 - **D-23** O técnico vê só os processos atribuídos a ele ou todos? Como fica a substituição em férias?
 - **D-24** Do lado da recuperanda entra uma pessoa ou várias? Num grupo com várias recuperandas no mesmo processo, um login vê todas?
 - **D-25** ✅ _Respondida (Saulo, 2026-10-08): contador não tem login, a lista de perfis não o inclui._ O contador precisa de login (por exemplo, para enviar o balancete) ou é só um cadastro com CRC?
@@ -45,7 +45,7 @@
 
 ## Perfis novos (lista do cliente de 2026-10-08, ver [[camadas/0-plataforma]])
 
-- **D-27** "Colaborador" é o mesmo papel que o desenho chama de "Técnico"? Há colaborador que não é técnico (por exemplo, administrativo, que só cadastra e pede documentos)?
+- **D-27** ✅ _Respondida (Saulo, 2026-10-08): Colaborador é o Técnico; o nome usado sempre é **Técnico**, compatível com os desenhos._ "Colaborador" é o mesmo papel que o desenho chama de "Técnico"? Há colaborador que não é técnico (por exemplo, administrativo, que só cadastra e pede documentos)?
 - **D-28** O que o Administrador Judicial faz no sistema: só acompanha, ou aprova e assina o RMA e o parecer depois da coordenação? Ele entra no fluxo de revisão (E11)?
 - **D-29** O que o Magistrado vê e faz: só lê os RMAs e pareceres protocolados dos processos da vara dele? Comenta ou pede algo? Como ganha acesso (convite da BEx, por vara, por processo)? Isso muda o protocolo (D-14): o RMA passa a ser entregue pelo sistema?
 - **D-30** O sistema atende só a BEx como administradora judicial ou outros AJs também (cada um com sua equipe, processos e modelos)? Multiempresa pesa no orçamento.
