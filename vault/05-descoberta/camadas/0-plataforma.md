@@ -86,7 +86,7 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 - Fica **fora do fluxo de aprovação**: a revisão continua terminando na coordenação, como no v8.
 
 **Magistrado.**
-- Acessa o **RMA final** (aprovado pela coordenação) e os gráficos (DRE e do RMA).
+- Acessa o RMA e os gráficos (DRE e do RMA) **só depois que a BEx clica "liberar para o magistrado"** (Saulo, 2026-10-08). Motivo: a plataforma não sabe quando o RMA chegou ao tribunal, então o juiz não lê algo que oficialmente ainda não foi entregue. Proposta nossa: quem libera é a coordenação.
 - Os gráficos que ele vê seguem uma **seleção padrão**, não escolhida a cada RMA (D-34).
 - **Cadastrado pela coordenação**, como o AJ. Proposta nossa: ligado aos processos, e vê só os dele.
 
@@ -114,9 +114,10 @@ Montada a partir das respostas acima. ✅ = pode; 👁 = só vê; "seus" = só p
 | Ver relatórios, apontamentos, análises | ✅ | ✅ | ✅ seus | 👁 | | |
 | Editar RMA e parecer | ✅ | ✅ | ✅ seus | | | |
 | Aprovar ou devolver RMA e parecer | ✅ | ✅ | | | | |
-| Ver RMA final | ✅ | ✅ | ✅ seus | 👁 | 👁 só o final, dos seus | |
+| Ver RMA final | ✅ | ✅ | ✅ seus | 👁 | 👁 só o liberado, dos seus | |
+| Liberar o RMA para o magistrado | ✅ | ✅ | | | | |
 | Ver gráficos escolhidos pela BEx | ✅ | ✅ | ✅ seus | 👁 | 👁 | |
-| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto | RMA disponível (proposta) | pedido de documentos |
+| Notificações | | alteração no RMA, pedido de aprovação | pendências do processo | RMA pronto | RMA liberado (proposta) | pedido de documentos |
 
 ## 0.12 Esteira do processo
 

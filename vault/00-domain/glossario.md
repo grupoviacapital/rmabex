@@ -25,5 +25,6 @@ Contador e auditoria **não são usuários**: o contador é só cadastro com CRC
 
 ### Fluxo
 
-- **RMA final** (`finalReport`) - o RMA gerado pela plataforma depois da aprovação da coordenação. É o **último passo dentro do sistema**.
+- **RMA final** (`finalReport`) - o RMA gerado pela plataforma depois da aprovação da coordenação. Depois dele, o único passo no sistema é **liberar para o magistrado**.
+- **Liberar para o magistrado** (`releaseToJudge`) - botão que a coordenação clica depois de subir o RMA no portal do tribunal; só então o magistrado vê o RMA e os gráficos.
 - **Protocolo** - termo do v8 que **não é usado no sistema**. Subir o RMA no portal do tribunal (TJSP, TJGO etc.) e assinar com o certificado digital do AJ é manual e externo.
