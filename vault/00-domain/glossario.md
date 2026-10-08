@@ -28,3 +28,8 @@ Cada pessoa tem **um só perfil**. O sistema é só da BEx. Contador e auditoria
 - **RMA final** (`finalReport`) - o RMA gerado pela plataforma depois da aprovação da coordenação. Depois dele, o único passo no sistema é **liberar para o magistrado**.
 - **Liberar para o magistrado** (`releaseToJudge`) - botão que a coordenação clica depois de subir o RMA no portal do tribunal; só então o magistrado vê o RMA e os gráficos.
 - **Protocolo** - termo do v8 que **não é usado no sistema**. Subir o RMA no portal do tribunal (TJSP, TJGO etc.) e assinar com o certificado digital do AJ é manual e externo.
+- **Competência** (`period`) - mês de referência do RMA e do lote de documentos.
+- **Apenso I - Controle de Documentos** (`documentControl`) - checklist do mês com a situação de cada documento.
+- **Apenso II - Pendências** (`pendingIssues`) - divergências do mês; a pendência não sanada passa para o RMA seguinte.
+- **Consolidação substancial** (`substantive`) - as análises dos CNPJs podem ir ao RMA consolidadas.
+- **Consolidação processual** (`procedural`) - a análise no RMA é individualizada por CNPJ.

@@ -88,7 +88,7 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 **Magistrado.**
 - Acessa o RMA e os gráficos (DRE e do RMA) **só depois que a BEx clica "liberar para o magistrado"** (Saulo, 2026-10-08). Motivo: a plataforma não sabe quando o RMA chegou ao tribunal, então o juiz não lê algo que oficialmente ainda não foi entregue. Proposta nossa: quem libera é a coordenação.
 - Os gráficos que ele vê seguem uma **seleção padrão**, não escolhida a cada RMA (D-34).
-- **Cadastrado pela coordenação**, como o AJ. Proposta nossa: ligado aos processos, e vê só os dele.
+- **Cadastrado pela coordenação** e **ligado aos processos**, como o AJ; vê só os dele (confirmado pelo Saulo, 2026-10-08).
 
 **Recuperanda.**
 - Todo **fim de mês** sobe os documentos: balancete, relatórios e demais documentos. Responde em parte D-12: o ciclo é mensal.
@@ -158,7 +158,7 @@ Cada pessoa cadastrada recebe convite por e-mail com link para criar a senha (va
 
 Pedido do cliente (Saulo, 2026-10-08): uma timeline do passo a passo de cada processo, **bem detalhista**. Exemplo dado: "passo 1 fazer tal coisa, passo 2 esperar tal prazo, passo 3 encaminhar para tal pessoa e esperar resposta", com **%**, **cores** e **avisos**.
 
-Decidido: **uma esteira por RMA mensal** (o processo é contínuo; a esteira recomeça a cada mês). Passos tirados do v8: (1) pedido de documentos; (2) envio pela recuperanda; (3) conferência e faltantes; (4) análises (balancete, conciliações, DRE, documental, passivo); (5) cálculos e índices; (6) geração do RMA; (7) revisão do técnico; (8) aprovação da coordenação; (9) RMA final; (10) liberado para o magistrado. Cada passo tem responsável, prazo, cor (cinza não iniciado, azul em andamento, verde concluído, amarelo prazo perto, vermelho atrasado) e aviso. O % do RMA sai dos passos concluídos. **Falta o cliente dar os prazos reais** (D-37). **Passos e prazos fixos, iguais para todo processo, inicialmente** (D-36); torná-los configuráveis fica para depois. A esteira aparece para coordenação, técnico e AJ.
+Decidido: **uma esteira por RMA mensal** (o processo é contínuo; a esteira recomeça a cada mês). Passos tirados do v8: (1) pedido de documentos; (2) envio pela recuperanda; (3) conferência e faltantes; (4) análises (balancete, conciliações, DRE, documental, passivo); (5) cálculos e índices; (6) geração do RMA; (7) revisão do técnico; (8) aprovação da coordenação; (9) RMA final; (10) liberado para o magistrado. Cada passo tem responsável, prazo, cor (cinza não iniciado, azul em andamento, verde concluído, amarelo prazo perto, vermelho atrasado) e aviso. O % do RMA sai dos passos concluídos. **Falta o cliente dar os prazos reais** (D-37). Em 2026-10-08 chegou a planilha [[../etapas-rma|etapas do RMA]], com 32 etapas: os passos da esteira podem passar a seguir os 20 blocos do "Fluxo Macro" dela (decidir junto com E-5). **Passos e prazos fixos, iguais para todo processo, inicialmente** (D-36); torná-los configuráveis fica para depois. A esteira aparece para coordenação, técnico e AJ.
 
 ## 0.1 Perfis (proposta anterior, de 2026-10-07)
 

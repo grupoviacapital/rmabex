@@ -26,3 +26,5 @@ O cliente mandou a lista fechada de perfis: Administrador, Coordenação, Técni
 Ainda em 2026-10-08: o Saulo descreveu o papel de cada perfil (fecha D-22, D-23, D-28). Montamos a matriz do **0.2** e abrimos dois itens novos: **0.12 Esteira do processo** e **0.13 Painéis**. Treinar a IA fica em **standby para o final**. Próximo passo: validar a matriz e seguir para os itens 0.3 a 0.11.
 
 Fechando 2026-10-08: itens **0.3 a 0.13 decididos** (2FA por e-mail para todos, cadastro em cascata, Brevo do sgcbex com desvio para o Saulo, AWS em VM da BEx, homologação local, identidade do sgcbex). **Camada 0 fechada.** Próximo passo: **camada 1, Cadastro do processo** (já apresentada, ver [[1-cadastro]]).
+
+Ainda em 2026-10-08: chegou a planilha [[../etapas-rma|etapas do RMA]] (32 etapas). Vários CNPJs e consolidação respondidos (D-13); TJ só no cadastro (D-16 parcial). A planilha diverge em 3 pontos do que decidimos (E-1 a E-5 em [[../duvidas|dúvidas]]).

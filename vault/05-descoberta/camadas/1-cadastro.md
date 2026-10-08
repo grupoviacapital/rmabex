@@ -15,6 +15,11 @@ Aba "Cadastros" (Cadastro Recuperanda): nome da recuperanda, nº do processo, CN
 
 Quem cadastra processo, recuperanda e administrador judicial é a **coordenação** (o admin só cadastra coordenadores; nada se cadastra por fora), que também cadastra o magistrado e vincula o técnico (**um por processo**, trocável). O técnico não altera esses cadastros. Ver [[0-plataforma]].
 
+## Já respondido (Saulo, 2026-10-08)
+
+- A consulta aos TJs serve **só para buscar os dados do processo no cadastro** (TJSP, TJGO etc.).
+- Vários CNPJs por processo, **análise separada por CNPJ** mais um consolidado; o cadastro precisa do **tipo de consolidação** (substancial ou processual), que decide como o RMA apresenta as análises. Ver [[../briefing|briefing]].
+
 ## Pontos a discutir
 
 - **Ordem estranha**: a recuperanda é cadastrada antes do nº e de novo depois da consulta ao TJ. Proposta: o **processo** é a entidade principal (1 processo, N recuperandas, cada uma com N CNPJs). Liga com D-13.

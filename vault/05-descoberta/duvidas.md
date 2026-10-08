@@ -19,13 +19,13 @@
 - **D-10** Parecer e RMA: o Parecer é emitido só quando o balancete não vem? São dois documentos entregues e protocolados separadamente?
 - **D-11** ✅ _Respondida (Saulo, 2026-10-08): substituída pela lista de 6 perfis (ver D-21 a D-36); o contador não acessa._ Papéis no sistema: técnico, coordenação, recuperanda. O contador (cadastrado com CRC) acessa a plataforma? Há mais perfis?
 - **D-12** _(parcial, 2026-10-08: a recuperanda sobe os documentos todo fim de mês; falta o volume)_ Periodicidade: o RMA é mensal, com novo upload e nova análise a cada mês? Quantos processos e recuperandas ativos por mês?
-- **D-13** Um processo pode ter várias recuperandas e vários CNPJs. A análise e o RMA são por CNPJ, por recuperanda ou consolidados?
+- **D-13** ✅ _Respondida (Saulo, 2026-10-08): análise separada por CNPJ mais um consolidado; um RMA por processo; consolidação substancial leva ao RMA o consolidado, consolidação processual leva cada CNPJ individualizado. Ver [[briefing]]._ Um processo pode ter várias recuperandas e vários CNPJs. A análise e o RMA são por CNPJ, por recuperanda ou consolidados?
 - **D-14** ✅ _Respondida (Saulo, 2026-10-08): o sistema só gera o RMA; subir no portal do TJ (TJSP, TJGO etc.) e assinar com o certificado digital do AJ é manual, fora da plataforma._ Protocolo: é manual (o técnico protocola no tribunal e anexa) ou o sistema deve peticionar?
 - **D-15** Modelos de RMA, gráficos e pareceres: há modelos atuais (Word, PDF) que servem de referência de conteúdo e layout?
 
 ## Integrações e dados (pesam no orçamento)
 
-- **D-16** "Verifica nos TJs o nº do processo": quais tribunais, e por qual meio (API, serviço pago, consulta manual assistida)?
+- **D-16** _(parcial, 2026-10-08: a consulta aos TJs é só no cadastro, para buscar os dados do processo; tribunais citados: TJSP, TJGO; falta o meio)_ "Verifica nos TJs o nº do processo": quais tribunais, e por qual meio (API, serviço pago, consulta manual assistida)?
 - **D-17** _(parcial, 2026-10-08: hospedagem na AWS, VM da BEx; o OneDrive segue em aberto)_ Arquivos acima de 1 GB vão para o OneDrive: é o OneDrive da BEx (Microsoft 365)? O sistema lê de lá ou só guarda?
 - **D-18** Formatos dos documentos enviados (PDF, planilha, XML, imagem escaneada) e se o balancete tem layout padrão ou varia por contador.
 - **D-19** O que se espera da "IA": ler e extrair dados dos documentos, apontar divergências, redigir texto do parecer e do RMA? O cálculo das fórmulas é determinístico (regra fixa) ou interpretado?
@@ -61,5 +61,13 @@
 
 ## Camada 0, itens que dependem do cliente (2026-10-08)
 
-- **D-37** Prazos reais da esteira: até que dia do mês a recuperanda envia os documentos, e quantos dias tem cada etapa (conferência, análise, revisão do técnico, aprovação da coordenação)?
+- **D-37** _(2026-10-08: a planilha [[etapas-rma]] trouxe as etapas, mas sem prazos; continua aberta)_ Prazos reais da esteira: até que dia do mês a recuperanda envia os documentos, e quantos dias tem cada etapa (conferência, análise, revisão do técnico, aprovação da coordenação)?
 - **D-38** ✅ _Respondida (Saulo, 2026-10-08): **guardados para sempre, nada é apagado**._ Retenção dos dados (LGPD): por quanto tempo os documentos e RMAs ficam guardados depois que o processo encerra?
+
+## Etapas do RMA (planilha de 2026-10-08, ver [[etapas-rma]])
+
+- **E-1** Na planilha, o AJ define a conclusão do RMA (etapa 29) e revisa junto com a equipe (30). Decidimos que o AJ é só leitura. Qual vale? Se o AJ escreve a conclusão, ele precisa editar dentro da plataforma.
+- **E-2** A etapa 32 "Protocolo" fica só como "registrar versão e competência", já que protocolar é manual e externo?
+- **E-3** A diligência (etapa 24) faz parte do fluxo normal ou só do rural? Ela deixa de ser opcional à parte?
+- **E-4** = D-37: a planilha não tem prazos.
+- **E-5** Esta planilha substitui as etapas E2 a E11 do v8 como roteiro da análise, ou as duas valem juntas?
