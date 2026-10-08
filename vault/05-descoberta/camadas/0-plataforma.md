@@ -82,6 +82,7 @@ Fonte: Saulo, 2026-10-08. Fecha D-22, D-23, D-28 e responde a maior parte de D-2
 - Painel com a esteira, gráficos e o que está sendo feito em cada processo.
 - Vê **só os processos ligados a ele** no cadastro (D-35).
 - Depois da aprovação da coordenação, **lê e conclui o RMA**: se precisar, **revisa e manda ajustes** para corrigir. Esse **lá e cá** se repete até o AJ **aprovar por completo**. Só então o RMA vira final.
+- Caminho do ajuste (Saulo, 2026-10-08): **AJ pede ajuste → técnico corrige → coordenação aprova de novo → volta ao AJ**. Sempre com **histórico das conversas** (os pedidos e respostas de cada rodada) e **versão do documento** a cada rodada.
 - Recebe aviso de **RMA para revisão**.
 
 **Magistrado.**
@@ -132,7 +133,7 @@ Cada pessoa cadastrada recebe convite por e-mail com link para criar a senha (va
 
 **0.6 Notificações.** Sino na plataforma mais e-mail, para os eventos da matriz do 0.2. Sem preferências por usuário na v1.
 
-**0.7 Histórico.** Registro por processo de quem fez o quê e quando. **Versões do RMA**: a coordenação vê o que mudou (antes e depois) entre uma versão e outra para aprovar (entra na camada 6).
+**0.7 Histórico.** Registro por processo de quem fez o quê e quando. **Versões do RMA**: a coordenação vê o que mudou (antes e depois) entre uma versão e outra para aprovar. **Conversa da revisão**: os pedidos de ajuste (da coordenação e do AJ) e as respostas ficam guardados por rodada, ligados à versão do RMA a que se referem. Entra na camada 6.
 
 **0.8 Segurança e LGPD.** HTTPS; senha com hash; arquivos fora de pasta pública, servidos só após checar login e perfil; permissão checada no servidor; backup diário com 30 dias. **Retenção: para sempre, nada é apagado** (D-38). Consequência: nenhuma exclusão definitiva no sistema (o que "sai" é desativado ou arquivado) e o armazenamento de arquivos só cresce, o que pesa no custo da AWS da BEx.
 

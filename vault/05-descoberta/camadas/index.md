@@ -31,3 +31,5 @@ Fechando 2026-10-08: itens **0.3 a 0.13 decididos** (2FA por e-mail para todos, 
 Ainda em 2026-10-08: chegou a planilha [[../etapas-rma|etapas do RMA]] (32 etapas). Vários CNPJs e consolidação respondidos (D-13); TJ só no cadastro (D-16 parcial). A planilha diverge em 3 pontos do que decidimos (E-1 a E-5 em [[../duvidas|dúvidas]]).
 
 Respostas E-1 a E-5 (2026-10-08): a planilha **substitui** o v8 de E2 em diante (a tabela acima já usa as etapas dela); a etapa 32 vira um **botão "registrar protocolo"**; a diligência ganha **camada própria**; o **protocolo automático** vira **extra da v1**, fora da proposta, orçado quando chegarmos lá (o técnico provavelmente precisa estar logado no portal do TJ, então tem de ser medido antes).
+
+Revisão do RMA (2026-10-08): **técnico → coordenação → AJ**; ajuste pedido pelo AJ volta ao técnico e **passa de novo pela coordenação**; histórico das conversas e versão do documento a cada rodada. **Camada 0 fechada; próximo passo: camada 1.**

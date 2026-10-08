@@ -17,7 +17,7 @@ Lista fechada pelo cliente em 2026-10-08 (detalhe e dúvidas em [[../05-descober
 - **Administrador** (`admin`) - usuários, checklist padrão, modelos e parâmetros.
 - **Coordenação** (`coordinator`) - equipe da BEx que revisa e aprova ou devolve o RMA e o parecer.
 - **Técnico** (`technician`) - equipe da BEx que cadastra o processo, monta o checklist, analisa e corrige o RMA. O cliente também chama de **Colaborador**; o nome usado é sempre **Técnico**, como nos desenhos.
-- **Administrador Judicial** (`judicialAdministrator`) - não escreve no RMA, mas dá a **aprovação final**: lê, pede ajustes (lá e cá) até aprovar. Vê só os processos ligados a ele, com esteira e gráficos.
+- **Administrador Judicial** (`judicialAdministrator`) - não escreve no RMA, mas dá a **aprovação final**: lê, pede ajustes (lá e cá) até aprovar. O ajuste volta ao técnico e passa de novo pela coordenação antes de voltar ao AJ. Vê só os processos ligados a ele, com esteira e gráficos.
 - **Recuperanda** (`debtor`) - empresa em recuperação; faz upload dos documentos. Cada recuperanda tem **um único login**.
 - **Magistrado** (`judge`) - juiz do processo, externo, só leitura: vê o RMA e os gráficos padrão depois de **liberados para o magistrado**.
 
