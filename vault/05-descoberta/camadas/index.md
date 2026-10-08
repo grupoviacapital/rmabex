@@ -5,7 +5,7 @@
 | # | Camada | Etapas ([[../etapas-rma\|etapas do RMA]], que substitui o v8 de E2 em diante) | Orçamento | Status |
 | --- | --- | --- | --- | --- |
 | 0 | [[0-plataforma\|Plataforma e acesso]] (login, perfis, quem vê o quê) | fora do desenho | fechado | **Fechada** em 2026-10-08; pendente do cliente: D-37 (prazos) |
-| 1 | [[1-cadastro\|Cadastro do processo]] | E1 + aba "Cadastros" | fechado | Apresentada, não discutida |
+| 1 | [[1-cadastro\|Cadastro do processo]] | E1 do v8 + aba "Cadastros" | fechado | **Em andamento**: falta só o checklist (Apenso I) |
 | 2 | Envio e conferência de documentos (Apenso I) | 1 a 3 | fechado | A tratar |
 | 3 | Motor de verificação (operacional, trabalhista, contábil, conciliações, passivo, caixa, DRE) e pendências (Apenso II) | 4 a 18, 25 a 27 | faixa | A tratar |
 | 4 | Indicadores e rural (safra, colheita, comercialização, garantias) | 19 a 23 | faixa | A tratar |
@@ -34,3 +34,7 @@ Ainda em 2026-10-08: chegou a planilha [[../etapas-rma|etapas do RMA]] (32 etapa
 Respostas E-1 a E-5 (2026-10-08): a planilha **substitui** o v8 de E2 em diante (a tabela acima já usa as etapas dela); a etapa 32 vira um **botão "registrar protocolo"**; a diligência ganha **camada própria**; o **protocolo automático** vira **extra da v1**, fora da proposta, orçado quando chegarmos lá (o técnico provavelmente precisa estar logado no portal do TJ, então tem de ser medido antes).
 
 Revisão do RMA (2026-10-08): **técnico → coordenação → AJ**; ajuste pedido pelo AJ volta ao técnico e **passa de novo pela coordenação**; histórico das conversas e versão do documento a cada rodada. **Camada 0 fechada; próximo passo: camada 1.**
+
+## Onde paramos (2026-10-08)
+
+Camada 0 fechada (falta do cliente só a D-37, prazos). Na **camada 1**, tudo decidido menos o **checklist (Apenso I)**. Proposta: dois modelos padrão (normal e rural, aplicados conforme a marcação de cada recuperanda), ajustáveis pela coordenação em cada processo. **O cliente vai mandar os tipos de documentos e um exemplo de cada um.** Próximo passo: registrar a lista recebida (fonte em `scripts/`, leitura no vault), fechar o checklist e a camada 1, e seguir para a camada 2.
